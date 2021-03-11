@@ -1,3 +1,0 @@
-# Capstone
-
-## Database Visualization
