@@ -6,3 +6,7 @@ const fs = require("fs");
 function loadNeighbourhoodsBoundariesData() {
   return fs.readFileSync("./data/localAreaBoundaries.json", "utf8");
 }
+
+
+module.exports = router;
+

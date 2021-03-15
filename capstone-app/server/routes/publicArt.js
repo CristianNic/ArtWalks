@@ -4,7 +4,7 @@ const router = express.Router();
 const fs = require("fs");
 
 function loadPublicArtData() {
-  return fs.readFileSync("./data/publicArt.json", "utf8");
+  return fs.readFileSync("./data/public-art.json", "utf8");
 }
 router.get("/", (req, res) => {
   const publicArt = JSON.parse(loadPublicArtData());
@@ -26,13 +26,14 @@ router.get("/", (req, res) => {
   res.json(publicArtMapped);
 });
 
-router.get("/:id",(req,res)=>{
-	const list=JSON.parse(loadPublicArtData());
+router.get("/:recordid",(req,res)=>{
+  const list = JSON.parse(loadPublicArtData());
+  console.log(list)
 	const foundRecordID=list.findIndex((record)=>{   
       console.log(req.param.id);       
 			return record.recordid===req.params.recordid;
 	});
-	res.json(list[foundRecordID]);
+  res.json({list: list[foundRecordID]});
 });
 
 module.exports = router;

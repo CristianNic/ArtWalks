@@ -1,14 +1,31 @@
-import React from 'react';
-import './App.css';
+// import React from 'react';
+// import './App.css';
+import { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import Login from './pages/Login';
+import Map from './pages/Map';
+import Search from './pages/Search';
+import Favourites from './pages/Favourites';
+import Details from './pages/Map';
 
-class App extends React.Component {
-  
+class App extends Component {
   render() {
     return (
-      <div className="App">
-      </div>
-    )
+      <Router>
+        <Switch>
+          <Redirect from='/' to='/login' />
+          <Route exact path='/login' component={Login} />  
+          <Route exact path='/map' component={Map} />
+          <Route exact path='/search' component={Search} />
+          <Route exact path='/favourites' component={Favourites} />
+          <Route exact path='/details/:id' component={Details} />
+        </Switch>
+      </Router>
+    );
   }
 }
 
 export default App;
+
+// <Route exact path='/login' component={Auth} />
+// <Route exact path='/browse' component={Browse} />  
