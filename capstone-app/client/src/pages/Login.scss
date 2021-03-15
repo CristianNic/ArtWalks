@@ -1,8 +1,16 @@
 .login {
   //  background-color: rgba(black, 0.1);
-   background-color: black;
-   color: black;
+   background-color: gray;
+  //  color: black;
+
    &__background {
-     background-color: black;
+     background-color: gray;
+   }
+   &__hello {
+     color: darkgreen;
    }
 }
+
+// body {
+//   background-color: gray;
+// }
