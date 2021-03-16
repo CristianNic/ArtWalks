@@ -6,7 +6,8 @@ import Login from './pages/Login';
 import Map from './pages/Map';
 import Search from './pages/Search';
 import Favourites from './pages/Favourites';
-import Details from './pages/Map';
+import Details from './pages/Details';
+// import Profile from './pages/Profile';
 
 class App extends Component {
   render() {
@@ -15,10 +16,11 @@ class App extends Component {
         <Switch>
           <Redirect exact from='/' to='/login' />
           <Route exact path='/login' component={Login} />  
-          <Route exact path='/map' component={Map} />
+          <Route exact path='/map' component={Map} />       
           <Route exact path='/search' component={Search} />
           <Route exact path='/favourites' component={Favourites} />
           <Route exact path='/details/:id' component={Details} />
+          {/* <Route exact path='/profile/:id' component={Profile} /> */}
         </Switch>
       </Router>
     );

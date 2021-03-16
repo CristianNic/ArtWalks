@@ -1,16 +1,18 @@
 .login {
-  //  background-color: rgba(black, 0.1);
-   background-color: gray;
-  //  color: black;
+   background-color: lightgray;
+  //  position: sticky;
+  //  top: 0;
 
-   &__background {
-     background-color: gray;
-   }
-   &__hello {
-     color: darkgreen;
-   }
+
+  //  &__background {
+  //    background-color: gray;
+  //  }
+  //  &__hello {
+  //    color: darkgreen;
+  //  }
 }
 
 // body {
 //   background-color: gray;
 // }
+
