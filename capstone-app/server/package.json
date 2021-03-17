@@ -9,6 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "knex:init": "knex init",
     "migrate": "knex migrate:latest",
+    "migrate:latest": "knex migrate:latest",
+    "migrate:down": "knex migrate:down",
+    "migrate:rollback": "knex migrate:rollback",
     "seed": "knex seed:run"
   },
   "keywords": [],
