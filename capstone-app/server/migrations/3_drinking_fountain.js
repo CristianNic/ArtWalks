@@ -1,10 +1,11 @@
 
 exports.up = function (knex) {
   return knex.schema.createTable('drinking_fountains', table => {
-    table.string('id').primary();
+    table.increments('id').primary();
+    table.string('recordid').notNullable();
     table.string('summer_hours').notNullable();
     table.string('winter_hours').notNullable();
-  //   table.specificType('geom', 'integer ARRAY');             
+    table.string('geom');             
   });
 };
 

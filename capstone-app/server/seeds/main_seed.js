@@ -8,11 +8,11 @@ const usersData             = require("../seed_data/users");
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex("art_work")
+  return knex("art_works")
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex("art_work").insert(artWorkData);
+      return knex("art_works").insert(artWorkData);
     })
     // next thing to do
     .then(() => {

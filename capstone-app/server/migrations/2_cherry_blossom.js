@@ -1,8 +1,9 @@
 
 exports.up = function (knex) {
   return knex.schema.createTable('cherry_blossoms', table => {
-    table.string('id').primary();
-//    table.specificType('geom', 'integer ARRAY');             
+    table.increments('id').primary();
+    table.string('recordid').notNullable();
+    table.string('geom');             
   });
 };
 

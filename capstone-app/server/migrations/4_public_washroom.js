@@ -1,10 +1,11 @@
 
 exports.up = function (knex) {
   return knex.schema.createTable('public_washrooms', table => {
-    table.string('id').primary();
+    table.increments('id').primary();
+    table.string('recordid').notNullable();
     table.string('summer_hours');
     table.string('winter_hours');
-    // table.specificType('geom', 'integer ARRAY');             
+    table.string('geom');             
   });
 };
 
