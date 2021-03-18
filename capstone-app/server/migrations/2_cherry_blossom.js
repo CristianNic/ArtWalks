@@ -2,7 +2,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('cherry_blossoms', table => {
     table.string('id').primary();
-    table.specificType('geom', 'integer ARRAY');             
+//    table.specificType('geom', 'integer ARRAY');             
   });
 };
 

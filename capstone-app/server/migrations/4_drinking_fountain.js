@@ -4,7 +4,7 @@ exports.up = function (knex) {
     table.string('id').primary();
     table.string('summer_hours').notNullable();
     table.string('winter_hours').notNullable();
-    table.specificType('geom', 'integer ARRAY');             
+  //   table.specificType('geom', 'integer ARRAY');             
   });
 };
 

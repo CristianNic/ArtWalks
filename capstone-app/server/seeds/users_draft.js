@@ -8,6 +8,11 @@ exports.seed = function(knex) {
         {id: 1, colName: 'rowValue1'},
         {id: 2, colName: 'rowValue2'},
         {id: 3, colName: 'rowValue3'}
+        
+        // import a variable ... 
+
       ]);
     });
 };
+
+// import the seed data in here .... 

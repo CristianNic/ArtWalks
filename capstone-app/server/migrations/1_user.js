@@ -5,11 +5,11 @@ exports.up = function (knex) {
     table.string('name').notNullable();
     table.string('email').notNullable();
     table.string('password').notNullable();
-    table.timestamp('created_at').notNullable().defaultTo(knex.fn.now());                  // http://knexjs.org/#Schema-timestamp table.timestamp('created_at').defaultTo(knex.fn.now());
+    table.timestamp('created_at').defaultTo(knex.fn.now());                  // http://knexjs.org/#Schema-timestamp table.timestamp('created_at').defaultTo(knex.fn.now());
     table.timestamp('updated_at').defaultTo(knex.fn.now());
     // table.specificType('location_created_at', 'integer ARRAY');   // can be null, in case browser cannot retrive it, user can continue signing up 
     // table.specificType('location_current', 'integer ARRAY');
-    table.string('profile_image').notNullable();                  // link to img stored in app 
+    table.string('profile_image');                  // link to img stored in app 
   });
 };
 

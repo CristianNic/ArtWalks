@@ -39,7 +39,7 @@ module.exports = [
     neighbourhood_id: "<--------------------HOW DOES TABLE FK ADDED HERE?",
     location_on_site: "Southern Side",
     geom: JSON.stringify([-123.101615, 49.263875])
-  },
+  }, 
 ];
 
 
