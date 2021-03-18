@@ -1,11 +1,14 @@
-const bookshelf = require('../bookshelf');
-require('./favourite');
 
-const ArtWorks = bookshelf.model("Art_Works", {
+const bookshelf = require('../bookshelf');      
+require('./favourtie');
+
+const ArtWork = bookshelf.model('Art_Works', {
   tableName: "art_works",
   inventories: function () {
-    return this.hasMany("Inventory");
+    return this.belongsTo('Favourites');
   },
 });
 
-module.exports = art_works;
+module.exports = ArtWork;
+
+
