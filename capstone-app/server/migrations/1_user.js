@@ -16,20 +16,3 @@ exports.up = function (knex) {
 exports.down = function(knex) {
   return knex.schema.dropTable('users');
 };
-
-
-// https://stackoverflow.com/questions/50118196/how-to-insert-array-data-type-using-knex-and-potsgres
-// You can directly pass javascript arrays to your ARRAYtype of columns. Like this:
-// await knex.schema.createTable('foo', t => {
-//   t.increments('id');
-//   t.specificType('intarray', 'integer ARRAY');
-//   t.specificType('stringarray', 'text ARRAY');
-// });
-
-// await knex('foo').insert({ intarray: [4,3,2,1], stringarray: ['foo','bar'] });
-
-// const rows = await knex('foo');
-// console.log(rows);
-
-// // should output: 
-// // [ anonymous { id: 1, intarray: [ 4,3,2,1 ], stringarray: [ 'foo', 'bar' ] } ]
