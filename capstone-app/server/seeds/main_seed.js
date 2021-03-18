@@ -33,8 +33,8 @@ exports.seed = function (knex) {
     })
     .then((userIds) => {
       const favouritesDataWithUserIds = favouritesData.map((favourites) => {
-        favourites.user_id = userIds
-          // warehouseIds[Math.floor(Math.random() * warehouseIds.length)];
+        favourites.user_id = // userIds
+          userIds[Math.floor(Math.random() * userIds.length)];
         return favourites;
       });
       return knex("favourites").insert(favouritesDataWithUserIds);
