@@ -13,6 +13,7 @@ exports.up = function (knex) {
     table.integer('public_washroom_id').unsigned().notNullable()
          .references('id').inTable('public_washrooms')
          .onUpdate("CASCADE").onDelete("CASCADE");
+    table.string('geom'); 
   });
 };
 

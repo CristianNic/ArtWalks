@@ -1,8 +1,11 @@
 module.exports = [
   
   {
-    id: "",
+    recordid: "",
     name: "Dunbar-Southlands",
+    cherry_blossom_id: "",
+    drinking_fountain_id: "",
+    public_washroom_id: "",
     geom: JSON.stringify([
       [
         -123.17016601562499,

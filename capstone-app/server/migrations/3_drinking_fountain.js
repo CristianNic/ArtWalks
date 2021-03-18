@@ -5,6 +5,7 @@ exports.up = function (knex) {
     table.string('recordid').notNullable();
     table.string('summer_hours').notNullable();
     table.string('winter_hours').notNullable();
+    table.string('in_operation').notNullable();
     table.string('geom');             
   });
 };

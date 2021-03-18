@@ -20,6 +20,8 @@ exports.up = function (knex) {
     table.integer('neighbourhood_id').unsigned().notNullable()
          .references('id').inTable('neighbourhoods')
          .onUpdate("CASCADE").onDelete("CASCADE");
+    table.string('location_on_site').notNullable();
+    table.string('geom').notNullable();
   });
 };
 

@@ -16,7 +16,7 @@ module.exports = [
     artists_url: "347",
     site_address: "2630 Main Street",
     neighbourhood: "Mount Pleasant",
-    neighbourhood_id: "<--------------------HOW DOES TABLE FK ADDED HERE?",
+    neighbourhood_id: 0, 
     location_on_site: "Southern Side",
     geom: JSON.stringify([ -123.1, 49.262352])
   },
@@ -36,7 +36,7 @@ module.exports = [
     artists_url: "515",
     site_address: "153 East 8th Avenue",
     neighbourhood: "Mount Pleasant",
-    neighbourhood_id: "<--------------------HOW DOES TABLE FK ADDED HERE?",
+    neighbourhood_id: 0,
     location_on_site: "Southern Side",
     geom: JSON.stringify([-123.101615, 49.263875])
   }, 

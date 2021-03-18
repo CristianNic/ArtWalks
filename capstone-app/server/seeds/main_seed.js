@@ -4,7 +4,7 @@ const drinkingFountainData  = require("../seed_data/drinking_fountain");
 const favouritesData        = require("../seed_data/favourites");
 const neighbourhoodData     = require("../seed_data/neighbourhood");
 const publicWashroomData    = require("../seed_data/public_washroom");
-const usersData             = require("../seed_data/users");
+const usersData             = require("../seed_data/user");
 
 exports.seed = function (knex) {
   // Deletes ALL existing entries
