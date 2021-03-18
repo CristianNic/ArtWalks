@@ -1,90 +1,48 @@
-const artWorkData           = require("../seed_data/art_work");
-const cherryBlossomData     = require("../seed_data/cherry_blossom");
-const drinkingFountainData  = require("../seed_data/drinking_fountain");
-const favouritesData        = require("../seed_data/favourites");
-const neighbourhoodData     = require("../seed_data/neighbourhood");
-const publicWashroomData    = require("../seed_data/public_washroom");
-const usersData             = require("../seed_data/user");
+const userData       = require("../seed_data/user");
+const artWorkData    = require("../seed_data/art_work");
+const favouritesData = require("../seed_data/favourites");
 
 exports.seed = function (knex) {
-  // Deletes ALL existing entries
-  return knex("art_works")
+  return knex("users")
     .del()
     .then(function () {
-      // Inserts seed entries
-      return knex("art_works").insert(artWorkData);
-    })
-    // next thing to do
-    .then(() => {
-      return knex("cherry_blossom")
-        .del()
-        .then(function () {
-          return knex("cherry_blossom").insert(cherryBlossomData);
-        })
+      return knex("users").insert(userData);
     })
     .then(() => {
-      return knex("drinking_fountain")
+      return knex("art_works")
         .del()
         .then(function () {
-          return knex("drinking_fountain").insert(drinkingFountainData);
+          return knex("art_works").insert(artWorkData);
         })
     })
-    .then(() => {
-      return knex("favourites")
-        .del()
-        .then(function () {
-          return knex("favourites").insert(favouritesData);
-        })
-    })
-    .then(() => {
-      return knex("neighbourhood")
-        .del()
-        .then(function () {
-          return knex("neighbourhood").insert(neighbourhoodData);
-        })
-    })
-    .then(() => {
-      return knex("public_washroom")
-        .del()
-        .then(function () {
-          return knex("public_washroom").insert(publicWashroomData);
-        })
-    })
+    // .then(() => {
+    //   return knex("favourites")
+    //     .del()
+    //     .then(function () {
+    //       return knex("favourites").insert(favouritesData);
+    //     })
+    // })
     .then(() => {
       return knex("users")
-        .del()
-        .then(function () {
-          return knex("users").insert(usersData);
-        })
+        .pluck("id")
+        .then((userIds) => {
+          return userIds;
+        // .then((userIds) => {
+        //   console.log(userIds);
+        });
     })
-  };   
+    .then((userIds) => {
+      const favouritesDataWithUserIds = favouritesData.map((favourites) => {
+        favourites.user_id = userIds
+          // warehouseIds[Math.floor(Math.random() * warehouseIds.length)];
+        return favourites;
+      });
+      return knex("favourites").insert(favouritesDataWithUserIds);
+    });
+};   
       
       
-//     })
-//     .then(() => {
-//       return knex("inventories").del();
-//     })
-//     .then(() => {
-//       // Inserts seed entries
-//       return knex("warehouses")
-//         .pluck("id")
-//         .then((warehouseIds) => {
-//           return warehouseIds;
-//         });
-//     })
-//     .then((warehouseIds) => {
-//       const inventoryDataWithWarehouseIds = inventoryData.map((inventory) => {
-//         // inventory.warehouse_id =
-//         //   warehouseIds[Math.floor(Math.random() * warehouseIds.length)];
-//         return inventory;
-//       });
-//       return knex("inventories").insert(inventoryDataWithWarehouseIds);
-//     });
-// };
-
-
-
-
+// Init File: 
 
 // exports.seed = function(knex) {
 //   // Deletes ALL existing entries

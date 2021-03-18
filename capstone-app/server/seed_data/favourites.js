@@ -1,18 +1,18 @@
 module.exports = [
   {
-    user_id: '',
-    art_work_id: 1,
-    visited: '',
+    // user_id: 1,
+    // art_work_id: 1,
+    visited: false,
   },
   {
-    user_id: '',
-    art_work_id: 1,
-    visited: '',
+    // user_id: 1,
+    // art_work_id: 1,
+    visited: false,
   },
   {
-    user_id: '',
-    art_work_id: 1,
-    visited: '',
+    // user_id: 1,
+    // art_work_id: 1,
+    visited: false,
   },
 ];
 

@@ -17,9 +17,6 @@ exports.up = function (knex) {
     table.string('artists_url').notNullable();
     table.string('site_address').notNullable();
     table.string('neighbourhood').notNullable();
-    table.integer('neighbourhood_id').unsigned().notNullable()
-         .references('id').inTable('neighbourhoods')
-         .onUpdate("CASCADE").onDelete("CASCADE");
     table.string('location_on_site').notNullable();
     table.string('geom').notNullable();
   });

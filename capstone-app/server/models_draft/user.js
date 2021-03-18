@@ -2,7 +2,7 @@
 
 
 const bookshelf = require("../bookshelf");        // <--- where does this file go ? 
-require("./models_notes");
+require("./user");
 
 const ArtWorks = bookshelf.model("Art_Works", {
   tableName: "art_works",
