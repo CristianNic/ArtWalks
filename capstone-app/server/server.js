@@ -3,6 +3,7 @@ const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
+
 const PORT = process.env.PORT;
 const register = require("./routes/register");
 
@@ -25,35 +26,25 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
-app.use("/public_art", publicArt);
-app.use("/local_area_boundaries", localAreaBoundaries);
 
 app.listen(PORT, console.log(`Server listening at: http://localhost:${PORT}`));
 
 
 
 
+// const express = require("express");
+// const Warehouse = require("../models/warehouse");
+// const router = express.Router();
 
-
-
-
-   const express = require("express");
-   const Warehouse = require("../models/warehouse");
-   const router = express.Router();
- 
-   router
-   .route("/")  // 
-   .get((req, res) => {
-       Warehouse.where(req.query)
-       .fetchAll({ withRelated: ["inventories"] })
-       .then(warehouses => {
-           res.status(200).json(warehouses);
-       });
-   })
-
-
-
-
+// router
+// .route("/")  // 
+// .get((req, res) => {
+//     Warehouse.where(req.query)
+//     .fetchAll({ withRelated: ["inventories"] })
+//     .then(warehouses => {
+//         res.status(200).json(warehouses);
+//     });
+// })
 
 
 
