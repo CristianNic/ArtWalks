@@ -11,7 +11,7 @@ module.exports = [
   },
   {
     // user_id: 1,
-    art_work_id: 3,
+    art_work_id: 2,
     visited: false,
   },
 ];

@@ -8,13 +8,9 @@ const register = require("./routes/register");
 
 app.use("/register", register);     // <---- What do we put in register? 
 
-// const publicArt = require("./routes/publicArt");
-// const localAreaBoundaries = require("./routes/localAreaBoundaries");
 
-const ArtWorks   = require("./routes/art_works");
-const Favourties = require("./routes/favourites");
-const User       = require("./routes/user");
-   
+const publicArt = require("./routes/publicArt");
+const localAreaBoundaries = require("./routes/localAreaBoundaries");
 
 // app.use(function (req, res, next) {
 // 	res.status(404).send("Invalid API access");      <----- What is this used for again? 
@@ -29,32 +25,6 @@ app.use("/public_art", publicArt);
 app.use("/local_area_boundaries", localAreaBoundaries);
 
 app.listen(PORT, console.log(`Server listening at: http://localhost:${PORT}`));
-
-
-
-
-
-
-
-
-   const express = require("express");
-   const Warehouse = require("../models/warehouse");
-   const router = express.Router();
- 
-   router
-   .route("/")  // 
-   .get((req, res) => {
-       Warehouse.where(req.query)
-       .fetchAll({ withRelated: ["inventories"] })
-       .then(warehouses => {
-           res.status(200).json(warehouses);
-       });
-   })
-
-
-
-
-
 
 
 

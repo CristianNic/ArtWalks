@@ -4,8 +4,8 @@ require('./favourtie');
 
 const User = bookshelf.model('Users', {
   tableName: "users",
-  inventories: function () {
-    return this.belongsTo('Favourites');
+  favourites () {
+    return this.hasMany('Favourites');
   },
 });
 

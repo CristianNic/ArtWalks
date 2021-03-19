@@ -5,15 +5,11 @@ require('./user');
 
 const Favourite = bookshelf.model('Favourites', {
   tableName: "favourites",
-  inventories: function () {
-    return this.hasMany('Users');
+  users() {
+    return this.belongsTo('Users')
   },
-});
-
-const Favourite = bookshelf.model('Favourites', {
-  tableName: "favourites",
-  inventories: function () {
-    return this.hasMany('Art_Works');
+  art_works() {
+    return this.belongsTo('Art_Works')
   },
 });
 
