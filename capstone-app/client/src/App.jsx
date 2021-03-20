@@ -3,7 +3,7 @@
 import { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './pages/Login';
-import Map from './pages/Map';
+import Map from './pages/Map/Map';
 import Search from './pages/Search';
 import Favourites from './pages/Favourites';
 import Details from './pages/Details';

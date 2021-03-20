@@ -1,19 +1,23 @@
 /* Partials */
-@import "./partials/variables";
-@import "./partials/mixins";
-@import "./partials/fonts";
-@import "./partials/global";
+@import './partials/variables';
+@import './partials/mixins';
+@import './partials/fonts';
+@import './partials/global';
 
 /* Pages */
 @import './pages/Details';
 @import './pages/Favourites';
 @import './pages/Login';
 @import './pages/Map';
+@import './pages/Map/Map';
 @import './pages/Search';
 
 /* Components */ 
-@import "./components/TopNav/TopNav";
-@import "./components/BottomNav/BottomNav";
+@import './components/TopNav/TopNav';
+@import './components/BottomNav/BottomNav';
+
+// Leaflet
+@import 'leaflet/dist/leaflet.css';
 
 
 /* Bootstrap */
