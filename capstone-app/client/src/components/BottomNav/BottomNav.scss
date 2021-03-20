@@ -1,11 +1,16 @@
 .bottom-nav {
   background-color: rgb(219, 243, 181);
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/position
   position: fixed;
+  // position: -webkit-sticky;
+  // position: sticky;
   // position: sticky; // occupies the space 
   bottom: 0;
   // display: flex;
   // width: 100vw;
   // height: 7rem;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
   &__container {
     display: flex;
     flex-direction: row;
@@ -16,6 +21,7 @@
     padding-right: 2rem;
     padding-left: 2rem;
     // padding-top: 0.5rem;
+    border-radius: 20px;
   }
 }
 

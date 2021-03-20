@@ -42,7 +42,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div>
+      <section className="map">
       <MapContainer center={[49.2827, -123.1207]} zoom={13}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -58,9 +58,10 @@ class Map extends Component {
               ]}
             />  
           ))}
+        <button className="btn"></button>
       </MapContainer>
       <BottomNav />
-      </div>
+      </section>
     );
   }
 }

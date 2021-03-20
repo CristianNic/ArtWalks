@@ -35,6 +35,7 @@ export default function BottomNav() {
           <img src={iconDetails} alt="details icon" />
           <h4>Details</h4>
         </Link>
+        {/* <Link to="/profile"> */}
         <Link to="/profile/:id">
           <img src={iconProfile} alt="profile icon" />
           <h4>Profile</h4>

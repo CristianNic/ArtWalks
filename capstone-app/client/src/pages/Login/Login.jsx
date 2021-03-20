@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import BottomNav from '../components/BottomNav/BottomNav';
-import TopNav from '../components/TopNav/TopNav';
+import BottomNav from '../../components/BottomNav/BottomNav';
+import TopNav from '../../components/TopNav/TopNav';
 
 class Login extends Component {
   render() {
