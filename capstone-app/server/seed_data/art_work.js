@@ -20,8 +20,8 @@ module.exports = [
     geom: JSON.stringify([ -123.1, 49.262352])
   },
   {
-    recordid: "5ea2ceba9f4b2eacf07682d73373f21fd74b96ac",
-    sitename: "Dulux",
+    recordid: "5gbfgb",
+    sitename: "Dertretrx",
     status: "In place",
     year_of_installation: "2016",
     url: "https://covapp.vancouver.ca/PublicArtRegistry/ArtworkDetail.aspx?ArtworkId=672",
@@ -36,7 +36,26 @@ module.exports = [
     site_address: "153 East 8th Avenue",
     neighbourhood: "Mount Pleasant",
     location_on_site: "Southern Side",
-    geom: JSON.stringify([-123.101615, 49.263875])
+    geom: JSON.stringify([-645, 756])
+  }, 
+  {
+    recordid: "2343243243296",
+    sitename: "Main",
+    status: "In place",
+    year_of_installation: "2016",
+    url: "httpy/ArtworkDetail.aspx?ArtworkId=672",
+    url_photo: "httRegistry/ArtworkDetail.aspx?ArtworkId=672",
+    photo_credits: "City of Vancouver",
+    registry_id: 345,
+    primary_material: "Paint and Aerosol",
+    type: "Mural",
+    ownership: "Privately owned",
+    artists: "515",
+    artists_url: "515",
+    site_address: "153 East 8th Avenue",
+    neighbourhood: "Mount Pleasant",
+    location_on_site: "Southern Side",
+    geom: JSON.stringify([-234, 23424])
   }, 
 ];
 

@@ -2,10 +2,10 @@
 const bookshelf = require('../bookshelf');      
 require('./favourtie');
 
-const User = bookshelf.model('Users', {
+const User = bookshelf.model('User', {
   tableName: "users",
   favourites () {
-    return this.hasMany('Favourites');
+    return this.hasMany('Favourite');
   },
 });
 

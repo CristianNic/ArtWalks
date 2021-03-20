@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 require('dotenv').config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5001;
 
 // middleware
 app.use(morgan('dev'));
@@ -18,7 +18,7 @@ const artWorksRoute   = require('./routes/art_works');
 
 app.use('/user', userRoute);
 app.use('/favourites', favourtiesRoute);
-app.use('art_works', artWorksRoute);
+app.use('/art_works', artWorksRoute);
 
 
 // app.use(function (req, res, next) {

@@ -15,32 +15,34 @@ exports.seed = function (knex) {
           return knex("art_works").insert(artWorkData);
         })
     })
-    // .then(() => {
-    //   return knex("favourites")
-    //     .del()
-    //     .then(function () {
-    //       return knex("favourites").insert(favouritesData);
-    //     })
-    // })
+    .then(() => {
+      return knex("favourites")
+        .del()
+        .then(function () {
+          return knex("favourites").insert(favouritesData);
+        })
+    })
     .then(() => {
       return knex("users")
         .pluck("id")
         .then((userIds) => {
           return userIds;
-        // .then((userIds) => {
-        //   console.log(userIds);
+          // .then((userIds) => {
+          //   console.log(userIds);
         });
-    })
-    .then((userIds) => {
-      const favouritesDataWithUserIds = favouritesData.map((favourites) => {
-        favourites.user_id = // userIds
-          userIds[Math.floor(Math.random() * userIds.length)];
-        return favourites;
-      });
-      return knex("favourites").insert(favouritesDataWithUserIds);
     });
+    // .then((userIds) => {
+    //   const favouritesDataWithUserIds = favouritesData.map((favourites) => {
+    //     favourites.user_id = // userIds
+    //       userIds[Math.floor(Math.random() * userIds.length)];
+    //     return favourites;
+    //   });
+    //   return knex("favourites").insert(favouritesDataWithUserIds);
+    // });
 };   
       
+
+
       
 // Init File: 
 
