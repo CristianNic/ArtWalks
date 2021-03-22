@@ -1,0 +1,20 @@
+.map {
+  
+}
+.leaflet-container {
+  width: 100%;
+  // height: 85.3vh; // with TopNav
+  height: 90.5vh;
+  // height: 750px; // can set height 
+}
+// try bottom bar as an overlay, 
+// map is 100% of window
+// make a sandwitch where each layer is defined
+
+.btn {
+  z-index: 1001;
+}
+
+// .bottom-nav__container {
+// z-index: 2000;
+// }

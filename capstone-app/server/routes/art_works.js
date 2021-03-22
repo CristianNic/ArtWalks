@@ -16,10 +16,9 @@ router.route('/').get((req, res) => {
       res.status(200).json({ art_works })
     } )
 });
-// Get all Geo of one artwork
+// Get all Geo of one artwork /geo/:id
 // Get one artwork by ID ...Pages --> Details, Map PopUp details...  
-
-router.route('/geo/:id').get((req, res) => {
+router.route('/:id').get((req, res) => {
   ArtWorks.where(req.params)
     .fetchAll({ withRealted: ['artworks'] })
     .then((favourites) => {
@@ -37,8 +36,8 @@ router.route('/geo/:id').get((req, res) => {
 router.route('/test').get((req, res) => {
   ArtWorks
     .fetchAll()
-    .then((artworks) => {
-      res.status(200).json({ artworks });
+    .then((art_works) => {
+      res.status(200).json({ art_works });
     });
 });
 

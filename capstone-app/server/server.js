@@ -45,6 +45,11 @@ app.use('/art_works', artWorksRoute);
 
 // https://covapp.vancouver.ca/PublicArtRegistry/_image.aspx/tDMNbF-41qBPcKfm_Ranl5jigZUdZSNeTsqMi9mOP5w=/M2630%20Main%20Street%20-%20Bure.JPG
 
-
+// home
+app.get('/', (req, res) => {
+  res.json({
+    greeting: 'Welcome to my API of Public Art on display by the City of Vancouver',
+  });
+});
 
 app.listen(PORT, console.log(`Server listening at: http://localhost:${PORT}`));

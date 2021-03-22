@@ -5,11 +5,12 @@
 @import './partials/global';
 
 /* Pages */
-@import './pages/Details/Details';
-@import './pages/Favourites/Favourites';
-@import './pages/Login/Login';
-@import './pages/Map/Map';
-@import './pages/Search/Search';
+@import './pages/Details';
+@import './pages/Explore';
+@import './pages/Favourites';
+@import './pages/Login';
+@import './pages/Map';
+@import './pages/Profile';
 
 /* Components */ 
 @import './components/TopNav/TopNav';

@@ -17,29 +17,38 @@ export default function BottomNav() {
   return (
     <nav className="bottom-nav">
       <div className="bottom-nav__container">
-        <Link to="/search">
-          <img src={iconSearch} alt="search icon" />
-          <h4>Explore</h4>
-          {/* <p>Search</p> */}
-        </Link>
-        <Link to="/map">
-          <img src={iconMap} alt="map icon" />
-          <h4>Map</h4>
-        </Link>
-        <Link to="/favourites">
-          <img src={iconSaved} alt="favourites icon" />
-          {/* <p>Favourites</p> */}
-          <h4>Saved</h4>
-        </Link>
-        <Link to="/details/:id">
-          <img src={iconDetails} alt="details icon" />
-          <h4>Details</h4>
-        </Link>
-        {/* <Link to="/profile"> */}
-        <Link to="/profile/:id">
-          <img src={iconProfile} alt="profile icon" />
-          <h4>Profile</h4>
-        </Link>
+        <div className="bottom-nav__btn">
+          <Link to="/search">
+            <img className="bottom-nav__icon" src={iconSearch} alt="search icon" />
+            <h4>Explore</h4>
+            {/* <h4>Search</h4> */}
+          </Link>
+        </div>
+        <div className="bottom-nav__btn">
+          <Link to="/map">
+            <img className="bottom-nav__icon" src={iconMap} alt="map icon" />
+            <h4>Map</h4>
+          </Link>
+        </div>
+        <div className="bottom-nav__btn">
+          <Link to="/favourites">
+            <img className="bottom-nav__icon" src={iconSaved} alt="favourites icon" />
+            {/* <h4>Favourites</h4> */}
+            <h4>Saved</h4>
+          </Link>
+        </div>
+        <div className="bottom-nav__btn">
+          <Link to="/details/:id">
+            <img className="bottom-nav__icon" src={iconDetails} alt="details icon" />
+            <h4>Details</h4>
+          </Link>
+        </div>
+        <div className="bottom-nav__btn">
+          <Link to="/profile/:id">
+            <img className="bottom-nav__icon" src={iconProfile} alt="profile icon" />
+            <h4>Profile</h4>
+          </Link>
+        </div>
       </div>
     </nav>
   )
