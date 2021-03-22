@@ -1,6 +1,6 @@
 module.exports = [
 	{
-		registryID: 316,
+		registry_id: 316,
 		title: "Water Work",
 		artists_id: 1,
 		artists_names: "Tony Bloom",
@@ -25,7 +25,7 @@ module.exports = [
 		installation_year: 1993,
 	},
 	{
-		registryID: 318,
+		registry_id: 318,
 		title: "The Pod",
 		artists_id: 2,
 		artists_names: "Rick Switzer",
@@ -51,7 +51,7 @@ module.exports = [
 		installation_year: 1989,
 	},
 	{
-		registryID: 337,
+		registry_id: 337,
 		title: "Four Boats Stranded:  Red and Yellow, Black and White",
 		artists_id: 3,
 		artists_names: "Ken Lum",
@@ -78,7 +78,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 624,
+		registry_id: 624,
 		title: "Simon Fraser",
 		artists_id: 3,
 		artists_names: "Ken Lum",
@@ -105,7 +105,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 414,
+		registry_id: 414,
 		title: "A Tale of Two Children: A Work for Strathcona",
 		artists_id: 3,
 		artists_names: "Ken Lum",
@@ -131,7 +131,7 @@ module.exports = [
 		installation_year: 2005,
 	},
 	{
-		registryID: 441,
+		registry_id: 441,
 		title: "Monument for East Vancouver",
 		artists_id: 3,
 		artists_names: "Ken Lum",
@@ -158,7 +158,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 341,
+		registry_id: 341,
 		title: "Curtained Skies",
 		artists_id: 4,
 		artists_names: "Clay Ellis",
@@ -184,7 +184,7 @@ module.exports = [
 		installation_year: 2002,
 	},
 	{
-		registryID: 343,
+		registry_id: 343,
 		title: "Chinatown Millennium Gate",
 		artists_id: 5,
 		artists_names: "Joe Y. Wai Architect, Inc",
@@ -211,7 +211,7 @@ module.exports = [
 		installation_year: 2002,
 	},
 	{
-		registryID: 350,
+		registry_id: 350,
 		title: "Fulcrum of Vision",
 		artists_id: 7,
 		artists_names: "Mowry Baden",
@@ -238,7 +238,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 458,
+		registry_id: 458,
 		title: "Salish North Star in Maple Leaf",
 		artists_id: 10,
 		artists_names: "Wade Baker",
@@ -264,7 +264,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 201,
+		registry_id: 201,
 		title: "Primary No. 9",
 		artists_id: 11,
 		artists_names: "Michael Banwell",
@@ -290,7 +290,7 @@ module.exports = [
 		installation_year: 1981,
 	},
 	{
-		registryID: 86,
+		registry_id: 86,
 		title: "Japanese-Canadian War Memorial",
 		artists_id: 14,
 		artists_names: "James Benzie",
@@ -316,7 +316,7 @@ module.exports = [
 		installation_year: 1920,
 	},
 	{
-		registryID: 82,
+		registry_id: 82,
 		title: "Queen Victoria Memorial Drinking Fountain",
 		artists_id: 16,
 		artists_names: "James Blomfield",
@@ -341,7 +341,7 @@ module.exports = [
 		installation_year: 1905,
 	},
 	{
-		registryID: 55,
+		registry_id: 55,
 		title: "The Fathomless Richness of the Seabed",
 		artists_id: 18,
 		artists_names: "Jordi Bonet",
@@ -368,7 +368,7 @@ module.exports = [
 		installation_year: 1969,
 	},
 	{
-		registryID: 206,
+		registry_id: 206,
 		title: "Footnotes",
 		artists_id: 19,
 		artists_names: "Gwen Boyle",
@@ -395,7 +395,7 @@ module.exports = [
 		installation_year: 1994,
 	},
 	{
-		registryID: 212,
+		registry_id: 212,
 		title: "New Currents and Ancient Streams",
 		artists_id: 19,
 		artists_names: "Gwen Boyle",
@@ -422,7 +422,7 @@ module.exports = [
 		installation_year: 1994,
 	},
 	{
-		registryID: 412,
+		registry_id: 412,
 		title: "Suan Phan: Abacus",
 		artists_id: 19,
 		artists_names: "Gwen Boyle",
@@ -449,7 +449,7 @@ module.exports = [
 		installation_year: 2005,
 	},
 	{
-		registryID: 18,
+		registry_id: 18,
 		title: "Gerald Grattan McGeer",
 		artists_id: 20,
 		artists_names: "Yanka Brayovitch",
@@ -476,7 +476,7 @@ module.exports = [
 		installation_year: 1948,
 	},
 	{
-		registryID: 216,
+		registry_id: 216,
 		title: "Persian Wall",
 		artists_id: 23,
 		artists_names: "Dale Chihuly",
@@ -503,7 +503,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 91,
+		registry_id: 91,
 		title: "Chief Wa'kas Pole",
 		artists_id: 26,
 		artists_names: "Doug Cranmer",
@@ -530,7 +530,7 @@ module.exports = [
 		installation_year: 1987,
 	},
 	{
-		registryID: 23,
+		registry_id: 23,
 		title: "Untitled (mural)",
 		artists_id: 29,
 		artists_names: "Greta Dale",
@@ -555,7 +555,7 @@ module.exports = [
 		installation_year: 1960,
 	},
 	{
-		registryID: 167,
+		registry_id: 167,
 		title: "Untitled",
 		artists_id: 30,
 		artists_names: "Paul Deggan",
@@ -580,7 +580,7 @@ module.exports = [
 		installation_year: 1980,
 	},
 	{
-		registryID: 183,
+		registry_id: 183,
 		title: "Untitled (Fisherman's Credit Union Building)",
 		artists_id: 32,
 		artists_names: "Leonhard Epp",
@@ -605,7 +605,7 @@ module.exports = [
 		installation_year: 1968,
 	},
 	{
-		registryID: 77,
+		registry_id: 77,
 		title: "Bird of Spring",
 		artists_id: 34,
 		artists_names: "Abraham Etungat",
@@ -631,7 +631,7 @@ module.exports = [
 		installation_year: 1979,
 	},
 	{
-		registryID: 185,
+		registry_id: 185,
 		title: "Untitled (Large Painted Mural)",
 		artists_id: 36,
 		artists_names: "Orville Fisher",
@@ -657,7 +657,7 @@ module.exports = [
 		installation_year: 1957,
 	},
 	{
-		registryID: 199,
+		registry_id: 199,
 		title: "Earth, Air and Sea",
 		artists_id: 40,
 		artists_names: "Joan D. Gambioli",
@@ -682,7 +682,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 188,
+		registry_id: 188,
 		title: "Horizons",
 		artists_id: 41,
 		artists_names: "Gerhard Class",
@@ -709,7 +709,7 @@ module.exports = [
 		installation_year: 1970,
 	},
 	{
-		registryID: 63,
+		registry_id: 63,
 		title: "Province Newspaper Memorial",
 		artists_id: 41,
 		artists_names: "Gerhard Class",
@@ -734,7 +734,7 @@ module.exports = [
 		installation_year: 1967,
 	},
 	{
-		registryID: 29,
+		registry_id: 29,
 		title: "Hastings Mill Commemorative",
 		artists_id: 41,
 		artists_names: "Gerhard Class",
@@ -761,7 +761,7 @@ module.exports = [
 		installation_year: 1966,
 	},
 	{
-		registryID: 68,
+		registry_id: 68,
 		title: "Untitled",
 		artists_id: 41,
 		artists_names: "Gerhard Class",
@@ -786,7 +786,7 @@ module.exports = [
 		installation_year: 1964,
 	},
 	{
-		registryID: 38,
+		registry_id: 38,
 		title: "Centennial Fountain",
 		artists_id: 41,
 		artists_names: "Gerhard Class",
@@ -813,7 +813,7 @@ module.exports = [
 		installation_year: 1971,
 	},
 	{
-		registryID: 297,
+		registry_id: 297,
 		title: "Sundial",
 		artists_id: 41,
 		artists_names: "Gerhard Class",
@@ -840,7 +840,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 215,
+		registry_id: 215,
 		title: "Terra Nova",
 		artists_id: 44,
 		artists_names: "Richard Prince",
@@ -867,7 +867,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 354,
+		registry_id: 354,
 		title: "Roller",
 		artists_id: 44,
 		artists_names: "Richard Prince",
@@ -894,7 +894,7 @@ module.exports = [
 		installation_year: 2004,
 	},
 	{
-		registryID: 263,
+		registry_id: 263,
 		title: "Mid-Main Mural Project",
 		artists_id: 45,
 		artists_names: "Joey Mallett",
@@ -921,7 +921,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 268,
+		registry_id: 268,
 		title: "Sculpture Poems",
 		artists_id: 47,
 		artists_names: "Sam Carter",
@@ -948,7 +948,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 186,
+		registry_id: 186,
 		title: "Flower Totems",
 		artists_id: 47,
 		artists_names: "Sam Carter",
@@ -975,7 +975,7 @@ module.exports = [
 		installation_year: 1980,
 	},
 	{
-		registryID: 311,
+		registry_id: 311,
 		title: "Unlimited Growth Increases The Divide",
 		artists_id: 50,
 		artists_names: "Kathryn Walter",
@@ -1002,7 +1002,7 @@ module.exports = [
 		installation_year: 1990,
 	},
 	{
-		registryID: 313,
+		registry_id: 313,
 		title: "Milky Way",
 		artists_id: 51,
 		artists_names: "Katherine Kerr",
@@ -1030,7 +1030,7 @@ module.exports = [
 		installation_year: 1999,
 	},
 	{
-		registryID: 325,
+		registry_id: 325,
 		title: "Welcome Figures (Vancouver Museum and Planetarium)",
 		artists_id: 59,
 		artists_names: "Joe David",
@@ -1057,7 +1057,7 @@ module.exports = [
 		installation_year: 1990,
 	},
 	{
-		registryID: 327,
+		registry_id: 327,
 		title: "Totem Pole (Langara College)",
 		artists_id: 60,
 		artists_names: "Don Yeomans",
@@ -1083,7 +1083,7 @@ module.exports = [
 		installation_year: 1990,
 	},
 	{
-		registryID: 321,
+		registry_id: 321,
 		title: "Rand and Edgar Mural (Maritime Museum Mural)",
 		artists_id: 63,
 		artists_names: "Frank Lewis",
@@ -1110,7 +1110,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 323,
+		registry_id: 323,
 		title: "House of Happiness Totem Pole",
 		artists_id: 64,
 		artists_names: "Roy Hanuse",
@@ -1137,7 +1137,7 @@ module.exports = [
 		installation_year: 1990,
 	},
 	{
-		registryID: 329,
+		registry_id: 329,
 		title: "Transformation",
 		artists_id: 65,
 		artists_names: "Abraham Archer",
@@ -1163,7 +1163,7 @@ module.exports = [
 		installation_year: 1,
 	},
 	{
-		registryID: 234,
+		registry_id: 234,
 		title: "Ten Thousand Faucets & Doorknobs",
 		artists_id: 71,
 		artists_names: "Joey Morgan",
@@ -1191,7 +1191,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 61,
+		registry_id: 61,
 		title: "Cenotaph",
 		artists_id: 72,
 		artists_names: "G. L. T. Sharp",
@@ -1217,7 +1217,7 @@ module.exports = [
 		installation_year: 1924,
 	},
 	{
-		registryID: 200,
+		registry_id: 200,
 		title: "In Memoriam of Teilhard de Chardin",
 		artists_id: 74,
 		artists_names: "Mathias Hietz",
@@ -1243,7 +1243,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 42,
+		registry_id: 42,
 		title: "The Postman",
 		artists_id: 76,
 		artists_names: "Paul Huba",
@@ -1269,7 +1269,7 @@ module.exports = [
 		installation_year: 1955,
 	},
 	{
-		registryID: 41,
+		registry_id: 41,
 		title: "Untitled (Tile Mural of a Woman and Child)",
 		artists_id: 76,
 		artists_names: "Paul Huba",
@@ -1295,7 +1295,7 @@ module.exports = [
 		installation_year: 1958,
 	},
 	{
-		registryID: 78,
+		registry_id: 78,
 		title: "Spring",
 		artists_id: 77,
 		artists_names: "Alan Chung Hung",
@@ -1322,7 +1322,7 @@ module.exports = [
 		installation_year: 1981,
 	},
 	{
-		registryID: 110,
+		registry_id: 110,
 		title: "Gate to the Northwest Passage",
 		artists_id: 77,
 		artists_names: "Alan Chung Hung",
@@ -1349,7 +1349,7 @@ module.exports = [
 		installation_year: 1980,
 	},
 	{
-		registryID: 113,
+		registry_id: 113,
 		title: "Clouds",
 		artists_id: 77,
 		artists_names: "Alan Chung Hung",
@@ -1376,7 +1376,7 @@ module.exports = [
 		installation_year: 1991,
 	},
 	{
-		registryID: 102,
+		registry_id: 102,
 		title: "Pauline Johnson Memorial",
 		artists_id: 78,
 		artists_names: "James McLeod Hurry",
@@ -1403,7 +1403,7 @@ module.exports = [
 		installation_year: 1922,
 	},
 	{
-		registryID: 97,
+		registry_id: 97,
 		title: "Girl in a Wetsuit",
 		artists_id: 79,
 		artists_names: "Elek Imredy",
@@ -1430,7 +1430,7 @@ module.exports = [
 		installation_year: 1972,
 	},
 	{
-		registryID: 151,
+		registry_id: 151,
 		title: "Major James Skitt Matthews (1878 - 1970)",
 		artists_id: 79,
 		artists_names: "Elek Imredy",
@@ -1456,7 +1456,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 284,
+		registry_id: 284,
 		title: "Sisaxo'las Pole",
 		artists_id: 81,
 		artists_names: "Charles James",
@@ -1482,7 +1482,7 @@ module.exports = [
 		installation_year: 1901,
 	},
 	{
-		registryID: 191,
+		registry_id: 191,
 		title: "Meta Morphosis",
 		artists_id: 82,
 		artists_names: "Olga Jancic",
@@ -1507,7 +1507,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 345,
+		registry_id: 345,
 		title: "Scopes of Site",
 		artists_id: 83,
 		artists_names: "Jill Anholt",
@@ -1534,7 +1534,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 622,
+		registry_id: 622,
 		title: "Refined",
 		artists_id: 83,
 		artists_names: "Jill Anholt",
@@ -1560,7 +1560,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 539,
+		registry_id: 539,
 		title: "Capturing the View",
 		artists_id: 83,
 		artists_names: "Jill Anholt",
@@ -1587,7 +1587,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 80,
+		registry_id: 80,
 		title: "Search",
 		artists_id: 84,
 		artists_names: "J. Seward Johnson, Jr",
@@ -1614,7 +1614,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 309,
+		registry_id: 309,
 		title: "Photo Session",
 		artists_id: 84,
 		artists_names: "J. Seward Johnson, Jr",
@@ -1641,7 +1641,7 @@ module.exports = [
 		installation_year: 1984,
 	},
 	{
-		registryID: 75,
+		registry_id: 75,
 		title: "Continuity",
 		artists_id: 86,
 		artists_names: "Letha Keate",
@@ -1666,7 +1666,7 @@ module.exports = [
 		installation_year: 1978,
 	},
 	{
-		registryID: 210,
+		registry_id: 210,
 		title: "Working Landscape",
 		artists_id: 91,
 		artists_names: "Daniel Laskarin",
@@ -1693,7 +1693,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 83,
+		registry_id: 83,
 		title: "Robert Burns",
 		artists_id: 92,
 		artists_names: "George A. Lawson",
@@ -1719,7 +1719,7 @@ module.exports = [
 		installation_year: 1928,
 	},
 	{
-		registryID: 24,
+		registry_id: 24,
 		title: "Angel of Victory",
 		artists_id: 94,
 		artists_names: "Coeur de Lion MacCarthy",
@@ -1746,7 +1746,7 @@ module.exports = [
 		installation_year: 1921,
 	},
 	{
-		registryID: 574,
+		registry_id: 574,
 		title: "Ninth Column",
 		artists_id: 95,
 		artists_names: "Liz Magor",
@@ -1773,7 +1773,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 404,
+		registry_id: 404,
 		title: "LightShed",
 		artists_id: 95,
 		artists_names: "Liz Magor",
@@ -1799,7 +1799,7 @@ module.exports = [
 		installation_year: 2004,
 	},
 	{
-		registryID: 84,
+		registry_id: 84,
 		title: "Lord Stanley",
 		artists_id: 97,
 		artists_names: "Sydney March",
@@ -1826,7 +1826,7 @@ module.exports = [
 		installation_year: 1960,
 	},
 	{
-		registryID: 103,
+		registry_id: 103,
 		title: "David Oppenheimer",
 		artists_id: 98,
 		artists_names: "Charles Marega",
@@ -1853,7 +1853,7 @@ module.exports = [
 		installation_year: 1911,
 	},
 	{
-		registryID: 87,
+		registry_id: 87,
 		title: "Harding Memorial Sculpture",
 		artists_id: 98,
 		artists_names: "Charles Marega",
@@ -1880,7 +1880,7 @@ module.exports = [
 		installation_year: 1925,
 	},
 	{
-		registryID: 101,
+		registry_id: 101,
 		title: "Untitled (Lions: pair)",
 		artists_id: 98,
 		artists_names: "Charles Marega",
@@ -1906,7 +1906,7 @@ module.exports = [
 		installation_year: 1939,
 	},
 	{
-		registryID: 163,
+		registry_id: 163,
 		title: "Joe Fortes Drinking Fountain",
 		artists_id: 98,
 		artists_names: "Charles Marega",
@@ -1933,7 +1933,7 @@ module.exports = [
 		installation_year: 1927,
 	},
 	{
-		registryID: 45,
+		registry_id: 45,
 		title: "King Edward VII Fountain",
 		artists_id: 98,
 		artists_names: "Charles Marega",
@@ -1960,7 +1960,7 @@ module.exports = [
 		installation_year: 1912,
 	},
 	{
-		registryID: 1,
+		registry_id: 1,
 		title: "Captain George Vancouver",
 		artists_id: 98,
 		artists_names: "Charles Marega",
@@ -1987,7 +1987,7 @@ module.exports = [
 		installation_year: 1936,
 	},
 	{
-		registryID: 194,
+		registry_id: 194,
 		title: "Travertine Sculpture 75",
 		artists_id: 99,
 		artists_names: "David Marshall",
@@ -2014,7 +2014,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 606,
+		registry_id: 606,
 		title: "Three Carrara Marbles",
 		artists_id: 99,
 		artists_names: "David Marshall",
@@ -2039,7 +2039,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 170,
+		registry_id: 170,
 		title: "The Builders",
 		artists_id: 102,
 		artists_names: "Joyce McDonald",
@@ -2066,7 +2066,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 27,
+		registry_id: 27,
 		title: "Solo",
 		artists_id: 103,
 		artists_names: "Natalie McHaffie",
@@ -2093,7 +2093,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 205,
+		registry_id: 205,
 		title: "Fountain of Time",
 		artists_id: 107,
 		artists_names: "Joseph Montague",
@@ -2120,7 +2120,7 @@ module.exports = [
 		installation_year: 1995,
 	},
 	{
-		registryID: 106,
+		registry_id: 106,
 		title: "Knife Edge Two Piece",
 		artists_id: 108,
 		artists_names: "Henry Moore",
@@ -2145,7 +2145,7 @@ module.exports = [
 		installation_year: 1969,
 	},
 	{
-		registryID: 217,
+		registry_id: 217,
 		title: "Make West",
 		artists_id: 114,
 		artists_names: "Bill Pechet",
@@ -2172,7 +2172,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 621,
+		registry_id: 621,
 		title: "Dichroic Vancouver",
 		artists_id: 114,
 		artists_names: "Bill Pechet",
@@ -2199,7 +2199,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 178,
+		registry_id: 178,
 		title: "Centennial Rocket",
 		artists_id: 115,
 		artists_names: "Lew Parry",
@@ -2226,7 +2226,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 39,
+		registry_id: 39,
 		title: "Florentine Door & Wall #3",
 		artists_id: 116,
 		artists_names: "Frank Perry",
@@ -2252,7 +2252,7 @@ module.exports = [
 		installation_year: 1967,
 	},
 	{
-		registryID: 190,
+		registry_id: 190,
 		title: "Developing Form",
 		artists_id: 121,
 		artists_names: "Michael Prentice",
@@ -2278,7 +2278,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 93,
+		registry_id: 93,
 		title: "Chief Skedans Mortuary Pole",
 		artists_id: 122,
 		artists_names: "Bill Reid",
@@ -2304,7 +2304,7 @@ module.exports = [
 		installation_year: 1964,
 	},
 	{
-		registryID: 391,
+		registry_id: 391,
 		title: "Haida Eagle and Frog Totem Pole",
 		artists_id: 122,
 		artists_names: "Bill Reid",
@@ -2330,7 +2330,7 @@ module.exports = [
 		installation_year: 2002,
 	},
 	{
-		registryID: 81,
+		registry_id: 81,
 		title: "Killer Whale / Chief of the Undersea World",
 		artists_id: 122,
 		artists_names: "Bill Reid",
@@ -2356,7 +2356,7 @@ module.exports = [
 		installation_year: 1984,
 	},
 	{
-		registryID: 370,
+		registry_id: 370,
 		title: "Douglas Park Bench Project",
 		artists_id: 123,
 		artists_names: "Celine Rich",
@@ -2381,7 +2381,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 196,
+		registry_id: 196,
 		title: "Observing Your Society",
 		artists_id: 126,
 		artists_names: "David Ruben (Piqtoukun)",
@@ -2406,7 +2406,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 195,
+		registry_id: 195,
 		title: "Between",
 		artists_id: 127,
 		artists_names: "Adolf Ryszka",
@@ -2432,7 +2432,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 67,
+		registry_id: 67,
 		title: "Throne of Nezahualcoyotl",
 		artists_id: 129,
 		artists_names: "Ted Sebastian",
@@ -2458,7 +2458,7 @@ module.exports = [
 		installation_year: 1978,
 	},
 	{
-		registryID: 270,
+		registry_id: 270,
 		title: "Leaf Bench I & II",
 		artists_id: 131,
 		artists_names: "Douglas Senft",
@@ -2484,7 +2484,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 107,
+		registry_id: 107,
 		title: "Gates",
 		artists_id: 131,
 		artists_names: "Douglas Senft",
@@ -2511,7 +2511,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 434,
+		registry_id: 434,
 		title: "turn",
 		artists_id: 131,
 		artists_names: "Douglas Senft",
@@ -2538,7 +2538,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 435,
+		registry_id: 435,
 		title: "walking the line",
 		artists_id: 131,
 		artists_names: "Douglas Senft",
@@ -2565,7 +2565,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 433,
+		registry_id: 433,
 		title: "day off - night out",
 		artists_id: 131,
 		artists_names: "Douglas Senft",
@@ -2593,7 +2593,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 21,
+		registry_id: 21,
 		title: "Captain John Deighton (Gassy Jack)",
 		artists_id: 134,
 		artists_names: "Vern Simpson",
@@ -2620,7 +2620,7 @@ module.exports = [
 		installation_year: 1970,
 	},
 	{
-		registryID: 148,
+		registry_id: 148,
 		title: "Vancouver Vertical",
 		artists_id: 136,
 		artists_names: "Joanna Staniszkis",
@@ -2646,7 +2646,7 @@ module.exports = [
 		installation_year: 1981,
 	},
 	{
-		registryID: 140,
+		registry_id: 140,
 		title: "Al of the Gispudwada (Black Bear Crest of the Killer Whale Tribe)",
 		artists_id: 138,
 		artists_names: "Arthur (Art) Sterritt",
@@ -2672,7 +2672,7 @@ module.exports = [
 		installation_year: 1976,
 	},
 	{
-		registryID: 52,
+		registry_id: 52,
 		title: "Untitled (100)",
 		artists_id: 139,
 		artists_names: "Stonecoat Industries",
@@ -2698,7 +2698,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 66,
+		registry_id: 66,
 		title: "Coopers Mews",
 		artists_id: 140,
 		artists_names: "Alan Storey",
@@ -2724,7 +2724,7 @@ module.exports = [
 		installation_year: 2002,
 	},
 	{
-		registryID: 208,
+		registry_id: 208,
 		title: "Password",
 		artists_id: 140,
 		artists_names: "Alan Storey",
@@ -2751,7 +2751,7 @@ module.exports = [
 		installation_year: 1994,
 	},
 	{
-		registryID: 340,
+		registry_id: 340,
 		title: "Public Service/Private Step",
 		artists_id: 140,
 		artists_names: "Alan Storey",
@@ -2779,7 +2779,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 427,
+		registry_id: 427,
 		title: "VGH Energy Centre",
 		artists_id: 140,
 		artists_names: "Alan Storey",
@@ -2805,7 +2805,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 198,
+		registry_id: 198,
 		title: "Landscape 75",
 		artists_id: 141,
 		artists_names: "Jiro Sugawara",
@@ -2830,7 +2830,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 197,
+		registry_id: 197,
 		title: "Woman",
 		artists_id: 142,
 		artists_names: "Kiyoshi Takahashi",
@@ -2855,7 +2855,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 557,
+		registry_id: 557,
 		title: "Radius Mural",
 		artists_id: 148,
 		artists_names: "Richard Tetrault",
@@ -2882,7 +2882,7 @@ module.exports = [
 		installation_year: 2013,
 	},
 	{
-		registryID: 582,
+		registry_id: 582,
 		title: "Crossings",
 		artists_id: 148,
 		artists_names: "Richard Tetrault",
@@ -2907,7 +2907,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 560,
+		registry_id: 560,
 		title: "Russian Hall Mural",
 		artists_id: 148,
 		artists_names: "Richard Tetrault",
@@ -2933,7 +2933,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 349,
+		registry_id: 349,
 		title: "Community Walls/Community Voices",
 		artists_id: 148,
 		artists_names: "Richard Tetrault",
@@ -2960,7 +2960,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 348,
+		registry_id: 348,
 		title: "Entranceway",
 		artists_id: 148,
 		artists_names: "Richard Tetrault",
@@ -2987,7 +2987,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 173,
+		registry_id: 173,
 		title: "Fountain of the Pioneers",
 		artists_id: 150,
 		artists_names: "George Tsutakawa",
@@ -3014,7 +3014,7 @@ module.exports = [
 		installation_year: 1969,
 	},
 	{
-		registryID: 171,
+		registry_id: 171,
 		title: "Vessel",
 		artists_id: 152,
 		artists_names: "Dominique Valade",
@@ -3040,7 +3040,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 273,
+		registry_id: 273,
 		title: "Three Herons",
 		artists_id: 166,
 		artists_names: "Tom Burrows",
@@ -3066,7 +3066,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 266,
+		registry_id: 266,
 		title: "Trafalgar Tile Wall",
 		artists_id: 167,
 		artists_names: "Alison Diesvelt",
@@ -3093,7 +3093,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 793,
+		registry_id: 793,
 		title: "Blanketing The City: A Mural Series",
 		artists_id: 168,
 		artists_names: "Debra Sparrow",
@@ -3118,7 +3118,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 222,
+		registry_id: 222,
 		title: "Bird Feeders",
 		artists_id: 169,
 		artists_names: "Rick Gibson",
@@ -3143,7 +3143,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 455,
+		registry_id: 455,
 		title: "Kingsway Luminaires",
 		artists_id: 172,
 		artists_names: "David MacWilliam",
@@ -3170,7 +3170,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 229,
+		registry_id: 229,
 		title: "Bicycle Wheel",
 		artists_id: 172,
 		artists_names: "David MacWilliam",
@@ -3197,7 +3197,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 223,
+		registry_id: 223,
 		title: "subTEXT:Community Signature Project",
 		artists_id: 173,
 		artists_names: "Susan Schuppli",
@@ -3224,7 +3224,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 431,
+		registry_id: 431,
 		title: "Park",
 		artists_id: 174,
 		artists_names: "Marko Simcic",
@@ -3251,7 +3251,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 230,
+		registry_id: 230,
 		title: "Utility Pole",
 		artists_id: 174,
 		artists_names: "Marko Simcic",
@@ -3277,7 +3277,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 374,
+		registry_id: 374,
 		title: "Semaphores",
 		artists_id: 178,
 		artists_names: "Claudia Cuesta",
@@ -3304,7 +3304,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 277,
+		registry_id: 277,
 		title: "Converging Lines",
 		artists_id: 182,
 		artists_names: "Elizabeth Roy",
@@ -3331,7 +3331,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 276,
+		registry_id: 276,
 		title: "Peopling the Playground",
 		artists_id: 183,
 		artists_names: "Sally Gregson",
@@ -3358,7 +3358,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 262,
+		registry_id: 262,
 		title: "Games We've Played",
 		artists_id: 185,
 		artists_names: "Blake Williams",
@@ -3385,7 +3385,7 @@ module.exports = [
 		installation_year: 1999,
 	},
 	{
-		registryID: 315,
+		registry_id: 315,
 		title: "S.S. Beaver Tablet and Cairn",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3411,7 +3411,7 @@ module.exports = [
 		installation_year: 1920,
 	},
 	{
-		registryID: 22,
+		registry_id: 22,
 		title: "Untitled (Cenotaph)",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3436,7 +3436,7 @@ module.exports = [
 		installation_year: 1959,
 	},
 	{
-		registryID: 7,
+		registry_id: 7,
 		title: "Sidewalk Mosaic",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3461,7 +3461,7 @@ module.exports = [
 		installation_year: 1965,
 	},
 	{
-		registryID: 159,
+		registry_id: 159,
 		title: "The Dreamer (Christopher Columbus)",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3487,7 +3487,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 553,
+		registry_id: 553,
 		title: "Western Han Dynasty Bell",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3513,7 +3513,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 98,
+		registry_id: 98,
 		title: "Empress of Japan",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3540,7 +3540,7 @@ module.exports = [
 		installation_year: 1960,
 	},
 	{
-		registryID: 226,
+		registry_id: 226,
 		title: "Ring Gear",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3566,7 +3566,7 @@ module.exports = [
 		installation_year: 1987,
 	},
 	{
-		registryID: 109,
+		registry_id: 109,
 		title: "Statue of Discovolos (the Discus Thrower)",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3591,7 +3591,7 @@ module.exports = [
 		installation_year: 1969,
 	},
 	{
-		registryID: 96,
+		registry_id: 96,
 		title: "Chehalis Cross",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3617,7 +3617,7 @@ module.exports = [
 		installation_year: 1906,
 	},
 	{
-		registryID: 30,
+		registry_id: 30,
 		title: "Cross of Sacrifice",
 		artists_id: 195,
 		artists_names: "Unknown",
@@ -3643,7 +3643,7 @@ module.exports = [
 		installation_year: 1922,
 	},
 	{
-		registryID: 371,
+		registry_id: 371,
 		title: "Marking High Tide and Waiting for Low Tide Pavilions",
 		artists_id: 203,
 		artists_names: "Don Vaughan",
@@ -3669,7 +3669,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 282,
+		registry_id: 282,
 		title: "Traffic Circles",
 		artists_id: 204,
 		artists_names: "Shauna Gillies Smith",
@@ -3696,7 +3696,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 609,
+		registry_id: 609,
 		title: "Confidence",
 		artists_id: 210,
 		artists_names: "Michael Dennis",
@@ -3721,7 +3721,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 271,
+		registry_id: 271,
 		title: "Reclining Figure",
 		artists_id: 210,
 		artists_names: "Michael Dennis",
@@ -3747,7 +3747,7 @@ module.exports = [
 		installation_year: 1991,
 	},
 	{
-		registryID: 172,
+		registry_id: 172,
 		title: "Inukshuk",
 		artists_id: 211,
 		artists_names: "Alvin Kanak",
@@ -3774,7 +3774,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 165,
+		registry_id: 165,
 		title: "Marker of Change",
 		artists_id: 212,
 		artists_names: "Beth Alber",
@@ -3801,7 +3801,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 90,
+		registry_id: 90,
 		title: "Pacific Spiral",
 		artists_id: 214,
 		artists_names: "Judith Schwarz",
@@ -3827,7 +3827,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 238,
+		registry_id: 238,
 		title: "Placed Upon the Horizon (Casting Shadows)",
 		artists_id: 215,
 		artists_names: "Lawrence Weiner",
@@ -3854,7 +3854,7 @@ module.exports = [
 		installation_year: 1990,
 	},
 	{
-		registryID: 331,
+		registry_id: 331,
 		title: "Mainly for the Birds",
 		artists_id: 219,
 		artists_names: "Pat Beaton",
@@ -3881,7 +3881,7 @@ module.exports = [
 		installation_year: 1999,
 	},
 	{
-		registryID: 65,
+		registry_id: 65,
 		title: "Untitled (fountain)",
 		artists_id: 221,
 		artists_names: "Al McWilliams",
@@ -3908,7 +3908,7 @@ module.exports = [
 		installation_year: 2000,
 	},
 	{
-		registryID: 359,
+		registry_id: 359,
 		title: "Lost Streams",
 		artists_id: 222,
 		artists_names: "Marian Penner Bancroft",
@@ -3935,7 +3935,7 @@ module.exports = [
 		installation_year: 1994,
 	},
 	{
-		registryID: 826,
+		registry_id: 826,
 		title: "10 Baseball Caps",
 		artists_id: 226,
 		artists_names: "Gathie Falk",
@@ -3961,7 +3961,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 828,
+		registry_id: 828,
 		title: "900 Oranges",
 		artists_id: 226,
 		artists_names: "Gathie Falk",
@@ -3987,7 +3987,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 827,
+		registry_id: 827,
 		title: "18 Pairs of Blue and White Running Shoes",
 		artists_id: 226,
 		artists_names: "Gathie Falk",
@@ -4013,7 +4013,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 288,
+		registry_id: 288,
 		title: "Salute to the Lions of Vancouver",
 		artists_id: 226,
 		artists_names: "Gathie Falk",
@@ -4039,7 +4039,7 @@ module.exports = [
 		installation_year: 1991,
 	},
 	{
-		registryID: 158,
+		registry_id: 158,
 		title: "Jubilee Fountain",
 		artists_id: 227,
 		artists_names: "Lennox Mackenzie",
@@ -4065,7 +4065,7 @@ module.exports = [
 		installation_year: 1936,
 	},
 	{
-		registryID: 237,
+		registry_id: 237,
 		title: "Percy Williams",
 		artists_id: 230,
 		artists_names: "Ann McLaren",
@@ -4091,7 +4091,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 193,
+		registry_id: 193,
 		title: "For the Botanical Garden",
 		artists_id: 235,
 		artists_names: "Akiyama Hiromi",
@@ -4116,7 +4116,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 225,
+		registry_id: 225,
 		title: "Wind Swimmer",
 		artists_id: 236,
 		artists_names: "Doug Taylor",
@@ -4143,7 +4143,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 94,
+		registry_id: 94,
 		title: "Beaver Crest Pole",
 		artists_id: 238,
 		artists_names: "Norman Tait",
@@ -4169,7 +4169,7 @@ module.exports = [
 		installation_year: 1987,
 	},
 	{
-		registryID: 137,
+		registry_id: 137,
 		title: "Themis, Goddess of Justice",
 		artists_id: 241,
 		artists_names: "Jack Harman",
@@ -4195,7 +4195,7 @@ module.exports = [
 		installation_year: 1982,
 	},
 	{
-		registryID: 182,
+		registry_id: 182,
 		title: "The Miracle Mile",
 		artists_id: 241,
 		artists_names: "Jack Harman",
@@ -4220,7 +4220,7 @@ module.exports = [
 		installation_year: 1967,
 	},
 	{
-		registryID: 8,
+		registry_id: 8,
 		title: "Charles Bentall",
 		artists_id: 241,
 		artists_names: "Jack Harman",
@@ -4246,7 +4246,7 @@ module.exports = [
 		installation_year: 1977,
 	},
 	{
-		registryID: 299,
+		registry_id: 299,
 		title: "Three Botanists",
 		artists_id: 241,
 		artists_names: "Jack Harman",
@@ -4272,7 +4272,7 @@ module.exports = [
 		installation_year: 1987,
 	},
 	{
-		registryID: 294,
+		registry_id: 294,
 		title: "Swedish Fountain",
 		artists_id: 242,
 		artists_names: "Per Nilsson-Ost",
@@ -4298,7 +4298,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 157,
+		registry_id: 157,
 		title: "Puttino (Boy with Dolphin)",
 		artists_id: 243,
 		artists_names: "Andrea Del Verrochio",
@@ -4324,7 +4324,7 @@ module.exports = [
 		installation_year: 1980,
 	},
 	{
-		registryID: 19,
+		registry_id: 19,
 		title: "Lovers II",
 		artists_id: 244,
 		artists_names: "Gerhard Juchum",
@@ -4349,7 +4349,7 @@ module.exports = [
 		installation_year: 1977,
 	},
 	{
-		registryID: 155,
+		registry_id: 155,
 		title: "Fisher Hauling in the Net",
 		artists_id: 244,
 		artists_names: "Gerhard Juchum",
@@ -4375,7 +4375,7 @@ module.exports = [
 		installation_year: 1976,
 	},
 	{
-		registryID: 298,
+		registry_id: 298,
 		title: "Drinking Fountain",
 		artists_id: 245,
 		artists_names: "David Backstrom",
@@ -4401,7 +4401,7 @@ module.exports = [
 		installation_year: 1977,
 	},
 	{
-		registryID: 214,
+		registry_id: 214,
 		title: "Brush With Illumination",
 		artists_id: 247,
 		artists_names: "Buster Simpson",
@@ -4429,7 +4429,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 300,
+		registry_id: 300,
 		title: "Joy of Freedom",
 		artists_id: 248,
 		artists_names: "Geert Maas",
@@ -4456,7 +4456,7 @@ module.exports = [
 		installation_year: 1995,
 	},
 	{
-		registryID: 301,
+		registry_id: 301,
 		title: "Spirits in a Landscape",
 		artists_id: 249,
 		artists_names: "Abraham Anghik Ruben",
@@ -4482,7 +4482,7 @@ module.exports = [
 		installation_year: 1992,
 	},
 	{
-		registryID: 302,
+		registry_id: 302,
 		title: "Navigation Device: Origin Unknown",
 		artists_id: 250,
 		artists_names: "Robert Studer",
@@ -4508,7 +4508,7 @@ module.exports = [
 		installation_year: 1991,
 	},
 	{
-		registryID: 396,
+		registry_id: 396,
 		title: "False Creek Totem",
 		artists_id: 251,
 		artists_names: "Eric Neighbour",
@@ -4535,7 +4535,7 @@ module.exports = [
 		installation_year: 1999,
 	},
 	{
-		registryID: 380,
+		registry_id: 380,
 		title: "Look",
 		artists_id: 253,
 		artists_names: "Nicole May",
@@ -4562,7 +4562,7 @@ module.exports = [
 		installation_year: 2004,
 	},
 	{
-		registryID: 306,
+		registry_id: 306,
 		title: "Colour",
 		artists_id: 253,
 		artists_names: "Nicole May",
@@ -4589,7 +4589,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 530,
+		registry_id: 530,
 		title: "Memento (Poodle)",
 		artists_id: 255,
 		artists_names: "Gisele Amantea",
@@ -4617,7 +4617,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 410,
+		registry_id: 410,
 		title: "Red Horizontal",
 		artists_id: 255,
 		artists_names: "Gisele Amantea",
@@ -4644,7 +4644,7 @@ module.exports = [
 		installation_year: 2005,
 	},
 	{
-		registryID: 227,
+		registry_id: 227,
 		title: "Machina Metronoma (Shaughnessy Neighbourhood)",
 		artists_id: 258,
 		artists_names: "Dwight Atkinson",
@@ -4671,7 +4671,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 392,
+		registry_id: 392,
 		title: "Sliding Edge",
 		artists_id: 259,
 		artists_names: "Nancy Chew",
@@ -4699,7 +4699,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 360,
+		registry_id: 360,
 		title: "Community Stepping Stones",
 		artists_id: 260,
 		artists_names: "Glen Andersen",
@@ -4726,7 +4726,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 132,
+		registry_id: 132,
 		title: "Man About to Plant Alfalfa",
 		artists_id: 264,
 		artists_names: "George A. Norris",
@@ -4752,7 +4752,7 @@ module.exports = [
 		installation_year: 1967,
 	},
 	{
-		registryID: 69,
+		registry_id: 69,
 		title: "Untitled [East Asiatic Building]",
 		artists_id: 264,
 		artists_names: "George A. Norris",
@@ -4777,7 +4777,7 @@ module.exports = [
 		installation_year: 1964,
 	},
 	{
-		registryID: 154,
+		registry_id: 154,
 		title: "Untitled (Postal Station D)",
 		artists_id: 264,
 		artists_names: "George A. Norris",
@@ -4803,7 +4803,7 @@ module.exports = [
 		installation_year: 1967,
 	},
 	{
-		registryID: 108,
+		registry_id: 108,
 		title: "The Crab",
 		artists_id: 264,
 		artists_names: "George A. Norris",
@@ -4830,7 +4830,7 @@ module.exports = [
 		installation_year: 1968,
 	},
 	{
-		registryID: 218,
+		registry_id: 218,
 		title: "Perennials",
 		artists_id: 265,
 		artists_names: "Barbara Steinman",
@@ -4857,7 +4857,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 332,
+		registry_id: 332,
 		title: "Royal Sweet Diamond",
 		artists_id: 267,
 		artists_names: "Joe Fafard",
@@ -4883,7 +4883,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 150,
+		registry_id: 150,
 		title: "B.C. Beginning",
 		artists_id: 269,
 		artists_names: "Bertram Charles Binning",
@@ -4910,7 +4910,7 @@ module.exports = [
 		installation_year: 1958,
 	},
 	{
-		registryID: 358,
+		registry_id: 358,
 		title: "Time Top",
 		artists_id: 272,
 		artists_names: "Jerry Pethick",
@@ -4937,7 +4937,7 @@ module.exports = [
 		installation_year: 2006,
 	},
 	{
-		registryID: 363,
+		registry_id: 363,
 		title: "Country Living in the City",
 		artists_id: 273,
 		artists_names: "Andrew Currie",
@@ -4964,7 +4964,7 @@ module.exports = [
 		installation_year: 2000,
 	},
 	{
-		registryID: 346,
+		registry_id: 346,
 		title: "Watch Your Step",
 		artists_id: 274,
 		artists_names: "Leah Decter",
@@ -4991,7 +4991,7 @@ module.exports = [
 		installation_year: 2002,
 	},
 	{
-		registryID: 426,
+		registry_id: 426,
 		title: "Watercourse",
 		artists_id: 276,
 		artists_names: "Elyn Zimmerman",
@@ -5017,7 +5017,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 401,
+		registry_id: 401,
 		title: "Tribute to the Cambie Works Yard",
 		artists_id: 277,
 		artists_names: "Carol Sawyer",
@@ -5044,7 +5044,7 @@ module.exports = [
 		installation_year: 2004,
 	},
 	{
-		registryID: 386,
+		registry_id: 386,
 		title: "WECCstoration Project",
 		artists_id: 279,
 		artists_names: "Tiko Kerr",
@@ -5071,7 +5071,7 @@ module.exports = [
 		installation_year: 1995,
 	},
 	{
-		registryID: 259,
+		registry_id: 259,
 		title: "Days of Sun",
 		artists_id: 282,
 		artists_names: "Ann Marie Slater",
@@ -5098,7 +5098,7 @@ module.exports = [
 		installation_year: 1999,
 	},
 	{
-		registryID: 712,
+		registry_id: 712,
 		title: "Snapshots of History",
 		artists_id: 284,
 		artists_names: "Shu Ren Cheng",
@@ -5124,7 +5124,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 552,
+		registry_id: 552,
 		title: "Century Winds of Change Mural",
 		artists_id: 284,
 		artists_names: "Shu Ren Cheng",
@@ -5150,7 +5150,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 400,
+		registry_id: 400,
 		title: "Three Watchmen",
 		artists_id: 285,
 		artists_names: "Jim Hart",
@@ -5177,7 +5177,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 387,
+		registry_id: 387,
 		title: "AIDS Memorial",
 		artists_id: 286,
 		artists_names: "Bruce Wilson",
@@ -5204,7 +5204,7 @@ module.exports = [
 		installation_year: 2004,
 	},
 	{
-		registryID: 397,
+		registry_id: 397,
 		title: "Patterning: A Time Project",
 		artists_id: 289,
 		artists_names: "Cyndy Chwelos",
@@ -5230,7 +5230,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 361,
+		registry_id: 361,
 		title: "Celebration Frieze",
 		artists_id: 289,
 		artists_names: "Cyndy Chwelos",
@@ -5257,7 +5257,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 599,
+		registry_id: 599,
 		title: "Still Here",
 		artists_id: 290,
 		artists_names: "Carmen Rosen",
@@ -5284,7 +5284,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 411,
+		registry_id: 411,
 		title: "Untitled (light work)",
 		artists_id: 291,
 		artists_names: "Diana Thater",
@@ -5310,7 +5310,7 @@ module.exports = [
 		installation_year: 2005,
 	},
 	{
-		registryID: 377,
+		registry_id: 377,
 		title: "Project for a Public Works Yard",
 		artists_id: 292,
 		artists_names: "Greg Snider",
@@ -5337,7 +5337,7 @@ module.exports = [
 		installation_year: 2004,
 	},
 	{
-		registryID: 393,
+		registry_id: 393,
 		title: "CuTArT Crossroads: Community Seat",
 		artists_id: 296,
 		artists_names: "David Fushtey",
@@ -5363,7 +5363,7 @@ module.exports = [
 		installation_year: 2003,
 	},
 	{
-		registryID: 424,
+		registry_id: 424,
 		title: "People Amongst the People",
 		artists_id: 300,
 		artists_names: "Susan Point",
@@ -5390,7 +5390,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 589,
+		registry_id: 589,
 		title: "Fusion",
 		artists_id: 300,
 		artists_names: "Susan Point",
@@ -5417,7 +5417,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 626,
+		registry_id: 626,
 		title: "Salish Gifts",
 		artists_id: 300,
 		artists_names: "Susan Point",
@@ -5443,7 +5443,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 405,
+		registry_id: 405,
 		title: "2000 Views of Strathcona",
 		artists_id: 301,
 		artists_names: "Martin Borden",
@@ -5469,7 +5469,7 @@ module.exports = [
 		installation_year: 2000,
 	},
 	{
-		registryID: 432,
+		registry_id: 432,
 		title: "Peaceable Kingdom",
 		artists_id: 315,
 		artists_names: "Tom Dean",
@@ -5495,7 +5495,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 445,
+		registry_id: 445,
 		title: "Aerodynamic Forms in Space",
 		artists_id: 316,
 		artists_names: "Rodney Graham",
@@ -5522,7 +5522,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 823,
+		registry_id: 823,
 		title: "Spinning Chandelier",
 		artists_id: 316,
 		artists_names: "Rodney Graham",
@@ -5550,7 +5550,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 430,
+		registry_id: 430,
 		title: "Weathervane",
 		artists_id: 316,
 		artists_names: "Rodney Graham",
@@ -5577,7 +5577,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 436,
+		registry_id: 436,
 		title: "Double Blind",
 		artists_id: 317,
 		artists_names: "Antonia Hirsch",
@@ -5603,7 +5603,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 713,
+		registry_id: 713,
 		title: "Untitled",
 		artists_id: 318,
 		artists_names: "Jody Broomfield",
@@ -5628,7 +5628,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 438,
+		registry_id: 438,
 		title: "The Drop",
 		artists_id: 321,
 		artists_names: "Inges Idee",
@@ -5655,7 +5655,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 442,
+		registry_id: 442,
 		title: "The Solar Bike Tree",
 		artists_id: 322,
 		artists_names: "Spring Gillard",
@@ -5682,7 +5682,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 444,
+		registry_id: 444,
 		title: "Everything Is Going To Be Alright",
 		artists_id: 325,
 		artists_names: "Martin Creed",
@@ -5708,7 +5708,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 453,
+		registry_id: 453,
 		title: "Ice Light",
 		artists_id: 326,
 		artists_names: "Gunda F�rster",
@@ -5735,7 +5735,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 682,
+		registry_id: 682,
 		title: "Trypophobia",
 		artists_id: 327,
 		artists_names: "Cody Lecoy",
@@ -5760,7 +5760,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 597,
+		registry_id: 597,
 		title: "Nail Farm",
 		artists_id: 329,
 		artists_names: "Christian Kliegel",
@@ -5787,7 +5787,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 656,
+		registry_id: 656,
 		title: "The Unseen",
 		artists_id: 331,
 		artists_names: "Ron Terada",
@@ -5814,7 +5814,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 466,
+		registry_id: 466,
 		title: "Spindle Whorls",
 		artists_id: 336,
 		artists_names: "Aaron Nelson-Moody",
@@ -5840,7 +5840,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 463,
+		registry_id: 463,
 		title: "Bright Futures",
 		artists_id: 337,
 		artists_names: "Brent Sparrow",
@@ -5866,7 +5866,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 694,
+		registry_id: 694,
 		title: "Elle Matador",
 		artists_id: 343,
 		artists_names: "Steve Hornung",
@@ -5891,7 +5891,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 810,
+		registry_id: 810,
 		title: "Everyday Things (日常事物)",
 		artists_id: 344,
 		artists_names: "Paul Wong",
@@ -5918,7 +5918,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 833,
+		registry_id: 833,
 		title: "Saltwater City Vancouver/鹹水埠温哥华",
 		artists_id: 344,
 		artists_names: "Paul Wong",
@@ -5944,7 +5944,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 671,
+		registry_id: 671,
 		title: "Lover",
 		artists_id: 347,
 		artists_names: "Justin Broadbent",
@@ -5969,7 +5969,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 679,
+		registry_id: 679,
 		title: "Box of Crayons",
 		artists_id: 348,
 		artists_names: "Scott Sueme",
@@ -5994,7 +5994,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 691,
+		registry_id: 691,
 		title: "Vancouver Special",
 		artists_id: 350,
 		artists_names: "Kyle Scott",
@@ -6019,7 +6019,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 703,
+		registry_id: 703,
 		title: "You Made It",
 		artists_id: 354,
 		artists_names: "Frazer Adams",
@@ -6044,7 +6044,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 485,
+		registry_id: 485,
 		title:
 			"Lying on top of a building the clouds looked no nearer than when I was lying on the street…",
 		artists_id: 368,
@@ -6072,7 +6072,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 456,
+		registry_id: 456,
 		title: "The Birds",
 		artists_id: 374,
 		artists_names: "Myfanwy MacLeod",
@@ -6099,7 +6099,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 673,
+		registry_id: 673,
 		title: "System",
 		artists_id: 376,
 		artists_names: "Corey Bulpitt",
@@ -6124,7 +6124,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 678,
+		registry_id: 678,
 		title: "Horns",
 		artists_id: 380,
 		artists_names: "Taka Sudo",
@@ -6149,7 +6149,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 737,
+		registry_id: 737,
 		title: "Pattern Reflection",
 		artists_id: 382,
 		artists_names: "Cameron Kerr",
@@ -6176,7 +6176,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 528,
+		registry_id: 528,
 		title: "Mind Crystal",
 		artists_id: 382,
 		artists_names: "Cameron Kerr",
@@ -6203,7 +6203,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 512,
+		registry_id: 512,
 		title: "Young Artist Warriors Mural",
 		artists_id: 384,
 		artists_names: "Jeska Slater",
@@ -6229,7 +6229,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 517,
+		registry_id: 517,
 		title: "Abundance Fenced",
 		artists_id: 387,
 		artists_names: "Michael Nicoll Yahgulanaas",
@@ -6256,7 +6256,7 @@ module.exports = [
 		installation_year: 2011,
 	},
 	{
-		registryID: 518,
+		registry_id: 518,
 		title: "A-maze-ing Laughter",
 		artists_id: 388,
 		artists_names: "Yue Minjun",
@@ -6283,7 +6283,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 520,
+		registry_id: 520,
 		title: "To Connect (Metro Vancouver Pump Station)",
 		artists_id: 390,
 		artists_names: "Sheila Hall",
@@ -6309,7 +6309,7 @@ module.exports = [
 		installation_year: 2008,
 	},
 	{
-		registryID: 521,
+		registry_id: 521,
 		title: "Digital Orca",
 		artists_id: 391,
 		artists_names: "Douglas Coupland",
@@ -6335,7 +6335,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 524,
+		registry_id: 524,
 		title: "Terry Fox Memorial",
 		artists_id: 391,
 		artists_names: "Douglas Coupland",
@@ -6361,7 +6361,7 @@ module.exports = [
 		installation_year: 2011,
 	},
 	{
-		registryID: 798,
+		registry_id: 798,
 		title: "Life Under the Marquee",
 		artists_id: 395,
 		artists_names: "Germaine Koh",
@@ -6388,7 +6388,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 531,
+		registry_id: 531,
 		title: "SeeSawSeat",
 		artists_id: 395,
 		artists_names: "Germaine Koh",
@@ -6414,7 +6414,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 556,
+		registry_id: 556,
 		title: "TAG",
 		artists_id: 396,
 		artists_names: "Sonny Assu",
@@ -6439,7 +6439,7 @@ module.exports = [
 		installation_year: 2013,
 	},
 	{
-		registryID: 561,
+		registry_id: 561,
 		title: "Dreamweaver",
 		artists_id: 407,
 		artists_names: "Knut Whee Mul Uck (Francis Horne Sr.)",
@@ -6464,7 +6464,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 460,
+		registry_id: 460,
 		title: "Sacredness of Four",
 		artists_id: 408,
 		artists_names: "Ray Natraoro",
@@ -6490,7 +6490,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 736,
+		registry_id: 736,
 		title: "All My Favourite People Are Animals",
 		artists_id: 411,
 		artists_names: "Erica Stocking",
@@ -6517,7 +6517,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 555,
+		registry_id: 555,
 		title: "Nike",
 		artists_id: 412,
 		artists_names: "Pavlos Angelos Kougioumtzis",
@@ -6544,7 +6544,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 727,
+		registry_id: 727,
 		title: "Listening. On. Waking Terrain.",
 		artists_id: 419,
 		artists_names: "Bracken Hanuse Corlett",
@@ -6570,7 +6570,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 593,
+		registry_id: 593,
 		title: "Landscape: Possessing Numerous Peaks and Ripples ",
 		artists_id: 424,
 		artists_names: "Huang Zhiyang",
@@ -6597,7 +6597,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 596,
+		registry_id: 596,
 		title: "Shore to Shore",
 		artists_id: 426,
 		artists_names: "Luke Marston",
@@ -6623,7 +6623,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 605,
+		registry_id: 605,
 		title: "Untitled (Welcome Figure)",
 		artists_id: 428,
 		artists_names: "Darren Yelton",
@@ -6649,7 +6649,7 @@ module.exports = [
 		installation_year: 2006,
 	},
 	{
-		registryID: 612,
+		registry_id: 612,
 		title: "Robson Park Community Mural",
 		artists_id: 430,
 		artists_names: "Lindsey Kyoko Adams",
@@ -6676,7 +6676,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 89,
+		registry_id: 89,
 		title: "Thunderbird House Post",
 		artists_id: 470,
 		artists_names: "Tony Hunt",
@@ -6703,7 +6703,7 @@ module.exports = [
 		installation_year: 1988,
 	},
 	{
-		registryID: 660,
+		registry_id: 660,
 		title: "SWELL",
 		artists_id: 477,
 		artists_names: " Urban Visuals",
@@ -6729,7 +6729,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 661,
+		registry_id: 661,
 		title: "North Lobby",
 		artists_id: 478,
 		artists_names: "Brian Rideout",
@@ -6755,7 +6755,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 662,
+		registry_id: 662,
 		title: "South Lobby",
 		artists_id: 478,
 		artists_names: "Brian Rideout",
@@ -6781,7 +6781,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 669,
+		registry_id: 669,
 		title: "Dire Wolves",
 		artists_id: 479,
 		artists_names: "Ben Tour",
@@ -6806,7 +6806,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 675,
+		registry_id: 675,
 		title: "Solar Vacation",
 		artists_id: 480,
 		artists_names: "Ali Bruce",
@@ -6831,7 +6831,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 591,
+		registry_id: 591,
 		title: "Substation Pavilion",
 		artists_id: 486,
 		artists_names: "Cedric Bomford",
@@ -6857,7 +6857,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 630,
+		registry_id: 630,
 		title: "Journey & Protector",
 		artists_id: 490,
 		artists_names: "Stephen Peltonen",
@@ -6883,7 +6883,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 667,
+		registry_id: 667,
 		title: "WHERENESS",
 		artists_id: 492,
 		artists_names: "Rebecca Bayer",
@@ -6911,7 +6911,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 683,
+		registry_id: 683,
 		title: "Van City Scape",
 		artists_id: 493,
 		artists_names: "Ola Volo",
@@ -6936,7 +6936,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 684,
+		registry_id: 684,
 		title: "Kids",
 		artists_id: 494,
 		artists_names: "Peter Ricq",
@@ -6961,7 +6961,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 685,
+		registry_id: 685,
 		title: "We’re looking for People Who Like to Look for People",
 		artists_id: 495,
 		artists_names: " Bobo",
@@ -6986,7 +6986,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 686,
+		registry_id: 686,
 		title: "Early Birds",
 		artists_id: 496,
 		artists_names: "Shannon Elliott",
@@ -7011,7 +7011,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 688,
+		registry_id: 688,
 		title: "Untitled",
 		artists_id: 497,
 		artists_names: "Ashley Guindon",
@@ -7036,7 +7036,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 690,
+		registry_id: 690,
 		title: "Floating (Eye)Land",
 		artists_id: 498,
 		artists_names: "Julia Iredale",
@@ -7061,7 +7061,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 697,
+		registry_id: 697,
 		title: "Factory Interior",
 		artists_id: 501,
 		artists_names: "Mark Illing",
@@ -7086,7 +7086,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 610,
+		registry_id: 610,
 		title: "Zipper",
 		artists_id: 510,
 		artists_names: "Urs-P Twellmann",
@@ -7111,7 +7111,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 687,
+		registry_id: 687,
 		title: "Smart Phone Slavery",
 		artists_id: 512,
 		artists_names: "Tim Barnard",
@@ -7136,7 +7136,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 705,
+		registry_id: 705,
 		title: "Follow 4 Follow?",
 		artists_id: 515,
 		artists_names: "I Heart",
@@ -7161,7 +7161,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 706,
+		registry_id: 706,
 		title: "The Missing Piece",
 		artists_id: 515,
 		artists_names: "I Heart",
@@ -7186,7 +7186,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 704,
+		registry_id: 704,
 		title: "Saying Goodbye",
 		artists_id: 515,
 		artists_names: "I Heart",
@@ -7211,7 +7211,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 707,
+		registry_id: 707,
 		title: "Stillness",
 		artists_id: 515,
 		artists_names: "I Heart",
@@ -7236,7 +7236,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 708,
+		registry_id: 708,
 		title: "Failure To Communicate",
 		artists_id: 515,
 		artists_names: "I Heart",
@@ -7261,7 +7261,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 511,
+		registry_id: 511,
 		title: "Abbott & Cordova, 7 August 1971",
 		artists_id: 521,
 		artists_names: "Stan Douglas",
@@ -7287,7 +7287,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 514,
+		registry_id: 514,
 		title: "Soul Gardens Mural Project",
 		artists_id: 522,
 		artists_names: "Shallom (Indigo) Johnson",
@@ -7315,7 +7315,7 @@ module.exports = [
 		installation_year: 2011,
 	},
 	{
-		registryID: 674,
+		registry_id: 674,
 		title: "Serve/Protect",
 		artists_id: 522,
 		artists_names: "Shallom (Indigo) Johnson",
@@ -7340,7 +7340,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 607,
+		registry_id: 607,
 		title: "Departure",
 		artists_id: 523,
 		artists_names: "George Lundeen",
@@ -7365,7 +7365,7 @@ module.exports = [
 		installation_year: 2013,
 	},
 	{
-		registryID: 689,
+		registry_id: 689,
 		title: "The Mad Symphony",
 		artists_id: 527,
 		artists_names: "Tim Mack",
@@ -7390,7 +7390,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 618,
+		registry_id: 618,
 		title: "RGB",
 		artists_id: 532,
 		artists_names: "Michael Lin",
@@ -7417,7 +7417,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 559,
+		registry_id: 559,
 		title: "Komagata Maru",
 		artists_id: 538,
 		artists_names: "Lees & Associates",
@@ -7442,7 +7442,7 @@ module.exports = [
 		installation_year: 2013,
 	},
 	{
-		registryID: 566,
+		registry_id: 566,
 		title: "Wish You Were Here",
 		artists_id: 540,
 		artists_names: "Warren Langley",
@@ -7468,7 +7468,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 581,
+		registry_id: 581,
 		title: "People of the Dawn",
 		artists_id: 541,
 		artists_names: "Alan Syliboy",
@@ -7495,7 +7495,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 677,
+		registry_id: 677,
 		title: "The Harpy and the Medusa",
 		artists_id: 543,
 		artists_names: "Nomi Chi",
@@ -7520,7 +7520,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 702,
+		registry_id: 702,
 		title: "Tidal Recall",
 		artists_id: 544,
 		artists_names: "Nelson Garcia",
@@ -7545,7 +7545,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 586,
+		registry_id: 586,
 		title: "RestART Mural",
 		artists_id: 546,
 		artists_names: "Vince Dumoulin",
@@ -7571,7 +7571,7 @@ module.exports = [
 		installation_year: 2011,
 	},
 	{
-		registryID: 681,
+		registry_id: 681,
 		title: "Yama and Mara",
 		artists_id: 552,
 		artists_names: "Paige Bowman",
@@ -7596,7 +7596,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 668,
+		registry_id: 668,
 		title: "Handhug",
 		artists_id: 558,
 		artists_names: "Andrea Wan",
@@ -7621,7 +7621,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 692,
+		registry_id: 692,
 		title: "Everything Matters, Nothing’s Important",
 		artists_id: 559,
 		artists_names: "Katie Maasik",
@@ -7646,7 +7646,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 747,
+		registry_id: 747,
 		title: "Rain",
 		artists_id: 560,
 		artists_names: "Khan Lee",
@@ -7673,7 +7673,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 787,
+		registry_id: 787,
 		title: "108 STEPS",
 		artists_id: 560,
 		artists_names: "Khan Lee",
@@ -7701,7 +7701,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 814,
+		registry_id: 814,
 		title:
 			"Sisters, Daughters, Clan mothers: honouring Indigenous Women and Girls",
 		artists_id: 567,
@@ -7729,7 +7729,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 841,
+		registry_id: 841,
 		title: "Koco, Brewers Park, August 11, 2019",
 		artists_id: 580,
 		artists_names: "Peter Gazendam",
@@ -7756,7 +7756,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 751,
+		registry_id: 751,
 		title: "A Long Conversation (for Oona)",
 		artists_id: 580,
 		artists_names: "Peter Gazendam",
@@ -7782,7 +7782,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 644,
+		registry_id: 644,
 		title: "Beyond the Sea, Against the Sun",
 		artists_id: 581,
 		artists_names: "Martin Boyce",
@@ -7808,7 +7808,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 746,
+		registry_id: 746,
 		title: "Slow",
 		artists_id: 583,
 		artists_names: "Zhang Huan",
@@ -7834,7 +7834,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 745,
+		registry_id: 745,
 		title: "Pick-up Sticks",
 		artists_id: 585,
 		artists_names: "art.site",
@@ -7861,7 +7861,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 759,
+		registry_id: 759,
 		title: "Should I Be Worried?",
 		artists_id: 587,
 		artists_names: "Justin Langlois",
@@ -7887,7 +7887,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 749,
+		registry_id: 749,
 		title: "Finger Paint",
 		artists_id: 588,
 		artists_names: "Elizabeth McIntosh",
@@ -7914,7 +7914,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 769,
+		registry_id: 769,
 		title: "Waft",
 		artists_id: 597,
 		artists_names: "Elizabeth McIntosh",
@@ -7941,7 +7941,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 776,
+		registry_id: 776,
 		title: "Welcome to Kitsilano",
 		artists_id: 599,
 		artists_names: "Pete Ryan",
@@ -7967,7 +7967,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 778,
+		registry_id: 778,
 		title: "Nautika",
 		artists_id: 601,
 		artists_names: "Marie Khouri",
@@ -7993,7 +7993,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 733,
+		registry_id: 733,
 		title: "Colour Seekers, The Colour Collector's Way",
 		artists_id: 603,
 		artists_names: "Torrie Groening",
@@ -8019,7 +8019,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 824,
+		registry_id: 824,
 		title: "Musqueam Artist-Designed Crosswalk",
 		artists_id: 607,
 		artists_names: "Robyn Sparrow",
@@ -8045,7 +8045,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 792,
+		registry_id: 792,
 		title: "Weaving Our Community Together",
 		artists_id: 610,
 		artists_names: "Hazel Bell-Koski",
@@ -8070,7 +8070,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 794,
+		registry_id: 794,
 		title: "A New Light In Town",
 		artists_id: 611,
 		artists_names: "Alex Morrison",
@@ -8097,7 +8097,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 801,
+		registry_id: 801,
 		title: "Vancouver 2010 Olympic Truce Installation",
 		artists_id: 613,
 		artists_names: "Corrine Hunt",
@@ -8123,7 +8123,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 800,
+		registry_id: 800,
 		title: "Meristem",
 		artists_id: 614,
 		artists_names: "IE Creative",
@@ -8150,7 +8150,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 139,
+		registry_id: 139,
 		title: "Pressure Group 6",
 		artists_id: 615,
 		artists_names: "Barry Cogswell",
@@ -8175,7 +8175,7 @@ module.exports = [
 		installation_year: 1982,
 	},
 	{
-		registryID: 807,
+		registry_id: 807,
 		title: "Tabay Nghuni Nzoo",
 		artists_id: 619,
 		artists_names: "Damian John",
@@ -8202,7 +8202,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 808,
+		registry_id: 808,
 		title: "聚 Gathering",
 		artists_id: 620,
 		artists_names: "Dawn Lo",
@@ -8229,7 +8229,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 809,
+		registry_id: 809,
 		title: "Eight Immortals Crossing the Sea",
 		artists_id: 621,
 		artists_names: " Bagua Artist Association",
@@ -8256,7 +8256,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 811,
+		registry_id: 811,
 		title: "Celebrating Spring Festival in Chinatown",
 		artists_id: 622,
 		artists_names: "Shuren Arthur Cheng",
@@ -8283,7 +8283,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 812,
+		registry_id: 812,
 		title: "Remember Hogan's Alley",
 		artists_id: 623,
 		artists_names: 'Ejiwa "Edge" Ebenebe',
@@ -8310,7 +8310,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 815,
+		registry_id: 815,
 		title: "The Seven Fires Prophecies",
 		artists_id: 625,
 		artists_names: "Joshua Mangeshlg Pawis-Steckley",
@@ -8337,7 +8337,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 816,
+		registry_id: 816,
 		title:
 			"Rewilding: “You want to return to the land but does the land want you?”",
 		artists_id: 626,
@@ -8365,7 +8365,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 285,
+		registry_id: 285,
 		title: "The Totems",
 		artists_id: 629,
 		artists_names: "Art Sterritt",
@@ -8391,7 +8391,7 @@ module.exports = [
 		installation_year: 1972,
 	},
 	{
-		registryID: 825,
+		registry_id: 825,
 		title: "Erwin Wurm",
 		artists_id: 631,
 		artists_names: "Erwin Wurm",
@@ -8418,7 +8418,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 847,
+		registry_id: 847,
 		title: "The Giant Hand And The Birth of Gianthropology",
 		artists_id: 647,
 		artists_names: "Henri Robideau",
@@ -8445,7 +8445,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 851,
+		registry_id: 851,
 		title: "Talking Trees",
 		artists_id: 649,
 		artists_names: "Dejan Radovanovic",
@@ -8472,7 +8472,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 861,
+		registry_id: 861,
 		title: "Waiting On A Friend, from the series Isolation",
 		artists_id: 656,
 		artists_names: "Wade Comer",
@@ -8499,7 +8499,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 863,
+		registry_id: 863,
 		title: "Gaslight",
 		artists_id: 660,
 		artists_names: "Kathleen Ritter",
@@ -8526,7 +8526,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 202,
+		registry_id: 202,
 		title: "Kakasa'las",
 		artists_id: 100,
 		artists_names: "Mungo Martin, Ellen Neel",
@@ -8553,7 +8553,7 @@ module.exports = [
 		installation_year: 1955,
 	},
 	{
-		registryID: 141,
+		registry_id: 141,
 		title: "The Mosquito People",
 		artists_id: 109,
 		artists_names: "Earl Muldoe, Brian Muldoe",
@@ -8579,7 +8579,7 @@ module.exports = [
 		installation_year: 1986,
 	},
 	{
-		registryID: 281,
+		registry_id: 281,
 		title: "GRANtable",
 		artists_id: 114,
 		artists_names: "Bill Pechet, Stephanie Robb",
@@ -8606,7 +8606,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 204,
+		registry_id: 204,
 		title: "All Our Knowledge has its Origins in Our Perceptions",
 		artists_id: 12,
 		artists_names: "Brian Baxter, Markian Olynyk",
@@ -8632,7 +8632,7 @@ module.exports = [
 		installation_year: 1995,
 	},
 	{
-		registryID: 136,
+		registry_id: 136,
 		title: "Primavera",
 		artists_id: 132,
 		artists_names: "Jack Shadbolt, Alan Wood, Greg Bullen",
@@ -8659,7 +8659,7 @@ module.exports = [
 		installation_year: 1987,
 	},
 	{
-		registryID: 48,
+		registry_id: 48,
 		title: "Nature's Own Geometry",
 		artists_id: 144,
 		artists_names: "Patricia Thomas, Lionel Thomas",
@@ -8685,7 +8685,7 @@ module.exports = [
 		installation_year: 1965,
 	},
 	{
-		registryID: 209,
+		registry_id: 209,
 		title: "Street Light",
 		artists_id: 147,
 		artists_names: "Alan Tregebov, Bernie Miller",
@@ -8712,7 +8712,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 564,
+		registry_id: 564,
 		title: "Through the Eye of the Raven",
 		artists_id: 148,
 		artists_names: "Richard Tetrault, Jerry Whitehead",
@@ -8737,7 +8737,7 @@ module.exports = [
 		installation_year: 2010,
 	},
 	{
-		registryID: 221,
+		registry_id: 221,
 		title: "Southlands Salmon Wall",
 		artists_id: 167,
 		artists_names: "Alison Diesvelt, Debra Sparrow",
@@ -8764,7 +8764,7 @@ module.exports = [
 		installation_year: 1995,
 	},
 	{
-		registryID: 789,
+		registry_id: 789,
 		title: "Musqueam Weavings",
 		artists_id: 168,
 		artists_names: "Debra Sparrow, Krista Point, Robyn Sparrow",
@@ -8790,7 +8790,7 @@ module.exports = [
 		installation_year: 2013,
 	},
 	{
-		registryID: 231,
+		registry_id: 231,
 		title: "Backstop: A Stage for Wordsworth",
 		artists_id: 170,
 		artists_names: "Karen Kazmer, Todd Davis, Mark Grady",
@@ -8816,7 +8816,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 269,
+		registry_id: 269,
 		title: "Dry Stream",
 		artists_id: 181,
 		artists_names: "",
@@ -8843,7 +8843,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 275,
+		registry_id: 275,
 		title: "McGill Park",
 		artists_id: 181,
 		artists_names: "",
@@ -8870,7 +8870,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 540,
+		registry_id: 540,
 		title: "Peek-a-Boo",
 		artists_id: 202,
 		artists_names: "",
@@ -8896,7 +8896,7 @@ module.exports = [
 		installation_year: 2013,
 	},
 	{
-		registryID: 92,
+		registry_id: 92,
 		title: "Sky Chief Pole",
 		artists_id: 239,
 		artists_names: "",
@@ -8922,7 +8922,7 @@ module.exports = [
 		installation_year: 1989,
 	},
 	{
-		registryID: 741,
+		registry_id: 741,
 		title: "Spirits of the Realms",
 		artists_id: 294,
 		artists_names: "",
@@ -8949,7 +8949,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 595,
+		registry_id: 595,
 		title: "Land and Sea",
 		artists_id: 324,
 		artists_names: "",
@@ -8976,7 +8976,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 451,
+		registry_id: 451,
 		title: "Boulevard",
 		artists_id: 332,
 		artists_names: "",
@@ -9003,7 +9003,7 @@ module.exports = [
 		installation_year: 2009,
 	},
 	{
-		registryID: 625,
+		registry_id: 625,
 		title: "Tools of the Fraser River",
 		artists_id: 335,
 		artists_names: "",
@@ -9029,7 +9029,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 658,
+		registry_id: 658,
 		title: "Fraser River Stories",
 		artists_id: 335,
 		artists_names: "",
@@ -9055,7 +9055,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 805,
+		registry_id: 805,
 		title: "Adrift",
 		artists_id: 341,
 		artists_names: "",
@@ -9082,7 +9082,7 @@ module.exports = [
 		installation_year: 2019,
 	},
 	{
-		registryID: 529,
+		registry_id: 529,
 		title: "Geyser for Hillcrest Park",
 		artists_id: 345,
 		artists_names: "",
@@ -9109,7 +9109,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 701,
+		registry_id: 701,
 		title: "Untitled",
 		artists_id: 351,
 		artists_names: "",
@@ -9134,7 +9134,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 715,
+		registry_id: 715,
 		title: "Playtime",
 		artists_id: 374,
 		artists_names: "",
@@ -9162,7 +9162,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 499,
+		registry_id: 499,
 		title: "Portal",
 		artists_id: 381,
 		artists_names: "",
@@ -9189,7 +9189,7 @@ module.exports = [
 		installation_year: 2011,
 	},
 	{
-		registryID: 519,
+		registry_id: 519,
 		title: "A False Creek",
 		artists_id: 389,
 		artists_names: "",
@@ -9216,7 +9216,7 @@ module.exports = [
 		installation_year: 2012,
 	},
 	{
-		registryID: 614,
+		registry_id: 614,
 		title: "Watch Seller",
 		artists_id: 389,
 		artists_names: "",
@@ -9241,7 +9241,7 @@ module.exports = [
 		installation_year: 2015,
 	},
 	{
-		registryID: 567,
+		registry_id: 567,
 		title: "Idea for a Trellis",
 		artists_id: 389,
 		artists_names: "",
@@ -9267,7 +9267,7 @@ module.exports = [
 		installation_year: 2014,
 	},
 	{
-		registryID: 522,
+		registry_id: 522,
 		title: "Whispers",
 		artists_id: 392,
 		artists_names: "",
@@ -9294,7 +9294,7 @@ module.exports = [
 		installation_year: 2011,
 	},
 	{
-		registryID: 224,
+		registry_id: 224,
 		title: "Healing the Cut - Bridging the Gap",
 		artists_id: 43,
 		artists_names: "",
@@ -9321,7 +9321,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 783,
+		registry_id: 783,
 		title: "The Future has Arrived AATL'AAN K'ATGWAA TLUU. K_AATLAAGANG",
 		artists_id: 441,
 		artists_names: "",
@@ -9347,7 +9347,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 699,
+		registry_id: 699,
 		title: "Armourer",
 		artists_id: 502,
 		artists_names: "",
@@ -9372,7 +9372,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 700,
+		registry_id: 700,
 		title: "Wavy Wetcoast",
 		artists_id: 504,
 		artists_names: "",
@@ -9397,7 +9397,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 693,
+		registry_id: 693,
 		title: "Knot Yourself",
 		artists_id: 513,
 		artists_names: "",
@@ -9422,7 +9422,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 232,
+		registry_id: 232,
 		title: "Big Bike",
 		artists_id: 52,
 		artists_names: "",
@@ -9448,7 +9448,7 @@ module.exports = [
 		installation_year: 1998,
 	},
 	{
-		registryID: 676,
+		registry_id: 676,
 		title: "The Present is a Gift",
 		artists_id: 525,
 		artists_names: "",
@@ -9473,7 +9473,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 680,
+		registry_id: 680,
 		title: "Exhausting Machine",
 		artists_id: 535,
 		artists_names: "",
@@ -9498,7 +9498,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 670,
+		registry_id: 670,
 		title: "Sutton Boys",
 		artists_id: 549,
 		artists_names: "",
@@ -9523,7 +9523,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 319,
+		registry_id: 319,
 		title: "Wilp",
 		artists_id: 55,
 		artists_names: "",
@@ -9551,7 +9551,7 @@ module.exports = [
 		installation_year: 1985,
 	},
 	{
-		registryID: 698,
+		registry_id: 698,
 		title: "I Ate a Whole Raccoon",
 		artists_id: 553,
 		artists_names: "",
@@ -9576,7 +9576,7 @@ module.exports = [
 		installation_year: 2016,
 	},
 	{
-		registryID: 742,
+		registry_id: 742,
 		title: "Bringing Light to Darkness",
 		artists_id: 572,
 		artists_names: "",
@@ -9603,7 +9603,7 @@ module.exports = [
 		installation_year: 2017,
 	},
 	{
-		registryID: 779,
+		registry_id: 779,
 		title: "Eyes on the Street",
 		artists_id: 601,
 		artists_names: "",
@@ -9630,7 +9630,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 782,
+		registry_id: 782,
 		title: "Sinulhka: Story of the Double Headed Serpent",
 		artists_id: 604,
 		artists_names: "",
@@ -9656,7 +9656,7 @@ module.exports = [
 		installation_year: 2018,
 	},
 	{
-		registryID: 857,
+		registry_id: 857,
 		title: "Flow Tide",
 		artists_id: 651,
 		artists_names: "",
@@ -9683,7 +9683,7 @@ module.exports = [
 		installation_year: 2020,
 	},
 	{
-		registryID: 305,
+		registry_id: 305,
 		title: "Grandview-Terrace Welcoming Poles",
 		artists_id: 66,
 		artists_names: "",
@@ -9709,7 +9709,7 @@ module.exports = [
 		installation_year: 2000,
 	},
 	{
-		registryID: 252,
+		registry_id: 252,
 		title: "Mosaic Creek",
 		artists_id: 67,
 		artists_names: "",
@@ -9736,7 +9736,7 @@ module.exports = [
 		installation_year: 1996,
 	},
 	{
-		registryID: 267,
+		registry_id: 267,
 		title: "Welcoming Walkway",
 		artists_id: 69,
 		artists_names: "",
@@ -9762,7 +9762,7 @@ module.exports = [
 		installation_year: 2001,
 	},
 	{
-		registryID: 64,
+		registry_id: 64,
 		title: "Lookout",
 		artists_id: 80,
 		artists_names: "",
@@ -9789,7 +9789,7 @@ module.exports = [
 		installation_year: 1999,
 	},
 	{
-		registryID: 192,
+		registry_id: 192,
 		title: "Horizontal Column",
 		artists_id: 88,
 		artists_names: "",
@@ -9814,7 +9814,7 @@ module.exports = [
 		installation_year: 1975,
 	},
 	{
-		registryID: 175,
+		registry_id: 175,
 		title: "Symbols of the Cuneiforms",
 		artists_id: 90,
 		artists_names: "",
@@ -9840,7 +9840,7 @@ module.exports = [
 		installation_year: 1960,
 	},
 	{
-		registryID: 368,
+		registry_id: 368,
 		title: "Oppenheimer Memorial Totem Pole",
 		artists_id: null,
 		artists_names: "",
@@ -9866,7 +9866,7 @@ module.exports = [
 		installation_year: 1997,
 	},
 	{
-		registryID: 369,
+		registry_id: 369,
 		title: "Footprints",
 		artists_id: null,
 		artists_names: "",

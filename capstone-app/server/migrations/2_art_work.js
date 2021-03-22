@@ -1,27 +1,29 @@
-
 exports.up = function (knex) {
-  return knex.schema.createTable('art_works', table => {
-    table.increments('id').primary();
-    table.string('recordid');
-    table.string('sitename').notNullable();
-    table.string('status').notNullable();
-    table.string('year_of_installation').notNullable();
-    table.string('url').notNullable();
-    table.string('url_photo').notNullable();
-    table.string('photo_credits').notNullable();
-    table.integer('registry_id');
-    table.string('primary_material').notNullable();
-    table.string('type').notNullable();
-    table.string('ownership').notNullable();
-    table.string('artists').notNullable();
-    table.string('artists_url').notNullable();
-    table.string('site_address').notNullable();
-    table.string('neighbourhood').notNullable();
-    table.string('location_on_site').notNullable();
-    table.string('geom').notNullable();
-  });
+	return knex.schema.createTable("art_works", (table) => {
+		table.increments("id").primary();
+		table.string("registry_id");
+		table.string("title");
+		table.string("artists_id");
+		table.string("artists_names");
+		table.string("artist_statement");
+		table.string("type");
+		table.string("status");
+		table.string("site_name");
+		table.string("address");
+		table.string("primary_material");
+		table.string("url");
+		table.string("photo_url");
+		table.string("photo_url_jpg");
+		table.string("ownership");
+		table.string("neighbourhood");
+		table.string("geom");
+		table.string("geo_local_area");
+		table.string("work_description");
+		table.string("photo_credits");
+		table.string("installation_year");
+	});
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
 };
-  return knex.schema.dropTable('art_works');
+  return knex.schema.dropTable("art_works");

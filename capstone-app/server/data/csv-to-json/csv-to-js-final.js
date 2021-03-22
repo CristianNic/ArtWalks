@@ -54,7 +54,7 @@ async function compileJSON() {
 		const title = await getArtWorkTitle(publicArt[i].url);
 		const photo_url_jpg = await getOneImageURL(publicArt[i].url);
 		const output = {
-			registryID: parseInt(publicArt[i].registryID),
+			registry_id: parseInt(publicArt[i].registryID),
 			title: title.toString(),
 			artists_id: parseInt(publicArt[i].artists),
 			artists_names: publicArt[i].artists_names,
