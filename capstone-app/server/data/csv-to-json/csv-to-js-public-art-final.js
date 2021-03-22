@@ -81,7 +81,7 @@ async function compileJSON() {
 	}
 	fs.writeFile("art_work_final.js", JSON.stringify(emptyArr), (err) => {
 		if (err) throw err;
-		console.log("The image JSON has been saved!");
+		console.log("The JSON has been saved!");
 	});
 }
 
