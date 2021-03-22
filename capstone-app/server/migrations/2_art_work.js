@@ -1,11 +1,11 @@
 exports.up = function (knex) {
 	return knex.schema.createTable("art_works", (table) => {
 		table.increments("id").primary();
-		table.string("registry_id");
+		table.integer("registry_id");
 		table.string("title");
-		table.string("artists_id");
+		table.integer("artists_id");
 		table.string("artists_names");
-		table.string("artist_statement");
+		table.text("artist_statement");
 		table.string("type");
 		table.string("status");
 		table.string("site_name");
@@ -18,12 +18,12 @@ exports.up = function (knex) {
 		table.string("neighbourhood");
 		table.string("geom");
 		table.string("geo_local_area");
-		table.string("work_description");
+		table.text("work_description");
 		table.string("photo_credits");
-		table.string("installation_year");
+		table.integer("installation_year");
 	});
 };
 
 exports.down = function (knex) {
+	return knex.schema.dropTable("art_works");
 };
-  return knex.schema.dropTable("art_works");
