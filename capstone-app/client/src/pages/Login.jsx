@@ -34,12 +34,12 @@ class Login extends Component {
               <h1 className="login__title">Welcome</h1>
               <form className="login__form">
                 <label className="login__email-label" htmlFor="email">Email</label>
-                <input className="login__email" type="email" name="email" placeholder="Email" id=""
+                <input className="login__email" type="email" name="email" placeholder="Email" id="email"
                   value={this.state.email}
                   onChange={this.state.handleChange} />
                   
                 <label className="login__password-label" htmlFor="password">Password</label>
-                <input className="login__password" type="password" name="password" placeholder="Password" id=""
+                <input className="login__password" type="password" name="password" placeholder="Password" id="password"
                   value={this.state.password}
                   onChange={this.state.handleChange} />
               
@@ -53,7 +53,7 @@ class Login extends Component {
                 
               </form>
 
-            </div>
+          </div>
             {/* <form action="" className="login-form">
               <div className="login-form__container">
                 <div className="login-form__guest">
@@ -85,7 +85,7 @@ class Login extends Component {
 
 export default Login;
 
-{/* 
+/* 
 // <form role="form">
 //   <div class="form-group">
 //     <label> Team/company name</label>
@@ -98,4 +98,5 @@ export default Login;
             
 //         </span></div> <div class="form-group"><label>Password</label> <input type="password" name="password" class="form-control"> <span class="invalid-feedback" style="display: none;">
             
-//         </span></div> <div><button class="btn btn-primary mt-4 w-full"><span><i class="fa fa-btn fa-check-circle"></i> <span>Let's get started</span></span></button></div> <input type="hidden"> <input type="hidden"> <input type="hidden"> <input type="hidden"></form> */}
+//         </span></div> <div><button class="btn btn-primary mt-4 w-full"><span><i class="fa fa-btn fa-check-circle"></i> <span>Let's get started</span></span></button></div> <input type="hidden"> <input type="hidden"> <input type="hidden"> <input type="hidden"></form> 
+*/

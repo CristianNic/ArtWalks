@@ -18,7 +18,7 @@ export default function BottomNav() {
     <nav className="bottom-nav">
       <div className="bottom-nav__container">
         <div className="bottom-nav__btn">
-          <Link to="/search">
+          <Link to="/art_works">
             <img className="bottom-nav__icon" src={iconSearch} alt="search icon" />
             <h4>Explore</h4>
             {/* <h4>Search</h4> */}
@@ -38,7 +38,7 @@ export default function BottomNav() {
           </Link>
         </div>
         <div className="bottom-nav__btn">
-          <Link to="/details/:id">
+          <Link to="/art_works/:id">
             <img className="bottom-nav__icon" src={iconDetails} alt="details icon" />
             <h4>Details</h4>
           </Link>

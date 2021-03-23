@@ -1,16 +1,32 @@
 .art-work {
-  &__constainer {
+  &__container {
   }
   &__li {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    border-color: aqua;
+  }
+  &__icon {
+    width: 2.4rem;
   }
   &__photo {
     //display: flex;
-    max-width: 40rem;
-    margin: 0 auto;
+    // width: 100%;
+    // height: 100%;
+    // object-fit: cover; /*magic*/
     // align-items: center;
     // justify-content: center;
+    
+
+    max-width: 40rem;  // <-- works
+    margin: 0 auto;    // <-- works
+    // object-fit: cover; /*magic*/
+
+
+    // &-container {
+    //   width: 380px; /*any size*/
+    //   height: 200px; /*any size*/
+    // }
   }
 }

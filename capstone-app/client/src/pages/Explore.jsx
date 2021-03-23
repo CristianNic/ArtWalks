@@ -1,8 +1,21 @@
 import axios from 'axios';
 import { Component } from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+// import { BrowserRouter as Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav/BottomNav';
 import ArtWorks from '../components/ArtWorks/ArtWorks';
+
+
+// ================== Cache ================== 
+// import { setupCache } from 'axios-cache-adapter'
+// // Create `axios-cache-adapter` instance
+// const cache = setupCache({
+//   maxAge: 15 * 60 * 1000
+// })
+// // Create `axios` instance passing the newly created `cache.adapter`
+// const api = axios.create({
+//   adapter: cache.adapter
+// })
+// ================== Cache ================== 
 
 const apiUrl = 'http://localhost:8090/art_works'
 
@@ -58,6 +71,7 @@ class Browse extends Component {
   //       console.log('error:', error.response.data);
   //     })
   // }
+  // ======================= Works ========================  
   getArtWorks() {
     axios
       .get(apiUrl)
@@ -73,6 +87,29 @@ class Browse extends Component {
       })
   }
 
+// ========================= Cache ========================= 
+// * When returning back to the page it needs to pull data from the cache.
+// getArtWorks() {
+//   // axios
+//     api(apiUrl)
+//     .then(async (response) => {
+//       // console.log('response.data:', response.data)
+//       // console.log('response.data.art_works:', response.data.art_works)
+//       // this.setState({
+//       //   art_works: response.data.art_works,
+//       // })
+//       // Interacting with the store, see `localForage` API.
+//       this.setState({
+//         art_works: response.data.art_works,
+//       })
+//       const length = await api.cache.length()
+//       console.log('Cache store length:', length)
+//     })
+//     .catch(function(error) {
+//       // console.log('error:', error.response.data);
+//     })
+// }
+// ========================= Cache ========================= 
 
   // componentDidUpdate(prevProps, prevState) {
   //   console.log('art work updated');
@@ -98,7 +135,7 @@ class Browse extends Component {
       <section className="exp">
         <h1 className="exp__search">Search</h1>
         <form action="submit" onSubmit={handleSearchSubmit}>
-          <input type="text" placeholder="Explore local art..." autofocus />
+          <input type="text" placeholder="Explore local art..." autoFocus />
           <button>Search</button>
           <hr/>
         </form>

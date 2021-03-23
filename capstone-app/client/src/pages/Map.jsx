@@ -45,6 +45,10 @@ class Map extends Component {
     geom: []
   }
 
+  // Browse page passes params back [neighbourhood, title, artist, medium]
+  // 4 different axios calls based on this, 
+  // skips slowdown of all items displayed at once and faster then parsing all works 
+
   componentDidMount() {
     axios
       .get(`http://localhost:8090/art_works`)
