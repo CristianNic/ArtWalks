@@ -1,0 +1,16 @@
+.art-work {
+  &__constainer {
+  }
+  &__li {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  &__photo {
+    //display: flex;
+    max-width: 40rem;
+    margin: 0 auto;
+    // align-items: center;
+    // justify-content: center;
+  }
+}

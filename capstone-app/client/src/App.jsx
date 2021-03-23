@@ -8,8 +8,8 @@ import Explore from './pages/Explore';
 import Favourites from './pages/Favourites';
 import Details from './pages/Details';
 import Profile from './pages/Profile';
-import Test from './pages/Test';
-import TestImg from './pages/TestImg';
+// import Test from './pages/Test';
+// import TestImg from './pages/TestImg';
 
 class App extends Component {
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
         <Switch>
           <Redirect exact from='/' to='/login' />
           <Route exact path='/login' component={Login} />  
-          <Route exact path='/map' component={Test} />       
+          <Route exact path='/map' component={Map} />       
           <Route exact path='/search' component={Explore} />
           <Route exact path='/favourites' component={Favourites} />
           <Route exact path='/details/:id' component={Details} />

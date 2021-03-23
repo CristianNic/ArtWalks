@@ -5,14 +5,12 @@ import BottomNav from '../components/BottomNav/BottomNav';
 
 const apiUrl = 'http://localhost:8090/art_works/2' // details for one
 
-const photo = 'https://covapp.vancouver.ca/PublicArtRegistry/_image.aspx/tDMNbF-41qBPcKfm_Ranl5jigZUdZSNeTsqMi9mOP5w=/M2630%20Main%20Street%20-%20Bure.JPG'
-
 class Details extends Component {
 
   state = {
-    title: '',   // https://covapp.vancouver.ca/PublicArtRegistry/ArtworkDetail.aspx?ArtworkId=672
-    artists: '', // 'Justin Broadbent', // https://covapp.vancouver.ca/PublicArtRegistry/ArtworkDetail.aspx?ArtworkId=672
-    url_photo: '', // https://covapp.vancouver.ca/PublicArtRegistry/ArtworkDetail.aspx?ArtworkId=672'
+    title: '',   
+    artists: '',
+    url_photo: '', 
     photo_credits: '',
     type: '',
     primary_material: '',
@@ -20,7 +18,9 @@ class Details extends Component {
 
   componentDidMount() {
     axios
-      .get(`${apiUrl}`)
+      //.get(`${apiUrl}`)
+      //.get(`http://localhost:8090/art_works${apiUrl}`)
+      .get(`http://localhost:8090/art_works/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           title: response.data.title,

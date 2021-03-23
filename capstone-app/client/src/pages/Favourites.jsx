@@ -17,6 +17,7 @@ class Favourites extends Component {
   componentDidMount() {
     axios
       .get(`http://localhost:8090/favourites/1`)
+      //.get(`http://localhost:8090/favourites/${this.props.match.params.id}`)
       .then(response => {
        // console.log('response.data:', response.data)
         response.data.map((user) => {
