@@ -33,6 +33,21 @@ router.route("/:id").get((req, res) => {
 			res.status(200).json(filteredFavourites[0]);
 		});
 });
+// Get one artwork written shorter
+// router.route("/test/:id").get((req, res) => {
+// 	ArtWorks.fetchAll().then((art_works) => {
+// 		res.status(200).json({ art_works });
+// 	});
+// });
+
+// Get Geom of one artwork
+// router.route('/geo/:id').get((req, res) => {
+//   ArtWorks.where(req.query)
+//     .fetchAll({ withRealted: ['artworks'] })
+//     .then((favourites) => {
+//       res.status(200).json({ favourites })
+//     } )
+// });
 
 // Returns only by Neighbourhood
 router.route("/neighbourhood/:neighbourhood").get((req, res) => {
@@ -96,9 +111,26 @@ router.route("/type/:type").get((req, res) => {
 		});
 });
 
+/* ================   Full Text Search   ==================================== 
+const searchText = ` SELECT * FROM table_name WHERE MATCH(artist_statement)
+                     AGAINST('search_terms' IN NATURAL LANGUAGE MODE)`;
+// https://www.w3resource.com/mysql/mysql-full-text-search-functions.php
+// Create full text index
+// https://github.com/knex/knex/issues/203
+// www.mysqltutorial.org/activating-full-text-searching.aspx/
+// add index on .createTable() https://gist.github.com/cameronblandford/808ca0f66acffb8b50b4e3704d6063a1
+// form query https://stackoverflow.com/questions/47987113/knex-like-query-dynamically-add
 // Returns only by matching keywords in Artist Statements
 router.route("/artist_statement/:statement").get((req, res) => {
-	ArtWorks.where("artist_statement", "like", `%${req.params.statement}%`)
+	const test = req.params.statement;
+	console.log(test);
+	ArtWorks.where("artist_statement", "match", `%${req.params.statement}%`)
+	// ArtWorks.whereRaw("id = ?", [1]) // select * from `users` where id = 1
+	// ArtWorks.query(
+	// 	"where",
+	// 	"MATCH (artist_statement) AGAINST(" + test + ")"
+	// )
+	// ArtWorks.where("art_works.artist_statement LIKE ?", `${req.params.statement}`)
 		.fetchAll()
 		.then((statements) => {
 			console.log(req.params.statement);
@@ -111,7 +143,7 @@ router.route("/artist_statement/:statement").get((req, res) => {
 			res.status(200).json(filteredstatements);
 		});
 });
-// Returns only by matching keywords in Artist Statements
+// Returns only by matching keywords in Work Description
 router.route("/work_description/:desc").get((req, res) => {
 	ArtWorks.where("work_description", "like", req.params.desc)
 		.fetchAll()
@@ -126,11 +158,11 @@ router.route("/work_description/:desc").get((req, res) => {
 			res.status(200).json(description);
 		});
 });
+======================================================================= */
 
 // User can Search by:
 // [x]title, [x]artist, [x]neighbourhood, [x]type, [ ] artist_statement-keywords (5 things)  // -->  any empty fields, either not included or returned last.
 // Search for a word: ArtWorks.where(("columnName", "like", "%rowlikeme%"));
-
 // Returns only by medium type [sculpture, ... ]
 // router.route("/medium/:type").get((req, res) => {
 // 	ArtWorks.where({ type: req.params.type })
@@ -149,20 +181,5 @@ router.route("/test/:id").get((req, res) => {
 		res.status(200).json({ art_works });
 	});
 });
-
-// Get Geom of one artwork
-// router.route('/geo/:id').get((req, res) => {
-//   ArtWorks.where(req.query)
-//     .fetchAll({ withRealted: ['artworks'] })
-//     .then((favourites) => {
-//       res.status(200).json({ favourites })
-//     } )
-// });
-// Get one artwork written shorter
-// router.route("/test/:id").get((req, res) => {
-// 	ArtWorks.fetchAll().then((art_works) => {
-// 		res.status(200).json({ art_works });
-// 	});
-// });
 
 module.exports = router;

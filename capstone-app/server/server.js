@@ -20,6 +20,15 @@ app.use("/user", userRoute);
 app.use("/favourites", favourtiesRoute);
 app.use("/art_works", artWorksRoute);
 
+// error handler outputs json instead of drawing anything on the screen
+app.use(function (err, req, res, next) {
+	res.status(err.status || 500);
+	res.json({
+		message: err.message,
+		error: (res.locals.error = req.app.get("env") === "development" ? err : {}),
+	});
+});
+
 // app.use(function (req, res, next) {
 // 	res.status(404).send("Invalid API access");      <----- What is this used for again?
 // });
