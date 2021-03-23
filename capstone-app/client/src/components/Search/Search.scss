@@ -1,0 +1,9 @@
+.search {
+  background-color: rgb(255, 255, 255);
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/position
+  position: sticky;
+  // position: -webkit-sticky;
+  // position: sticky;
+  // position: sticky; // occupies the space 
+  top: 0;
+}

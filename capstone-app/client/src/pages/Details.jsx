@@ -24,17 +24,16 @@ class Details extends Component {
   
   componentDidMount() {
     axios
-    .get(`http://localhost:8090/art_works/9`)
-    // .get(`http://localhost:8090/art_works/${this.props.match.params.id}`)
-
-     
+    //.get(`http://localhost:8090/art_works/9`)
+    .get(`http://localhost:8090/art_works/${this.props.match.params.id}`)
       .then(response => {
-        console.log('response:', response.data)
+        console.log('response.data:', response.data)
        
         console.log('params.id', this.props.match.params.id) // <--- what is params.id here? 
-        this.setState({
-          art_works: response.data.art_works,
-        });
+        this.setState(
+          //art_works: response.data,
+          response.data,
+        );
         // console.log(this.state)
       })
     console.log('this.state', this.state)
@@ -45,7 +44,7 @@ class Details extends Component {
       <section className="details">
         <h1>{this.state.title}</h1>
         <h2>{this.state.artists}</h2>
-        <img src={this.state.photo} alt="" height="300" />
+        <img src={this.state.photo_url} alt="" height="300" />
         <h3>Photo: {this.state.photo_credits}</h3>
         <h2>{this.state.type}</h2>
         <h2>{this.state.primary_material}</h2>

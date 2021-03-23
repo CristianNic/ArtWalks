@@ -2,7 +2,9 @@ import axios from 'axios';
 import { Component } from 'react';
 // import { BrowserRouter as Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav/BottomNav';
-import ArtWorks from '../components/ArtWorks/ArtWorks';
+import ArtWorks from '../components/ArtWorks/ArtWorks2';
+import Search from '../components/Search/Search';
+
 
 
 // ================== Cache ================== 
@@ -44,10 +46,13 @@ class Browse extends Component {
 
   state = {
     art_works: [],
+    liked: [], 
   }
 
   componentDidMount() {
-    this.getArtWorks();
+    this.getArtWorks(); 
+    // this.getUserFavourites()
+    // this.getUserLikes()
   }
 
   // getArtWorks() {
@@ -133,12 +138,14 @@ class Browse extends Component {
     
     return (
       <section className="exp">
-        <h1 className="exp__search">Search</h1>
+        <Search />
+        {/* <h1 className="exp__search">Search</h1>
         <form action="submit" onSubmit={handleSearchSubmit}>
           <input type="text" placeholder="Explore local art..." autoFocus />
           <button>Search</button>
           <hr/>
-        </form>
+        </form> */}
+
         {/* <ul>
           <li>
             <h1 className="exp__title">{this.state.title}</h1>  
@@ -155,15 +162,16 @@ class Browse extends Component {
 
         {this.state.art_works.map(art => 
           <ArtWorks 
-          // key={art.art_works.id}
-          // title={art.art_works.title}
-          // artists_names={art.art_works.artists_names}
-          // photo_url={art.art_works.photo_url}
-          // photo_credits={art.art_works.photo_credits}
-          // neighbourhood={art.art_works.neighbourhood}
-          // type={art.art_works.type}
-          // artist_statement={art.art_works.artist_statement}
-            key={art.id}
+        //   // key={art.art_works.id}
+        //   // title={art.art_works.title}
+        //   // artists_names={art.art_works.artists_names}
+        //   // photo_url={art.art_works.photo_url}
+        //   // photo_credits={art.art_works.photo_credits}
+        //   // neighbourhood={art.art_works.neighbourhood}
+        //   // type={art.art_works.type}
+        //   // artist_statement={art.art_works.artist_statement}
+            
+            id={art.id}
             title={art.title}
             artists_names={art.artists_names}
             photo_url={art.photo_url}
@@ -171,7 +179,9 @@ class Browse extends Component {
             neighbourhood={art.neighbourhood}
             type={art.type}
             artist_statement={art.artist_statement}
-            />
+        //  liked={}
+          />
+          //<ArtWorks {…art} />
           )} 
 
 

@@ -4,7 +4,7 @@ import { Component } from 'react';
 import BottomNav from '../components/BottomNav/BottomNav';
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-class Favourites extends Component {
+class Saved extends Component {
 
   state = {
     // favourties: [] // and parse later?
@@ -14,6 +14,8 @@ class Favourites extends Component {
     geom: {}
   }
 
+  // look explore page 
+  // store in all works in state -- then filter by user  
   componentDidMount() {
     axios
       .get(`http://localhost:8090/favourites/1`)
@@ -74,4 +76,4 @@ class Favourites extends Component {
   }
 }
 
-export default Favourites;
+export default Saved;

@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Login from './pages/Login';
 import Map from './pages/Map';
 import Explore from './pages/Explore';
-import Favourites from './pages/Favourites';
+import Saved from './pages/Saved';
 import Details from './pages/Details';
 import Profile from './pages/Profile';
 // import Test from './pages/Test';
@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path='/map' component={Map} />       
           <Route exact path='/art_works' component={Explore} />
           <Route exact path='/art_works/:id' component={Details} />
-          <Route exact path='/favourites' component={Favourites} />
+          <Route exact path='/favourites' component={Saved} />
           <Route exact path='/profile/:id' component={Profile} />
         </Switch>
       </Router>
