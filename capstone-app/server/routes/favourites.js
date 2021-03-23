@@ -4,7 +4,7 @@ const router = express.Router();
 // ToDo: Handle an error 
 const Favourite = require('../models/favourtie')
 
-// Get all users favourties 
+// Returns all users favourties (could use to create most popular/visited)
 router.route('/').get((req, res) => {
   Favourite.where(req.query)
     .fetchAll({ withRelated: ['art_works'] })
