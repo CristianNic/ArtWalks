@@ -36,24 +36,30 @@ export class ArtWorks extends Component {
     // if item 1 from props.liked = props.id 
 
     return (
-      <article className="art-work__constainer" key={props.id}>
+      <article className="art-work__container" key={props.id}>
         <Link className="art-work__link" to={`/art_works/${props.id}`}>
           {console.log('Test:', props)}
           <div className="art-work__li-card">
-            <h1 className="art-work__title">{props.title}</h1>
-            <h2 className="art-work__artists-names">{props.artists_names}</h2>
-            {/*//--------- Liked & Seen ------------ */}
-            {this.state.liked === true ? (
-              <img src={heart_red} className="art-work__icon"></img> // callback - post req.
-            ) : (
-                <img src={heart_white} className="art-work__icon" onClick={this.parentPropnameFunction}></img>
-            )}
+            <div className="art-work__li-card__top">
+              <div className="art-work__li-card__left">
+                <h1 className="art-work__title">{props.title}</h1>
+                <h3 className="art-work__artists-names">{props.artists_names}</h3>
+              </div>
+              {/*//--------- Liked & Seen ------------ */}
+              <div className="art-work__li-card__right">
+              {this.state.liked === true ? (
+                <img src={heart_red} className="art-work__icon"></img> // callback - post req.
+              ) : (
+                  <img src={heart_white} className="art-work__icon" onClick={this.parentPropnameFunction}></img>
+              )}
+            </div>
+            </div>
             {/* <img src={heart_red} className="art-work__icon"></img>
             <img src={heart_white} className="art-work__icon"></img> */}
 
             {/* <div className="art-work__photo-container"> */}
             {/* <LazyLoad height={300} offsetVertical={300}> */}
-            <LazyLoad className="art-work__photo-container" offsetVertical={1500}>
+            <LazyLoad className="art-work__photo-container" offsetVertical={100}>
               <img className="art-work__photo" src={props.photo_url} alt="artwork"></img>
             </LazyLoad>
             {/* </div> */}

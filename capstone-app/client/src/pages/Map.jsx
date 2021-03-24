@@ -13,6 +13,7 @@ import L from 'leaflet';
 // import publicArtData from '../../data_temp/public-art.json';
 import publicArtData from '../data_temp/public-art-smaller.json';
 import 'leaflet/dist/leaflet.css';
+import Search from '../components/Search/Search';
 
 // Tile Providers 
 // https://www.thunderforest.com/maps/atlas/
@@ -79,7 +80,8 @@ class Map extends Component {
   render() {
     return (
       <section className="map">
-      {console.log('this state:', this.state)}
+        {console.log('this state:', this.state)}
+      <Search />
       <MapContainer center={[49.2780, -123.1153]} zoom={12}>
         <TileLayer
           url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'

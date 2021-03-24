@@ -94,32 +94,6 @@ class Browse extends Component {
       })
   }
 
-
-
-// ========================= Cache ========================= 
-// * When returning back to the page it needs to pull data from the cache.
-// getArtWorks() {
-//   // axios
-//     api(apiUrl)
-//     .then(async (response) => {
-//       // console.log('response.data:', response.data)
-//       // console.log('response.data.art_works:', response.data.art_works)
-//       // this.setState({
-//       //   art_works: response.data.art_works,
-//       // })
-//       // Interacting with the store, see `localForage` API.
-//       this.setState({
-//         art_works: response.data.art_works,
-//       })
-//       const length = await api.cache.length()
-//       console.log('Cache store length:', length)
-//     })
-//     .catch(function(error) {
-//       // console.log('error:', error.response.data);
-//     })
-// }
-// ========================= Cache ========================= 
-
   // componentDidUpdate(prevProps, prevState) {
   //   console.log('art work updated');
   //   if (

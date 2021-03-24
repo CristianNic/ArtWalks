@@ -55,8 +55,50 @@ app.use(function (err, req, res, next) {
 // home
 app.get("/", (req, res) => {
 	res.json({
-		Greeting:
+		Welcome:
 			"Welcome to my API of Public Art on display by the City of Vancouver",
+		routes: {
+			art_works: [
+				{
+					get: "get all art works",
+					url: "http://localhost:8090/art_works",
+				},
+				{
+					get: "get details for one art work",
+					url: "http://localhost:8090/art_works/:id",
+				},
+				{
+					get: "get all artworks in one neighbourhood",
+					url: "http://localhost:8090/art_works/neighbourhood/:neighbourhood",
+				},
+				{
+					get: "get all artworks by neighbourhood",
+					url: "http://localhost:8090/art_works/neighbourhood/:neighbourhood",
+				},
+				{
+					get: "get all artworks by title",
+					url: "http://localhost:8090/art_works/title/:title",
+				},
+				{
+					get: "get all artworks by artist",
+					url: "http://localhost:8090/art_works/artist/:artist",
+				},
+				{
+					get: "get all artworks by type",
+					url: "http://localhost:8090/art_works/type/:type",
+				},
+			],
+			favourites: [
+				{
+					get: "get favourite art works by user",
+					url: "http://localhost:8090/favourites/:user_id",
+				},
+				{
+					get: "get all art works added to favourites by all users",
+					url: "http://localhost:8090/favourites",
+				},
+			],
+		},
 	});
 });
 

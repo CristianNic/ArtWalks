@@ -1,7 +1,10 @@
 a {
   color: black;
 }
-
+// * {
+//   border: 1px dashed lightgrey;
+//   box-sizing: border-box;
+// }
 .art-work {
   // &__container {
   // }
@@ -12,7 +15,26 @@ a {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    border-color: aqua;
+    &-card {
+     // background-color: rgb(237, 237, 237);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      border: 1px solid darkgray;
+      // border-radius: 10px;
+      overflow: hidden;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      &__top {
+        display: flex;
+      }
+    }
+      // flex-direction: row;
+      // }
+      // &__left {
+      // }
+      // &__right { }
   }
   &__icon {
     width: 2.4rem;
@@ -24,19 +46,22 @@ a {
     // object-fit: cover; /*magic*/
     // align-items: center;
     // justify-content: center;
-    
-
-    max-width: 40rem;  // <-- works
+    object-fit: cover;
+    object-position: center;
+  
+    max-width: 38rem;  // <-- works
+    max-height: 28rem;
     margin: 0 auto;    // <-- works
-    // object-fit: cover; /*magic*/
 
-
-    // &-container {
-    //   width: 380px; /*any size*/
-    //   height: 200px; /*any size*/
-    // }
+    &-container {
+      //width: 380px; /*any size*/
+      // height: 200px; /*any size*/
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
+
 
 
 

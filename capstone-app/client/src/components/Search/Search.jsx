@@ -11,9 +11,9 @@ export default class Search extends Component {
     return (
       <section className="search">
         <h1 className="search__title">Search</h1>
-        <form action="submit" onSubmit={handleSearchSubmit}>
-          <input type="text" placeholder="Explore local art..." autoFocus />
-          <button>Search</button>
+        <form className="search__form" action="submit" onSubmit={handleSearchSubmit}>
+          <input className="search__input" type="text" placeholder="Explore local art..." autoFocus />
+          <button className="search__btn">Search</button>
           <hr/>
         </form>
       </section>
