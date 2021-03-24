@@ -1,6 +1,13 @@
+a {
+  color: black;
+}
+
 .art-work {
-  &__container {
-  }
+  // &__container {
+  // }
+  // &__link {
+  //   color: black;
+  // }
   &__li {
     display: flex;
     flex-direction: column;
@@ -30,3 +37,7 @@
     // }
   }
 }
+
+
+
+

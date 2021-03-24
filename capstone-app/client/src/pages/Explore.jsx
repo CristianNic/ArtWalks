@@ -4,6 +4,7 @@ import { Component } from 'react';
 import BottomNav from '../components/BottomNav/BottomNav';
 import ArtWorks from '../components/ArtWorks/ArtWorks2';
 import Search from '../components/Search/Search';
+// import SearchBar from '../components/SearchBar/SearchBar';
 
 
 
@@ -45,14 +46,15 @@ class Browse extends Component {
   // }
 
   state = {
-    art_works: [],
-    liked: [], 
+    art_works: [], // 400 display all  
+    liked: [],     // 3 make red  ID and Art ID for 1 user [ID, ART ID, User]
+    // if liked ID = art_work ID do something 
   }
 
   componentDidMount() {
     this.getArtWorks(); 
     // this.getUserFavourites()
-    // this.getUserLikes()
+    // this.getUserLikes()  // [7, 9, 10]
   }
 
   // getArtWorks() {
@@ -91,6 +93,8 @@ class Browse extends Component {
         // console.log('error:', error.response.data);
       })
   }
+
+
 
 // ========================= Cache ========================= 
 // * When returning back to the page it needs to pull data from the cache.
@@ -179,7 +183,8 @@ class Browse extends Component {
             neighbourhood={art.neighbourhood}
             type={art.type}
             artist_statement={art.artist_statement}
-        //  liked={}
+            // liked={ } // {this.state.liked} [7, 8, 9]
+            // postFavourite={postFavourite}
           />
           //<ArtWorks {…art} />
           )} 

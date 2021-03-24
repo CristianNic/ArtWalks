@@ -7,11 +7,17 @@ import { Link } from 'react-router-dom'
 // import iconDetails from '../../assets/icons-feather/archive.svg'
 // import iconProfile from '../../assets/icons-feather/align-justify.svg'
 
-import iconSearch from '../../assets/icons-feather-1px/search.svg'
-import iconMap from '../../assets/icons-feather-1px/map.svg'
-import iconSaved from '../../assets/icons-feather-1px/heart.svg'
-import iconDetails from '../../assets/icons-feather-1px/archive.svg'
-import iconProfile from '../../assets/icons-feather-1px/align-justify.svg'
+import iconSearch from '../../assets/icons-feather-1.5px/search.svg'
+import iconMap from '../../assets/icons-feather-1.5px/map.svg'
+import iconSaved from '../../assets/icons-feather-1.5px/heart.svg'
+import iconDetails from '../../assets/icons-feather-1.5px/archive.svg'
+import iconProfile from '../../assets/icons-feather-1.5px/align-justify.svg'
+
+// import iconSearch from '../../assets/icons-feather-1px/search.svg'
+// import iconMap from '../../assets/icons-feather-1px/map.svg'
+// import iconSaved from '../../assets/icons-feather-1px/heart.svg'
+// import iconDetails from '../../assets/icons-feather-1px/archive.svg'
+// import iconProfile from '../../assets/icons-feather-1px/align-justify.svg'
 
 export default function BottomNav() {
   return (

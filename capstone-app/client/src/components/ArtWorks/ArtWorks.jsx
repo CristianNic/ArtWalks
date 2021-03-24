@@ -9,27 +9,47 @@ import heart_white from "../../assets/icons/heart_white.svg";
 export class ArtWorks extends Component {
 
   state = {
-    liked: false,
+    liked: false,    // if item 1 from props.liked = props.id 
   }
+  // componentDidMount
+  // looked through id
+  
+    // .map ? .forEach ? for loop(var = 0, , ++
+  componentDidMount() {
+    const likedArr = props.liked
+    likedArr.forEach(element => {
+      if (element.art_work_id === props.id) {
+        this.setState({ liked: true })
+      }
+    });
+  }
+
+  // for each item in [] 
+  // if item = item from the other []
+  // then state liked = true
+  // otherwise state liked = false 
 
   // console.log('Test:', props)
   
   render() {
+    // console(props.liked)
+    // if item 1 from props.liked = props.id 
+
     return (
       <article className="art-work__constainer" key={props.id}>
-        <Link to={`/art_works/${props.id}`}>
+        <Link className="art-work__link" to={`/art_works/${props.id}`}>
           {console.log('Test:', props)}
           <div className="art-work__li-card">
             <h1 className="art-work__title">{props.title}</h1>
             <h2 className="art-work__artists-names">{props.artists_names}</h2>
             {/*//--------- Liked & Seen ------------ */}
             {this.state.liked === true ? (
-              <img src={heart_red} className="art-work__icon"></img>
+              <img src={heart_red} className="art-work__icon"></img> // callback - post req.
             ) : (
-              <img src={heart_white} className="art-work__icon"></img>
+                <img src={heart_white} className="art-work__icon" onClick={this.parentPropnameFunction}></img>
             )}
-            <img src={heart_red} className="art-work__icon"></img>
-            <img src={heart_white} className="art-work__icon"></img>
+            {/* <img src={heart_red} className="art-work__icon"></img>
+            <img src={heart_white} className="art-work__icon"></img> */}
 
             {/* <div className="art-work__photo-container"> */}
             {/* <LazyLoad height={300} offsetVertical={300}> */}

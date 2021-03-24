@@ -46,10 +46,6 @@ class Saved extends Component {
         //     })
         // })
 
-
-  
-
-
   render() {
     return (
       <section className="favourites">

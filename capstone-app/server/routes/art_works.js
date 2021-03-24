@@ -17,8 +17,7 @@ router.route("/").get((req, res) => {
 		});
 });
 
-// RE-FACTOR --->
-// Returns details for one artwork --> try geo only? /geo/:id  --> Details, Map PopUp details...
+// Returns details for one artwork -->  RE-FACTOR ---> try geo only? /geo/:id  --> Details, Map PopUp details...
 router.route("/:id").get((req, res) => {
 	ArtWorks.where(req.params)
 		.fetchAll({ withRealted: ["artworks"] })
@@ -33,6 +32,7 @@ router.route("/:id").get((req, res) => {
 			res.status(200).json(filteredFavourites[0]);
 		});
 });
+/** 
 // Get one artwork written shorter
 // router.route("/test/:id").get((req, res) => {
 // 	ArtWorks.fetchAll().then((art_works) => {
@@ -48,6 +48,7 @@ router.route("/:id").get((req, res) => {
 //       res.status(200).json({ favourites })
 //     } )
 // });
+**/
 
 // Returns only by Neighbourhood
 router.route("/neighbourhood/:neighbourhood").get((req, res) => {
