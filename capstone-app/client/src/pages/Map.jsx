@@ -2,15 +2,12 @@ import { Component } from 'react';
 import axios from 'axios';
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
-// import TopNav from '../../components/TopNav/TopNav';
 import BottomNav from '../components/BottomNav/BottomNav';
 // import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
 
-// import * as publicArtData from '../../data_temp/public-art.json';
-// import publicArtData from '../../data_temp/public-art.json';
 import publicArtData from '../data_temp/public-art-smaller.json';
 import 'leaflet/dist/leaflet.css';
 import Search from '../components/Search/Search';
@@ -67,11 +64,38 @@ class Map extends Component {
   // skips slowdown of all items displayed at once and faster then parsing all works 
 
   componentDidMount() {
+    // axios
+    //   .get(`http://localhost:8090/art_works`)
+    //   .then((response) => { 
+    //     //console.log('response.data:', response.data)
+    //     console.log('Art Works:', response.data.art_works)
+    //     console.log('Art Works:', response.data.art_works[0].geom) // each works location
+      
+    //     response.data.art_works.map((artWorks) => {
+    //       const geom = {};
+    //       this.setState({
+    //         geom: geom[artWorks.geom]
+    //       })
+    //       // this.setState({
+    //       //  geom: artWorks.geom,
+    //       // })
+    //     })
+    //     console.log(this.state.geom)
+    //   })
+    //     // this.setState({ favourties: response.data})
+    //   .catch(function(error) {
+    //     //console.log('error:', error.response.data);
+    //   })
+    this.getLocations()
+  }
+
+  getLocations() {
     axios
       .get(`http://localhost:8090/art_works`)
-      .then((response) => { 
-        console.log('response.data:', response.data)
+      .then((response) => {
+        //console.log('response.data:', response.data)
         console.log('Art Works:', response.data.art_works)
+        console.log('Art Works:', response.data.art_works[0].geom) // each works location
       
         response.data.art_works.map((artWorks) => {
           const geom = {};
@@ -81,17 +105,17 @@ class Map extends Component {
           // this.setState({
           //  geom: artWorks.geom,
           // })
-          })
         })
-        // this.setState({ favourties: response.data})
-      .catch(function(error) {
+        console.log(this.state.geom)
+      })
+      // this.setState({ favourties: response.data})
+      .catch(function (error) {
         //console.log('error:', error.response.data);
       })
   }
-
   
   render() {
-    {/* {console.log('this state:', this.state)} */ }
+    {console.log('this state:', this.state)} 
     
     return (
       <section className="map">

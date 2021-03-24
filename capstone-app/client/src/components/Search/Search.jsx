@@ -12,12 +12,13 @@ const areas = [
 export default class Search extends Component {
 
   state = {
-    art_works: [],
+    // art_works: [],
+    art_works: this.props,
   }
 
   componentDidMount() {
-    this.getArtWorks();
-    this.uniqNeighourhoods();
+   // this.getArtWorks();
+   // this.uniqNeighourhoods();
     // this.New();
   }
 
@@ -32,24 +33,21 @@ export default class Search extends Component {
     // yourArrayName.filter((item, index) => yourArrayName.indexOf(item) === index)
 
   }
-
   // New() {
   //   const stateArray = this.state.art_works
   //   const Hello = stateArray.filter((item, index) => stateArray.indexOf(stateArray) === index)
-
   //   console.log('stateArray: ', stateArray)
   //   console.log('stateArray: ', Hello)
-    
   // }
 
 New() {
   // let filteredArray = this.state.art_works.filter((item, index) => this.state.art_works.indexOf(item) === index)
   // console.log('filteredArray: ', filteredArray)
   // console.log('this.props: ', this.props)
-  //console.log('this.props: ', this.props.art_works2)
-  console.log('this.props: ', this.state.art_works)
-  let filteredArray = this.props.art_works2.filter((item, index) => this.props.art_works2.indexOf(item) === index)
-  // console.log('filteredArray: ', filteredArray)
+
+  // console.log('this.props: ', this.state.art_works)
+  // let filteredArray = this.props.art_works2.filter((item, index) => this.props.art_works2.indexOf(item) === index)
+
   // let filteredArray = this.props.art_works.filter((item, index) => this.props.art_works.indexOf(item) === index)
   // console.log('filteredArray: ', filteredArray)
   }
