@@ -108,19 +108,13 @@ class Map extends Component {
         //   //  geom: artWorks.geom,
         //   // })
         // })
-        console.log('this.state - inside axios: ', this.state)
+        console.log('inside axios() - this.state: ', this.state)
       })
       // this.setState({ favourties: response.data})
       .catch(function (error) {
         //console.log('error:', error.response.data);
       })
   }
-
-  onClickFunction() {
-    // sets selected neighbourhood into props. 
-  }
-
-
   // getLocations_v1() {
   //   axios
   //     .get(`http://localhost:8090/art_works`)
@@ -160,7 +154,8 @@ class Map extends Component {
   }
 
   render() {
-    {console.log('this state:', this.state)} 
+    {console.log('inside render() -- this.state:', this.state)} 
+    {console.log('inside render() -- this.filtered_art_works:', this.state)} 
     
     return (
       <section className="map">
@@ -174,7 +169,7 @@ class Map extends Component {
             // url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             attribution={false}
             />
-            {this.state.filtered_art_works.map(artWork => (
+            {/* {this.state.filtered_art_works.map(artWork => (
               <Marker
               key={artWork.recordid}
               position={[
@@ -182,14 +177,13 @@ class Map extends Component {
                 artWork.geom.coordinates[0]
               ]}
               />  
-              ))}
-            {/* {this.state.art_works
-              .map(artWork => (
+              ))} */}
+            {/* {this.state.art_works.map(artWork => (
               <Marker
               key={artWork.id}
               position={[
-                artWork.geom,
-                artWork.geom
+                artWork.geom[0],
+                artWork.geom[1]
               ]}
               />  
               ))} */}
