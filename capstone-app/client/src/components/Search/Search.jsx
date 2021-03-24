@@ -78,7 +78,7 @@ New() {
     return (
       <section className="search">
         <div>
-          <select name="pets" id="pet-select">
+          <select onChange={this.props.handleSelectLocation} name="pets" id="pet-select">
             <option value="">Neighbourhood</option>
             
             {/* {this.state.art_works.map(titles =>

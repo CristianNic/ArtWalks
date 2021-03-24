@@ -56,6 +56,8 @@ class Map extends Component {
   */
 
   state = {
+    art_works: [],
+    filtered_art_works: publicArtData,
     geom: []
   }
 
@@ -94,32 +96,75 @@ class Map extends Component {
       .get(`http://localhost:8090/art_works`)
       .then((response) => {
         //console.log('response.data:', response.data)
-        console.log('Art Works:', response.data.art_works)
-        console.log('Art Works:', response.data.art_works[0].geom) // each works location
-      
-        response.data.art_works.map((artWorks) => {
-          const geom = {};
-          this.setState({
-            geom: geom[artWorks.geom]
-          })
-          // this.setState({
-          //  geom: artWorks.geom,
-          // })
+        console.log('response.data.art_works:', response.data.art_works)
+        console.log('response.data.art_works[0].geom:', response.data.art_works[0].geom) // each works location
+        
+        this.setState({
+          art_works: response.data.art_works,
         })
-        console.log(this.state.geom)
+        // response.data.art_works.map((artWorks) => {
+        //   // const geom = {};
+        //   // this.setState({
+        //   //  geom: artWorks.geom,
+        //   // })
+        // })
+        console.log('this.state - inside axios: ', this.state)
       })
       // this.setState({ favourties: response.data})
       .catch(function (error) {
         //console.log('error:', error.response.data);
       })
   }
-  
+
+  onClickFunction() {
+    // sets selected neighbourhood into props. 
+  }
+
+
+  // getLocations_v1() {
+  //   axios
+  //     .get(`http://localhost:8090/art_works`)
+  //     .then((response) => {
+  //       //console.log('response.data:', response.data)
+  //       console.log('Art Works:', response.data.art_works)
+  //       console.log('Art Works:', response.data.art_works[0].geom) // each works location
+      
+  //       response.data.art_works.map((artWorks) => {
+  //         const geom = {};
+  //         this.setState({
+  //           geom: geom[artWorks.geom]
+  //         })
+  //         // this.setState({
+  //         //  geom: artWorks.geom,
+  //         // })
+  //       })
+  //       console.log(this.state.geom)
+  //     })
+  //     // this.setState({ favourties: response.data})
+  //     .catch(function (error) {
+  //       //console.log('error:', error.response.data);
+  //     })
+  // }
+  handleSelectLocation = (event) => {
+    console.log(event.target.value)
+
+    const filteredData = this.state.filtered_art_works.filter( (area) => {
+      return area.neighbourhood === event.target.value
+    })
+    if (filteredData.length > 0) {
+      this.setState({filtered_art_works: filteredData})
+    }
+    else {
+      this.setState({filtered_art_works: publicArtData})
+    }
+  }
+
   render() {
     {console.log('this state:', this.state)} 
     
     return (
       <section className="map">
-        <Search />
+        <Search handleSelectLocation={this.handleSelectLocation}/>
         <div className="map__container">
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
           <TileLayer
@@ -129,7 +174,7 @@ class Map extends Component {
             // url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             attribution={false}
             />
-            {publicArtData.map(artWork => (
+            {this.state.filtered_art_works.map(artWork => (
               <Marker
               key={artWork.recordid}
               position={[
@@ -138,6 +183,25 @@ class Map extends Component {
               ]}
               />  
               ))}
+            {/* {this.state.art_works
+              .map(artWork => (
+              <Marker
+              key={artWork.id}
+              position={[
+                artWork.geom,
+                artWork.geom
+              ]}
+              />  
+              ))} */}
+            {/* {publicArtData.map(artWork => (
+              <Marker
+              key={artWork.recordid}
+              position={[
+                artWork.geom.coordinates[1],
+                artWork.geom.coordinates[0]
+              ]}
+              />  
+              ))} */}
           <button className='btn'></button>
           </MapContainer>
           </div>
