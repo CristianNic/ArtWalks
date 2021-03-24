@@ -19,15 +19,16 @@ export class ArtWorks extends Component {
   // console.log(props.visited);
   
   componentDidMount() {
-    console.log(this.props.liked);
-    console.log(this.props.visited);
+    // console.log(this.props.liked);
+    // console.log(this.props.visited);
     
-    const likedArr = this.props.liked
-    likedArr.forEach(element => {
-      if (element.art_work_id === this.props.id) {
-        this.setState({ liked: true })
-      }
-    });
+    // const likedArr = this.props.liked
+    // likedArr.forEach(element => {
+    //   if (element.art_work_id === this.props.id) {
+    //     this.setState({ liked: true })
+    //   }
+    // });
+
     // const likedArr = props.liked
     // likedArr.forEach(element => {
     //   if (element.art_work_id === props.id) {
@@ -50,19 +51,9 @@ export class ArtWorks extends Component {
   // console.log('Test:', props)
   
   render() {
-
-    // console('State Liked  ==> ', this.state.liked)
-    // console('State Visited ==>',this.state.visited)
-    // console('Props Liked ==>', this.props.liked)
-    // console('Props Visited ==>', this.props.visited)
-
-
-    // if item 1 from props.liked = props.id 
-
     return (
       <article className="art-work__container" key={this.props.id}>
         <Link className="art-work__link" to={`/art_works/${this.props.id}`}>
-          {console.log('Test:', this.props)}
           <div className="art-work__li-card">
             <div className="art-work__li-card__top">
               <div className="art-work__li-card__left">
@@ -83,12 +74,12 @@ export class ArtWorks extends Component {
 
             {/* <div className="art-work__photo-container"> */}
             {/* <LazyLoad height={300} offsetVertical={300}> */}
-            <LazyLoad className="art-work__photo-container" offsetVertical={100}>
+            <LazyLoad className="art-work__photo-container" offsetVertical={2000}>
               <img className="art-work__photo" src={this.props.photo_url} alt="artwork"></img>
             </LazyLoad>
             {/* </div> */}
             {/* <h4 className="art-work__photo-credits">{props.photo_credits}</h4> */}
-            <h4 className="art-work__photo-credits">HELLO TEST</h4>
+            {/* <h4 className="art-work__photo-credits">HELLO TEST</h4> */}
             <h4 className="art-work__neighbourhood">{this.props.neighbourhood}</h4>
             <h4 className="art-work__type">{this.props.type}</h4>
             <h4 className="art-work__artist-statement">{this.props.artist_statement}</h4>

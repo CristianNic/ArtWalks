@@ -26,6 +26,22 @@ const DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
+// const customMarkerOptions = {
+//   radius: 8,
+//   fillColor: "#ff7800",
+//   color: "#000",
+//   weight: 1,
+//   opacity: 1,
+//   fillOpacity: 0.8
+// }
+// const myLayer = L.geoJSON(geojsonFeature, {
+//     pointToLayer: function (feature, latlng) {
+//         return L.circleMarker(latlng, geojsonMarkerOptions);
+//     }
+// }).addTo(map);
+
+
+
 class Map extends Component {
 
   /* Get Geolocation 
@@ -75,10 +91,12 @@ class Map extends Component {
 
   
   render() {
+    {/* {console.log('this state:', this.state)} */ }
+    
     return (
       <section className="map">
-          {console.log('this state:', this.state)}
         <Search />
+        <div className="map__container">
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
           <TileLayer
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -97,7 +115,8 @@ class Map extends Component {
               />  
               ))}
           <button className='btn'></button>
-        </MapContainer>
+          </MapContainer>
+          </div>
         <BottomNav />
       </section>
     );

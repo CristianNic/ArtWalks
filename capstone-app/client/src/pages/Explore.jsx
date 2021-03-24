@@ -48,7 +48,7 @@ class Browse extends Component {
     axios
       .get(apiUrlUser)
       .then((response) => {
-        console.log('response.data_USER:', response.data)
+        //console.log('response.data_USER:', response.data)
         //console.log('response.data.art_works:', response.data.art_works)
         this.setState({
           liked: response.data,
@@ -59,22 +59,22 @@ class Browse extends Component {
         // console.log('error:', error.response.data);
       })
   }
-  postFavourite() {
-    axios
-      .post(apiUrlUser)
-      .then((response) => {
-        console.log("POST response", response);
-      })
-      .catch((error) => console.log(error));
-  }
-  putLiked () {
-    axios
-      .put(apiUrlUser)
-      .then((response) => {
-        console.log("PUT response", response);
-      })
-      .catch((error) => console.log(error));
-  }
+  // postFavourite() {
+  //   axios
+  //     .post(apiUrlUser)
+  //     .then((response) => {
+  //      // console.log("POST response", response);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
+  // putLiked () {
+  //   axios
+  //     .put(apiUrlUser)
+  //     .then((response) => {
+  //       //console.log("PUT response", response);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
 
   // componentDidUpdate(prevProps, prevState) {
   //   console.log('art work updated');
@@ -88,19 +88,17 @@ class Browse extends Component {
   
   render() {
     
-    console.log('Explore.jsx this.state:', this.state)
+    // console.log('Explore.jsx this.state:', this.state)
     // ==== handle Submit ==== 
     // const handleSearchSubmit = (event) => {
 		// 	event.preventDefault();
 		// 	event.target.reset();
     // };
-
-    // console.log('this.state.art_works', this.state.art_works)
-    // console.log('this.state.art_works', this.state.art_works.id)
     
     return (
       <section className="exp">
         <Search />
+        <div clasName="exp__container">
         {this.state.art_works.map(art => 
           <ArtWorks             
             id={art.id}
@@ -116,7 +114,8 @@ class Browse extends Component {
             // postFavourite={postFavourite}
             // putLiked={putLiked}
           />
-          )} 
+          )}
+        </div>
         <BottomNav />
       </section>
     );
