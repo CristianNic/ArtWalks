@@ -73,35 +73,32 @@ class Map extends Component {
       })
   }
 
-
-
-  
   
   render() {
     return (
       <section className="map">
-        {console.log('this state:', this.state)}
-      <Search />
-      <MapContainer center={[49.2780, -123.1153]} zoom={12}>
-        <TileLayer
-          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-          // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          // url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
-          attribution={false}
-          />
-          {publicArtData.map(artWork => (
-            <Marker
-            key={artWork.recordid}
-            position={[
-              artWork.geom.coordinates[1],
-              artWork.geom.coordinates[0]
-            ]}
-            />  
-            ))}
-        <button className='btn'></button>
-      </MapContainer>
-      <BottomNav />
+          {console.log('this state:', this.state)}
+        <Search />
+        <MapContainer center={[49.2780, -123.1153]} zoom={12}>
+          <TileLayer
+            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            // attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            // url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+            attribution={false}
+            />
+            {publicArtData.map(artWork => (
+              <Marker
+              key={artWork.recordid}
+              position={[
+                artWork.geom.coordinates[1],
+                artWork.geom.coordinates[0]
+              ]}
+              />  
+              ))}
+          <button className='btn'></button>
+        </MapContainer>
+        <BottomNav />
       </section>
     );
   }

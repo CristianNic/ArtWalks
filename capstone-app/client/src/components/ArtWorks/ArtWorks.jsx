@@ -10,18 +10,36 @@ export class ArtWorks extends Component {
 
   state = {
     liked: false,    // if item 1 from props.liked = props.id 
-  }
+    visted: 0,
+  };
   // componentDidMount
   // looked through id
+
+  // console.log(props.liked);
+  // console.log(props.visited);
   
-    // .map ? .forEach ? for loop(var = 0, , ++
   componentDidMount() {
-    const likedArr = props.liked
+    console.log(this.props.liked);
+    console.log(this.props.visited);
+    
+    const likedArr = this.props.liked
     likedArr.forEach(element => {
-      if (element.art_work_id === props.id) {
+      if (element.art_work_id === this.props.id) {
         this.setState({ liked: true })
       }
     });
+    // const likedArr = props.liked
+    // likedArr.forEach(element => {
+    //   if (element.art_work_id === props.id) {
+    //     this.setState({ liked: true })
+    //   }
+    // });
+    // const vistedArr = props.visited
+    // likedArr.forEach(element => {
+    //   if (element.art_work_id === props.id) {
+    //     this.setState({ liked: true })
+    //   }
+    // });
   }
 
   // for each item in [] 
@@ -32,41 +50,48 @@ export class ArtWorks extends Component {
   // console.log('Test:', props)
   
   render() {
-    // console(props.liked)
+
+    // console('State Liked  ==> ', this.state.liked)
+    // console('State Visited ==>',this.state.visited)
+    // console('Props Liked ==>', this.props.liked)
+    // console('Props Visited ==>', this.props.visited)
+
+
     // if item 1 from props.liked = props.id 
 
     return (
-      <article className="art-work__container" key={props.id}>
-        <Link className="art-work__link" to={`/art_works/${props.id}`}>
-          {console.log('Test:', props)}
+      <article className="art-work__container" key={this.props.id}>
+        <Link className="art-work__link" to={`/art_works/${this.props.id}`}>
+          {console.log('Test:', this.props)}
           <div className="art-work__li-card">
             <div className="art-work__li-card__top">
               <div className="art-work__li-card__left">
-                <h1 className="art-work__title">{props.title}</h1>
-                <h3 className="art-work__artists-names">{props.artists_names}</h3>
+                <h1 className="art-work__title">{this.props.title}</h1>
+                <h3 className="art-work__artists-names">{this.props.artists_names}</h3>
               </div>
               {/*//--------- Liked & Seen ------------ */}
-              <div className="art-work__li-card__right">
-              {this.state.liked === true ? (
-                <img src={heart_red} className="art-work__icon"></img> // callback - post req.
-              ) : (
-                  <img src={heart_white} className="art-work__icon" onClick={this.parentPropnameFunction}></img>
-              )}
-            </div>
-            </div>
-            {/* <img src={heart_red} className="art-work__icon"></img>
-            <img src={heart_white} className="art-work__icon"></img> */}
+                <div className="art-work__li-card__right">
+
+                {this.state.liked === true ? (
+                  <img src={heart_red} className="art-work__icon" alt="Favourited"></img> // callback - post req.
+                  ) : (
+                  <img src={heart_white} className="art-work__icon" onClick={this.props.postFavourite} alt="add to favourites"></img> 
+                )}
+                
+                </div>
+              </div>
 
             {/* <div className="art-work__photo-container"> */}
             {/* <LazyLoad height={300} offsetVertical={300}> */}
             <LazyLoad className="art-work__photo-container" offsetVertical={100}>
-              <img className="art-work__photo" src={props.photo_url} alt="artwork"></img>
+              <img className="art-work__photo" src={this.props.photo_url} alt="artwork"></img>
             </LazyLoad>
             {/* </div> */}
-            <h4 className="art-work__photo-credits">{props.photo_credits}</h4>
-            <h4 className="art-work__neighbourhood">{props.neighbourhood}</h4>
-            <h4 className="art-work__type">{props.type}</h4>
-            <h4 className="art-work__artist-statement">{props.artist_statement}</h4>
+            {/* <h4 className="art-work__photo-credits">{props.photo_credits}</h4> */}
+            <h4 className="art-work__photo-credits">HELLO TEST</h4>
+            <h4 className="art-work__neighbourhood">{this.props.neighbourhood}</h4>
+            <h4 className="art-work__type">{this.props.type}</h4>
+            <h4 className="art-work__artist-statement">{this.props.artist_statement}</h4>
           </div>
         </Link>
       </article>
@@ -76,25 +101,3 @@ export class ArtWorks extends Component {
 
 export default ArtWorks;
 
-//                     {this.state.status === "In Stock" ? (
-//                       <span className="l-itemDetails__status">IN STOCK</span>
-//                     ) : (
-//                       <span className="l-itemDetails__status l-itemDetails__status--red">
-//                         OUT OF STOCK
-//                       </span>
-// )
-// }
-                    
-
-// Drop down? 
-/* <div className="l-itemDetails__column-left-space">
-  <h2 className="l-itemDetails__sub-label">STATUS:</h2>
-    {this.state.status === "In Stock" ? (
-      <span className="l-itemDetails__status">IN STOCK</span>
-    ) : (
-      <span className="l-itemDetails__status l-itemDetails__status--red">
-        OUT OF STOCK
-      </span>
-    )}
-</div> */
-                

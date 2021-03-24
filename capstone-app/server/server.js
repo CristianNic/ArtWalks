@@ -68,10 +68,6 @@ app.get("/", (req, res) => {
 					url: "http://localhost:8090/art_works/:id",
 				},
 				{
-					get: "get all artworks in one neighbourhood",
-					url: "http://localhost:8090/art_works/neighbourhood/:neighbourhood",
-				},
-				{
 					get: "get all artworks by neighbourhood",
 					url: "http://localhost:8090/art_works/neighbourhood/:neighbourhood",
 				},
@@ -96,6 +92,14 @@ app.get("/", (req, res) => {
 				{
 					get: "get all art works added to favourites by all users",
 					url: "http://localhost:8090/favourites",
+				},
+				{
+					post: "post favourite art works by user",
+					url: "",
+				},
+				{
+					put: "put liked art works by user",
+					url: "",
 				},
 			],
 		},
