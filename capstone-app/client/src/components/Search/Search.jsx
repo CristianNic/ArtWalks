@@ -2,14 +2,56 @@ import React, { Component } from 'react'
 import axios from 'axios';
 const apiUrl = 'http://localhost:8090/art_works'
 
+const areas = [
+  'Downtown', 'Mount Pleasant', 'Downtown Eastside', 'West End', 'Strathcona',
+  'Shaughnessy', 'Stanley Park', 'Grandview-Woodland', 'Kensington-Cedar Cottage',
+  'Kitsilano', 'Fairview', 'Marpole', 'RileyPark', 'Oakridge', 'Renfrew Collingwood',
+  'Sunset', 'Hastings-Sunrise', 'Killarney', 'South Cambie', 'Arbutus Ridge',
+  'Dunbar-Southlands', 'West Point Grey', 'Kerrisdale' ]
+                
 export default class Search extends Component {
 
   state = {
-    art_works: []
+    art_works: [],
   }
 
   componentDidMount() {
-    this.getArtWorks(); 
+    this.getArtWorks();
+    this.uniqNeighourhoods();
+    // this.New();
+  }
+
+  uniqNeighourhoods() {
+    // const test = this.state.art_works
+    // console.log('Search State: ', this.state.art_works)
+    // const uniqueNeighbourhoods = [...new Set(test.map(item => item.art_works.neighbourhood))]
+    // console.log('uniqueNeighbourhoods', uniqueNeighbourhoods)
+
+    // const New = this.state.art_works
+   //  New
+    // yourArrayName.filter((item, index) => yourArrayName.indexOf(item) === index)
+
+  }
+
+  // New() {
+  //   const stateArray = this.state.art_works
+  //   const Hello = stateArray.filter((item, index) => stateArray.indexOf(stateArray) === index)
+
+  //   console.log('stateArray: ', stateArray)
+  //   console.log('stateArray: ', Hello)
+    
+  // }
+
+New() {
+  // let filteredArray = this.state.art_works.filter((item, index) => this.state.art_works.indexOf(item) === index)
+  // console.log('filteredArray: ', filteredArray)
+  // console.log('this.props: ', this.props)
+  //console.log('this.props: ', this.props.art_works2)
+  console.log('this.props: ', this.state.art_works)
+  let filteredArray = this.props.art_works2.filter((item, index) => this.props.art_works2.indexOf(item) === index)
+  // console.log('filteredArray: ', filteredArray)
+  // let filteredArray = this.props.art_works.filter((item, index) => this.props.art_works.indexOf(item) === index)
+  // console.log('filteredArray: ', filteredArray)
   }
 
   getArtWorks() {
@@ -28,6 +70,7 @@ export default class Search extends Component {
       })
   }
 
+
   render() {
     // const handleSearchSubmit = (event) => {
 		// 	event.preventDefault();
@@ -36,58 +79,34 @@ export default class Search extends Component {
 
     return (
       <section className="search">
-        {/* <h1 className="search__title">Search</h1> */}
-        {/* <div>
-          <form className="search__form" action="submit" onSubmit={handleSearchSubmit}>
-            <input className="search__input" type="text" placeholder="Explore local art..." autoFocus />
-            <button className="search__btn">Search</button>
-            <hr className="search__btn hide"/>
-          </form>
-        </div> */}
         <div>
           <select name="pets" id="pet-select">
-            <option value="">Title</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+            <option value="">Neighbourhood</option>
+            
+            {/* {this.state.art_works.map(titles =>
+              <option value={this.props.neighbourhood}>{titles.neighbourhood}</option>)}
+              <option value={filteredArray.neighbourhood}>{filteredArray.neighbourhood}</option>)} */}
+            
+            {areas.map(area =>
+              <option value={area}>{area}</option>)}
+
           </select>
         </div>
         
         <div>
           <select name="search__form-neighbourhood" id="pet-select">
             <option value="">Artist</option>
+
             <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
+
+      
           </select>
         </div>
-
         <div>
           <select name="search__form-neighbourhood" id="pet-select">
             <option value="">Medium</option>
             <option value="dog">Dog</option>
             <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
-          </select>
-        </div>
-        <div>
-          <select name="pets" id="pet-select">
-            <option value="">Neighbourhood</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
           </select>
         </div>
         <div>
@@ -96,10 +115,6 @@ export default class Search extends Component {
         <div>
           <button>Liked</button>
         </div>
-
-
-
-
       </section>
     )
   }
