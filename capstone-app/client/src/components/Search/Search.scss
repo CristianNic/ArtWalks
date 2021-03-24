@@ -8,8 +8,13 @@
   top: 0;
   width: 100vw;
   height: inherit;
-  display: flex;
   padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  display: flex;
+  justify-content: space-around;
+  //border-color: 1px gray;
+  border-bottom: 2px solid lightgrey;
+  
   &__form {
     padding-right: .1rem;
    // padding-top: 0.4rem;   // height 30px 
@@ -20,6 +25,9 @@
   }
   &__input {
     width: 11rem;
+    padding-right: 1rem;
+  }
+  &__btn {
     padding-right: 1rem;
   }
 }
