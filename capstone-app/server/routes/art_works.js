@@ -22,7 +22,7 @@ router.route("/:id").get((req, res) => {
 	ArtWorks.where(req.params)
 		.fetchAll({ withRealted: ["artworks"] })
 		.then((favourites) => {
-			console.log(favourites.models[0].attributes.geom); // all in filter table
+			//console.log(favourites.models[0].attributes.geom); // all in filter table
 			// try array method to search
 			const filteredFavourites = favourites.models.filter(
 				(model) => model.attributes.id == req.params.id
@@ -111,6 +111,40 @@ router.route("/type/:type").get((req, res) => {
 			res.status(200).json(filteredtypes);
 		});
 });
+
+// Return only by Title / Artist / Medium Type
+// router.route("/title_artist_medium/:either").get((req, res) => {
+// 	ArtWorks.where("title", "like", req.params.either)
+// 		.where("artists_names", "like", req.params.either)
+// 		.where("type", "like", req.params.either)
+// 		.fetchAll()
+// 		.then((types) => {
+// 			const filteredtypes = types.models.filter(
+// 				(model) =>
+// 					model.attributes.either.toLowerCase() ==
+// 					req.params.either.toLowerCase()
+// 			);
+// 			res.status(200).json(filteredtypes);
+// 		});
+// });
+
+
+// const getFilteredItems = (searchCriteria) =>
+// 	knex("items").where((qb) => {
+// 		if (searchCriteria.searchTerm) {
+// 			qb.where("items.itemName", "like", `%${searchCriteria.searchTerm}%`);
+// 		}
+
+// 		if (searchCriteria.itemType) {
+// 			qb.orWhere("items.itemType", "=", searchCriteria.itemType);
+// 		}
+
+// 		if (searchCriteria.category) {
+// 			qb.orWhere("items.category", "=", searchCriteria.category);
+// 		}
+// 	});
+/// ==============
+
 
 /* ================   Full Text Search   ==================================== 
 const searchText = ` SELECT * FROM table_name WHERE MATCH(artist_statement)

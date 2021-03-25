@@ -8,6 +8,11 @@ import Explore from './pages/Explore';
 import Saved from './pages/Saved';
 import Details from './pages/Details';
 import Profile from './pages/Profile';
+import LayeredMap from './pages/LayeredMap/LayeredMap';
+import LayeredMapChloro from './pages/LayeredMapChloro/LayeredMapChloro';
+
+
+
 // import Test from './pages/Test';
 // import TestImg from './pages/TestImg';
 
@@ -27,6 +32,9 @@ class App extends Component {
           <Route exact path='/art_works/:id' component={Details} />
           <Route exact path='/favourites' component={Saved} />
           <Route exact path='/profile/:id' component={Profile} />
+          <Route exact path='/layered_map' component={LayeredMap} />
+          <Route exact path='/layered_map_chloro' component={LayeredMapChloro} />
+
         </Switch>
       </Router>
     );
