@@ -12,6 +12,8 @@ import publicArtData from '../data_temp/public-art-smaller.json';
 import 'leaflet/dist/leaflet.css';
 import Search from '../components/Search/Search';
 
+import data from '../data_temp/art_work_final_geom.json';
+
 // Tile Providers 
 // https://www.thunderforest.com/maps/atlas/
 const DefaultIcon = L.icon({
@@ -66,6 +68,9 @@ class Map extends Component {
   // skips slowdown of all items displayed at once and faster then parsing all works 
 
   componentDidMount() {
+    this.getLocations()
+    console.log('I was triggered during componentDidMount')
+    console.log('Data: ', data)
     // axios
     //   .get(`http://localhost:8090/art_works`)
     //   .then((response) => { 
@@ -88,7 +93,6 @@ class Map extends Component {
     //   .catch(function(error) {
     //     //console.log('error:', error.response.data);
     //   })
-    this.getLocations()
   }
 
   getLocations() {

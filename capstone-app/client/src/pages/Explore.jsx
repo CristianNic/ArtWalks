@@ -4,14 +4,11 @@ import { Component } from 'react';
 import BottomNav from '../components/BottomNav/BottomNav';
 import ArtWorks from '../components/ArtWorks/ArtWorks';     /// was version 2 
 import Search from '../components/Search/Search';
-// import SearchBar from '../components/SearchBar/SearchBar';
 
 const apiUrl = 'http://localhost:8090/art_works'
 const apiUrlUser = 'http://localhost:8090/favourites/1'
+//const apiUrlTemp = '../data_temp/art_work_final_geom.json'; 
 
-// User can Search by: 
-// title, artist, [x]neighbourhood, [x]type, artist_statement-keywords (5 things)  
-// -->  any empty fields, either not included or returned last.
 
 class Browse extends Component {
 
@@ -27,6 +24,8 @@ class Browse extends Component {
     this.getUserFavouritesAndVisted()
     //this.postFavourite()  // [7, 9, 10]
     //this.postLiked()  //
+    // console.log(data)
+    //console.log('I was triggered during componentDidMount')
   }
 
   getArtWorks() {
@@ -94,7 +93,6 @@ class Browse extends Component {
 		// 	event.preventDefault();
 		// 	event.target.reset();
     // };
-    
     return (
       <section className="exp">
         <Search
