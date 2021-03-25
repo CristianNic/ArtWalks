@@ -25,6 +25,10 @@ const DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
+const dataSmall = data.slice(0, 400)
+
+
+
 // const customMarkerOptions = {
 //   radius: 8,
 //   fillColor: "#ff7800",
@@ -71,6 +75,7 @@ class Map extends Component {
     this.getLocations()
     console.log('I was triggered during componentDidMount')
     console.log('Data: ', data)
+    // this.setData()
     // axios
     //   .get(`http://localhost:8090/art_works`)
     //   .then((response) => { 
@@ -94,6 +99,9 @@ class Map extends Component {
     //     //console.log('error:', error.response.data);
     //   })
   }
+  // setData() {
+  //   this.setState({ data: data})
+  // }
 
   getLocations() {
     axios
@@ -158,9 +166,10 @@ class Map extends Component {
   }
 
   render() {
-    {console.log('inside render() -- this.state:', this.state)} 
-    {console.log('inside render() -- this.filtered_art_works:', this.state)} 
-    
+    //{console.log('inside render() -- this.state:', this.state)} 
+    //{console.log('inside render() -- this.filtered_art_works:', this.state)} 
+  
+
     return (
       <section className="map">
         <Search handleSelectLocation={this.handleSelectLocation}/>
@@ -173,6 +182,15 @@ class Map extends Component {
             // url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             attribution={false}
             />
+            {dataSmall.map(artWork => (
+              <Marker
+              key={artWork.registry_id}
+              position={[
+                artWork.lat,
+                artWork.lon
+              ]}
+              />  
+              ))}
             {/* {this.state.filtered_art_works.map(artWork => (
               <Marker
               key={artWork.recordid}
