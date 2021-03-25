@@ -60,11 +60,12 @@ class Map extends Component {
   //   }
   // } 
   */
-
   state = {
     art_works: [],
     filtered_art_works: publicArtData,
-    geom: []
+    geom: [],
+    activePark: [],
+    setActive: [],
   }
 
   // Browse page passes params back [neighbourhood, title, artist, medium]
@@ -172,7 +173,7 @@ class Map extends Component {
 
     return (
       <section className="map">
-        <Search handleSelectLocation={this.handleSelectLocation}/>
+        <Search handleSelectLocation={this.handleSelectLocation} />
         <div className="map__container">
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
           <TileLayer

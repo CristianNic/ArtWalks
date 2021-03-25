@@ -14,6 +14,8 @@ export default class Search extends Component {
   state = {
     // art_works: [],
     art_works: this.props,
+    value: '',
+    mixed_search: '',
   }
 
   componentDidMount() {
@@ -78,40 +80,48 @@ New() {
     return (
       <section className="search">
         <div>
-          <select onChange={this.props.handleSelectLocation} name="pets" id="pet-select">
-            <option value="">Neighbourhood</option>
-            
-            {/* {this.state.art_works.map(titles =>
-              <option value={this.props.neighbourhood}>{titles.neighbourhood}</option>)}
-              <option value={filteredArray.neighbourhood}>{filteredArray.neighbourhood}</option>)} */}
-            
-            {areas.map(area =>
-              <option value={area}>{area}</option>)}
+          <div>
+            <select onChange={this.props.handleSelectLocation} name="pets" id="pet-select">
+              <option value="">Neighbourhood</option>
+              {/* {this.state.art_works.map(titles =>
+                <option value={this.props.neighbourhood}>{titles.neighbourhood}</option>)}
+                <option value={filteredArray.neighbourhood}>{filteredArray.neighbourhood}</option>)} */}
+              
+              {areas.map(area =>
+                <option value={area}>{area}</option>)}
 
-          </select>
+            </select>
+          </div>
+          
+          <div>
+            <select name="search__form-neighbourhood" id="pet-select">
+              <option value="">Artist</option>
+              <option value="dog">Dog</option>
+            </select>
+          </div>
+          <div>
+            <select name="search__form-neighbourhood" id="pet-select">
+              <option value="">Medium</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+            </select>
+          </div>
+          <div>
+            <button>visited</button>
+          </div>
+          <div>
+            <button>Liked</button>
+          </div>
         </div>
-        
         <div>
-          <select name="search__form-neighbourhood" id="pet-select">
-            <option value="">Artist</option>
-
-            <option value="dog">Dog</option>
-
-      
-          </select>
-        </div>
-        <div>
-          <select name="search__form-neighbourhood" id="pet-select">
-            <option value="">Medium</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-          </select>
-        </div>
-        <div>
-          <button>visited</button>
-        </div>
-        <div>
-          <button>Liked</button>
+          <div>
+            <input type="text" onChange={(e) => this.setState({ mixedSearch: e.target.value })} placeholder="Title, Artist or Medium"></input>
+            <p>{this.state.mixedSearch}</p>
+          </div>
+          <div>
+            <input type="text" onChange={(e) => this.setState({ value: e.target.value })} placeholder="Test =)"></input>
+            <p>{this.state.value}</p>
+          </div>
         </div>
       </section>
     )
