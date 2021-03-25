@@ -99,7 +99,7 @@ class Browse extends Component {
       <section className="exp">
         <Search
           art_works2={this.state.art_works}/>
-        <div clasName="exp__container">
+        <div className="exp__container">
         {this.state.art_works.map(art => 
           <ArtWorks             
             id={art.id}

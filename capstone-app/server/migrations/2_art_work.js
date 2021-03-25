@@ -16,7 +16,10 @@ exports.up = function (knex) {
 		table.string("photo_url_jpg");
 		table.string("ownership");
 		table.string("neighbourhood");
-		table.string("geom");
+		//table.string("geom");
+		table.bigInteger("lat");
+		table.bigInteger("lon");
+		// table.specificType("geom", "integer ARRAY"); //
 		table.string("geo_local_area");
 		table.text("work_description");
 		table.string("photo_credits");

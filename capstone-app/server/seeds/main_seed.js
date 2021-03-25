@@ -1,4 +1,5 @@
 const userData       = require("../seed_data/user");
+// const artWorkData    = require("../../../notes/Temp_art_work/art_work");
 const artWorkData    = require("../seed_data/art_work");
 const favouritesData = require("../seed_data/favourites");
 

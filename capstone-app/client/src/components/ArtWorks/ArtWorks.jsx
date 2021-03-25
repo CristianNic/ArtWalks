@@ -74,9 +74,12 @@ export class ArtWorks extends Component {
 
             {/* <div className="art-work__photo-container"> */}
             {/* <LazyLoad height={300} offsetVertical={300}> */}
+            {/* <LazyLoad className="art-work__photo-container" offsetVertical={2000}> */}
+
             <LazyLoad className="art-work__photo-container" offsetVertical={2000}>
               <img className="art-work__photo" src={this.props.photo_url} alt="artwork"></img>
             </LazyLoad>
+
             {/* </div> */}
             {/* <h4 className="art-work__photo-credits">{props.photo_credits}</h4> */}
             {/* <h4 className="art-work__photo-credits">HELLO TEST</h4> */}
