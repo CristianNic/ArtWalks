@@ -7,7 +7,7 @@ const Favourite = require('../models/favourtie')
 // Returns all users favourties (could use to create most popular/visited)
 router.route('/').get((req, res) => {
   Favourite.where(req.query)
-    .fetchAll({ withRelated: ['art_works'] })
+    .fetchAll({ withRelated: ['artworks'] })
     .then((favourites) => {
       res.status(200).json({ favourites })
     } )

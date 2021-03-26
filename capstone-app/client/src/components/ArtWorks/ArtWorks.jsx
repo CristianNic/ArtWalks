@@ -22,12 +22,13 @@ export class ArtWorks extends Component {
     // console.log(this.props.liked);
     // console.log(this.props.visited);
     
-    // const likedArr = this.props.liked
-    // likedArr.forEach(element => {
-    //   if (element.art_work_id === this.props.id) {
-    //     this.setState({ liked: true })
-    //   }
-    // });
+    const likedArr = this.props.liked
+    console.log(likedArr)
+    likedArr.forEach(element => {
+      if (element === this.props.id) {   // element.art_works.id
+        this.setState({ liked: true })
+      }
+    });
 
     // const likedArr = props.liked
     // likedArr.forEach(element => {
@@ -76,7 +77,7 @@ export class ArtWorks extends Component {
             {/* <LazyLoad height={300} offsetVertical={300}> */}
             {/* <LazyLoad className="art-work__photo-container" offsetVertical={2000}> */}
 
-            <LazyLoad className="art-work__photo-container" offsetVertical={2000}>
+            <LazyLoad className="art-work__photo-container" offsetVertical={150}>
               <img className="art-work__photo" src={this.props.photo_url} alt="artwork"></img>
             </LazyLoad>
 

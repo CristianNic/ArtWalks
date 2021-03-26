@@ -136,21 +136,18 @@ export default class Search extends Component {
   //  { console.log('Search Component', this.state.art_works) }
     return (
       <section className="search">
-        <div>
+        {/* <div> */}
           <div>
-            <select onChange={this.props.handleSelectLocation} name="pets" id="pet-select">
+            <select onChange={this.props.handleSelectLocation} name="neighbourhood" id="neighbourhood-select">
               <option value="">Neighbourhood</option>
               {/* {this.state.art_works.map(titles =>
                 <option value={this.props.neighbourhood}>{titles.neighbourhood}</option>)}
                 <option value={filteredArray.neighbourhood}>{filteredArray.neighbourhood}</option>)} */}
-              
               {areas.map(area =>
-                <option value={area}>{area}</option>)}
-
+              <option value={area}>{area}</option>)}
             </select>
           </div>
-          
-          <div>
+          {/* <div>
             <select name="search__form-neighbourhood" id="pet-select">
               <option value="">Artist</option>
               <option value="dog">Dog</option>
@@ -162,15 +159,15 @@ export default class Search extends Component {
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
             </select>
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <button>visited</button>
           </div>
           <div>
             <button>Liked</button>
-          </div>
-        </div>
-        <div>
+          </div> */}
+        {/* </div>
+        <div> */}
           <div>
             <input type="text"
               //onChange={(e) => this.setState({ searchTitleArtistMedium: e.target.value })}
@@ -178,15 +175,16 @@ export default class Search extends Component {
               placeholder="Title, Artist or Medium"></input>
             <p>{this.state.searchTitleArtistMedium}</p>
           </div>
-          <div>
+          {/* <div>
             <input type="text" onChange={(e) => this.setState({ value: e.target.value })} placeholder="Test =)"></input>
             <p>{this.state.value}</p>
-          </div>
-          <Link className="art-work__link" to={`/art_works/layered_map`}>
+          </div> */}
+          <Link className="art-work__link" to={`/map`}>
           {/* <Link className="art-work__link" to={`/art_works/${this.props.id}`}> */}
-            <button>Layered Map</button>
+            <button> Layers </button>
           </Link>
-        </div> 
+
+        {/* </div>  */}
       </section>
     )
   }

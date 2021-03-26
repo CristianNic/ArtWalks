@@ -3,7 +3,7 @@
 import { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './pages/Login';
-import Map from './pages/Map';
+import MapArt from './pages/MapArt';
 import Explore from './pages/Explore';
 import Saved from './pages/Saved';
 import Details from './pages/Details';
@@ -27,7 +27,7 @@ class App extends Component {
         <Switch>
           <Redirect exact from='/' to='/login' />
           <Route exact path='/login' component={Login} />  
-          <Route exact path='/map' component={Map} />       
+          <Route exact path='/map' component={MapArt} />       
           <Route exact path='/art_works' component={Explore} />
           <Route exact path='/art_works/:id' component={Details} />
           <Route exact path='/favourites' component={Saved} />

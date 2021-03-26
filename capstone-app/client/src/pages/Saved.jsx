@@ -2,6 +2,8 @@
 import axios from 'axios';
 import { Component } from 'react';
 import BottomNav from '../components/BottomNav/BottomNav';
+import Search from '../components/Search/Search';
+import ArtWorks from '../components/ArtWorks/ArtWorks'; 
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class Saved extends Component {
@@ -9,7 +11,7 @@ class Saved extends Component {
   state = {
     // favourties: [] // and parse later?
     id: {},
-    artWorks: {},
+    art_works: [],
     visted: {},
     geom: {}
   }
@@ -17,55 +19,47 @@ class Saved extends Component {
   // look explore page 
   // store in all works in state -- then filter by user  
   componentDidMount() {
-    axios
-      .get(`http://localhost:8090/favourites/1`)
-      //.get(`http://localhost:8090/favourites/${this.props.match.params.id}`)
-      .then(response => {
-       // console.log('response.data:', response.data)
-        response.data.map((user) => {
-         // console.log(thing.art_works.geom)
-          this.setState({
-            id: user.art_works.id,
-            artWorks: user.art_works,
-            visited: user.visted,
-            geom: user.art_works.geom
-          })
-          console.log('State:', this.state)
-        })
-      })
-        // this.setState({ favourties: response.data})
-      .catch(function(error) {
-        console.log('error:', error.response.data);
-      })
+    this.getArtWorks()
   }
 
-        // .then(response => {
-        //     this.setState({
-        //         listings: response.data,
-        //         reviews: response.data.reviews,
-        //     })
-        // })
+  getArtWorks() {
+    axios
+      .get(`http://localhost:8090/favourites/1`)
+      .then((response) => {
+        // console.log('response.data:', response.data)
+        //console.log('response.data.art_works:', response.data.art_works)
+        this.setState({
+          art_works: response.data.art_works,
+        })
+      })
+      .catch(function(error) {
+        // console.log('error:', error.response.data);
+      })
+  }
 
   render() {
     return (
       <section className="favourites">
-        <h1>Hello</h1>
-        {/* {console.log('this state:', this.state)} */}
-        {/* {this.state.favourties.map((artWork) => (
-          <li key={artWork.recordid}>
-          
-            <h1>{artWork.title}</h1>
-            <h1>{artWork.visited}</h1>
-            <h2>{artWork.artists}</h2>
-            <img src={artWork.url_photo} alt="" height="300" />
-            <h3>Photo: {artWork.photo_credits}</h3>
-            <h2>{artWork.type}</h2>  
-            <h2>{artWork.primary_material}</h2>
-        
-          </li>
-        ))} */}
-
-        
+        <Search
+          art_works2={this.state.art_works}/>
+        <div className="exp__container">
+        {this.state.art_works.map(art => 
+          <ArtWorks             
+            id={art.id}
+            title={art.title}
+            artists_names={art.artists_names}
+            photo_url={art.photo_url}
+            //photo_credits={art.photo_credits}
+            neighbourhood={art.neighbourhood}
+            type={art.type}
+            artist_statement={art.artist_statement}
+            liked={this.state.liked} // {this.state.liked} [7, 8, 9]
+            visited={this.state.visited}
+            // postFavourite={postFavourite}
+            // putLiked={putLiked}
+          />
+          )}
+        </div>        
         <BottomNav />
       </section>
     );

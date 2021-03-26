@@ -14,7 +14,7 @@ class Browse extends Component {
 
   state = {
     art_works: [], // 400 display all  
-    liked: [],
+    liked: [ 753 ],
     visited: [],     // 3 make red  ID and Art ID for 1 user [ID, ART ID, User]
     // if liked ID = art_work ID do something 
   }
@@ -50,7 +50,7 @@ class Browse extends Component {
         //console.log('response.data_USER:', response.data)
         //console.log('response.data.art_works:', response.data.art_works)
         this.setState({
-          liked: response.data,
+          // liked: response.data,
           visited: response.data,
         })
       })
@@ -86,7 +86,7 @@ class Browse extends Component {
   // }
   
   render() {
-    
+    console.log(this.state)
     // console.log('Explore.jsx this.state:', this.state)
     // ==== handle Submit ==== 
     // const handleSearchSubmit = (event) => {
