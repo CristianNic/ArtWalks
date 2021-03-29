@@ -10,7 +10,11 @@ const areas = [
   'Shaughnessy', 'Stanley Park', 'Grandview-Woodland', 'Kensington-Cedar Cottage',
   'Kitsilano', 'Fairview', 'Marpole', 'RileyPark', 'Oakridge', 'Renfrew Collingwood',
   'Sunset', 'Hastings-Sunrise', 'Killarney', 'South Cambie', 'Arbutus Ridge',
-  'Dunbar-Southlands', 'West Point Grey', 'Kerrisdale' ]
+  'Dunbar-Southlands', 'West Point Grey', 'Kerrisdale']
+  
+// const keys = [
+//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+//   15, 16, 17, 18, 19, 20, 21, 22, 23]
       
 export default class Search extends Component {
 
@@ -144,7 +148,7 @@ export default class Search extends Component {
                 <option value={this.props.neighbourhood}>{titles.neighbourhood}</option>)}
                 <option value={filteredArray.neighbourhood}>{filteredArray.neighbourhood}</option>)} */}
               {areas.map(area =>
-              <option value={area}>{area}</option>)}
+                <option value={area}>{area}</option>)}
             </select>
           </div>
           {/* <div>

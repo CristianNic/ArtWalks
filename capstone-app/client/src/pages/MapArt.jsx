@@ -6,14 +6,21 @@ import BottomNav from '../components/BottomNav/BottomNav';
 // import { Icon } from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import L, { map, Popup } from 'leaflet';
+import L, { Popup } from 'leaflet';
+// import L, { map, Popup } from 'leaflet';
 
 import publicArtData from '../data_temp/public-art-smaller.json';
 import 'leaflet/dist/leaflet.css';
 import Search from '../components/Search/Search';
 
 import data from '../data_temp/art_work_final_geom.json';
-
+// const areas = [
+//   'Downtown', 'Mount Pleasant', 'Downtown Eastside', 'West End', 'Strathcona',
+//   'Shaughnessy', 'Stanley Park', 'Grandview-Woodland', 'Kensington-Cedar Cottage',
+//   'Kitsilano', 'Fairview', 'Marpole', 'RileyPark', 'Oakridge', 'Renfrew Collingwood',
+//   'Sunset', 'Hastings-Sunrise', 'Killarney', 'South Cambie', 'Arbutus Ridge',
+//   'Dunbar-Southlands', 'West Point Grey', 'Kerrisdale']
+  
 // Tile Providers 
 // https://www.thunderforest.com/maps/atlas/
 //const atlas = `https://tile.thunderforest.com/atlas/{z}/{x}/{y}.png?apikey=<insert-your-apikey-here>`
@@ -75,28 +82,48 @@ class MapArt extends Component {
   //   }
   // } 
   */
+  
+  // constructor(props) {
+  //   super(props);
+  //   this.handleSelectLocation = this.handleSelectLocation.bind(this);
+  //   this.state = {
+  //     art_works: [],
+  //     filtered_art_works: publicArtData,
+  //     geom: [],
+  //     activeMarker: '',
+  //   };
+  //   // this.handleSelectLocation = this.handleSelectLocation.bind(this);
+  // }
+  
   state = {
     art_works: [],
-    filtered_art_works: publicArtData,
-    geom: [],
-    activeMarker: '',
-
+    // filtered_art_works: publicArtData,
+    // geom: [],
+    // activeMarker: '',
   }
 
-  constructor() {
-    super();
-    this.handleSelectLocation = this.handleSelectLocation.bind(this);
-  };
+  // this.handleSelectLocation = this.handleSelectLocation.bind(this);
 
-  // Browse page passes params back [neighbourhood, title, artist, medium]
-  // 4 different axios calls based on this, 
-  // skips slowdown of all items displayed at once and faster then parsing all works 
+    // constructor() {
+    // super()
+    // this.state = {
+    //   value: this.props.defaultValue,
+    //   setValue: (newValue) => {
+    //     this.setState({ value: newValue })
+    //   }
+    // }
+  // constructor() {
+  //   super();
+  //   this.handleSelectLocation = this.handleSelectLocation.bind(this);
+  // }; 
 
   componentDidMount() {
     this.getLocations()
     this.setActiveMarker()
     //console.log('Active Marker: ', activeMarker)
     //this.getUserLocation()
+    // this.handleSelectLocation()
+    console.log('Did it set?', this.state) // not yet, only after componentDidMount()
   }
 
   // getUserLocation() {
@@ -106,7 +133,7 @@ class MapArt extends Component {
 
 
   setActiveMarker(activeMarker) {
-    console.log("Hello: ", activeMarker)
+    //console.log("Hello: ", activeMarker)
 
     this.setState({ activeMarker: [49.2780, -123.1153] }) ; 
     //this.setState({ activeMarker: [49.2780, -123.1153] }) ;
@@ -124,20 +151,18 @@ class MapArt extends Component {
     axios
       .get(`http://localhost:8090/art_works`)
       .then((response) => {
-        //console.log('response.data:', response.data)
-        console.log('response.data.art_works:', response.data.art_works)
-        console.log('response.data.art_works[0].geom:', response.data.art_works[0].geom) // each works location
-        
-        this.setState({
-          art_works: response.data.art_works,
-        })
+        // console.log('response.data:', response.data)
+        console.log('Inside getLocations(), response.data.art_works:', response.data.art_works)
+        // console.log('response.data.art_works[0].geom:', response.data.art_works[0].geom) // each works location
+        // debugger
+        this.setState({ art_works: response.data.art_works })
         // response.data.art_works.map((artWorks) => {
         //   // const geom = {};
         //   // this.setState({
         //   //  geom: artWorks.geom,
         //   // })
         // })
-        console.log('inside axios() - this.state: ', this.state)
+        // console.log('inside axios() - this.state: ', this.state)
       })
       // this.setState({ favourties: response.data})
       .catch(function (error) {
@@ -196,18 +221,24 @@ class MapArt extends Component {
   //   }
   // }
 
-  handleSelectLocation = (event) => {
-    console.log(event.target.value)
-    console.log(dataSmall)
-    console.log("small data: ", dataSmall[0])
+  handleSelectLocation = (location) => {
+    // console.log(location.target.value)
+    // console.log(dataSmall)
+    // console.log("small data: ", dataSmall[0])
 
     const filteredData = dataSmall.filter(area => 
-      area.neighbourhood === event.target.value);
+      area.neighbourhood === location.target.value);
     
     this.setState({ art_works: filteredData })
-    this.forceUpdate();
+    // this.setState(newStateObject, () => {  
+    // });
+    // this.setState((prevState, props) => {
+    //   return { art_works: filteredData };
+    // }
+    // );
 
-    console.log(filteredData)
+    console.log('handleSelectLocation: filteredData', filteredData)
+    console.log('handleSelectLocation: this.state.art_works', this.state.art_works)
     // const filteredData = this.state.filtered_art_works.filter( (area) => {
     //   return area.neighbourhood === event.target.value
     // })
@@ -219,19 +250,24 @@ class MapArt extends Component {
     // }
   }
 
-  render() {
-    //{console.log('inside render() -- this.state:', this.state)} 
-    //{console.log('inside render() -- this.filtered_art_works:', this.state)} 
+    // componentWillUnmount() {
+    // clearInterval(this.handleSelectLocation);
+    // }
   
+  render() {
     return (
       <section className="map">
+        {/* One render behing:  */}
+        {/* <Search handleSelectLocation={this.handleSelectLocation.bind(this)} />   */}
         <Search handleSelectLocation={this.handleSelectLocation} />
+        {/* <Search handleSelectLocation={ () => this.handleSelectLocation()} /> */}
         <div className="map__container">
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
           <TileLayer
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
             attribution={false}
             />
+            {console.log('Inside render() this.art_works: ', this.state.art_works) /* <--- correct */ }
             {dataSmall.map(artWork => (
               <Marker
                 key={artWork.registry_id}
@@ -239,7 +275,7 @@ class MapArt extends Component {
                   artWork.lat,
                   artWork.lon
                 ]}
-                onClick={this.setActiveMarker}
+                onClick={this.setActiveMarker2}
                 // onClick={() => {
                 //   console.log("Clicked: ")
                 //   //this.setActiveMarker()
@@ -262,8 +298,7 @@ class MapArt extends Component {
                   </div>
                 </Popup>
                 )}
-
-                 
+    
               <button className='above_map_layer'></button>
               
         </MapContainer>

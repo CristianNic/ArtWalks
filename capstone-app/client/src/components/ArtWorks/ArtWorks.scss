@@ -29,10 +29,11 @@ a {
       &__top {
         display: flex;
       }
+      &__left {
+        margin-right: 5rem;
+      }
     }
       // flex-direction: row;
-      // }
-      // &__left {
       // }
       // &__right { }
   }

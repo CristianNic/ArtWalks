@@ -12,9 +12,11 @@ export class ArtWorks extends Component {
     liked: false,    // if item 1 from props.liked = props.id 
     visted: 0,
   };
+
+
   // componentDidMount
   // looked through id
-
+  
   // console.log(props.liked);
   // console.log(props.visited);
   
@@ -23,7 +25,7 @@ export class ArtWorks extends Component {
     // console.log(this.props.visited);
     
     const likedArr = this.props.liked
-    console.log(likedArr)
+    // console.log(likedArr)
     likedArr.forEach(element => {
       if (element === this.props.id) {   // element.art_works.id
         this.setState({ liked: true })
@@ -44,6 +46,10 @@ export class ArtWorks extends Component {
     // });
   }
 
+  
+  // componentWillUnmount() {
+  //   clearInterval(this.likedArr);
+  // }
   // for each item in [] 
   // if item = item from the other []
   // then state liked = true
@@ -62,28 +68,20 @@ export class ArtWorks extends Component {
                 <h3 className="art-work__artists-names">{this.props.artists_names}</h3>
               </div>
               {/*//--------- Liked & Seen ------------ */}
-                <div className="art-work__li-card__right">
-
+              <div className="art-work__li-card__right">
                 {this.state.liked === true ? (
                   <img src={heart_red} className="art-work__icon" alt="Favourited"></img> // callback - post req.
                   ) : (
                   <img src={heart_white} className="art-work__icon" onClick={this.props.postFavourite} alt="add to favourites"></img> 
                 )}
-                
                 </div>
               </div>
-
             {/* <div className="art-work__photo-container"> */}
             {/* <LazyLoad height={300} offsetVertical={300}> */}
             {/* <LazyLoad className="art-work__photo-container" offsetVertical={2000}> */}
-
             <LazyLoad className="art-work__photo-container" offsetVertical={150}>
               <img className="art-work__photo" src={this.props.photo_url} alt="artwork"></img>
             </LazyLoad>
-
-            {/* </div> */}
-            {/* <h4 className="art-work__photo-credits">{props.photo_credits}</h4> */}
-            {/* <h4 className="art-work__photo-credits">HELLO TEST</h4> */}
             <h4 className="art-work__neighbourhood">{this.props.neighbourhood}</h4>
             <h4 className="art-work__type">{this.props.type}</h4>
             <h4 className="art-work__artist-statement">{this.props.artist_statement}</h4>

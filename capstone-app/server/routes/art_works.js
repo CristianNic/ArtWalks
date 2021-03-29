@@ -101,7 +101,7 @@ router.route("/artist/:artist").get((req, res) => {
 
 // Returns only by Medium Type
 router.route("/type/:type").get((req, res) => {
-	ArtWorks.where("type", "like", req.params.type)
+	ArtWorks.where("type", "like", req.params.type)  // %word%  match antyhing % 
 		.fetchAll()
 		.then((types) => {
 			const filteredtypes = types.models.filter(

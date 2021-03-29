@@ -99,7 +99,8 @@ class Browse extends Component {
           art_works2={this.state.art_works}/>
         <div className="exp__container">
         {this.state.art_works.map(art => 
-          <ArtWorks             
+          <ArtWorks
+            key={art.id}  
             id={art.id}
             title={art.title}
             artists_names={art.artists_names}
