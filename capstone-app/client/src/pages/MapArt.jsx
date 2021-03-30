@@ -267,8 +267,8 @@ class MapArt extends Component {
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
             attribution={false}
             />
-            {console.log('Inside render() this.art_works: ', this.state.art_works) /* <--- correct */ }
-            {dataSmall.map(artWork => (
+            {console.log('Inside render() this.art_works: ', this.state.art_works) /* <--- correct */}
+            {this.state.art_works.map(artWork => (
               <Marker
                 key={artWork.registry_id}
                 position={[
