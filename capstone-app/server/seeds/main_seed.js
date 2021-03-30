@@ -23,15 +23,15 @@ exports.seed = function (knex) {
           return knex("favourites").insert(favouritesData);
         })
     })
-    .then(() => {
-      return knex("users")
-        .pluck("id")
-        .then((userIds) => {
-          return userIds;
-          // .then((userIds) => {
-          //   console.log(userIds);
-        });
-    });
+    // .then(() => {
+    //   return knex("users")
+    //     .pluck("id")
+    //     .then((userIds) => {
+    //       return userIds;
+    //       // .then((userIds) => {
+    //       //   console.log(userIds);
+    //     });
+    // });
     // .then((userIds) => {
     //   const favouritesDataWithUserIds = favouritesData.map((favourites) => {
     //     favourites.user_id = // userIds

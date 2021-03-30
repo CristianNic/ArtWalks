@@ -1,4 +1,4 @@
-[
+module.exports = [
 	{
 		registry_id: 316,
 		title: "Water Work",
