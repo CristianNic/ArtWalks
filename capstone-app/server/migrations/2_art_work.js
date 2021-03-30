@@ -1,3 +1,4 @@
+
 exports.up = function (knex) {
 	return knex.schema.createTable("art_works", (table) => {
 		table.increments("id").primary();
@@ -16,15 +17,8 @@ exports.up = function (knex) {
 		table.string("photo_url_jpg");
 		table.string("ownership");
 		table.string("neighbourhood");
-		//table.string("geom");
-
 		table.decimal("lat", 11, 6);
 		table.decimal("lon", 11, 6);
-
-		// table.float("lat", 7, 2);
-		// table.float("lon", 7, 2);
-
-		// table.specificType("geom", "integer ARRAY"); //
 		table.string("geo_local_area");
 		table.text("work_description");
 		table.string("photo_credits");

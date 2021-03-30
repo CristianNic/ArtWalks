@@ -1,6 +1,5 @@
-const userData       = require("../seed_data/user");
-// const artWorkData    = require("../../../notes/Temp_art_work/art_work");
-const artWorkData    = require("../seed_data/art_work");
+const userData = require("../seed_data/user");
+const artWorkData = require("../seed_data/art_work");
 const favouritesData = require("../seed_data/favourites");
 
 exports.seed = function (knex) {
@@ -23,42 +22,9 @@ exports.seed = function (knex) {
           return knex("favourites").insert(favouritesData);
         })
     })
-    // .then(() => {
-    //   return knex("users")
-    //     .pluck("id")
-    //     .then((userIds) => {
-    //       return userIds;
-    //       // .then((userIds) => {
-    //       //   console.log(userIds);
-    //     });
-    // });
-    // .then((userIds) => {
-    //   const favouritesDataWithUserIds = favouritesData.map((favourites) => {
-    //     favourites.user_id = // userIds
-    //       userIds[Math.floor(Math.random() * userIds.length)];
-    //     return favourites;
-    //   });
-    //   return knex("favourites").insert(favouritesDataWithUserIds);
-    // });
 };   
       
 
 
       
-// Init File: 
 
-// exports.seed = function(knex) {
-//   // Deletes ALL existing entries
-//   return knex('table_name').del()
-//     .then(function () {
-//       // Inserts seed entries
-//       return knex('table_name').insert([
-//         {id: 1, colName: 'rowValue1'},
-//         {id: 2, colName: 'rowValue2'},
-//         {id: 3, colName: 'rowValue3'}
-        
-//         // import a variable ... 
-
-//       ]);
-//     });
-// };
