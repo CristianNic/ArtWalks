@@ -215,21 +215,12 @@ class MapArt extends Component {
                   artWork.lat,
                   artWork.lon
                 ]}
-                // onClick={this.setActiveMarker2}
-                // onClick={() => {
-                //   console.log("Clicked: ")
-                //   //this.setActiveMarker()
-                //   //console.log(this.setActiveMarker)
-                // }}
-                // {this.setActiveMarker}
-
                 onClick={() => {
                   console.log("Clicked marker: ")
                   // this.setActiveMarker()
                   this.setState({ activeMarker: artWork })
                   console.log("result: ", this.state.activeMarker)
                 }}
-
                 // onClick={this.setActiveMarker}
               />
             ))}
