@@ -9,7 +9,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L, { Popup } from 'leaflet';
 // import L, { map, Popup } from 'leaflet';
 
-import publicArtData from '../data_temp/public-art-smaller.json';
+//import publicArtData from '../data_temp/public-art-smaller.json';
 import 'leaflet/dist/leaflet.css';
 import Search from '../components/Search/Search';
 
@@ -83,23 +83,11 @@ class MapArt extends Component {
   // } 
   */
   
-  // constructor(props) {
-  //   super(props);
-  //   this.handleSelectLocation = this.handleSelectLocation.bind(this);
-  //   this.state = {
-  //     art_works: [],
-  //     filtered_art_works: publicArtData,
-  //     geom: [],
-  //     activeMarker: '',
-  //   };
-  //   // this.handleSelectLocation = this.handleSelectLocation.bind(this);
-  // }
-  
   state = {
     art_works: [],
     // filtered_art_works: publicArtData,
     // geom: [],
-    // activeMarker: '',
+    activeMarker: null,
   }
 
   // this.handleSelectLocation = this.handleSelectLocation.bind(this);
@@ -119,11 +107,9 @@ class MapArt extends Component {
 
   componentDidMount() {
     this.getLocations()
-    this.setActiveMarker()
-    //console.log('Active Marker: ', activeMarker)
-    //this.getUserLocation()
+    // this.setActiveMarker()
+    // this.getUserLocation()
     // this.handleSelectLocation()
-    console.log('Did it set?', this.state) // not yet, only after componentDidMount()
   }
 
   // getUserLocation() {
@@ -132,15 +118,10 @@ class MapArt extends Component {
   // https://egghead.io/lessons/react-use-leaflet-s-geolocation-api-to-find-a-browser-s-location-to-update-a-react-leaflet-map
 
 
-  setActiveMarker(activeMarker) {
-    //console.log("Hello: ", activeMarker)
+  // setActiveMarker() {
+  //   this.setState({ activeMarker: this.artWork }); 
+  // }
 
-    this.setState({ activeMarker: [49.2780, -123.1153] }) ; 
-    //this.setState({ activeMarker: [49.2780, -123.1153] }) ;
-  }
-  setActiveMarker2 = () => {
-    return this.setState({ activeMarker: 'Hello' }) ;
-  }
 
   handleFormChange = (e) => {
     this.setState({ activeMarker: e.target.value,
@@ -151,48 +132,13 @@ class MapArt extends Component {
     axios
       .get(`http://localhost:8090/art_works`)
       .then((response) => {
-        // console.log('response.data:', response.data)
         console.log('Inside getLocations(), response.data.art_works:', response.data.art_works)
-        // console.log('response.data.art_works[0].geom:', response.data.art_works[0].geom) // each works location
-        // debugger
         this.setState({ art_works: response.data.art_works })
-        // response.data.art_works.map((artWorks) => {
-        //   // const geom = {};
-        //   // this.setState({
-        //   //  geom: artWorks.geom,
-        //   // })
-        // })
-        // console.log('inside axios() - this.state: ', this.state)
       })
-      // this.setState({ favourties: response.data})
       .catch(function (error) {
-        //console.log('error:', error.response.data);
       })
   }
-  // getLocations_v1() {
-  //   axios
-  //     .get(`http://localhost:8090/art_works`)
-  //     .then((response) => {
-  //       //console.log('response.data:', response.data)
-  //       console.log('Art Works:', response.data.art_works)
-  //       console.log('Art Works:', response.data.art_works[0].geom) // each works location
-      
-  //       response.data.art_works.map((artWorks) => {
-  //         const geom = {};
-  //         this.setState({
-  //           geom: geom[artWorks.geom]
-  //         })
-  //         // this.setState({
-  //         //  geom: artWorks.geom,
-  //         // })
-  //       })
-  //       console.log(this.state.geom)
-  //     })
-  //     // this.setState({ favourties: response.data})
-  //     .catch(function (error) {
-  //       //console.log('error:', error.response.data);
-  //     })
-  // }
+  
   // handleSelectLocation = (event) => {
   //   console.log(event.target.value)
 
@@ -249,18 +195,11 @@ class MapArt extends Component {
     //   this.setState({filtered_art_works: publicArtData})
     // }
   }
-
-    // componentWillUnmount() {
-    // clearInterval(this.handleSelectLocation);
-    // }
   
   render() {
     return (
       <section className="map">
-        {/* One render behing:  */}
-        {/* <Search handleSelectLocation={this.handleSelectLocation.bind(this)} />   */}
         <Search handleSelectLocation={this.handleSelectLocation} />
-        {/* <Search handleSelectLocation={ () => this.handleSelectLocation()} /> */}
         <div className="map__container">
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
           <TileLayer
@@ -268,6 +207,7 @@ class MapArt extends Component {
             attribution={false}
             />
             {console.log('Inside render() this.art_works: ', this.state.art_works) /* <--- correct */}
+            {console.log('Inside render() this.activeMarker: ', this.state.activeMarker) /* <--- null to begin with */}
             {this.state.art_works.map(artWork => (
               <Marker
                 key={artWork.registry_id}
@@ -275,31 +215,41 @@ class MapArt extends Component {
                   artWork.lat,
                   artWork.lon
                 ]}
-                onClick={this.setActiveMarker2}
+                // onClick={this.setActiveMarker2}
                 // onClick={() => {
                 //   console.log("Clicked: ")
                 //   //this.setActiveMarker()
                 //   //console.log(this.setActiveMarker)
                 // }}
                 // {this.setActiveMarker}
+
+                onClick={() => {
+                  console.log("Clicked marker: ")
+                  // this.setActiveMarker()
+                  this.setState({ activeMarker: artWork })
+                  console.log("result: ", this.state.activeMarker)
+                }}
+
+                // onClick={this.setActiveMarker}
               />
             ))}
 
-              { this.activeMarker && (
+              { this.state.activeMarker && (
                 <Popup
                   position={[
-                    this.activeMarker.lat,
-                    this.activeMarker.lon
+                    this.state.activeMarker.lat,
+                    this.state.activeMarker.lon
                   ]}
-              >
+                >
                   <div>
                     <h2>{this.activeMarker.title}</h2>
-                    {/* <p>{this.activeMarker.type}</p> */}
+                  {/* <p>{this.activeMarker.type}</p> */}
+                    <button>test, links to artwork page</button>
                   </div>
                 </Popup>
                 )}
     
-              <button className='above_map_layer'></button>
+              {/* <button className='above_map_layer'></button> */}
               
         </MapContainer>
           </div>
@@ -310,8 +260,36 @@ class MapArt extends Component {
 }
 
 export default MapArt;
-        // <Marker position={[49.2827, -123.1207]}>
-        //   <Popup>
-        //     A pretty CSS3 popup
-        //   </Popup>
-        // </Marker>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
