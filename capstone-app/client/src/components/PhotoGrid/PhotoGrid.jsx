@@ -63,13 +63,34 @@ class PhotoGrid extends Component {
   state = {
     showResults: false,
     display: false,
+    open: false,
+    open2: false,
   }
 
+  handleButtonClick = () => {
+    this.setState(state => {
+      return {
+        open: !state.open,
+      };
+    });
+  };
+
+  handleButtonClick2 = () => {
+    this.setState(state => {
+      return {
+        open2: !state.open2,
+      };
+    });
+  };
+  
   render() {
     return (
       <div className="MyFirst">
 
         {/* <Search /> */}
+        
+        {/* ------------ Show / Hide Div------------*/}
+
         <button className="btn" onClick={() => this.setState({ showResults: true })}>
           {/* style={ this.state.display ? { display:'block'} : {display : 'none'} } */}
           <div className="container">
@@ -86,27 +107,46 @@ class PhotoGrid extends Component {
             <h2>Statement</h2>
           </div>) : (<div></div>)}
 
-        <button className="btn">
+        {/* ------------ Button Click to close ------------*/}
+
+        <button className="btn" onClick={this.handleButtonClick2}>
           <div className="container">
             <img className="img" src={img2}></img>
           </div>
         </button>
 
-        {this.state.showResults === true ? (
+        {this.state.open2 && (
           <div className="expander" id="myDIV">
             <h1>Title</h1>
             <h2>Artist</h2>
             <h2>Neighbourhood</h2>
             <h2>Medium</h2>
             <h2>Statement</h2>
-          </div>) : (<div></div>)}
+          </div>)}
 
         <div className="container">
           <img className="img" src={img3}></img>
         </div>
-        <div className="container">
-          <img className="img" src={img4}></img>
-        </div>
+    {/* ------------ Drop Down Menu -----------*/}
+        <button className="button" onClick={this.handleButtonClick}>
+          <div className="container">
+            <img className="img" src={img4}></img>
+          </div>
+        </button>
+        {this.state.open && (
+          <div class="dropdown">
+            <ul>
+              <h1>Title</h1>
+              <h2>Artist</h2>
+              <h2>Neighbourhood</h2>
+              <h2>Medium</h2>
+              <h2>Statement</h2>
+            </ul>
+          </div>
+        )}
+
+    {/* --------------- Grid ---------------*/}
+        
         <div className="container">
           <img className="img" src={img5}></img>
         </div>

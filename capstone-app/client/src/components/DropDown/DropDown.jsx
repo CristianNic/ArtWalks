@@ -1,5 +1,5 @@
 // https://codedaily.io/tutorials/Create-a-Dropdown-in-React-that-Closes-When-the-Body-is-Clicked
-
+// consider addingmouse clicks outside of drop down to close it 
 import { React, Component } from "react";
 import BottomNav from '../BottomNav/BottomNav';
 import './DropDown.scss'
