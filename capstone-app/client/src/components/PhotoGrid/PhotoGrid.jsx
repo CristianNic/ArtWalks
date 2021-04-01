@@ -61,7 +61,8 @@ class PhotoGrid extends Component {
   // const onClick = () => setShowResults(true)
 
   state = {
-    showResults: false
+    showResults: false,
+    display: false,
   }
 
   render() {
@@ -69,7 +70,8 @@ class PhotoGrid extends Component {
       <div className="MyFirst">
 
         {/* <Search /> */}
-        <button className="btn" onClick={() => this.setState({showResults: true})}>
+        <button className="btn" onClick={() => this.setState({ showResults: true })}>
+          {/* style={ this.state.display ? { display:'block'} : {display : 'none'} } */}
           <div className="container">
             <img className="img" src={img1}></img>
           </div>

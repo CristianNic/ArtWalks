@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import LayeredMap from './pages/LayeredMap/LayeredMap';
 import LayeredMapChloro from './pages/LayeredMapChloro/LayeredMapChloro';
 import PhotoGrid from './components/PhotoGrid/PhotoGrid'
+import DropDown from './components/DropDown/DropDown'
 
 
 
@@ -36,6 +37,7 @@ class App extends Component {
           <Route exact path='/layered_map' component={LayeredMap} />
           <Route exact path='/layered_map_chloro' component={LayeredMapChloro} />
           <Route exact path='/photo-grid' component={PhotoGrid} />
+          <Route exact path='/dropdown' component={DropDown} />
 
         </Switch>
       </Router>
