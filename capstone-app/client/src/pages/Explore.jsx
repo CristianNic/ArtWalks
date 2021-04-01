@@ -7,8 +7,6 @@ import Search from '../components/Search/Search';
 
 const apiUrl = 'http://localhost:8090/art_works'
 const apiUrlUser = 'http://localhost:8090/favourites/1'
-//const apiUrlTemp = '../data_temp/art_work_final_geom.json'; 
-
 
 class Browse extends Component {
 
@@ -22,16 +20,13 @@ class Browse extends Component {
   componentDidMount() {
     this.getArtWorks(); 
     this.getUserFavouritesAndVisted()
-    //this.postFavourite()  // [7, 9, 10]
-    //this.postLiked()  //
-    // console.log(data)
-    //console.log('I was triggered during componentDidMount')
+    //this.postFavourite() 
+    //this.postLiked()  
   }
 
   getArtWorks() {
     axios
       .get(apiUrl)
-      // .get(`${url}`)
       .then((response) => {
         // console.log('response.data:', response.data)
         //console.log('response.data.art_works:', response.data.art_works)
@@ -58,6 +53,7 @@ class Browse extends Component {
         // console.log('error:', error.response.data);
       })
   }
+  
   // postFavourite() {
   //   axios
   //     .post(apiUrlUser)

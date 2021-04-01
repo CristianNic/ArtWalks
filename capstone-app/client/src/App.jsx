@@ -10,6 +10,7 @@ import Details from './pages/Details';
 import Profile from './pages/Profile';
 import LayeredMap from './pages/LayeredMap/LayeredMap';
 import LayeredMapChloro from './pages/LayeredMapChloro/LayeredMapChloro';
+import PhotoGrid from './components/PhotoGrid/PhotoGrid'
 
 
 
@@ -34,6 +35,7 @@ class App extends Component {
           <Route exact path='/profile/:id' component={Profile} />
           <Route exact path='/layered_map' component={LayeredMap} />
           <Route exact path='/layered_map_chloro' component={LayeredMapChloro} />
+          <Route exact path='/photo-grid' component={PhotoGrid} />
 
         </Switch>
       </Router>
