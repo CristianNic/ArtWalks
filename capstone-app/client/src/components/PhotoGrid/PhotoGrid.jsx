@@ -61,62 +61,35 @@ class PhotoGrid extends Component {
   // const onClick = () => setShowResults(true)
 
   state = {
-    showResults: false,
     display: false,
-    open: false,
-    open2: false,
+    expand: 0,
+    // current_art_work: this.state.registry_id,
   }
 
   handleButtonClick = () => {
     this.setState(state => {
       return {
-        open: !state.open,
-      };
-    });
-  };
-
-  handleButtonClick2 = () => {
-    this.setState(state => {
-      return {
-        open2: !state.open2,
+        display: !state.display,
+        expand: this.props.id,
       };
     });
   };
   
   render() {
     return (
-      <div className="MyFirst">
-
+      <div className="myfirst">
         {/* <Search /> */}
-        
-        {/* ------------ Show / Hide Div------------*/}
-
-        <button className="btn" onClick={() => this.setState({ showResults: true })}>
-          {/* style={ this.state.display ? { display:'block'} : {display : 'none'} } */}
-          <div className="container">
-            <img className="img" src={img1}></img>
-          </div>
-        </button>
-        
-        {this.state.showResults === true ? (
-          <div className="expander" id="myDIV">
-            <h1>Title</h1>
-            <h2>Artist</h2>
-            <h2>Neighbourhood</h2>
-            <h2>Medium</h2>
-            <h2>Statement</h2>
-          </div>) : (<div></div>)}
-
-        {/* ------------ Button Click to close ------------*/}
-
-        <button className="btn" onClick={this.handleButtonClick2}>
-          <div className="container">
-            <img className="img" src={img2}></img>
-          </div>
-        </button>
-
-        {this.state.open2 && (
-          <div className="expander" id="myDIV">
+        {/* ------------ Click photo to expand display------------*/}
+        <div className="container">
+          <button className="btn" onClick={this.handleButtonClick}>
+          {/* <button className="btn" onClick={() => this.handleButtonClick(this.props.id)}> */}
+            {/* // onClick return the id value, if the it value === the current props.id then expand */}
+            <img className="img" src={img1}></img> 
+          </button>  
+        </div>
+        {this.state.display && (
+        // {this.state.display && this.state.expand === this.state.props.id && (
+          <div className="expander" id={this.props.id}>
             <h1>Title</h1>
             <h2>Artist</h2>
             <h2>Neighbourhood</h2>
@@ -125,16 +98,32 @@ class PhotoGrid extends Component {
           </div>)}
 
         <div className="container">
-          <img className="img" src={img3}></img>
+          <button className="btn" onClick={this.handleButtonClick}>
+            <img className="img" src={img2}></img>
+          </button>
         </div>
-    {/* ------------ Drop Down Menu -----------*/}
-        <button className="button" onClick={this.handleButtonClick}>
+        {this.state.display && (
+          <div className="expander">
+            <h1>Title</h1>
+            <h2>Artist</h2>
+            <h2>Neighbourhood</h2>
+            <h2>Medium</h2>
+            <h2>Statement</h2>
+          </div>)}
+
+        <div className="container">
+          <button className="btn" onClick={this.handleButtonClick}>
+            <img className="img" src={img3}></img>
+          </button>
+        </div>
+
+        <button className="btn" onClick={this.handleButtonClick}>
           <div className="container">
             <img className="img" src={img4}></img>
           </div>
         </button>
-        {this.state.open && (
-          <div class="dropdown">
+        {this.state.display && (
+          <div class="expander">
             <ul>
               <h1>Title</h1>
               <h2>Artist</h2>
@@ -142,8 +131,7 @@ class PhotoGrid extends Component {
               <h2>Medium</h2>
               <h2>Statement</h2>
             </ul>
-          </div>
-        )}
+          </div>)}
 
     {/* --------------- Grid ---------------*/}
         
