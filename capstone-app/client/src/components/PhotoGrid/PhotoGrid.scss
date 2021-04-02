@@ -14,6 +14,9 @@
 
 .myfirst {
 margin-left: 10px;
+  // display: flex;
+  // flex-direction: column;
+  // flex: wrap;
   
 }
 .container {
@@ -22,6 +25,8 @@ margin-left: 10px;
   // width: 300px;
   // margin-left: 10px;
   // margin-right: 1rem;
+  // display: flex;
+  // flex-direction: column;
 }
 
 .img {
@@ -49,6 +54,7 @@ margin-left: 10px;
   // Adjusted - eyeballed 
   height: 232.75px;  // is there css cmd to shrink img by 25% ? 
   width: 192px;
+  //width: 394px;
 
   margin-right: 10px;
   margin-bottom: 10px;
@@ -68,9 +74,16 @@ margin-left: 10px;
 	cursor: pointer;
 	outline: inherit;
   width: inherit;
+  height: 232.75px;  // is there css cmd to shrink img by 25% ? 
+  width: 192px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .expander {
+  border-color: 2px darkgray;
+  height: 200px;
+  width: 180px;
 }
 
 

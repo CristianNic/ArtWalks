@@ -4,6 +4,7 @@
 import { Component } from "react";
 import './PhotoGrid.scss'
 import BottomNav from '../BottomNav/BottomNav';
+import PhotoGridModal from '../PhotoGridModal/PhotoGridModal';
 // import ArtWorks from '../ArtWorks/ArtWorks';     /// was version 2 
 import Search from '../Search/Search';
 
@@ -73,6 +74,7 @@ class PhotoGrid extends Component {
         expand: this.props.id,
       };
     });
+    console.log('can I add more features?')
   };
   
   render() {
@@ -89,13 +91,16 @@ class PhotoGrid extends Component {
         </div>
         {this.state.display && (
         // {this.state.display && this.state.expand === this.state.props.id && (
+          
+          // <div className="flex">
           <div className="expander" id={this.props.id}>
             <h1>Title</h1>
             <h2>Artist</h2>
             <h2>Neighbourhood</h2>
             <h2>Medium</h2>
             <h2>Statement</h2>
-          </div>)}
+          {/* </div> */}
+        </div>)}
 
         <div className="container">
           <button className="btn" onClick={this.handleButtonClick}>
@@ -122,6 +127,7 @@ class PhotoGrid extends Component {
             <img className="img" src={img4}></img>
           </div>
         </button>
+        
         {this.state.display && (
           <div class="expander">
             <ul>
@@ -133,11 +139,14 @@ class PhotoGrid extends Component {
             </ul>
           </div>)}
 
-    {/* --------------- Grid ---------------*/}
+    {/* --------------- Modal ---------------*/}
         
-        <div className="container">
+        {/* <div className="container">
           <img className="img" src={img5}></img>
-        </div>
+        </div> */}
+        {/* <PhotoGridModal/> */}
+
+     {/* --------------- Grid ---------------*/}   
         <div className="container">
           <img className="img" src={img6}></img>
         </div>
