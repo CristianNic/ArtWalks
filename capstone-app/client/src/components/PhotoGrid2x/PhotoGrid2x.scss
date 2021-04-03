@@ -88,24 +88,38 @@
   margin-bottom: 10px;
   -webkit-tap-highlight-color: transparent; /* transparent with keyword */
 }
-
-.expander {
-  border-color: 2px darkgray;
-  height: 200px;
-  width: 180px;
-}
-
 :focus {
   outline: none !important;
 }
-
+.above-expander {
+  background-color: lightpink;
+}
+.expander {
+  // if artist statement = null, then change height style to smaller value  
+  border-color: 2px darkgray;
+  height: 200px;
+  height: 300px; 
+  width: 300; // 180px;
+  background-color: lightgray;
+  margin: 0;
+}
+.ul {
+  height: 190px;
+  width: 394px;
+  background-color: lightpink;
+}
 .like {
-  position: absolute;
+  position: absolute; 
   top: 6px;
   left: 160px;
   width: 24px;
   height: 24px;
   z-index: 10;
+}
+
+.btn-wrapper { // original 404 x 200.5
+ // width: 192px;
+ height: 186.5px; 
 }
 
 .filter-white {
