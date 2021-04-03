@@ -73,6 +73,8 @@
   background: none;
 	color: inherit;
 	border: none;
+  outline: none;
+  // user-select: none;
 	padding: 0;
   margin: 0;
 	font: inherit;
@@ -84,6 +86,7 @@
   height: 186.5px;
   margin-right: 10px;
   margin-bottom: 10px;
+  -webkit-tap-highlight-color: transparent; /* transparent with keyword */
 }
 
 .expander {
@@ -92,6 +95,23 @@
   width: 180px;
 }
 
+:focus {
+    outline: none !important;
+}
+
+.like {
+  position: absolute;
+  top: 6px;
+  left: 160px;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+}
+
+.filter-white {
+  // pick output colour --> https://codepen.io/sosuke/pen/Pjoqqp
+  filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(183deg) brightness(102%) contrast(101%);
+}
 
 // .container {
 //   position: relative;

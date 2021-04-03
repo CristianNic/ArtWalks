@@ -56,10 +56,10 @@ export class ArtWorks extends Component {
   // otherwise state liked = false 
 
   // console.log('Test:', props)
-  
+  /// remove key bellow <--- 
   render() {
     return (
-      <article className="art-work__container" key={this.props.id}>
+      <article className="art-work__container" key={this.props.id}> 
         <Link className="art-work__link" to={`/art_works/${this.props.id}`}>
           <div className="art-work__li-card">
             <div className="art-work__li-card__top">
