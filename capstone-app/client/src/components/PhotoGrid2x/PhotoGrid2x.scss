@@ -96,7 +96,7 @@
 }
 
 :focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 .like {
@@ -109,7 +109,8 @@
 }
 
 .filter-white {
-  // pick output colour --> https://codepen.io/sosuke/pen/Pjoqqp
+  // Pick output colour --> https://codepen.io/sosuke/pen/Pjoqqp
+  // https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
   filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(183deg) brightness(102%) contrast(101%);
 }
 

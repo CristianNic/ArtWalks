@@ -28,7 +28,7 @@ import img14 from'../../data_temp/images/L196.jpg'
 import img15 from'../../data_temp/images/oak.jpg'
 import img16 from'../../data_temp/images/bw.jpg'
 
-import artworks from '../../data_temp/art_work'
+import artWorksData from '../../data_temp/art_work'
 
 import heartRed from '../../assets/icons/heart_red.svg';
 import heartWhite from '../../assets/icons/heart_white.svg';
@@ -71,10 +71,6 @@ class PhotoGrid2x extends Component {
   state = {
     display: false,
     expand: 0,
-    // hello: 1,
-    // item: 1,
-    // item1: 1,
-    // item2: 2,
     // current_art_work: this.state.registry_id,
   }
 
@@ -88,7 +84,6 @@ class PhotoGrid2x extends Component {
   //   console.log('can I add more features?', this.state.display)
   // };
 
-  
   handleButtonClick = (e, data) => {
     e.currentTarget.style.boxshadow = "none";
     this.setState(state => {
@@ -103,9 +98,24 @@ class PhotoGrid2x extends Component {
     console.log('Expand --> ', data)
   };
   
+  reduceArrayIntoPairs = (artWorksData) => {
+    console.log(artWorksData);
+    const rows = artWorksData.reduce(function (rows, key, index) {
+	    return (
+		    (index % 2 == 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
+		    rows
+    	);
+    }, []);
+    console.log(rows);
+  } 
+
+
   render() {
 
-    console.log('ArtWorks Imported Obj --> ', artworks)
+    console.log('ArtWorks Imported Obj --> ', artWorksData);
+
+    // reduceArrayIntoPairs(artWorksData);
+
     return (
       <div className="myfirst">
         {/* <Search /> */}
@@ -159,10 +169,13 @@ class PhotoGrid2x extends Component {
           
         {/* --------------- Grid ---------------*/}
 
-        <div className="container">
-          <img className="img" src={img8}></img>
-          <img className="like" src={heartRed}></img>
-        </div>
+        <button className="btn" onClick={this.reduceArrayIntoPairs(artWorksData)} >
+          <div className="container">
+            <img className="img" src={img8}></img>
+            <img className="like" src={heartRed}></img>
+          </div>
+        </button>
+          
         <div className="container">
           <img className="img" src={img9}></img>
           <img className="like filter-white" src={heartWhite}></img>
