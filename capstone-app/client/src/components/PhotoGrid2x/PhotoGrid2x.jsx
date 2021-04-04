@@ -90,7 +90,7 @@ class PhotoGrid2x extends Component {
     this.reduceArrayIntoPairs(artWorksData)
   }
 
-  handleButtonClick = (e, data) => {
+  expandArtWorkDetails = (e, data) => {
     e.currentTarget.style.boxshadow = "none";
     this.setState(state => {
       return {
@@ -108,12 +108,25 @@ class PhotoGrid2x extends Component {
     console.log('Liked state -->', this.state.liked)
     console.log('Add to Favourites --> ', data)
     console.log(e)
+    this.setState(state => {
+      return {
+        display: !state.display,
+      }
+    })
   }
 
+  // Quickly undos the expand function when clicked. This way both buttons are activate. 
+  // Click liked and the item id is registered and closes the expand that was opened.
   removeFromFavourites = (e, data) => {
     console.log('Liked State -->', this.state.liked)
     console.log('Remove from Favourties --> ', data)
     console.log(e)
+    this.setState(state => {
+      return {
+        display: !state.display,
+      }
+    })
+    // this.setState({ removeFromFavouritesClicked: !this.removeFromFavouritesClicked })
   }
 
   reduceArrayIntoPairs = (artWorksData) => {
@@ -148,26 +161,32 @@ class PhotoGrid2x extends Component {
               {/* {console.log('rows ---> ', rows)}
               {console.log('ART ---> ', art)} */}
               <div className="btn-wrapper">
-                <button className="btn" onClick={(e) => { this.handleButtonClick(e, art[0].registry_id) }}>      
+                <button className="btn" onClick={(e) => { this.expandArtWorkDetails(e, art[0].registry_id) }} >
                   <div className="container">
                     <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
                       <img className="img" src={art[0].photo_url_jpg} alt={art[0].title}></img>
                     </LazyLoad>
                     {this.state.liked === true ? (
                       <img className="like" src={heartRed} alt="red heart icon"
-                        onClick={(e) => { this.removeFromFavourites(e, art[0].registry_id)} }></img>
+                        onClick={(e) => { this.removeFromFavourites(e, art[0].registry_id) }}></img>
                       ) : (
                       <img className="like filter-white" src={heartWhite} alt="white heart icon"
                         onClick={(e) => { this.addToFavourites(e, art[0].registry_id)} }></img>
                     )}
                   </div>
                 </button>
-                <button className="btn" onClick={(e) => { this.handleButtonClick(e, art[1].registry_id) }} >
+                <button className="btn" onClick={(e) => { this.expandArtWorkDetails(e, art[1].registry_id) }} >
                   <div className="container">
                     <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
                       <img className="img" src={art[1].photo_url_jpg} alt={art[1].title}></img>
                     </LazyLoad>    
-                    <img className="like filter-white" src={heartWhite} alt="white heart icon"></img>
+                    {this.state.liked === true ? (
+                      <img className="like" src={heartRed} alt="red heart icon"
+                        onClick={(e) => { this.removeFromFavourites(e, art[0].registry_id) }}></img>
+                      ) : (
+                      <img className="like filter-white" src={heartWhite} alt="white heart icon"
+                        onClick={(e) => { this.addToFavourites(e, art[0].registry_id)} }></img>
+                    )}
                   </div>
                 </button>
               </div>
