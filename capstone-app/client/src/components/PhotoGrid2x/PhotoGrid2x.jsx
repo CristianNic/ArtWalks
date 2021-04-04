@@ -121,120 +121,86 @@ class PhotoGrid2x extends Component {
     console.log('ArtWorks Imported Obj -- grouped -->', this.reduceArrayIntoPairs(artWorksData));
     const rows = this.reduceArrayIntoPairs(artWorksData)
     console.log('Access Rows -->', rows[0][0])
+    console.log('Rows ==> ', rows)
     // reduceArrayIntoPairs(artWorksData);
 
     return (
       <div className="myfirst">
         <Search />
         <div className="myfirst">
-        {/* ------------ Click photo to expand display ------------*/}
-        {/* --------------- Doubled Up ---------------*/}
-        <div className="btn-wrapper">
-          <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][0].registry_id) }}>      
-            <div className="container">
-              <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
-                <img className="img" src={rows[0][0].photo_url_jpg}></img>
-              </LazyLoad>
-              <img className="like filter-white" src={heartWhite}></img>
+
+          {/* ------------ Map ------------*/}
+          {/* {rows.map(art => */}
+            <div classname="wrapper">
+              <div className="btn-wrapper">
+                <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][0].registry_id) }}>      
+                  <div className="container">
+                    <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
+                      <img className="img" src={rows[0][0].photo_url_jpg}></img>
+                    </LazyLoad>
+                    <img className="like filter-white" src={heartWhite}></img>
+                  </div>
+                </button>
+                <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][1].registry_id) }} >
+                  <div className="container">
+                    <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
+                      <img className="img" src={rows[0][1].photo_url_jpg}></img>
+                    </LazyLoad>    
+                    <img className="like filter-white" src={heartWhite}></img>
+                  </div>
+                </button>
+              </div>
+              {this.state.display && this.state.expand === rows[0][0].registry_id && (
+                <div className="expander">
+                  <ul className="ul">
+                    <h1>{rows[0][0].title}</h1>
+                    <h2>{rows[0][0].artists_names}</h2>
+                    <img className="filter-white" src={iconMap}></img>
+                    <h3>{rows[0][0].neighbourhood}</h3>
+                    <h3>{rows[0][0].type}</h3>
+                    <h4>{rows[0][0].artist_statement}</h4>
+                    <p>Statement Statement Statement Statement Statement Statement</p>
+                  </ul>
+                </div>)}
+              {this.state.display && this.state.expand === rows[0][1].registry_id && (
+                <div className="expander">
+                <ul>
+                  <h1>{rows[0][1].title}</h1>
+                  <h2>{rows[0][1].artists_names}</h2>
+                  <img className="filter-white" src={iconMap}></img>
+                  <h3>{rows[0][1].neighbourhood}</h3>
+                  <h3>{rows[0][1].type}</h3>
+                  <h4>{rows[0][1].artist_statement}</h4>
+                  <p>Statement Statement Statement Statement Statement Statement</p>
+                </ul>
+              </div>)}
             </div>
-          </button>
-          <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][1].registry_id) }} >
-            <div className="container">
-              <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
-                <img className="img" src={rows[0][1].photo_url_jpg}></img>
-              </LazyLoad>    
-              <img className="like filter-white" src={heartWhite}></img>
-            </div>
-          </button>
-        </div>
-        {this.state.display && this.state.expand === rows[0][0].registry_id && (
-          <div className="expander">
-            <ul className="ul">
-              <h1>{rows[0][0].title}</h1>
-              <h2>{rows[0][0].artists_names}</h2>
-              <img className="filter-white" src={iconMap}></img>
-              <h3>{rows[0][0].neighbourhood}</h3>
-              <h3>{rows[0][0].type}</h3>
-              <h4>{rows[0][0].artist_statement}</h4>
-              <p>Statement Statement Statement Statement Statement Statement</p>
-            </ul>
-          </div>)}
-        {this.state.display && this.state.expand === rows[0][1].registry_id && (
-          <div className="expander">
-            <ul>
-              <h1>{rows[0][1].title}</h1>
-              <h2>{rows[0][1].artists_names}</h2>
-              <img className="filter-white" src={iconMap}></img>
-              <h3>{rows[0][1].neighbourhood}</h3>
-              <h3>{rows[0][1].type}</h3>
-              <h4>{rows[0][1].artist_statement}</h4>
-              <p>Statement Statement Statement Statement Statement Statement</p>
-            </ul>
-          </div>)}
+          {/* )} */}
+          {/* ------------ Map ------------*/}
 
           {/* {(couple) => (itme2, item2)} */}
-          
-        {/* --------------- Grid ---------------*/}
 
-          <div className="container">
-            <img className="img" src={img8}></img>
-            <img className="like" src={heartRed}></img>
-          </div>
-          
-        <div className="container">
-          <img className="img" src={img9}></img>
-          <img className="like filter-white" src={heartWhite}></img>
-        </div>
-        <div className="container">
-          <img className="img" src={img10}></img>
-          <img className="like" src={heartWhite}></img>
-        </div>
-        <div className="container">
-          <img className="img" src={img11}></img>
-          <img className="like" src={heartRed}></img>
-        </div>
-        <div className="container">
-          <img className="img" src={img12}></img>
-          <img className="like" src={heartWhite}></img>
-        </div>
-        <div className="container">
-          <img className="img" src={img13}></img>
-          <img className="like" src={heartWhite}></img>
-        </div>
-        <div className="container">
-          <img className="img" src={img14}></img>
-          <img className="like" src={heartWhite}></img>
-        </div>
-        <div className="container">
-          <img className="img" src={img15}></img>
-          <img className="like" src={heartWhite}></img>
-        </div>
-        {/* <div className="container">
-          <img className="img" src={img16}></img>
-        </div> */}
-        
-        {/* <div className="exp__container">
-        {this.state.art_works.map(art => 
-          <ArtWorks
-            key={art.id}  
-            id={art.id}
-            title={art.title}
-            artists_names={art.artists_names}
-            photo_url={art.photo_url}
-            //photo_credits={art.photo_credits}
-            neighbourhood={art.neighbourhood}
-            type={art.type}
-            artist_statement={art.artist_statement}
-            liked={this.state.liked} // {this.state.liked} [7, 8, 9]
-            visited={this.state.visited}
-            // postFavourite={postFavourite}
-            // putLiked={putLiked}
-          />
-          )}
-        </div> */}
+          {/* <div className="exp__container">
+          {this.state.art_works.map(art => 
+            <ArtWorks
+              key={art.id}  
+              id={art.id}
+              title={art.title}
+              artists_names={art.artists_names}
+              photo_url={art.photo_url}
+              //photo_credits={art.photo_credits}
+              neighbourhood={art.neighbourhood}
+              type={art.type}
+              artist_statement={art.artist_statement}
+              liked={this.state.liked} // {this.state.liked} [7, 8, 9]
+              visited={this.state.visited}
+              // postFavourite={postFavourite}
+              // putLiked={putLiked}
+            />
+            )}
+          </div> */}
 
-        <BottomNav />
-
+          <BottomNav />
         </div>
       </div>
     );
