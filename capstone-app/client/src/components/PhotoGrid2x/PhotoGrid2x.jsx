@@ -154,7 +154,7 @@ class PhotoGrid2x extends Component {
     console.log('Clicked placeArtWorkOnMap -->', data) // artWork registry_id
     this.setState(state => {
       return {
-        mapLink: data,
+        mapLink: state.data,
       }
     });
   }
