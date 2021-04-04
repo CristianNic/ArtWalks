@@ -15,7 +15,7 @@ import img1 from '../../data_temp/images/bure.jpg';
 import img2 from '../../data_temp/images/platform.jpg';
 import img3 from '../../data_temp/images/law42.jpg';
 import img4 from '../../data_temp/images/L1.jpg';
-import img5 from '../../data_temp/images/Pollard.jpg';
+import img5 from '../../data_temp/images/pollard.jpg';
 import img6 from '../../data_temp/images/lion.jpg';
 import img7 from '../../data_temp/images/pink.jpg'; // faves
 import img8 from '../../data_temp/images/postcard.jpg';

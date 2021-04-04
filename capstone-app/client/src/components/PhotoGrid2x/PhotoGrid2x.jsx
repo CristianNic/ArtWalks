@@ -125,49 +125,50 @@ class PhotoGrid2x extends Component {
 
     return (
       <div className="myfirst">
-        {/* <Search /> */}
+        <Search />
         <div className="myfirst">
         {/* ------------ Click photo to expand display ------------*/}
         {/* --------------- Doubled Up ---------------*/}
         <div className="btn-wrapper">
-          <button className="btn" onClick={(e) => { this.handleButtonClick(e, 1) }}>      
+          <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][0].registry_id) }}>      
             <div className="container">
               <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
-                <img className="img" src={img6}></img>
+                <img className="img" src={rows[0][0].photo_url_jpg}></img>
               </LazyLoad>
               <img className="like filter-white" src={heartWhite}></img>
             </div>
           </button>
-          <button className="btn" onClick={(e) => { this.handleButtonClick(e, 2) }} >
+          <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][1].registry_id) }} >
             <div className="container">
               <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
-                <img className="img" src={img7}></img>
+                <img className="img" src={rows[0][1].photo_url_jpg}></img>
               </LazyLoad>    
               <img className="like filter-white" src={heartWhite}></img>
             </div>
           </button>
         </div>
-        {this.state.display && this.state.expand === 1 && (
+        {this.state.display && this.state.expand === rows[0][0].registry_id && (
           <div className="expander">
             <ul className="ul">
-              {/* <h1>{this.prop.title0}Title img6</h1> */}
-              <h1>Artist 1</h1>
-              <h1>{this.artWorksData[0].title}</h1>
+              <h1>{rows[0][0].title}</h1>
+              <h2>{rows[0][0].artists_names}</h2>
               <img className="filter-white" src={iconMap}></img>
-              <h2>Neighbourhood Neighbourhood Neighbourhood</h2>
-              <h3>Medium Medium Medium Medium Medium Medium Medium Medium</h3>
-              <h4>Statement Statement Statement Statement Statement Statement</h4>
+              <h3>{rows[0][0].neighbourhood}</h3>
+              <h3>{rows[0][0].type}</h3>
+              <h4>{rows[0][0].artist_statement}</h4>
               <p>Statement Statement Statement Statement Statement Statement</p>
             </ul>
           </div>)}
-        {this.state.display && this.state.expand === 2 && (
+        {this.state.display && this.state.expand === rows[0][1].registry_id && (
           <div className="expander">
             <ul>
-              {/* <h1>{this.prop.title1}Title img7</h1> */}
-              <h2>Artist 2</h2>
-              <h2>Neighbourhood</h2>
-              <h2>Medium</h2>
-              <h2>Statement</h2>
+              <h1>{rows[0][1].title}</h1>
+              <h2>{rows[0][1].artists_names}</h2>
+              <img className="filter-white" src={iconMap}></img>
+              <h3>{rows[0][1].neighbourhood}</h3>
+              <h3>{rows[0][1].type}</h3>
+              <h4>{rows[0][1].artist_statement}</h4>
+              <p>Statement Statement Statement Statement Statement Statement</p>
             </ul>
           </div>)}
 
