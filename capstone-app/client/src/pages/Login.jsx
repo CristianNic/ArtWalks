@@ -28,7 +28,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <TopNav />
+        {/* <TopNav /> */}
           <section className="login">
             <div className="login__container">
               <h1 className="login__title">Welcome</h1>
@@ -43,9 +43,9 @@ class Login extends Component {
                   value={this.state.password}
                   onChange={this.state.handleChange} />
               
-                <div className="login-btn-container">
-                  <button className="login__btn login__btn--submit" type="submit" name="submit" id="submit" 
-                    onClick={this.state.signUp}>Sign Up</button>
+                <div className="login__btn-container">
+                  {/* <button className="login__btn login__btn--submit" type="submit" name="submit" id="submit" 
+                    onClick={this.state.signUp}>Sign Up</button> */}
 
                   <button className="login__btn login__btn--login" type="submit" name="login" id="login"
                     onClick={this.state.login}>Log In</button>
@@ -72,9 +72,6 @@ class Login extends Component {
                 </div>
               </div>
             </form> */}
-          
-
-
 
           </section>
         <BottomNav />
