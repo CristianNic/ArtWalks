@@ -75,6 +75,8 @@ class PhotoGrid2x extends Component {
     display: false,
     expand: 0,
     liked: false,
+    mapLink: 0, // art[0].registry_id
+
     // current_art_work: this.state.registry_id,
   }
 
@@ -87,6 +89,13 @@ class PhotoGrid2x extends Component {
   //   });
   //   console.log('can I add more features?', this.state.display)
   // };
+
+  // handleChange = (event) => {
+  // this.setState({
+  //   [event.target.name]: event.target.value,
+  // });
+      
+      
   componentDidMount() {
     this.reduceArrayIntoPairs(artWorksData)
   }
@@ -142,7 +151,12 @@ class PhotoGrid2x extends Component {
   }
 
   placeArtWorkOnMap = (e, data) => {
-    console.log('Clicked placeArtWorkOnMap')
+    console.log('Clicked placeArtWorkOnMap -->', data) // artWork registry_id
+    this.setState(state => {
+      return {
+        mapLink: data,
+      }
+    });
   }
 
 
@@ -200,8 +214,10 @@ class PhotoGrid2x extends Component {
                     <ul className="ul">
                       <h1>{art[0].title}</h1>
                       <h2>{art[0].artists_names}</h2>
-                      <Link to="/map">
-                        <img className="filter-white" src={iconMap} alt="map icon"></img>
+                      <Link to={`/map/${art[0].registry_id}`}>
+                        <button onClick={(e) => {this.placeArtWorkOnMap(e, art[0].registry_id)}}>
+                          <img className="filter-white" src={iconMap} alt="map icon"></img>
+                        </button>
                       </Link>
                       <h3>{art[0].neighbourhood}</h3>
                       <h3>{art[0].type}</h3>
