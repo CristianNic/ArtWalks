@@ -233,8 +233,10 @@ class PhotoGrid2x extends Component {
                     <ul>
                       <h1>{art[1].title}</h1>
                       <h2>{art[1].artists_names}</h2>
-                      <Link to="/map">
-                        <img className="filter-white" src={iconMap} alt="map icon"></img>
+                      <Link to={`/map/${art[0].registry_id}`}>
+                        <button onClick={(e) => {this.placeArtWorkOnMap(e, art[1].registry_id)}}>
+                          <img className="filter-white" src={iconMap} alt="map icon"></img>
+                        </button>
                       </Link>
                       <h3>{art[1].neighbourhood}</h3>
                       <h3>{art[1].type}</h3>
