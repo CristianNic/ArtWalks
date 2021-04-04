@@ -2,6 +2,7 @@
 // https://picsum.photos/v2/list  //30 // &limit=20
 // import axios from 'axios';
 import { Component } from "react";
+import { Link } from 'react-router-dom'
 import './PhotoGrid2x.scss'
 import BottomNav from '../BottomNav/BottomNav';
 import LazyLoad from 'react-lazy-load';
@@ -90,6 +91,17 @@ class PhotoGrid2x extends Component {
     this.reduceArrayIntoPairs(artWorksData)
   }
 
+  reduceArrayIntoPairs = (artWorksData) => {
+    const rows = artWorksData.reduce(function (rows, key, index) {
+      return (
+        (index % 2 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
+        rows
+      );
+    }, []);
+    //console.log(rows);
+    return rows; // <--- map rows
+  } 
+
   expandArtWorkDetails = (e, data) => {
     e.currentTarget.style.boxshadow = "none";
     this.setState(state => {
@@ -129,16 +141,9 @@ class PhotoGrid2x extends Component {
     // this.setState({ removeFromFavouritesClicked: !this.removeFromFavouritesClicked })
   }
 
-  reduceArrayIntoPairs = (artWorksData) => {
-    const rows = artWorksData.reduce(function (rows, key, index) {
-	    return (
-		    (index % 2 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
-		    rows
-    	);
-    }, []);
-    //console.log(rows);
-    return rows; // <--- map rows
-  } 
+  placeArtWorkOnMap = (e, data) => {
+    console.log('Clicked placeArtWorkOnMap')
+  }
 
 
   render() {
@@ -154,7 +159,6 @@ class PhotoGrid2x extends Component {
       <div className="myfirst">
         <Search />
         <div className="myfirst">
-
           {/* ------------ Map ------------*/}
           {rows.map(art =>
             <div className="wrapper">
@@ -182,10 +186,10 @@ class PhotoGrid2x extends Component {
                     </LazyLoad>    
                     {this.state.liked === true ? (
                       <img className="like" src={heartRed} alt="red heart icon"
-                        onClick={(e) => { this.removeFromFavourites(e, art[0].registry_id) }}></img>
+                        onClick={(e) => { this.removeFromFavourites(e, art[1].registry_id) }}></img>
                       ) : (
                       <img className="like filter-white" src={heartWhite} alt="white heart icon"
-                        onClick={(e) => { this.addToFavourites(e, art[0].registry_id)} }></img>
+                        onClick={(e) => { this.addToFavourites(e, art[1].registry_id)} }></img>
                     )}
                   </div>
                 </button>
@@ -196,7 +200,9 @@ class PhotoGrid2x extends Component {
                     <ul className="ul">
                       <h1>{art[0].title}</h1>
                       <h2>{art[0].artists_names}</h2>
-                      <img className="filter-white" src={iconMap} alt="map icon"></img>
+                      <Link to="/map">
+                        <img className="filter-white" src={iconMap} alt="map icon"></img>
+                      </Link>
                       <h3>{art[0].neighbourhood}</h3>
                       <h3>{art[0].type}</h3>
                       <h4>{art[0].artist_statement}</h4>
@@ -211,7 +217,9 @@ class PhotoGrid2x extends Component {
                     <ul>
                       <h1>{art[1].title}</h1>
                       <h2>{art[1].artists_names}</h2>
-                      <img className="filter-white" src={iconMap} alt="map icon"></img>
+                      <Link to="/map">
+                        <img className="filter-white" src={iconMap} alt="map icon"></img>
+                      </Link>
                       <h3>{art[1].neighbourhood}</h3>
                       <h3>{art[1].type}</h3>
                       <h4>{art[1].artist_statement}</h4>
@@ -221,30 +229,6 @@ class PhotoGrid2x extends Component {
                 </div>)}
             </div>
           )} 
-          {/* ------------ Map ------------*/}
-
-          {/* {(couple) => (itme2, item2)} */}
-
-          {/* <div className="exp__container">
-          {this.state.art_works.map(art => 
-            <ArtWorks
-              key={art.id}  
-              id={art.id}
-              title={art.title}
-              artists_names={art.artists_names}
-              photo_url={art.photo_url}
-              //photo_credits={art.photo_credits}
-              neighbourhood={art.neighbourhood}
-              type={art.type}
-              artist_statement={art.artist_statement}
-              liked={this.state.liked} // {this.state.liked} [7, 8, 9]
-              visited={this.state.visited}
-              // postFavourite={postFavourite}
-              // putLiked={putLiked}
-            />
-            )}
-          </div> */}
-
           <BottomNav />
         </div>
       </div>
