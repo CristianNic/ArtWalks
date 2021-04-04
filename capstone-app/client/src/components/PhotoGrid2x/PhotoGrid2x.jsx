@@ -117,8 +117,8 @@ class PhotoGrid2x extends Component {
 
   render() {
 
-    console.log('ArtWorks Imported Obj -->', artWorksData);
-    console.log('ArtWorks Imported Obj -- grouped -->', this.reduceArrayIntoPairs(artWorksData));
+    // console.log('ArtWorks Imported Obj -->', artWorksData);
+    // console.log('ArtWorks Imported Obj -- grouped -->', this.reduceArrayIntoPairs(artWorksData));
     const rows = this.reduceArrayIntoPairs(artWorksData)
     console.log('Access Rows -->', rows[0][0])
     console.log('Rows ==> ', rows)
@@ -130,52 +130,59 @@ class PhotoGrid2x extends Component {
         <div className="myfirst">
 
           {/* ------------ Map ------------*/}
-          {/* {rows.map(art => */}
-            <div classname="wrapper">
+          {rows.map(art =>
+            <div className="wrapper">
+              {/* {console.log('rows ---> ', rows)}
+              {console.log('ART ---> ', art)} */}
               <div className="btn-wrapper">
-                <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][0].registry_id) }}>      
+                <button className="btn" onClick={(e) => { this.handleButtonClick(e, art[0].registry_id) }}>      
                   <div className="container">
                     <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
-                      <img className="img" src={rows[0][0].photo_url_jpg}></img>
+                      <img className="img" src={art[0].photo_url_jpg} alt={art[0].title}></img>
                     </LazyLoad>
                     <img className="like filter-white" src={heartWhite}></img>
                   </div>
                 </button>
-                <button className="btn" onClick={(e) => { this.handleButtonClick(e, rows[0][1].registry_id) }} >
+                <button className="btn" onClick={(e) => { this.handleButtonClick(e, art[1].registry_id) }} >
                   <div className="container">
                     <LazyLoad className="lazyload" offsetVertical={700} overflow={true} >
-                      <img className="img" src={rows[0][1].photo_url_jpg}></img>
+                      <img className="img" src={art[1].photo_url_jpg} alt={art[1].title}></img>
                     </LazyLoad>    
                     <img className="like filter-white" src={heartWhite}></img>
                   </div>
                 </button>
               </div>
-              {this.state.display && this.state.expand === rows[0][0].registry_id && (
+              {this.state.display && this.state.expand === art[0].registry_id && (
                 <div className="expander">
-                  <ul className="ul">
-                    <h1>{rows[0][0].title}</h1>
-                    <h2>{rows[0][0].artists_names}</h2>
-                    <img className="filter-white" src={iconMap}></img>
-                    <h3>{rows[0][0].neighbourhood}</h3>
-                    <h3>{rows[0][0].type}</h3>
-                    <h4>{rows[0][0].artist_statement}</h4>
-                    <p>Statement Statement Statement Statement Statement Statement</p>
-                  </ul>
+                  <div className="arrow-down">
+                    <ul className="ul">
+                      <h1>{art[0].title}</h1>
+                      <h2>{art[0].artists_names}</h2>
+                      <img className="filter-white" src={iconMap}></img>
+                      <h3>{art[0].neighbourhood}</h3>
+                      <h3>{art[0].type}</h3>
+                      <h4>{art[0].artist_statement}</h4>
+                      <p>Statement Statement Statement Statement Statement Statement</p>
+                    </ul>
+                  </div>
+                </div>
+              )}
+              {this.state.display && this.state.expand === art[1].registry_id && (
+                <div className="expander">
+                  <div className="arrow-down">
+                    <ul>
+                      <h1>{art[1].title}</h1>
+                      <h2>{art[1].artists_names}</h2>
+                      <img className="filter-white" src={iconMap}></img>
+                      <h3>{art[1].neighbourhood}</h3>
+                      <h3>{art[1].type}</h3>
+                      <h4>{art[1].artist_statement}</h4>
+                      <p>Statement Statement Statement Statement Statement Statement</p>
+                    </ul>
+                  </div>
                 </div>)}
-              {this.state.display && this.state.expand === rows[0][1].registry_id && (
-                <div className="expander">
-                <ul>
-                  <h1>{rows[0][1].title}</h1>
-                  <h2>{rows[0][1].artists_names}</h2>
-                  <img className="filter-white" src={iconMap}></img>
-                  <h3>{rows[0][1].neighbourhood}</h3>
-                  <h3>{rows[0][1].type}</h3>
-                  <h4>{rows[0][1].artist_statement}</h4>
-                  <p>Statement Statement Statement Statement Statement Statement</p>
-                </ul>
-              </div>)}
             </div>
-          {/* )} */}
+          )} 
           {/* ------------ Map ------------*/}
 
           {/* {(couple) => (itme2, item2)} */}

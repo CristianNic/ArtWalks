@@ -24,7 +24,7 @@
   // float: left;
   height: 196.5px; // does nothing
   width: 202px; // does nothing 
-  // margin-bottom: 10px;
+  margin-bottom: 10px;
   // margin-left: 10px;
   // margin-right: 1rem;
   // display: flex;
@@ -34,6 +34,7 @@
 .img {
   object-fit: cover;
   object-position: center;
+  //object-fit: fill; // <--- squishes img distorting it
   
   float: left;
   // height: 250px;
@@ -76,7 +77,7 @@
 }
 
 .wrapper {
-  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 .dropdown {
   margin-bottom: 10px;
@@ -116,6 +117,18 @@
   background-color: lightgray;
   margin: 0;
 }
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  
+  border-top:13px solid lightpink;
+  // https://css-tricks.com/snippets/css/css-triangle/ 
+}
+
+
 .ul {
   height: 190px;
   width: 394px;
