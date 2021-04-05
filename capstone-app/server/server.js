@@ -1,17 +1,22 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const morgan = require("morgan");
-const cors = require("cors");
+const morgan = require('morgan');
+const cors = require('cors');
+const helmet = require('helmet');
+const logger = require("morgan");
 
-require("dotenv").config();
+require('dotenv').config();
 const PORT = process.env.PORT || 5001;
 
 // middleware
-app.use(morgan("dev"));
+app.use(morgan('dev'));
+app.use(logger('dev')); // morgan logger, network info in node console
+app.use(helmet()); // small layer of security
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // <----- needed for POST and PUT -- https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded/51844327
 
+// import router paths
 const userRoute = require("./routes/user");
 const favourtiesRoute = require("./routes/favourites");
 const artWorksRoute = require("./routes/art_works");
