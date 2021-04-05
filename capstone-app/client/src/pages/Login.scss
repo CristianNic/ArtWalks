@@ -11,6 +11,10 @@
     justify-content: center;
     align-content: center;
   }
+  &__title {
+    font-weight: 460;
+    font-size: 3rem;
+  }
   &__form {
     display: flex;
     flex-direction: column;
@@ -19,7 +23,9 @@
     margin-top: 5px;
     margin-bottom: 5px;
     &-label {
-      margin-top: 5px;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 1.5rem;
     }
   }
   &__password {
@@ -27,6 +33,8 @@
     margin-bottom: 10px;
     &-label {
     margin-top: 5px;
+    font-weight: 400;
+    font-size: 1.5rem;
     }
   }
   &__btn-container {
@@ -38,6 +46,8 @@
 
 .login__btn {
   width: 200px;
+  font-weight: 400;
+  font-size: 1.5rem;
 
 }
 

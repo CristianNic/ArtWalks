@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import axios from 'axios';
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav/BottomNav';
 import TopNav from '../components/TopNav/TopNav';
@@ -6,14 +7,37 @@ import TopNav from '../components/TopNav/TopNav';
 class Login extends Component {
 
   state = {
-    user: '',
+    name: '',
     email: '',
     password: '',
   }
 
-  formSumbit = (event) => {
-    event.preventDefault();
+  // Send login information to the API
+  handleLogin = (event) => {
+    axios.post('http://localhost:8080/login', this.state)
+      .then(response => {
+          console.log(response.data);
+          // Store the auth token by the server in your session storage
+          sessionStorage.authToken = response.data.token;
+      }).catch(err => {
+          console.log(err);
+      })
+    console.log('handleLogin Clicked')
   }
+
+  // Update the state to have the information from the form
+  handleInputChange = (event) => {
+      this.setState({
+          [event.target.name]: event.target.value
+      });
+  }
+
+  componentDidUpdate = (e) => {
+    console.log('Hello')
+  }
+  // formSumbit = (event) => {
+  //   event.preventDefault();
+  // }
 
   validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
@@ -36,23 +60,20 @@ class Login extends Component {
                 <label className="login__email-label" htmlFor="email">Email</label>
                 <input className="login__email" type="email" name="email" placeholder="Email" id="email"
                   value={this.state.email}
-                  onChange={this.state.handleChange} />
+                  onChange={this.state.handleInputChange} />
                   
                 <label className="login__password-label" htmlFor="password">Password</label>
                 <input className="login__password" type="password" name="password" placeholder="Password" id="password"
                   value={this.state.password}
-                  onChange={this.state.handleChange} />
+                  onChange={this.state.handleInputChange} />
               
                 <div className="login__btn-container">
                   {/* <button className="login__btn login__btn--submit" type="submit" name="submit" id="submit" 
                     onClick={this.state.signUp}>Sign Up</button> */}
-
                   <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                    onClick={this.state.login}>Log In</button>
+                    onClick={this.handleLogin}>Log In</button>
                 </div>
-                
               </form>
-
           </div>
             {/* <form action="" className="login-form">
               <div className="login-form__container">
