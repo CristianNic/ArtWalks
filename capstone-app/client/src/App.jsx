@@ -11,6 +11,13 @@ import Profile from './pages/Profile';
 import LayeredMap from './pages/LayeredMap/LayeredMap';
 import LayeredMapChloro from './pages/LayeredMapChloro/LayeredMapChloro';
 
+// import axios from "axios"; <-- make call here and pass data down
+
+// Deploying with Git | Heroku Dev Center
+// const API_URL =
+//   process.env.NODE_ENV === "production"
+//     ? "https://git.heroku.com/name-of-project.git"
+//     : "http://localhost:8090";
 
 
 // import Test from './pages/Test';
