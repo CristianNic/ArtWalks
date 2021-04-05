@@ -7,9 +7,9 @@ import TopNav from '../components/TopNav/TopNav';
 class Login extends Component {
 
   state = {
-    name: '',
-    email: '',
-    password: '',
+    username: 'Cristian',
+    email: 'Cristian.Niculescu@gmail.com',
+    password: '123456789',
   }
 
   // Send login information to the API
@@ -55,9 +55,12 @@ class Login extends Component {
         {/* <TopNav /> */}
           <section className="login">
             <div className="login__container">
-              <h1 className="login__title">Welcome</h1>
+              <div className="login__title">
+                <h1 className="login__title-top">Welcome,</h1>
+                <h2 className="login__title-sub">Sign in to continue!</h2>
+              </div>
               <form className="login__form">
-                <label className="login__email-label" htmlFor="email">Email</label>
+                <label className="login__email-label" htmlFor="email">Username or Email</label>
                 <input className="login__email" type="email" name="email" placeholder="Email" id="email"
                   value={this.state.email}
                   onChange={this.state.handleInputChange} />
@@ -65,15 +68,24 @@ class Login extends Component {
                 <label className="login__password-label" htmlFor="password">Password</label>
                 <input className="login__password" type="password" name="password" placeholder="Password" id="password"
                   value={this.state.password}
-                  onChange={this.state.handleInputChange} />
+                onChange={this.state.handleInputChange} />
+                <h3 className="forgot">Forgot Password?</h3>
               
                 <div className="login__btn-container">
                   {/* <button className="login__btn login__btn--submit" type="submit" name="submit" id="submit" 
                     onClick={this.state.signUp}>Sign Up</button> */}
-                  <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                    onClick={this.handleLogin}>Log In</button>
-                </div>
+                <button className="login__btn login__btn--login" type="submit" name="login" id="login"
+                  onClick={this.handleLogin}>Log In</button>
+              </div>
+              <h2 className="or">or</h2>
+                <button className="login__btn login__btn--login" type="submit" name="login" id="login"
+                  onClick={this.handleLogin}>Connect with Gmail</button>
+                <button className="login__btn login__btn--login" type="submit" name="login" id="login"
+                  onClick={this.handleLogin}>Connect with Github</button>
               </form>
+              <div className="new-user">
+                <h2 className="new-user__title">I'm a new user. Sign Up</h2>
+              </div>
           </div>
             {/* <form action="" className="login-form">
               <div className="login-form__container">
