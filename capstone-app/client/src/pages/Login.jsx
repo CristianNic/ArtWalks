@@ -60,7 +60,7 @@ class Login extends Component {
                 <h2 className="login__title-sub">Sign in to continue!</h2>
               </div>
               <form className="login__form">
-                <label className="login__email-label" htmlFor="email">Username or Email</label>
+                <label className="login__email-label" htmlFor="email">Email</label>
                 <input className="login__email" type="email" name="email" placeholder="Email" id="email"
                   value={this.state.email}
                   onChange={this.state.handleInputChange} />
@@ -68,7 +68,7 @@ class Login extends Component {
                 <label className="login__password-label" htmlFor="password">Password</label>
                 <input className="login__password" type="password" name="password" placeholder="Password" id="password"
                   value={this.state.password}
-                onChange={this.state.handleInputChange} />
+                  onChange={this.state.handleInputChange} />
                 <h3 className="forgot">Forgot Password?</h3>
               
                 <div className="login__btn-container">
