@@ -34,6 +34,19 @@ app.use(function (err, req, res, next) {
 	});
 });
 
+app.post('/login', (req, res) => {
+  res.json('login');
+})
+app.post('/register', (req, res) => {
+  res.json('register');
+})
+// only return this endpoint if the user is verified and logged in
+app.post('/profile', (req, res) => {
+  res.json('profile');
+})
+
+
+
 // app.use(function (req, res, next) {
 // 	res.status(404).send("Invalid API access");      <----- What is this used for again?
 // });
