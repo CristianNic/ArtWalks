@@ -1,29 +1,72 @@
 const express = require("express");
+const session = require("express-session"); // session id on server session cookie on client
 const app = express();
 const morgan = require("morgan");
-const logger = require("morgan");
+const logger = require("morgan"); // log http requests
 const cors = require("cors");
-const helmet = require("helmet");
+const helmet = require("helmet"); // add http headers, small layer of security
 const bcrypt = require("bcrypt");
 const knex = require("knex")(require("./knexfile"));
 const bookshelf = require("bookshelf")(knex);
 const bodyParser = require("body-parser");
 
-// ==================================================== //
-// walkthrough:
-// API documentaton // https://www.npmjs.com/package/swagger-ui-express
-// Can the .json be auto generated from current paths? // make docs ... https://www.npmjs.com/package/swagger-jsdoc // https://www.npmjs.com/package/swagger-ui
-// const swaggerUi = require("swagger-ui-express");
-// const swaggerDocument = require("./swagger.json");
-// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-// const swaggerDocuments = generateSwagger({
-//   name: "Art Walks",
-//   version: "0.1.1",
-//   description: "Explore Local Art",
-//   host: "localhost:8090",
-//   basePath: "/",
-// })
-// ==================================================== //
+const passport = require("passport");
+const GitHubStrategy = require("passport-github").Strategy;
+
+require("dotenv").config();
+const PORT = process.env.PORT || 8090;
+
+// ====================== Middleware ======================
+app.use(morgan("dev"));
+app.use(logger("dev")); // morgan logger, network info in node console
+app.use(helmet()); // small layer of security
+// app.use(cors());  // check if needed since line bellow is used
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false })); // <----- needed for POST and PUT -- https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded/51844327
+
+// ====================== Passport Config ======================
+const passportConfig = {
+	clientID: process.env.CLIENT_ID,
+	clientSecret: process.env.CLIENT_SECRET,
+	callbackURL: process.env.CALLBACK_URL,
+};
+
+app.use(
+	session({
+		secret: process.env.SESSION_SECRET,
+		resave: false,
+		saveUninitialized: true,
+	})
+);
+
+app.use(passport.initialize()); 
+app.use(passport.session());     // https://stackoverflow.com/questions/22052258/what-does-passport-session-middleware-do
+
+// Github Strategy // http://www.passportjs.org/packages/passport-github/
+passport.use(
+	new GitHubStrategy(
+		passportConfig,
+		function (_accessToken, _refreshToken, profile, cb) {
+			// console.log('Github Callback: ', profile);
+			// this profile will get saved in express session
+			return cb(null, profile);
+		}
+	)
+);
+// serializeUser and deserializeUser explanation:
+// https://stackoverflow.com/questions/27637609/understanding-passport-serialize-deserialize
+passport.serializeUser((user, cb) => {
+	cb(null, user);
+});
+
+passport.deserializeUser((user, cb) => {
+	cb(null, user);
+});
+// =========================================================
+
+
+// =====================   CRUD   =============================== //
 // CRUD with React, Node.js, Express and MySQL
 // https://dev.to/tienbku/react-node-js-mysql-crud-example-fc6
 // https://bezkoder.com/react-node-express-mysql/
@@ -34,18 +77,10 @@ const bodyParser = require("body-parser");
 // // parse requests of content-type - application/x-www-form-urlencoded
 // app.use(bodyParser.urlencoded({ extended: true }));
 
-require("dotenv").config();
-const PORT = process.env.PORT || 8091;
 
-// middleware
-app.use(morgan("dev"));
-app.use(logger("dev")); // morgan logger, network info in node console
-app.use(helmet()); // small layer of security
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false })); // <----- needed for POST and PUT -- https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded/51844327
 
-// import router paths
+// =================== Import Router Paths ======================
+
 const passportsRoute = require("./routes/passports");
 const userRoute = require("./routes/user");
 const favourtiesRoute = require("./routes/favourites");
@@ -190,7 +225,23 @@ app.post("/profile", (req, res) => {
 
 // https://covapp.vancouver.ca/PublicArtRegistry/_image.aspx/tDMNbF-41qBPcKfm_Ranl5jigZUdZSNeTsqMi9mOP5w=/M2630%20Main%20Street%20-%20Bure.JPG
 
-// Api Documentation
+
+// =================== API Documentation with Swagger ====================== //
+// 
+// API documentaton // https://www.npmjs.com/package/swagger-ui-express
+// Can the .json be auto generated from current paths? // make docs ... https://www.npmjs.com/package/swagger-jsdoc // https://www.npmjs.com/package/swagger-ui
+// const swaggerUi = require("swagger-ui-express");
+// const swaggerDocument = require("./swagger.json");
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// const swaggerDocuments = generateSwagger({
+//   name: "Art Walks",
+//   version: "0.1.1",
+//   description: "Explore Local Art",
+//   host: "localhost:8090",
+//   basePath: "/",
+// })
+
+// ========================= API Documentation =========================== //
 app.get("/", (req, res) => {
 	res.json({
 		Welcome:
@@ -246,5 +297,6 @@ app.get("/", (req, res) => {
 		},
 	});
 });
+
 
 app.listen(PORT, console.log(`Server listening at: http://localhost:${PORT}`));
