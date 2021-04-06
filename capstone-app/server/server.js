@@ -1,10 +1,38 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const logger = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
-const logger = require("morgan");
 const bcrypt = require("bcrypt");
+const knex = require("knex")(require("./knexfile"));
+const bookshelf = require("bookshelf")(knex);
+const bodyParser = require("body-parser");
+
+// ==================================================== //
+// walkthrough:
+// API documentaton // https://www.npmjs.com/package/swagger-ui-express
+// Can the .json be auto generated from current paths? // make docs ... https://www.npmjs.com/package/swagger-jsdoc // https://www.npmjs.com/package/swagger-ui
+// const swaggerUi = require("swagger-ui-express");
+// const swaggerDocument = require("./swagger.json");
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// const swaggerDocuments = generateSwagger({
+//   name: "Art Walks",
+//   version: "0.1.1",
+//   description: "Explore Local Art",
+//   host: "localhost:8090",
+//   basePath: "/",
+// })
+// ==================================================== //
+// CRUD with React, Node.js, Express and MySQL
+// https://dev.to/tienbku/react-node-js-mysql-crud-example-fc6
+// https://bezkoder.com/react-node-express-mysql/
+// ==================================================== //
+
+// // parse requests of content-type - application/json
+// app.use(bodyParser.json());
+// // parse requests of content-type - application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 require("dotenv").config();
 const PORT = process.env.PORT || 8091;
@@ -18,18 +46,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // <----- needed for POST and PUT -- https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded/51844327
 
 // import router paths
+const passportsRoute = require("./routes/passports");
 const userRoute = require("./routes/user");
 const favourtiesRoute = require("./routes/favourites");
 const artWorksRoute = require("./routes/art_works");
 
+app.use("/passports", passportsRoute);
 app.use("/user", userRoute);
 app.use("/favourites", favourtiesRoute);
 app.use("/art_works", artWorksRoute);
 
 const router = express.Router();
-router.get("/", function (req, res) {     // listen for a post on root
+router.get("/", function (req, res) {
+	// listen for a post on root
 	res.json({ message: " -Success- " });
 });
+
+// https://www.youtube.com/watch?v=b9WlsQMGWMQ
+// Coding a Full Registration and Login System JWT - NodeJS Tutorial
 
 // error handler outputs json instead of drawing anything on the screen
 app.use(function (err, req, res, next) {
@@ -40,9 +74,65 @@ app.use(function (err, req, res, next) {
 	});
 });
 // Let user send username and password and insert that into database
+// app.post("/register", (req, res) => {
+// 	const { email, password } = req.body;
+// 	// encrypt password before saving to database
+//   // const hash = bcrypt.hash(password, 10);
+//   bcrypt.hash(password, 10).then((hash) => {
+
+//     knex("user")
+// 			.insert([
+// 				{
+// 					email: req.body.email,
+// 					password: hash,
+// 				},
+// 			])
+// 			.then(() => {
+// 				res.json("User Registered", user.rows[0]);
+// 			})
+// 			.catch((err) => {
+// 				if (err) {
+// 					res.status(400).json({ error: err });
+// 				}
+// 			});
+//   })
+//   if (err) throw err;
+// 	res.json("register");
+// });
 app.post("/register", (req, res) => {
-	const { username, password } = req.body;
-	bcrypt.hash(password, 10).then((hash) => {}); // encrypt password before saving to database
+	// const { email, password } = req.body;
+	// encrypt password before saving to database
+	// const hash = bcrypt.hash(password, 10);
+	// bcrypt.hash(password, 10).then((hash) => {
+	const password = req.body.password;
+	bcrypt.hash(password, 10, function (err, hash) {
+		console.log("This is the hash: ", hash);
+		knex.raw(
+			"insert into user (email, password) values(?, ?)"[("Hello", "World")]
+		);
+	});
+	// .then((hash) => {
+	// 	knex.raw(
+	// 		"insert into user (email, password) values(?, ?)"[("Hello", "World")]
+	// 	);
+
+	// knex("user")
+	// 	.insert([
+	// 		{
+	// 			email: req.body.email,
+	// 			password: hash,
+	// 		},
+	// 	])
+	// 	.then(() => {
+	// 		res.json("User Registered", user.rows[0]);
+	// 	})
+	// 	.catch((err) => {
+	// 		if (err) {
+	// 			res.status(400).json({ error: err });
+	// 		}
+	// 	});
+	// });
+	// if (err) throw err;
 	res.json("register");
 });
 
@@ -77,7 +167,6 @@ app.post("/profile", (req, res) => {
 	res.json("profile");
 });
 
-      
 // app.use(function (req, res, next) {
 // 	res.status(404).send("Invalid API access");      <----- What is this used for again?
 // });
@@ -101,7 +190,7 @@ app.post("/profile", (req, res) => {
 
 // https://covapp.vancouver.ca/PublicArtRegistry/_image.aspx/tDMNbF-41qBPcKfm_Ranl5jigZUdZSNeTsqMi9mOP5w=/M2630%20Main%20Street%20-%20Bure.JPG
 
-// home
+// Api Documentation
 app.get("/", (req, res) => {
 	res.json({
 		Welcome:
