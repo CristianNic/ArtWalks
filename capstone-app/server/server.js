@@ -1,16 +1,17 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const morgan = require('morgan');
-const cors = require('cors');
-const helmet = require('helmet');
+const morgan = require("morgan");
+const cors = require("cors");
+const helmet = require("helmet");
 const logger = require("morgan");
+const bcrypt = require("bcrypt");
 
-require('dotenv').config();
-const PORT = process.env.PORT || 5001;
+require("dotenv").config();
+const PORT = process.env.PORT || 8091;
 
 // middleware
-app.use(morgan('dev'));
-app.use(logger('dev')); // morgan logger, network info in node console
+app.use(morgan("dev"));
+app.use(logger("dev")); // morgan logger, network info in node console
 app.use(helmet()); // small layer of security
 app.use(cors());
 app.use(express.json());
@@ -25,6 +26,11 @@ app.use("/user", userRoute);
 app.use("/favourites", favourtiesRoute);
 app.use("/art_works", artWorksRoute);
 
+const router = express.Router();
+router.get("/", function (req, res) {     // listen for a post on root
+	res.json({ message: " -Success- " });
+});
+
 // error handler outputs json instead of drawing anything on the screen
 app.use(function (err, req, res, next) {
 	res.status(err.status || 500);
@@ -33,20 +39,45 @@ app.use(function (err, req, res, next) {
 		error: (res.locals.error = req.app.get("env") === "development" ? err : {}),
 	});
 });
+// Let user send username and password and insert that into database
+app.post("/register", (req, res) => {
+	const { username, password } = req.body;
+	bcrypt.hash(password, 10).then((hash) => {}); // encrypt password before saving to database
+	res.json("register");
+});
 
-app.post('/login', (req, res) => {
-  res.json('login');
-})
-app.post('/register', (req, res) => {
-  res.json('register');
-})
-// only return this endpoint if the user is verified and logged in
-app.post('/profile', (req, res) => {
-  res.json('profile');
-})
+// https://blog.logrocket.com/querying-databases-with-knex-js/
 
+// router.post("/", (req, res) => {
+// 	queries
+// 		.createUser(req.body.username, req.body.email, req.body.password)
+// 		.then((user) => {
+// 			res.json(user[0]);
+// 		});
+// });
 
+// async createUser(username, email, password) {
+//   try {
+//       let password_hash = await argon.hash(password);
+//       return knex('users').returning(['username', 'email']).insert({ username: username, email: email, password_hash: password_hash });
+//   } catch (error) {
+//       process.exit(1);
+//   }
+// },
+// https://medium.com/@fajardocj/build-your-own-rest-api-with-node-express-knex-and-postgresql-part-5-6c6b57f85315
 
+// Send a query to the database with the username and the password,
+// then when it gets the user back, it will return a token based on the user info
+// https://medium.com/swlh/build-your-own-rest-api-with-node-express-knex-and-postgresql-part-4-44205b1dc7f0
+app.post("/login", (req, res) => {
+	res.json("login");
+});
+// Only return this endpoint if the user is verified and logged in
+app.post("/profile", (req, res) => {
+	res.json("profile");
+});
+
+      
 // app.use(function (req, res, next) {
 // 	res.status(404).send("Invalid API access");      <----- What is this used for again?
 // });
