@@ -10,6 +10,7 @@ import Details from './pages/Details';
 import Profile from './pages/Profile';
 import LayeredMap from './pages/LayeredMap/LayeredMap';
 import LayeredMapChloro from './pages/LayeredMapChloro/LayeredMapChloro';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 // import axios from "axios"; <-- make call here and pass data down
 
@@ -41,6 +42,7 @@ class App extends Component {
           <Route exact path='/profile/:id' component={Profile} />
           <Route exact path='/layered_map' component={LayeredMap} />
           <Route exact path='/layered_map_chloro' component={LayeredMapChloro} />
+          <Route exact path='/*' component={PageNotFound} />
 
         </Switch>
       </Router>
