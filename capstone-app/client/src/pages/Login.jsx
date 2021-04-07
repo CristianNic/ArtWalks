@@ -7,14 +7,14 @@ import TopNav from '../components/TopNav/TopNav';
 class Login extends Component {
 
   state = {
-    username: 'Cristian',
-    email: 'Cristian.Niculescu@gmail.com',
-    password: '123456789',
+    username: '',   //'Cristian',
+    email: '',      // 'Cristian.Niculescu@gmail.com',
+    password: '',   //'123456789',
   }
 
   // Send login information to the API
   handleLogin = (event) => {
-    axios.post('http://localhost:8080/login', this.state)
+    axios.post('http://localhost:8090/login', this.state)
       .then(response => {
           console.log(response.data);
           // Store the auth token by the server in your session storage
@@ -27,9 +27,9 @@ class Login extends Component {
 
   // Update the state to have the information from the form
   handleInputChange = (event) => {
-      this.setState({
-          [event.target.name]: event.target.value
-      });
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
 
   componentDidUpdate = (e) => {
@@ -63,12 +63,12 @@ class Login extends Component {
                 <label className="login__email-label" htmlFor="email">Email</label>
                 <input className="login__email" type="email" name="email" placeholder="Email" id="email"
                   value={this.state.email}
-                  onChange={this.state.handleInputChange} />
+                  onChange={this.handleInputChange} />
                   
                 <label className="login__password-label" htmlFor="password">Password</label>
                 <input className="login__password" type="password" name="password" placeholder="Password" id="password"
                   value={this.state.password}
-                  onChange={this.state.handleInputChange} />
+                  onChange={this.handleInputChange} />
                 <h3 className="forgot">Forgot Password?</h3>
               
                 <div className="login__btn-container">

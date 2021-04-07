@@ -18,9 +18,9 @@ const PORT = process.env.PORT || 8090;
 
 // ====================== Middleware ======================
 app.use(morgan("dev"));
-app.use(logger("dev")); // morgan logger, network info in node console
-app.use(helmet()); // small layer of security
-// app.use(cors());  // check if needed since line bellow is used
+app.use(logger("dev"));
+app.use(helmet());
+// app.use(cors());       // check if needed since line bellow is used
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // <----- needed for POST and PUT -- https://stackoverflow.com/questions/23259168/what-are-express-json-and-express-urlencoded/51844327
@@ -40,8 +40,8 @@ app.use(
 	})
 );
 
-app.use(passport.initialize()); 
-app.use(passport.session());     // https://stackoverflow.com/questions/22052258/what-does-passport-session-middleware-do
+app.use(passport.initialize());
+app.use(passport.session()); // https://stackoverflow.com/questions/22052258/what-does-passport-session-middleware-do
 
 // Github Strategy // http://www.passportjs.org/packages/passport-github/
 passport.use(
@@ -65,7 +65,6 @@ passport.deserializeUser((user, cb) => {
 });
 // =========================================================
 
-
 // =====================   CRUD   =============================== //
 // CRUD with React, Node.js, Express and MySQL
 // https://dev.to/tienbku/react-node-js-mysql-crud-example-fc6
@@ -76,8 +75,6 @@ passport.deserializeUser((user, cb) => {
 // app.use(bodyParser.json());
 // // parse requests of content-type - application/x-www-form-urlencoded
 // app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
 // =================== Import Router Paths ======================
 
@@ -195,6 +192,10 @@ app.post("/register", (req, res) => {
 // then when it gets the user back, it will return a token based on the user info
 // https://medium.com/swlh/build-your-own-rest-api-with-node-express-knex-and-postgresql-part-4-44205b1dc7f0
 app.post("/login", (req, res) => {
+  console.log("Login button clicked:", req.body);
+  // send req.body to check a file 
+  // is it in obj? then function returns object of that user ... user_id 1
+  // send client the full object 
 	res.json("login");
 });
 // Only return this endpoint if the user is verified and logged in
@@ -225,9 +226,8 @@ app.post("/profile", (req, res) => {
 
 // https://covapp.vancouver.ca/PublicArtRegistry/_image.aspx/tDMNbF-41qBPcKfm_Ranl5jigZUdZSNeTsqMi9mOP5w=/M2630%20Main%20Street%20-%20Bure.JPG
 
-
 // =================== API Documentation with Swagger ====================== //
-// 
+//
 // API documentaton // https://www.npmjs.com/package/swagger-ui-express
 // Can the .json be auto generated from current paths? // make docs ... https://www.npmjs.com/package/swagger-jsdoc // https://www.npmjs.com/package/swagger-ui
 // const swaggerUi = require("swagger-ui-express");
@@ -297,6 +297,5 @@ app.get("/", (req, res) => {
 		},
 	});
 });
-
 
 app.listen(PORT, console.log(`Server listening at: http://localhost:${PORT}`));

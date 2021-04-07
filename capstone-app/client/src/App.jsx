@@ -43,11 +43,24 @@ class App extends Component {
           <Route exact path='/layered_map' component={LayeredMap} />
           <Route exact path='/layered_map_chloro' component={LayeredMapChloro} />
           <Route exact path='/*' component={PageNotFound} />
-
         </Switch>
       </Router>
     );
   }
 }
 export default App;
+
+// Login calls - gets data - then passes it to map and explore
+// how to set data on the parent component  
+
+// Auth
+// https://reactrouter.com/native/example/auth-workflow
+// https://auth0.com/blog/react-router-4-practical-tutorial/
+// https://auth0.com/blog/complete-guide-to-react-user-authentication/
+// http://www.passportjs.org/docs/configure/
+
+
+
+
+
 

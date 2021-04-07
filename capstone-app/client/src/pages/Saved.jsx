@@ -24,7 +24,7 @@ class Saved extends Component {
 
   getArtWorks() {
     axios
-      .get(`http://localhost:8090/favourites/1`)
+      .get(`http://localhost:8090/favourites/1`) // get favs by /:user_id
       .then((response) => {
         // console.log('response.data:', response.data)
         //console.log('response.data.art_works:', response.data.art_works)
