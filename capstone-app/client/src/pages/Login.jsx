@@ -1,39 +1,54 @@
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import BottomNav from '../components/BottomNav/BottomNav';
-import TopNav from '../components/TopNav/TopNav';
 
 class Login extends Component {
 
   state = {
-    username: '',   //'Cristian',
-    email: '',      // 'Cristian.Niculescu@gmail.com',
-    password: '',   //'123456789',
+    // email: 'Cristian.Niculescu@gmail.com',
+    // password: '123456789',
+    email: '', // email: localStorage.getItem('email') || '',
+    password: '' // password: localStorage.getItem('password') || '',
+    // user_id: '',  // temp could have it here to pass to the next component
   }
 
   // Send login information to the API
   handleLogin = (event) => {
     axios.post('http://localhost:8090/login', this.state)
       .then(response => {
-          console.log(response.data);
-          // Store the auth token by the server in your session storage
-          sessionStorage.authToken = response.data.token;
+        console.log(response.data);
+        // Store the auth token by the server in your session storage
+        // sessionStorage.authToken = response.data.token;
+        
+        // debugger
+        this.props.history.push('/map');
+        // Get current location here or on map? 
+        // https://surajsharma.net/blog/current-url-in-react
+        // https://reactrouter.com/web/api/NavLink
+        
       }).catch(err => {
           console.log(err);
       })
-    console.log('handleLogin Clicked')
+    // console.log('handleLogin Clicked')
   }
 
-  // Update the state to have the information from the form
+  handleLoginGmail = (e) => {
+  }
+  handleLoginGitHub = (e) => {
+  }
+
+  // Update the state with form information
   handleInputChange = (event) => {
+    event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value,
     });
+    // localStorage.setItem(event.target.name, event.target.value);  // place them here - and then they become state to be passed along ... 
   }
 
   componentDidUpdate = (e) => {
-    console.log('Hello')
+  // console.log('Hello')
   }
   // formSumbit = (event) => {
   //   event.preventDefault();
@@ -59,7 +74,7 @@ class Login extends Component {
                 <h1 className="login__title-top">Welcome,</h1>
                 <h2 className="login__title-sub">Sign in to continue!</h2>
               </div>
-              <form className="login__form">
+              <div className="login__form">
                 <label className="login__email-label" htmlFor="email">Email</label>
                 <input className="login__email" type="email" name="email" placeholder="Email" id="email"
                   value={this.state.email}
@@ -79,12 +94,13 @@ class Login extends Component {
               </div>
               <h2 className="or">or</h2>
                 <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                  onClick={this.handleLogin}>Connect with Gmail</button>
+                  onClick={this.handleLoginGmail}>Connect with Gmail</button>
                 <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                  onClick={this.handleLogin}>Connect with Github</button>
-              </form>
+                  onClick={this.handleLoginGitHub}>Connect with Github</button>
+              </div>
               <div className="new-user">
-                <h2 className="new-user__title">I'm a new user. Sign Up</h2>
+                <h2 className="new-user__title">I'm a new user.</h2>
+                <Link className="link" to="/signup"><h2>Sign Up</h2></Link>
               </div>
           </div>
             {/* <form action="" className="login-form">
