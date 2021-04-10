@@ -201,37 +201,41 @@ app.post("/login", (req, res) => {
 	console.log("Server received req.body:", req.body);
 	const { email, password } = req.body;
 	console.log("email", email);
-  console.log("password", password);
-  
-  new User({ email: email }).fetch({ require: true }).then((found) => {
+	console.log("password", password);
+
+	new User({ email: email }).fetch().then((found) => {
 		if (found) {
-      console.log("Found Email =) !!");
-      const { id, name, email, password } = found.attributes;
-      console.log('id: ', id)
-      console.log(found.attributes);
-      result = id
-    
-      // res.status(200).send({ id: id });
-      // res.redirect('/');
-      // return found.attributes.toString();
-      // return id
-      // req.id = id
+			console.log("Found Email =) !!");
+			const { id, name, email, password } = found.attributes;
+			console.log("id: ", id);
+			console.log(found.attributes);
+			// result = id
+			result = found.attributes.id;
+			// res.status(200).send({ id: id });
+			// res.redirect('/');
+			// return found.attributes.toString();
+			// return id
+			// req.id = id
 		} else {
-      console.log("Did not find Email =( !!");
-      result = "no"
+			console.log("Did not find Email =( !!");
+			result = "no Id found";
 		}
 	});
 	//res.status(200).json(`Welcome user: ${req.body.email}, you are logged in`);
-  // res.status(200).json(`Welcome user: ${found.attributes.id}, you are logged in`);
-  // res.status(200).json('ID is here', id);
-  // res.status(200).send({ id: 'IDs here somewhere' });
-  res.status(200).send({ id: result });
-  // res.status(200).send({ id: id });
+	// res.status(200).json(`Welcome user: ${found.attributes.id}, you are logged in`);
+	// res.status(200).json('ID is here', id);
+	// res.status(200).send({ id: 'IDs here somewhere' });
+	res.status(200).send({ id: result });
+	// res.status(200).send({ id: id });
 });
+
+
+
 
 // Get all users
 app.get("/users", (req, res) => {
-	console.log("Server received req.body:", req.body), req.query;
+	console.log("Server received req.body:", req.body);
+	console.log("Server received req.params:", req.params);
 	User.where(req.query)
 		.fetchAll()
 		.then((users) => {

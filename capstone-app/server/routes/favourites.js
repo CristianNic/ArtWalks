@@ -7,7 +7,7 @@ const Favourite = require("../models/favourtie");
 // Returns all users favourties (could use to create most popular/visited)
 router.route("/").get((req, res) => {
 	Favourite.where(req.query)
-		.fetchAll({ withRelated: ["artworks"] })
+		.fetchAll({ withRelated: ["art_works"] })
 		.then((favourites) => {
 			res.status(200).json({ favourites });
 		});
@@ -20,21 +20,22 @@ router.route("/:user_id").get((req, res) => {
 		.fetchAll({ withRelated: ["art_works"] })
 		.then((favourites) => {
 			res.status(200).json(favourites);
-			// filter data for one user
-			// fav's . where (booshelf)
 		});
 });
 
-// Add favourties for one user
-router.route("/:user_id/add/:art_work").post((req, res) => {
-	console.log(" -Post -");
+// Add art work to favourties for one user
+router.route("/:user_id/:art_work").post((req, res) => {
 	console.log(req.params);
-	knex("user")
-		.insert({ email: req.body.email })
+  new Favourite({
+		user_id: req.params.user_id,
+		art_work_id: req.params.art_work,
+		visited: false,
+	}).save()
 		.then(function (result) {
-			res.json({ success: true, message: "ok" }); // respond back to request
+      res.json({ success: true, added: req.params });
 		});
 });
 // https://stackoverflow.com/questions/28928122/knex-nodejs-and-inserting-into-the-database
+
 
 module.exports = router;
