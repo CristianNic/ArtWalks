@@ -124,6 +124,13 @@ class MapArt extends Component {
     //this.getUserLocation()
     // this.handleSelectLocation()
     console.log('Did it set?', this.state) // not yet, only after componentDidMount()
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+      });
+    }
   }
 
   // getUserLocation() {
