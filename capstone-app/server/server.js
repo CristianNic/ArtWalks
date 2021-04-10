@@ -31,7 +31,6 @@ const passportConfig = {
 	clientSecret: process.env.CLIENT_SECRET,
 	callbackURL: process.env.CALLBACK_URL,
 };
-
 app.use(
 	session({
 		secret: process.env.SESSION_SECRET,
@@ -39,21 +38,21 @@ app.use(
 		saveUninitialized: true,
 	})
 );
-
 app.use(passport.initialize());
 app.use(passport.session()); // https://stackoverflow.com/questions/22052258/what-does-passport-session-middleware-do
 
-// Github Strategy // http://www.passportjs.org/packages/passport-github/
-passport.use(
-	new GitHubStrategy(
-		passportConfig,
-		function (_accessToken, _refreshToken, profile, cb) {
-			// console.log('Github Callback: ', profile);
-			// this profile will get saved in express session
-			return cb(null, profile);
-		}
-	)
-);
+// ====================== GitHub Strategy =============================//
+// http://www.passportjs.org/packages/passport-github/
+// passport.use(
+// 	new GitHubStrategy(
+// 		passportConfig,
+// 		function (_accessToken, _refreshToken, profile, cb) {
+// 			// console.log('Github Callback: ', profile);
+// 			// this profile will get saved in express session
+// 			return cb(null, profile);
+// 		}
+// 	)
+// );
 // serializeUser and deserializeUser explanation:
 // https://stackoverflow.com/questions/27637609/understanding-passport-serialize-deserialize
 passport.serializeUser((user, cb) => {
@@ -65,7 +64,7 @@ passport.deserializeUser((user, cb) => {
 });
 // =========================================================
 
-// =====================   CRUD   =============================== //
+// ================   CRUD - React, Express, MySQL   =============================== //
 // CRUD with React, Node.js, Express and MySQL
 // https://dev.to/tienbku/react-node-js-mysql-crud-example-fc6
 // https://bezkoder.com/react-node-express-mysql/
@@ -191,21 +190,100 @@ app.post("/register", (req, res) => {
 // Send a query to the database with the username and the password,
 // then when it gets the user back, it will return a token based on the user info
 // https://medium.com/swlh/build-your-own-rest-api-with-node-express-knex-and-postgresql-part-4-44205b1dc7f0
+
+// =================== Working Login Route ====================== //
+
+const User = require("./models/user"); // model user, table users
+
 app.post("/login", (req, res) => {
-  console.log("Login button clicked:", req.body);
-  // send req.body to check a file 
-  // is it in obj? then function returns object of that user ... user_id 1
-  // send client the full object 
+	console.log("Server received req.body:", req.body);
+	const { email, password } = req.body;
+	// check if email and password are in the db
+	// return user_id + some token (client places in localstorage)
+	console.log("email", email);
+	console.log("password", password);
+
+	const userId = new User({ email: email }).fetch().then((found) => {
+		if (found) {
+      console.log("Found Email =) !!");
+      const { id, name, email, password } = found.attributes;
+      console.log('id: ', id)
+      console.log('name: ', name)
+      console.log('email: ', email)
+      console.log('password: ', password)
+      console.log(found.attributes);
+      // res.redirect('/');
+      // return found.attributes.toString();
+      return id
+		} else {
+			console.log("Did not find Email =( !!");
+		}
+	});
+	//res.status(200).json(`Welcome user: ${req.body.email}, you are logged in`);
+  // res.status(200).json(`Welcome user: ${found.attributes.id}, you are logged in`);
+  res.status(200).json(userId.id);
+});
+
+// Get all users
+app.get("/users", (req, res) => {
+	console.log("Server received req.body:", req.body), req.query;
+	User.where(req.query)
+		.fetchAll()
+		.then((users) => {
+			const usersMapped = users.map((user) => {
+				return user;
+			});
+			res.status(200).json(usersMapped);
+		});
+});
+// Get user by email && by password
+// User.where(req.params)
+//   .fetch()
+//   .then((user) => {
+//     res.status(200).json(`User ID => ${user.email}`);
+//   })
+
+// router.get("/relative", function (req, res) {
+// 	user
+// 		.where("id", 1)
+// 		.fetchAll({ withRelated: ["friends"] })
+// 		.then(function (friends) {
+// 			//res.send(friends);
+// 			friends = friends.toJSON();
+// 			res.json(friends); // res.json automatically calls the toJSON method if the function is no json
+// 			res.send(friends[0].friends[0].email);
+// 		});
+// });
+
+app.post("/signup", (req, res) => {
+	console.log("SignUp button clicked:", req.body);
+	const time = new Date();
+	new User({
+		name: "name",
+		email: req.body.email,
+		password: req.body.password,
+		created_at: time,
+		updated_at: null,
+		location_created_at: "",
+		location_current: "",
+		profile_image_url: "",
+	})
+		.save()
+		// .then(() => {
+		// 	res.status(200).json("Successfully added to database");
+		// })
+		// Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+		.catch((err) => console.error(err));
+
 	res.json("login");
 });
+
 // Only return this endpoint if the user is verified and logged in
 app.post("/profile", (req, res) => {
 	res.json("profile");
 });
 
-// app.use(function (req, res, next) {
-// 	res.status(404).send("Invalid API access");      <----- What is this used for again?
-// });
+// ========================================================================== //
 
 // const express = require("express");
 // const Warehouse = require("../models/warehouse");
@@ -240,8 +318,11 @@ app.post("/profile", (req, res) => {
 //   host: "localhost:8090",
 //   basePath: "/",
 // })
-
 // ========================= API Documentation =========================== //
+app.use(function (req, res, next) {
+	res.status(404).send("Invalid API access");
+});
+// API Documentation
 app.get("/", (req, res) => {
 	res.json({
 		Welcome:
@@ -274,6 +355,12 @@ app.get("/", (req, res) => {
 				{
 					get: "get all artworks by type",
 					url: "http://localhost:8090/art_works/type/:type",
+				},
+			],
+			users: [
+				{
+					get: "get all users in db (for development only)",
+					url: "http://localhost:8090/users",
 				},
 			],
 			favourites: [
