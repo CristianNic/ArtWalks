@@ -27,5 +27,6 @@ yarn-error.log*
 .vscode
 /notes
 /websites
+.zip
 
 
