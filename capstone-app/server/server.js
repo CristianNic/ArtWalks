@@ -31,13 +31,13 @@ const passportConfig = {
 	clientSecret: process.env.CLIENT_SECRET,
 	callbackURL: process.env.CALLBACK_URL,
 };
-app.use(
-	session({
-		secret: process.env.SESSION_SECRET,
-		resave: false,
-		saveUninitialized: true,
-	})
-);
+// app.use(
+// 	session({
+// 		secret: process.env.SESSION_SECRET,
+// 		resave: false,
+// 		saveUninitialized: true,
+// 	})
+// );
 app.use(passport.initialize());
 app.use(passport.session()); // https://stackoverflow.com/questions/22052258/what-does-passport-session-middleware-do
 

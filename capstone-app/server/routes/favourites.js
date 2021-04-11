@@ -26,13 +26,14 @@ router.route("/:user_id").get((req, res) => {
 // Add art work to favourties for one user
 router.route("/:user_id/:art_work").post((req, res) => {
 	console.log(req.params);
-  new Favourite({
+	new Favourite({
 		user_id: req.params.user_id,
 		art_work_id: req.params.art_work,
 		visited: false,
-	}).save()
+	})
+		.save()
 		.then(function (result) {
-      res.json({ success: true, added: req.params });
+			res.json({ success: true, added: req.params });
 		});
 });
 // https://stackoverflow.com/questions/28928122/knex-nodejs-and-inserting-into-the-database
@@ -51,15 +52,15 @@ router.route("/:user_id/:art_work").post((req, res) => {
 // });
 
 router.route("/:user_id/remove/:art_work").delete((req, res) => {
-  console.log(req.params);
-  Favourite.where({ user_id: req.params.user_id } && { art_work_id: req.params.art_work })
-    .destroy()
-    .then((result) => {
-      res.json({ success: true, removed: req.params })
-    })
-    .catch((error) => {
-      res.send(error);
-    });
-  });
+	console.log(req.params);
+	Favourite.where({ user_id: req.params.user_id } && { art_work_id: req.params.art_work })
+		.destroy()
+		.then((result) => {
+			res.json({ success: true, removed: req.params });
+		})
+		.catch((error) => {
+			res.status(200).json({ message: "already removed" });
+		});
+});
 
 module.exports = router;
