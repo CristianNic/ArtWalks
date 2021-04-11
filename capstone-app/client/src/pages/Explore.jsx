@@ -27,6 +27,7 @@ class Browse extends Component {
 
   getArtWorks() {
     axios
+      .get(apiUrl)
       .get('http://localhost:8090/art_works')
       // .get(`${url}`)
       //.get(apiUrl) // <--- check utils 

@@ -5,9 +5,13 @@ import { Component } from "react";
 import './PhotoGrid.scss'
 import BottomNav from '../BottomNav/BottomNav';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import PhotoGridModal from '../PhotoGridModal/PhotoGridModal';
 =======
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+import PhotoGridModal from '../PhotoGridModal/PhotoGridModal';
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
 // import ArtWorks from '../ArtWorks/ArtWorks';     /// was version 2 
 import Search from '../Search/Search';
 
@@ -19,10 +23,14 @@ import img2 from '../../data_temp/images/platform.jpg';
 import img3 from '../../data_temp/images/law42.jpg';
 import img4 from '../../data_temp/images/L1.jpg';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import img5 from '../../data_temp/images/pollard.jpg';
 =======
 import img5 from '../../data_temp/images/Pollard.jpg';
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+import img5 from '../../data_temp/images/pollard.jpg';
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
 import img6 from '../../data_temp/images/lion.jpg';
 import img7 from '../../data_temp/images/pink.jpg'; // faves
 import img8 from '../../data_temp/images/postcard.jpg';
@@ -36,10 +44,15 @@ import img15 from'../../data_temp/images/oak.jpg'
 import img16 from'../../data_temp/images/bw.jpg'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import artworks from '../../data_temp/art_work'
 
 =======
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+import artworks from '../../data_temp/art_work'
+
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
 // const img1 = "https://picsum.photos/id/237/650/400";
 // const img2 = "https://picsum.photos/id/987/300/200";
 // const img3 = "https://picsum.photos/id/217/624/455";
@@ -49,11 +62,14 @@ import artworks from '../../data_temp/art_work'
 
 // const apiUrl = 'http://localhost:8090/art_works'
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 
 =======
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
 class PhotoGrid extends Component {
 
   // state = {
@@ -79,6 +95,9 @@ class PhotoGrid extends Component {
 
   state = {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
     display: false,
     expand: 6,
     hello: 1,
@@ -130,6 +149,7 @@ class PhotoGrid extends Component {
           // <div className="flex">
           <div className="expander" id={this.props.id}>
             <h1>Title Img1</h1>
+<<<<<<< HEAD
 =======
     showResults: false
   }
@@ -149,11 +169,16 @@ class PhotoGrid extends Component {
           <div className="expander" id="myDIV">
             <h1>Title</h1>
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
             <h2>Artist</h2>
             <h2>Neighbourhood</h2>
             <h2>Medium</h2>
             <h2>Statement</h2>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
           {/* </div> */}
         </div>)}
 
@@ -170,6 +195,7 @@ class PhotoGrid extends Component {
         {this.state.display && this.state.hello === 1 && (
           <div className="expander">
             <h1>Title Img2</h1>
+<<<<<<< HEAD
 =======
           </div>) : (<div></div>)}
 
@@ -183,11 +209,16 @@ class PhotoGrid extends Component {
           <div className="expander" id="myDIV">
             <h1>Title</h1>
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
             <h2>Artist</h2>
             <h2>Neighbourhood</h2>
             <h2>Medium</h2>
             <h2>Statement</h2>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
           </div>)}
 
         <div className="container">
@@ -263,17 +294,16 @@ class PhotoGrid extends Component {
         </div>
 
 
-
-
-
-
         <div className="container">
           <img className="img" src={img8}></img>
         </div>
 
 
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
           </div>) : (<div></div>)}
 
         <div className="container">
@@ -294,7 +324,10 @@ class PhotoGrid extends Component {
         <div className="container">
           <img className="img" src={img8}></img>
         </div>
+<<<<<<< HEAD
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
         <div className="container">
           <img className="img" src={img9}></img>
         </div>
@@ -343,9 +376,14 @@ class PhotoGrid extends Component {
         <BottomNav />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         </div>
 =======
 >>>>>>> a20c6e527f3370889c5838e22bef065e5ffe7fdc
+=======
+        </div>
+
+>>>>>>> 3d7db695bb890ff3db9c42448372ca5b006ccf07
       </div>
     );
   }
