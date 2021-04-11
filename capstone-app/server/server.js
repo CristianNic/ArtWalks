@@ -406,7 +406,7 @@ app.post("/profile", (req, res) => {
 
 // error mesg  //  res.json({ message: '¯\_(ツ)_/¯' })
 
-// API Documentation
+// Home - API Documentation
 app.get("/", (req, res) => {
 	res.json({
 		Welcome:
@@ -420,17 +420,17 @@ app.get("/", (req, res) => {
 				{
 					get: "get details for one art work",
 					url: "http://localhost:8090/art_works/:id",
-					exp: "http://localhost:8090/art_works/3",
+					ex: "http://localhost:8090/art_works/3",
 				},
 				{
 					get: "get all artworks by neighbourhood",
 					url: "http://localhost:8090/art_works/neighbourhood/:neighbourhood",
-					exp: "http://localhost:8090/art_works/neighbourhood/Kitsilano",
+					ex: "http://localhost:8090/art_works/neighbourhood/Kitsilano",
 				},
 				{
 					get: "get all artworks by title",
 					url: "http://localhost:8090/art_works/title/:title",
-					exp: "http://localhost:8090/art_works/title/Joe David",
+					ex: "http://localhost:8090/art_works/title/Joe David",
 				},
 				{
 					get: "get all artworks by artist",
