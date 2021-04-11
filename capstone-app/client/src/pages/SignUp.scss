@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 5rem;
+    
     &-top {
       font-weight: 600;
       font-size: 3.2rem;
@@ -57,7 +58,9 @@
   font-weight: 400;
   font-size: 1.5rem;
   margin-bottom: 10px;
-  font-family: "Titillium Web", sans-serif;
+}
+.down {
+  margin-top: 10px;
 }
 .or {
   display: flex;
@@ -76,16 +79,13 @@
   flex-direction: row;
   justify-content: center;
   margin-top: 100px;
-  &__title::after{
+    &__title::after {
     content: " ";
     white-space: pre;
   }
 }
-
-
-
-// .link {
-//   // text-decoration: none;
-//   // color: inherit;
-// }
+.link {
+  text-decoration: none;
+  color: inherit;
+}
 
