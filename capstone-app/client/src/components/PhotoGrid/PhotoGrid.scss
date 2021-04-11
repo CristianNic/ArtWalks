@@ -24,7 +24,7 @@
   // float: left;
   // height: 250px;
   // width: 300px;
-  // margin-left: 10px;
+  // margin-left: 10px; <--- ?
   // margin-right: 1rem;
   // display: flex;
   // flex-direction: column;
@@ -55,12 +55,11 @@
   // Adjusted - eyeballed 
   height: 232.75px;  // is there css cmd to shrink img by 25% ? 
   width: 192px;
-
+  
   height: 232.75px; // <---- make them one row
   height: 186.5px; // <---- make them one row
   // height: 160px; // <---- make them one row <---
   // width: 394px;    // <---- make them one row <--- YES YES =) 
-
   margin-right: 10px;
   margin-bottom: 10px;
 
@@ -74,6 +73,7 @@
 	color: inherit;
 	border: none;
 	padding: 0;
+
   margin: 0;
 	font: inherit;
 	cursor: pointer;
@@ -134,4 +134,8 @@
 //   cursor: pointer;
 // }
 
+
+// 	font: inherit;
+// 	cursor: pointer;
+// 	outline: inherit;
 

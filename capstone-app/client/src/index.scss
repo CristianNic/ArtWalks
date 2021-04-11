@@ -6,6 +6,7 @@
 
 /* Pages */
 @import './pages/Login';
+@import './pages/SignUp';
 @import './pages/Details';
 @import './pages/Explore';
 @import './pages/Saved';
@@ -19,6 +20,7 @@
 @import './components/BottomNav/BottomNav';
 @import './components/ArtWorks/ArtWorks';
 @import './components/Search/Search';
+@import './components/PageNotFound/PageNotFound';
 //@import './components/SearchBar/SearchBar';
 
 // Leaflet

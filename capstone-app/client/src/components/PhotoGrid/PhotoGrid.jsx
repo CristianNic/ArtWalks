@@ -39,8 +39,6 @@ import artworks from '../../data_temp/art_work'
 
 // const apiUrl = 'http://localhost:8090/art_works'
 
-
-
 class PhotoGrid extends Component {
 
   // state = {
@@ -215,16 +213,31 @@ class PhotoGrid extends Component {
         </div>
 
 
-
-
-
-
         <div className="container">
           <img className="img" src={img8}></img>
         </div>
 
 
+          </div>) : (<div></div>)}
 
+        <div className="container">
+          <img className="img" src={img3}></img>
+        </div>
+        <div className="container">
+          <img className="img" src={img4}></img>
+        </div>
+        <div className="container">
+          <img className="img" src={img5}></img>
+        </div>
+        <div className="container">
+          <img className="img" src={img6}></img>
+        </div>
+        <div className="container">
+          <img className="img" src={img7}></img>
+        </div>
+        <div className="container">
+          <img className="img" src={img8}></img>
+        </div>
         <div className="container">
           <img className="img" src={img9}></img>
         </div>
@@ -273,6 +286,7 @@ class PhotoGrid extends Component {
         <BottomNav />
 
         </div>
+
       </div>
     );
   }

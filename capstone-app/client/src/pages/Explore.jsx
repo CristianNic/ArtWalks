@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { Component } from 'react';
 // import { BrowserRouter as Link } from 'react-router-dom';
+import * as utils from '../components/utils';
 import BottomNav from '../components/BottomNav/BottomNav';
 import ArtWorks from '../components/ArtWorks/ArtWorks';     /// was version 2 
 import Search from '../components/Search/Search';
 
-const apiUrl = 'http://localhost:8090/art_works'
+const url = utils.API_URL;  //"http://localhost:8090/"
 const apiUrlUser = 'http://localhost:8090/favourites/1'
 
 class Browse extends Component {
@@ -27,6 +28,10 @@ class Browse extends Component {
   getArtWorks() {
     axios
       .get(apiUrl)
+      .get('http://localhost:8090/art_works')
+      // .get(`${url}`)
+      //.get(apiUrl) // <--- check utils 
+
       .then((response) => {
         // console.log('response.data:', response.data)
         //console.log('response.data.art_works:', response.data.art_works)
