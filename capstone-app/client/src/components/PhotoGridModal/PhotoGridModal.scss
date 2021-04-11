@@ -1,0 +1,18 @@
+.modal {
+
+  object-fit: cover;
+  object-position: center;
+  
+  float: left;
+
+  height: 232.75px;  // is there css cmd to shrink img by 25% ? 
+  width: 192px;
+  
+  margin-right: 10px;
+  margin-bottom: 10px;
+  
+}
+
+.popup-content {
+  background: #ffffff;
+}

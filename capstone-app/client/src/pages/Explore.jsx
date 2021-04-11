@@ -27,9 +27,11 @@ class Browse extends Component {
 
   getArtWorks() {
     axios
+      .get(apiUrl)
       .get('http://localhost:8090/art_works')
       // .get(`${url}`)
       //.get(apiUrl) // <--- check utils 
+
       .then((response) => {
         // console.log('response.data:', response.data)
         //console.log('response.data.art_works:', response.data.art_works)
@@ -99,7 +101,7 @@ class Browse extends Component {
         <div className="exp__container">
         {this.state.art_works.map(art => 
           <ArtWorks
-            key={art.id}  
+            key={art.id}
             id={art.id}
             title={art.title}
             artists_names={art.artists_names}
@@ -112,8 +114,35 @@ class Browse extends Component {
             visited={this.state.visited}
             // postFavourite={postFavourite}
             // putLiked={putLiked}
+            // key={art.id}
+            // art={art}  // <--- pass all --- easier to change code
           />
           )}
+{/* 
+          Double Map  */}
+        {/* {this.state.art_works.map(artcouple => 
+          <ArtWorks
+            key={art.id}
+            id={art.id}
+            title0={artcouple[0].title}
+            title1={artcouple[1].title}
+            artists_names={art.artists_names}
+            photo_url={art.photo_url}
+            //photo_credits={art.photo_credits}
+            neighbourhood={art.neighbourhood}
+            type={art.type}
+            artist_statement={art.artist_statement}
+            liked={this.state.liked} // {this.state.liked} [7, 8, 9]
+            visited={this.state.visited}
+            // postFavourite={postFavourite}
+            // putLiked={putLiked}
+            // key={art.id}
+            // art0={artcouple[0]}  // <--- pass all --- easier to change code
+            // art1={artcouple[1]}
+          />
+          )} */}
+
+
         </div>
         <BottomNav />
       </section>
