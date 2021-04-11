@@ -1,0 +1,68 @@
+// .container {
+//   height: 250;
+//   width: 350;
+//   border: red solid 2px;
+//   overflow: hidden;
+// }
+
+// .img {
+//   overflow: hidden;
+//   height: 250;
+//   width: 350;
+//   object-fit: contain;
+// }
+
+.container {
+  // float: left;
+  // height: 250px;
+  // width: 300px;
+  margin-left: 10px;
+  // margin-right: 1rem;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center;
+  
+  float: left;
+  // height: 250px;
+  // width: 150px;
+
+  // aspect radio 16:9
+  height: 320px;
+  width: 180px;
+
+  // fit screen
+  // 414 / 736 = 0.5625
+  // 4:3 w/ margins ? 
+  height: 232.75px;
+  width: 175px;
+
+  // 16:9 w/ margins
+  // height: 369.25px;
+  // width: 175px;
+
+  // Adjusted - eyeballed 
+  height: 232.75px;  // is there css cmd to shrink img by 25% ? 
+  width: 192px;
+
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  // center
+  // default should be centered 
+  // object-position: 
+}
+
+.btn {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.expander {
+}

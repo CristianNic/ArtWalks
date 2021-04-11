@@ -1,0 +1,22 @@
+h1 {
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+}
+.not-found {
+  background-color: lightpink;
+  height: 100vh;
+  &__container {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__link {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    margin-top: 1rem;
+  }
+}
