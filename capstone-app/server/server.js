@@ -224,14 +224,17 @@ app.post("/login", (req, res) => {
 	console.log("Server received req.body:", req.body);
 	const { email, password } = req.body;
 
-	User.where({ email: email } && { password: password })
+	User.where({ email: email, password: password })
 		.fetch()
 		.then((found) => {
-			res.status(200).json({ id: found.attributes.id });
+			res.status(200).json({ user_id: found.attributes.id });
 		})
 		.catch((error) => {
-			//res.send(error);
-			res.status(404).json({ error: " ¯_(ツ)_¯ email and password not found, login" });
+			res
+				.status(404)
+				.json({
+					error: " ¯_(ツ)_¯ email and password not found, check password or signup new user",
+				});
 		});
 });
 
@@ -287,28 +290,77 @@ app.get("/users", (req, res) => {
 // 		});
 // });
 
-app.post("/signup", (req, res) => {
-	console.log("SignUp button clicked:", req.body);
-	const time = new Date();
-	new User({
-		name: "name",
-		email: req.body.email,
-		password: req.body.password,
-		created_at: time,
-		updated_at: null,
-		location_created_at: "",
-		location_current: "",
-		profile_image_url: "",
-	})
-		.save()
-		// .then(() => {
-		// 	res.status(200).json("Successfully added to database");
-		// })
-		// Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-		.catch((err) => console.error(err));
+// ======  Working Signup Route =====
+// app.post("/signup", (req, res) => {
+// 	console.log("SignUp button clicked:", req.body);
+// 	const time = new Date();
+// 	new User({
+// 		name: "name",
+// 		email: req.body.email,
+// 		password: req.body.password,
+// 		created_at: time,
+// 		updated_at: null,
+// 		location_created_at: "",
+// 		location_current: "",
+// 		profile_image_url: "",
+// 	})
+// 		.save()
+// 		// .then(() => {
+// 		// 	res.status(200).json("Successfully added to database");
+// 		// })
+// 		// Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+// 		.catch((err) => console.error(err));
+// 	res.json("login");
+// });
+// ======  Working Signup Route =====
 
-	res.json("login");
+app.post("/signup", (req, res) => {
+	console.log("Server received SignUp request: ", req.body);
+	const signUpTime = new Date();
+	
+  User.where({ email: req.body.email })
+		.fetch({ require: true })
+		.then((found) => {
+      if (found.attributes.email.length > 0) {
+        res.status(200).json({
+          message: "email already exists, reset password",
+          user_id: found.attributes.id,
+        })
+      } else if (found.attributes.email.length = 0) {
+				new User({
+					name: "name",
+					email: req.body.email,
+					password: req.body.password,
+					created_at: signUpTime,
+					updated_at: null,
+					location_created_at: "",
+					location_current: "",
+					profile_image_url: "",
+				})
+					.save()
+					.then((user) => {
+						res.status(200).json({ message: "signed up new user", user });
+					})
+					.catch(() => {
+						res.status(400).json({ error: "unable to signup" });
+					});
+			}
+		});
 });
+
+// // register new user
+// app.post("/signup", (req, res) => {
+// 	const { email, password } = req.body;
+// 	if ( email && password) {
+// 		new User({ email, password })
+// 			.save()
+// 			.then((user) => {
+// 				res.json({ message: "sign up", user });
+// 			});
+// 	} else {
+// 		console.error("no user info provided");
+// 	}
+// });
 
 // Only return this endpoint if the user is verified and logged in
 app.post("/profile", (req, res) => {
