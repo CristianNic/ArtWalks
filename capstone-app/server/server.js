@@ -189,36 +189,71 @@ app.post("/register", (req, res) => {
 
 const User = require("./models/user"); // model user, table users
 
-// check if email and password are in the db
-// then return user_id + auth token (client places in localstorage)
+// // check if email and password are in the db
+// // then return user_id + auth token (client places in localstorage)
+// app.post("/login", (req, res) => {
+// 	console.log("Server received req.body:", req.body);
+// 	const { email, password } = req.body;
+
+// 	new User({ email: email } && { password: password }).fetch().then((found) => {
+// 		if (found) {
+
+//       const { id, name, email, password } = found.attributes;
+// 			console.log("id: ", id);
+// 			console.log(found.attributes);
+// 			result = found.attributes.id;
+// 			// res.status(200).send({ id: id });
+// 			// res.redirect('/');
+// 			// return found.attributes.toString();
+// 			// return id
+// 			// req.id = id
+// 		} else {
+//       console.log("email and password not found");
+//       next()
+// 			//result = "no Id found";
+// 		}
+// 	});
+// 	//res.status(200).json(`Welcome user: ${req.body.email}, you are logged in`);
+// 	// res.status(200).json(`Welcome user: ${found.attributes.id}, you are logged in`);
+// 	// res.status(200).json('ID is here', id);
+// 	// res.status(200).send({ id: 'IDs here somewhere' });
+// 	res.status(200).send({ id: result });
+// });
+
 app.post("/login", (req, res) => {
 	console.log("Server received req.body:", req.body);
 	const { email, password } = req.body;
 
-	new User({ email: email } && { password: password }).fetch().then((found) => {
-		if (found) {
-			
-      const { id, name, email, password } = found.attributes;
-			console.log("id: ", id);
-			console.log(found.attributes);
-			result = found.attributes.id;
-			// res.status(200).send({ id: id });
-			// res.redirect('/');
-			// return found.attributes.toString();
-			// return id
-			// req.id = id
-		} else {
-      console.log("email and password not found");
-      next()
-			//result = "no Id found";
-		}
-	});
-	//res.status(200).json(`Welcome user: ${req.body.email}, you are logged in`);
-	// res.status(200).json(`Welcome user: ${found.attributes.id}, you are logged in`);
-	// res.status(200).json('ID is here', id);
-	// res.status(200).send({ id: 'IDs here somewhere' });
-	res.status(200).send({ id: result });
+	User.where({ email: email } && { password: password })
+		.fetch()
+		.then((found) => {
+			res.status(200).json({ id: found.attributes.id });
+		})
+		.catch((error) => {
+			//res.send(error);
+			res.status(404).json({ error: " ¯_(ツ)_¯ email and password not found, login" });
+		});
 });
+
+// 		if (found) {
+
+//       const { id, name, email, password } = found.attributes;
+// 			console.log("id: ", id);
+// 			console.log(found.attributes);
+// 			result = found.attributes.id;
+// 			// res.status(200).send({ id: id });
+// 			// res.redirect('/');
+// 			// return found.attributes.toString();
+// 			// return id
+// 			// req.id = id
+// 		} else {
+//       console.log("email and password not found");
+//       next()
+// 			//result = "no Id found";
+// 		}
+// 	});
+// 	res.status(200).send({ id: result });
+// });
 
 // Get all users
 app.get("/users", (req, res) => {
@@ -316,6 +351,8 @@ app.post("/profile", (req, res) => {
 //   basePath: "/",
 // })
 // ========================= API Documentation =========================== //
+
+// error mesg  //  res.json({ message: '¯\_(ツ)_/¯' })
 
 // API Documentation
 app.get("/", (req, res) => {
