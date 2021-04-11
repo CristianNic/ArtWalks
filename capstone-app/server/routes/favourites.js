@@ -37,5 +37,32 @@ router.route("/:user_id/:art_work").post((req, res) => {
 });
 // https://stackoverflow.com/questions/28928122/knex-nodejs-and-inserting-into-the-database
 
+// Remove art work from favourties for one user
+// router.route("/:user_id/remove/:art_work").delete((req, res) => {
+//   console.log(req.params);
+//   // Favourite.where({
+// 	// 	user_id: req.params.user_id,
+// 	// 	art_work_id: req.params.art_work,
+//   Favourite.where({ user_id: req.params.user_id } && { art_work_id: req.params.art_work })
+//     .destroy()
+// 	 	.then(function (result) {
+//        res.json({ success: true, removed: req.params });
+// 	 	});
+// });
+
+router.route("/:user_id/remove/:art_work").delete((req, res) => {
+  console.log(req.params);
+  // Favourite.where({
+  // 	user_id: req.params.user_id,
+  // 	art_work_id: req.params.art_work,
+  Favourite.where({ user_id: req.params.user_id } && { art_work_id: req.params.art_work })
+    .destroy()
+    .then((result) => {
+      res.json({ success: true, removed: req.params })
+    })
+    .catch((error) => {
+      res.send(error);
+    });
+  });
 
 module.exports = router;
