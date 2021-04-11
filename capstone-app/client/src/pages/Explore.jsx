@@ -31,7 +31,6 @@ class Browse extends Component {
       .get('http://localhost:8090/art_works')
       // .get(`${url}`)
       //.get(apiUrl) // <--- check utils 
-
       .then((response) => {
         // console.log('response.data:', response.data)
         //console.log('response.data.art_works:', response.data.art_works)
