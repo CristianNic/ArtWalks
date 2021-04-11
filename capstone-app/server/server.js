@@ -87,12 +87,6 @@ app.use("/user", userRoute);
 app.use("/favourites", favourtiesRoute);
 app.use("/art_works", artWorksRoute);
 
-const router = express.Router();
-router.get("/", function (req, res) {
-	// listen for a post on root
-	res.json({ message: " -Success- " });
-});
-
 // https://www.youtube.com/watch?v=b9WlsQMGWMQ
 // Coding a Full Registration and Login System JWT - NodeJS Tutorial
 
@@ -230,8 +224,6 @@ app.post("/login", (req, res) => {
 });
 
 
-
-
 // Get all users
 app.get("/users", (req, res) => {
 	console.log("Server received req.body:", req.body);
@@ -328,9 +320,7 @@ app.post("/profile", (req, res) => {
 //   basePath: "/",
 // })
 // ========================= API Documentation =========================== //
-app.use(function (req, res, next) {
-	res.status(404).send("Invalid API access");
-});
+
 // API Documentation
 app.get("/", (req, res) => {
 	res.json({

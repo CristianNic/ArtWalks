@@ -11,7 +11,7 @@ const ArtWorks = require("../models/art_work");
 // Get all Artworks
 router.route("/").get((req, res) => {
 	ArtWorks.where(req.query)
-		.fetchAll({ withRealted: ["artworks"] })
+		.fetchAll({ withRealted: ["art_works"] })
 		.then((art_works) => {
 			res.status(200).json({ art_works });
 		});
@@ -67,9 +67,6 @@ router.route("/neighbourhood/:neighbourhood").get((req, res) => {
 
 // Returns only by Title
 router.route("/title/:title").get((req, res) => {
-	// artist = key
-	// console.log(req.params);
-	//ArtWorks.where({ artists_names: req.params.artist })
 	ArtWorks.where("title", "like", req.params.title)
 		.fetchAll()
 		.then((titles) => {
@@ -210,11 +207,5 @@ router.route("/work_description/:desc").get((req, res) => {
 // 		});
 // });
 
-// Get one ArtWork based on :id passed, for details page -->
-router.route("/test/:id").get((req, res) => {
-	ArtWorks.fetchAll().then((art_works) => {
-		res.status(200).json({ art_works });
-	});
-});
 
 module.exports = router;
