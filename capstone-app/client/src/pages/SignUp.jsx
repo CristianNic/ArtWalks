@@ -15,22 +15,23 @@ class Login extends Component {
 
   // Send login information to the API
   handleLogin = (event) => {
-    axios.post('http://localhost:8090/login', this.state)
+    axios.post('http://localhost:8090/signup', this.state)
       .then(response => {
-        console.log(response.data);
-        // Store the auth token by the server in your session storage
-        // sessionStorage.authToken = response.data.token;
+          console.log(response.data);
+          // Store the auth token by the server in your session storage
+          // sessionStorage.authToken = response.data.token;
         
+          // redirect to /map 
         // debugger
         this.props.history.push('/map');
-        // Get current location here or on map? 
         // https://surajsharma.net/blog/current-url-in-react
         // https://reactrouter.com/web/api/NavLink
         
+
       }).catch(err => {
           console.log(err);
       })
-    // console.log('handleLogin Clicked')
+    console.log('handleLogin Clicked')
   }
 
   handleLoginGmail = (e) => {
@@ -48,7 +49,7 @@ class Login extends Component {
   }
 
   componentDidUpdate = (e) => {
-  // console.log('Hello')
+    console.log('Hello')
   }
   // formSumbit = (event) => {
   //   event.preventDefault();
@@ -72,7 +73,7 @@ class Login extends Component {
             <div className="login__container">
               <div className="login__title">
                 <h1 className="login__title-top">Welcome,</h1>
-                <h2 className="login__title-sub">Sign in to continue!</h2>
+                <h2 className="login__title-sub">Sign up to continue!</h2>
               </div>
               <div className="login__form">
                 <label className="login__email-label" htmlFor="email">Email</label>
@@ -84,23 +85,27 @@ class Login extends Component {
                 <input className="login__password" type="password" name="password" placeholder="Password" id="password"
                   value={this.state.password}
                   onChange={this.handleInputChange} />
-                <h3 className="forgot">Forgot Password?</h3>
+              
+                <label className="login__password-label" htmlFor="password">Retype Password</label>
+                <input className="login__password" type="password" name="password" placeholder="Retype password" id="password"
+                  value={this.state.password}
+                  onChange={this.handleInputChange} />
               
                 <div className="login__btn-container">
                   {/* <button className="login__btn login__btn--submit" type="submit" name="submit" id="submit" 
                     onClick={this.state.signUp}>Sign Up</button> */}
-                <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                  onClick={this.handleLogin}>Log In</button>
+                <button className="login__btn login__btn--login down" type="submit" name="login" id="login"
+                  onClick={this.handleLogin}>Sign Up</button>
               </div>
               <h2 className="or">or</h2>
                 <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                  onClick={this.handleLoginGmail}>Connect with Gmail</button>
+                  onClick={this.handleLoginGmail}>SignUp with Gmail</button>
                 <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                  onClick={this.handleLoginGitHub}>Connect with Github</button>
+                  onClick={this.handleLoginGitHub}>SignUp with Github</button>
               </div>
               <div className="new-user">
-                <h2 className="new-user__title">I'm a new user.</h2>
-                <Link className="link" to="/signup"><h2>Sign Up</h2></Link>
+                <h2 className="new-user__title">I'm already signed up.</h2>
+                <Link className="link" to="/login"><h2>Login</h2></Link>
               </div>
           </div>
             {/* <form action="" className="login-form">

@@ -110,6 +110,14 @@ class MapArt extends Component {
     // this.setActiveMarker()
     // this.getUserLocation()
     // this.handleSelectLocation()
+    console.log('Did it set?', this.state) // not yet, only after componentDidMount()
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function(position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+      });
+    }
   }
 
   // getUserLocation() {
@@ -215,21 +223,12 @@ class MapArt extends Component {
                   artWork.lat,
                   artWork.lon
                 ]}
-                // onClick={this.setActiveMarker2}
-                // onClick={() => {
-                //   console.log("Clicked: ")
-                //   //this.setActiveMarker()
-                //   //console.log(this.setActiveMarker)
-                // }}
-                // {this.setActiveMarker}
-
                 onClick={() => {
                   console.log("Clicked marker: ")
                   // this.setActiveMarker()
                   this.setState({ activeMarker: artWork })
                   console.log("result: ", this.state.activeMarker)
                 }}
-
                 // onClick={this.setActiveMarker}
               />
             ))}
