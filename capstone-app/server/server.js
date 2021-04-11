@@ -190,20 +190,17 @@ app.post("/register", (req, res) => {
 const User = require("./models/user"); // model user, table users
 
 // check if email and password are in the db
-// return user_id + some token (client places in localstorage)
+// then return user_id + auth token (client places in localstorage)
 app.post("/login", (req, res) => {
 	console.log("Server received req.body:", req.body);
 	const { email, password } = req.body;
-	console.log("email", email);
-	console.log("password", password);
 
-	new User({ email: email }).fetch().then((found) => {
+	new User({ email: email } && { password: password }).fetch().then((found) => {
 		if (found) {
-			console.log("Found Email =) !!");
-			const { id, name, email, password } = found.attributes;
+			
+      const { id, name, email, password } = found.attributes;
 			console.log("id: ", id);
 			console.log(found.attributes);
-			// result = id
 			result = found.attributes.id;
 			// res.status(200).send({ id: id });
 			// res.redirect('/');
@@ -211,8 +208,9 @@ app.post("/login", (req, res) => {
 			// return id
 			// req.id = id
 		} else {
-			console.log("Did not find Email =( !!");
-			result = "no Id found";
+      console.log("email and password not found");
+      next()
+			//result = "no Id found";
 		}
 	});
 	//res.status(200).json(`Welcome user: ${req.body.email}, you are logged in`);
@@ -220,9 +218,7 @@ app.post("/login", (req, res) => {
 	// res.status(200).json('ID is here', id);
 	// res.status(200).send({ id: 'IDs here somewhere' });
 	res.status(200).send({ id: result });
-	// res.status(200).send({ id: id });
 });
-
 
 // Get all users
 app.get("/users", (req, res) => {

@@ -52,9 +52,6 @@ router.route("/:user_id/:art_work").post((req, res) => {
 
 router.route("/:user_id/remove/:art_work").delete((req, res) => {
   console.log(req.params);
-  // Favourite.where({
-  // 	user_id: req.params.user_id,
-  // 	art_work_id: req.params.art_work,
   Favourite.where({ user_id: req.params.user_id } && { art_work_id: req.params.art_work })
     .destroy()
     .then((result) => {
