@@ -9,7 +9,8 @@ class Login extends Component {
   state = {
     email: '', // email: localStorage.getItem('email') || '',
     password: '', // password: localStorage.getItem('password') || '',
-    user_id: '',
+    user_id: '', 
+    // user_id: localStorage.setItem(this.state.user_id)
   }
 
   handleLogin = (event) => {
@@ -22,9 +23,12 @@ class Login extends Component {
         this.setState({
           user_id: response.data.user_id,
         })
-        
-        window.location = `http://localhost:3000/map/${this.state.user_id}`;
+        localStorage.setItem('user_id', this.state.user_id);
+        // sessionStorage.setItem('user_id', this.state.user_id); // deleted after tab is closed
 
+        // window.location = `http://localhost:3000/map/${this.state.user_id}`;
+        // window.location = `http://localhost:3000/map/`;
+        this.props.history.push('/map');
         // Get current url location
         // https://surajsharma.net/blog/current-url-in-react
         // https://reactrouter.com/web/api/NavLink
@@ -34,6 +38,9 @@ class Login extends Component {
       })
     // console.log('handleLogin Clicked')
   }
+  // populateStorage = () => {
+  //   localStorage.setItem('user_id', this.state.user_id);
+  // }
 
   handleLoginGmail = (e) => {
   }
@@ -46,7 +53,7 @@ class Login extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    // localStorage.setItem(event.target.name, event.target.value);  // place them here - and then they become state to be passed along ... 
+   // localStorage.setItem(event.target.name, event.target.value);  // place them here - and then they become state to be passed along ... 
   }
 
   // formSumbit = (event) => {

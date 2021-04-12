@@ -6,6 +6,7 @@ import BottomNav from '../components/BottomNav/BottomNav';
 import ArtWorks from '../components/ArtWorks/ArtWorks';     /// was version 2 
 import Search from '../components/Search/Search';
 
+import { API_URL } from '../components/utils'; 
 // const url = utils.API_URL;  //"http://localhost:8090/"
 const apiUrlUser = 'http://localhost:8090/favourites/1'
 
@@ -27,7 +28,8 @@ class Browse extends Component {
 
   getArtWorks() {
     axios
-      .get('http://localhost:8090/art_works')
+      //.get('http://localhost:8090/art_works')
+      .get(`${API_URL}/art_works`)
       // .get(`${url}`)
       //.get(apiUrl) // <--- check utils 
       .then((response) => {

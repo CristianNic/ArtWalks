@@ -1,18 +1,18 @@
-export const API_URL = "http://localhost:8090/";
+export const API_URL = "http://localhost:8090";
 
 export const login = `${API_URL}/login`;
 
 export const loginUser = (username) => {
-	return `${API_URL}login/${username}`;
+	return `${API_URL}/login${username}`;
 };
 export const getTitle = (title) => {
-	return `${API_URL}map/${title}`;
+	return `${API_URL}/map${title}`;
 };
 export const getNeighbourhood = (neighbourhood) => {
-	return `${API_URL}map/${neighbourhood}`;
+	return `${API_URL}/map${neighbourhood}`;
 };
 
-export const areas = [
+export const neighbourhoods = [
 	"Downtown",
 	"Mount Pleasant",
 	"Downtown Eastside",
