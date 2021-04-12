@@ -24,7 +24,7 @@ export default function BottomNav() {
     <nav className="bottom-nav">
       <div className="bottom-nav__container">
         <div className="bottom-nav__btn">
-          <Link to="/art_works">
+          <Link to="/gallery">
             <img className="bottom-nav__icon" src={iconSearch} alt="search icon" />
             <h4>Explore</h4>
             {/* <h4>Search</h4> */}
@@ -59,11 +59,6 @@ export default function BottomNav() {
     </nav>
   )
 }
-
-
-
-
-
 
 // <nav className="l-footer">
 // 	{/* <h3 className="l-footer__text">© Vancouver Art Walk. All Rights Reserved.</h3> */}
