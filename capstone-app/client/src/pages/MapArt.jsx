@@ -1,6 +1,5 @@
 import { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-
+// import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet'
@@ -90,7 +89,7 @@ class MapArt extends Component {
     // filtered_art_works: publicArtData,
     // geom: [],
     activeMarker: null,
-    user_id: localStorage.getItem('user_id'),
+    user_id: parseInt(localStorage.getItem('user_id')),
   }
 
   // this.handleSelectLocation = this.handleSelectLocation.bind(this);
@@ -113,24 +112,16 @@ class MapArt extends Component {
     // this.setActiveMarker()
     // this.getUserLocation()
     // this.handleSelectLocation()
-    console.log('Did it set?', this.state) // not yet, only after componentDidMount()
+    console.log('Did it state set?', this.state) // not yet, only after componentDidMount()
     
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(function(position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
+        console.log("Current user Latitude is:", position.coords.latitude);
+        console.log("Current user Longitude is:", position.coords.longitude);
       });
     }
-    // this.getUserId()
   }
-
-
-  getUserId() {
-    const currentLocation = window.location.href;
-    const user = parseInt(currentLocation.split("/")[4]);
-    this.setState({ user_id: user })
-  }
-
+  
   // componentDidUpdate() {
   //   this.getUserId()
   // }
@@ -220,9 +211,7 @@ class MapArt extends Component {
   
   render() {
 
-    console.log('user_id --> ', this.state.user_id)
-
-    console.log('user_id - localStorage  --> ', localStorage.getItem('user_id'))
+    console.log(`Hi, I'm the map for user --> `, this.state.user_id)
 
     return (
       <section className="map">
