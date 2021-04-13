@@ -230,11 +230,10 @@ app.post("/login", (req, res) => {
 			res.status(200).json({ user_id: found.attributes.id });
 		})
 		.catch((error) => {
-			res
-				.status(404)
-				.json({
-					error: " ¯_(ツ)_¯ email and password not found, check password or signup new user",
-				});
+			res.status(404).json({
+				error:
+					" ¯_(ツ)_¯ email and password not found, check password or signup new user",
+			});
 		});
 });
 
@@ -317,16 +316,16 @@ app.get("/users", (req, res) => {
 app.post("/signup", (req, res) => {
 	console.log("Server received SignUp request: ", req.body);
 	const signUpTime = new Date();
-	
-  User.where({ email: req.body.email })
+
+	User.where({ email: req.body.email })
 		.fetch({ require: true })
 		.then((found) => {
-      if (found.attributes.email.length > 0) {
-        res.status(200).json({
-          message: "email already exists, reset password",
-          user_id: found.attributes.id,
-        })
-      } else if (found.attributes.email.length = 0) {
+			if (found.attributes.email.length > 0) {
+				res.status(200).json({
+					message: "email already exists, reset password",
+					user_id: found.attributes.id,
+				});
+			} else if ((found.attributes.email.length = 0)) {
 				new User({
 					name: "name",
 					email: req.body.email,
