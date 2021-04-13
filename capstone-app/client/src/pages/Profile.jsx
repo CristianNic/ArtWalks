@@ -3,7 +3,15 @@ import BottomNav from '../components/BottomNav/BottomNav';
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class Profile extends Component {
+
+  state = {
+    user_id: parseInt(localStorage.getItem('user_id'))
+  }
+
   render() {
+
+    console.log(`Hi, I'm the profile for user --> `, this.state.user_id)
+
     return (
       <section className="about-me">
         <h1 className="about-me__name">Cristian Niculescu</h1>
