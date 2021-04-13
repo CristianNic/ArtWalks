@@ -32,6 +32,23 @@ router.route("/:id").get((req, res) => {
 			res.status(200).json(filteredFavourites[0]);
 		});
 });
+
+// Get ArtWork by its City of Vancouver Registry ID
+router.route("/registry_id/:registry_id").get((req, res) => {
+	ArtWorks.where(req.params)
+		.fetchAll({ withRealted: ["artworks"] })
+		.then((favourites) => {
+			//console.log(favourites.models[0].attributes.geom); // all in filter table
+			// try array method to search
+			const filteredFavourites = favourites.models.filter(
+				(model) => model.attributes.registry_id == req.params.registry_id
+			);
+			// const geomObj = { geom: filteredFavourites[0] }
+			// res.status(200).json({ filteredFavourites })
+			res.status(200).json(filteredFavourites[0]);
+		});
+});
+
 /** 
 // Get one artwork written shorter
 // router.route("/test/:id").get((req, res) => {
@@ -98,7 +115,7 @@ router.route("/artist/:artist").get((req, res) => {
 
 // Returns only by Medium Type
 router.route("/type/:type").get((req, res) => {
-	ArtWorks.where("type", "like", req.params.type)  // %word%  match antyhing % 
+	ArtWorks.where("type", "like", req.params.type) // %word%  match antyhing %
 		.fetchAll()
 		.then((types) => {
 			const filteredtypes = types.models.filter(
@@ -125,7 +142,6 @@ router.route("/type/:type").get((req, res) => {
 // 		});
 // });
 
-
 // const getFilteredItems = (searchCriteria) =>
 // 	knex("items").where((qb) => {
 // 		if (searchCriteria.searchTerm) {
@@ -141,7 +157,6 @@ router.route("/type/:type").get((req, res) => {
 // 		}
 // 	});
 /// ==============
-
 
 /* ================   Full Text Search   ==================================== 
 const searchText = ` SELECT * FROM table_name WHERE MATCH(artist_statement)
@@ -206,6 +221,5 @@ router.route("/work_description/:desc").get((req, res) => {
 // 			res.status(200).json(filteredtypes);
 // 		});
 // });
-
 
 module.exports = router;
