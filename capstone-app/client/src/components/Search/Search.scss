@@ -7,15 +7,20 @@
   // position: sticky; // occupies the space
   top: 0;
   width: 100vw;
-  height: inherit;
+  // height: inherit;
+  height: 40px;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  align-items: center;
   //border-color: 1px gray;
   border-bottom: 2px solid lightgrey;
-  z-index: 3;
+  // border-top: 2px solid lightgrey;
+  // border: 2px solid lightgrey;
+  // border-radius: 7px;   // only if it can be a map overlay
+  z-index: 9999;
   
   &__form {
     padding-right: .1rem;

@@ -1,25 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import data from '../../data_temp/art_work_final_geom.json';
+import { neighbourhoods } from '../utils';
+
+// import data from '../../data_temp/art_work_final_geom.json';
 
 const apiUrl = 'http://localhost:8090/art_works'
-
-const areas = [
-  'Downtown', 'Mount Pleasant', 'Downtown Eastside', 'West End', 'Strathcona',
-  'Shaughnessy', 'Stanley Park', 'Grandview-Woodland', 'Kensington-Cedar Cottage',
-  'Kitsilano', 'Fairview', 'Marpole', 'RileyPark', 'Oakridge', 'Renfrew Collingwood',
-  'Sunset', 'Hastings-Sunrise', 'Killarney', 'South Cambie', 'Arbutus Ridge',
-  'Dunbar-Southlands', 'West Point Grey', 'Kerrisdale']
-  
-// const keys = [
-//   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-//   15, 16, 17, 18, 19, 20, 21, 22, 23]
       
 export default class Search extends Component {
 
   state = {
-    art_works: data,
+    art_works: [],
     // art_works: this.props,
     value: '',
     mixed_search: '',
@@ -147,8 +138,10 @@ export default class Search extends Component {
               {/* {this.state.art_works.map(titles =>
                 <option value={this.props.neighbourhood}>{titles.neighbourhood}</option>)}
                 <option value={filteredArray.neighbourhood}>{filteredArray.neighbourhood}</option>)} */}
-              {areas.map(area =>
-                <option value={area}>{area}</option>)}
+              {neighbourhoods.map((area, i) =>
+                <option value={area} key={i}>{area}</option>
+              )}
+              
             </select>
           </div>
           {/* <div>
