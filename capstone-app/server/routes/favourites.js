@@ -26,6 +26,19 @@ router.route("/:user_id").get((req, res) => {
 // Add art work to favourties for one user
 router.route("/:user_id/:art_work").post((req, res) => {
 	console.log(req.params);
+	// run a check if these prarams are alerady there, if they are then don't add again
+	// Favourite.where({
+	// 	user_id: req.params.user_id,
+	// 	art_work_id: req.params.art_work
+	// })
+	//   .then()
+	// Favourite.where({ art_work_id: reg.body.art_work_id})
+  // .fetch().then()
+
+	// if reg.body.art_work_id === art_work_id
+
+  // if it's not there then make a new entry ... 
+
 	new Favourite({
 		user_id: req.params.user_id,
 		art_work_id: req.params.art_work,
