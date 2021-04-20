@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../components/utils';
-import BottomNav from '../components/BottomNav/BottomNav';
+// import BottomNav from '../components/BottomNav/BottomNav';
 
 class Login extends Component {
   
@@ -28,7 +28,8 @@ class Login extends Component {
 
         // window.location = `http://localhost:3000/map/${this.state.user_id}`;
         // window.location = `http://localhost:3000/map/`;
-        this.props.history.push('/map');
+        // this.props.history.push('/map');
+        this.props.history.push('/gallery');
         // Get current url location
         // https://surajsharma.net/blog/current-url-in-react
         // https://reactrouter.com/web/api/NavLink
@@ -74,63 +75,42 @@ class Login extends Component {
 
     return (
       <div>
-        {/* <TopNav /> */}
-          <section className="login">
-            <div className="login__container">
-              <div className="login__title">
-                <h1 className="login__title-top">Welcome,</h1>
-                <h2 className="login__title-sub">Sign in to continue!</h2>
-              </div>
+        <section className="login">
+          <div className="login__container">
+           
+            <h1 className="login__title">Welcome to ArtWalks</h1>
+ 
+            <div className="login__form-container">
+
+              <h2 className="login__sign-in">Sign in</h2>
+              
               <form className="login__form">
-                <label className="login__email-label" htmlFor="email">Email</label>
-                <input className="login__email" type="email" name="email" placeholder="Email" id="email" autofocus="autofocus"
+
+                <input className="login__input" type="email" name="email" placeholder="Email" id="email" autofocus="autofocus"
                   value={this.state.email}
                   onChange={this.handleInputChange} />
                   
-                <label className="login__password-label" htmlFor="password">Password</label>
-                <input className="login__password" type="password" name="password" placeholder="Password" id="password" autofocus="autofocus"
+                <input className="login__input" type="password" name="password" placeholder="Password" id="password" autofocus="autofocus"
                   value={this.state.password}
                   onChange={this.handleInputChange} />
-                <h3 className="forgot">Forgot Password?</h3>
+            
+                {/* <h3 className="forgot">Forgot Password?</h3> */}
               
-                <div className="login__btn-container">
-                  {/* <button className="login__btn login__btn--submit" type="submit" name="submit" id="submit" 
-                    onClick={this.state.signUp}>Sign Up</button> */}
-                <button className="login__btn login__btn--login" type="submit" name="login" id="login"
+                <button className="login__btn" type="submit" name="login" id="login"
                   onClick={this.handleLogin}>Log In</button>
-              </div>
-              <h2 className="or">or</h2>
-                <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                  onClick={this.handleLoginGmail}>Connect with Gmail</button>
-                <button className="login__btn login__btn--login" type="submit" name="login" id="login"
-                  onClick={this.handleLoginGitHub}>Connect with Github</button>
+   
               </form>
+
               <div className="new-user">
                 <h2 className="new-user__title">I'm a new user.</h2>
                 <Link className="link" to="/signup"><h2>Sign Up</h2></Link>
               </div>
-          </div>
-            {/* <form action="" className="login-form">
-              <div className="login-form__container">
-                <div className="login-form__guest">
-                  <label htmlFor="" className="login-form__label">Guest</label>
-                  <button className="login-form__buton">Proceed as Guest</button>
-                </div>
-                <h2>----- or -----</h2>
-                <div className="login-form__signup">
-                  <label htmlFor="" className="login-form__label">Sign Up</label>
-                  <button className="login-form__buton">Proceed as Guest</button>
-                </div>
-                <h2>----- or -----</h2>
-                <div className="login-form__signup">
-                  <label htmlFor="" className="login-form__label">Sign Up</label>
-                  <button className="login-form__buton">Proceed as Guest</button>
-                </div>
-              </div>
-            </form> */}
 
-          </section>
-        <BottomNav />
+            </div>
+
+          </div>
+        </section>
+        {/* <BottomNav /> */}
       </div>
     );
   }
