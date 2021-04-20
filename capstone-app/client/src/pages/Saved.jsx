@@ -11,6 +11,7 @@ import Search from '../components/Search/Search';
 import { API_URL } from '../components/utils'; 
 
 import heartRed from '../assets/icons/heart_red.svg';
+import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 // import heartWhite from '../assets/icons/heart_white.svg';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 // import redHeart from '../assets/icons/heart_red.svg';
@@ -30,14 +31,36 @@ class Saved extends Component {
 
   componentDidMount() {
     this.getUserFavourites()
+    // this.removeDuplicatsOK()
+  }
+
+  componentDidUpdate() {
+    // this.removeDuplicatsOK()
   }
 
   getUserFavourites() {
     axios
       .get(`${API_URL}/favourites/${this.state.user_id}`)
       .then((response) => {
+
+        // remove duplicates
+        const arr = response.data 
+        const SymbolArray = [];
+        arr.forEach((item, index) => {
+          const { art_work_id, art_works } = item;
+          let keyStr = `${art_work_id}_${art_works}`;
+          SymbolArray.push(Symbol.for(keyStr));
+        });
+
+        const result = [];
+          SymbolArray.forEach((item, index) => {
+            if (SymbolArray.indexOf(item) === index) {
+              result.push(arr[index]);
+            }
+          });
+        // console.log('filtered array w/o duplicates', result)
         this.setState({
-          userFavourites: response.data,
+          userFavourites: result,
         })
       })
       .catch((error) => {
@@ -45,9 +68,32 @@ class Saved extends Component {
     })
   }
   
+  
   removeFromFavourites = (e, data) => {
     axios
       .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${data}`)
+      .then((response) => {
+      })
+      .catch((error) => {
+      console.log('error:', error.response.data);
+    })
+    window.location.reload()
+  }
+
+  addToFavourites = (e, data) => {
+
+    this.state.userFavourites.forEach(function (item, index) {
+      if (item.registry_id === data) {
+        const position = index + 1 
+        localStorage.setItem('art_work_id_for_user_post', position)
+      }
+    })
+
+    const art_work_id_for_user_post = parseInt(localStorage.getItem('art_work_id_for_user_post'))
+
+    axios
+      .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
+      //.delete(`${API_URL}/favourites/${this.state.user_id}/remove/${data}`)
       .then((response) => {
       })
       .catch((error) => {
@@ -64,6 +110,8 @@ class Saved extends Component {
         mapLink: state.data,
       }
     });
+    // console.log(this.state.art_work.registry_id)
+    localStorage.setItem('currently viewing', data)
   }
 
   render() {
@@ -84,10 +132,24 @@ class Saved extends Component {
                   <LazyLoad className="favourites__media-lazyload" offsetVertical={700} overflow={true} >
                     <img className="favourites__media-img" src={faves.art_works.photo_url_jpg} alt={faves.art_works.title}></img>
                   </LazyLoad>
+
+                  {/* // ----------- Working - once read heart removed page refreshes --------- //  */}
                   <img className="favourites__media-icon" src={heartRed} alt="red heart icon"
                     // onClick={(e) => {this.removeFromFavourites(e, faves.art_works.registry_id)}}></img>  
                     onClick={(e) => {this.removeFromFavourites(e, faves.art_work_id)}}></img>  
                     {/* onClick={(e) => {this.removeFromFavourites(e, i)}}></img>   */}
+                  
+                  {/* // ----------- Display gray heart to add back --------- //  */}
+                  {/* {this.state.userFavourites.map((fave) => fave.art_works).includes(faves.registry_id) === true ? (
+                    
+                    <img className="favourites__media-icon" src={heartRed} alt="red heart icon, click to remove from favourites"
+                      onClick={(e) => {this.removeFromFavourites(e, faves.registry_id)}}></img>
+                  ) : (
+                    // <img className="icon" src={lightGray1Heart2} alt="white heart icon, click to add to favourites"
+                    <img className="favourites__media-icon" src={lightGray1Heart2Filled} alt="white heart icon, click to add to favourites"
+                      onClick={(e) => { this.addToFavourites(e, faves.registry_id) }}></img>
+                  )} */}
+
                 </div>
 
                 <div className="favourites__card-bottom">
