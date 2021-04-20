@@ -26,11 +26,15 @@ class Profile extends Component {
         <h4><a href="https://www.linkedin.com/in/cristian-niculescu/">https://www.linkedin.com/in/cristian-niculescu/</a></h4>
  
         <div className="notes">
-          <h2>Notes:</h2>
-          <h2> 1. Show they're links </h2>
-          <h2> 2. Add icons </h2>
-          <h2> 3. Style unique background </h2>
+          <h3>Notes:</h3>
+          <h3> 1. Show they're links </h3>
+          <h3> 2. Add icons </h3>
+          <h3> 3. Style unique background </h3>
         </div>
+
+
+        <h2>Thank you for exploring our beautiful city!</h2>
+        {/* <h2>I hope you had fun exploring our beautiful city!</h2> */}
         
         <BottomNav />
       </section>
