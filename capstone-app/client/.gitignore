@@ -23,3 +23,18 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Map Tests 
+/public/skateboarding.svg
+/src/data
+MapArt2notes.jsx
+MapArt3codepens.jsx
+MapArt3codepens.scss
+MapArt4_skateVideo.jsx
+MapArt4_skateVideo.scss
+
+Login_modal.jsx
+
+
+
+
