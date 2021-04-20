@@ -6,11 +6,14 @@
 
 /* Pages */
 @import './pages/Login';
-@import './pages/SignUp';
+// @import './pages/SignUp';
 @import './pages/Details';
-@import './pages/Explore';
+//@import './pages/Explore';
+@import './pages/Gallery';
 @import './pages/Saved';
-@import './pages/MapArt';
+// @import './pages/MapArt';
+// @import './pages/MapArt2';
+@import './pages/ArtMap';
 @import './pages/Profile';
 @import './pages/LayeredMap/LayeredMap';
 @import './pages/LayeredMapChloro/LayeredMapChloro';
@@ -22,10 +25,10 @@
 @import './components/Search/Search';
 @import './components/PageNotFound/PageNotFound';
 //@import './components/SearchBar/SearchBar';
+//@import './components/SearchBar2x/SearchBar2x';
 
-// Leaflet
+/* Leaflet */ 
 @import 'leaflet/dist/leaflet.css';
-
 
 /* Bootstrap */
 
