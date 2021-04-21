@@ -15,7 +15,6 @@ export const getNeighbourhood = (neighbourhood) => {
 export const neighbourhoods = [
 	"Downtown",
 	"Mount Pleasant",
-	"Downtown Eastside",
 	"West End",
 	"Strathcona",
 	"Shaughnessy",
@@ -27,13 +26,10 @@ export const neighbourhoods = [
 	"Marpole",
 	"RileyPark",
 	"Oakridge",
-	"Renfrew Collingwood",
 	"Sunset",
 	"Hastings-Sunrise",
 	"Killarney",
 	"South Cambie",
 	"Arbutus Ridge",
-	"Dunbar-Southlands",
 	"West Point Grey",
-	"Kerrisdale",
 ];
