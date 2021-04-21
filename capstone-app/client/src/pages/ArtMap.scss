@@ -5,7 +5,8 @@
   width: 100%;
   // height: 85.3vh; // with TopNav
   // height: 90.5vh;
-  height: 85vh;
+  height: 85vh; // <--------------------- correct for </Search>
+  height: 90vh; // <--------------------- correct for </Search>
   //height: 500px; // can set height 
  // height: 630px;
 }
@@ -73,10 +74,19 @@
   width: 24px; 
 }
 
-.floating-menue__container {
+.floating__container {
+  background-color: lightgray;
   margin-left: 100px;
   position: absolute; 
   z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 35px;
+  margin-left: 210px;
+  margin-top: 10px;
 }
 .floating__icon {
   // margin-left: 100px;
@@ -86,6 +96,39 @@
   // z-index: 1000;
   border: black 1px;
 }
+
+.floating__button {
+
+}
+
+.floating-search {
+    width: 50px;
+    height: 50px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    z-index: 988888889;
+     position: absolute;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid gray;
+    position: absolute;
+  }
+}
+
+.floating__heart-btn {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+}
+
+
 
 // ------ attribution ----- // 
 

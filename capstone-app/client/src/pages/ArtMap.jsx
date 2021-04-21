@@ -5,6 +5,7 @@ import {
   MapContainer, Marker, Popup, TileLayer,
   LayersControl, LayerGroup, Polyline, Polygon, GeoJSON
 } from "react-leaflet";
+import { useLeaflet } from "react-leaflet";
 // import Control from 'react-leaflet-control';
 import { Icon } from "leaflet";
 import L from 'leaflet';
@@ -26,8 +27,7 @@ import {
   totem, defaultIconSkater, blackGithub, redGithub
 } from '../components/Utils/MapIcons';
 
-
-//---------------- Icons ------------------// 
+//---------------- Icons --------------------------// 
 import redHeart from '../assets/icons/heart_red.svg';
 import blackHeart from '../assets/icons/heart-black-2px.svg';
 import lightGray1Heart2 from '../assets/icons/heart-light-gray-1-2px.svg';
@@ -58,9 +58,12 @@ import maximize from '../assets/icons/maximize-2-1.5px.svg';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
+import HUD from '../components/HUD/HUD';
+
 //----------------- Data -------------------//
 import * as parkData from "../data/skateboard-parks.json";
-import { API_URL } from '../components/Utils/Utils';
+// import { API_URL } from '../components/Utils/Utils';
+import { neighbourhoods, API_URL } from '../components/Utils/Utils';
 import data from '../data_temp/art_work_final_geom.json';
 //import publicArtData from '../data_temp/public-art-smaller.json';
 import { restaurants } from "../data_temp/data";
@@ -68,7 +71,6 @@ import neighbourhood_boundaries from '../data_temp/local-area-boundary.json';
 const Dunbar = neighbourhood_boundaries[0].fields.geom.coordinates
 // var poly = L.polygon(Dunbar).addTo(L.map);
  
-
 
 
 //-------------- Marker Icons --------------// 
@@ -86,11 +88,22 @@ const Dunbar = neighbourhood_boundaries[0].fields.geom.coordinates
 
 //----------- Marker Icons -----------// 
 
-
 // L.Marker.prototype.options.icon = DefaultIcon;  //  <------ Default Icon 
 // L.Marker.prototype.options.icon = SpecialIcon;
 
 //------------- Experiment -----------// 
+
+// const cool = new L.Map('map');
+
+// var legend = L.control({position: 'topright'});
+// legend.onAdd = function (map) {
+//     var div = L.DomUtil.create('div', 'info legend');
+//     div.innerHTML = '<select><option>1</option><option>2</option><option>3</option></select>';
+//     div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
+//     return div;
+// };
+// legend.addTo(cool);
+
 
 const RESTAURANT_TYPES = ["Family Style", "Buffet", "Fast Food", "Cafe"];
 
@@ -142,11 +155,9 @@ class MapArt4_skateVideo_classComp extends Component {
   }
   
   openPopUp() {
-
     const id = parseInt(localStorage.getItem('currently viewing'))
     document.querySelector(`img[alt = "marker-${id}"]`)?.click()
   }
-
 
   // -------- componentDidMount functions ------ //
   getAllArtWorks() {
@@ -221,29 +232,6 @@ class MapArt4_skateVideo_classComp extends Component {
 
       console.log('Select Neighbourhood - filteredData --> ', filteredData)
     }
-
-    // console.log('Search --> this.state.art_works AFTER --> ', this.state.art_works)
-    // console.log('Search --> this.state.art_works AFTER --> ', this.state.userFavourites)
-    
-    // ----- Works ------ 
-    // const filteredData = data.filter(area => 
-    //   area.neighbourhood === location.target.value);
-    
-    // this.setState({ art_works: filteredData })
-    // ----- Works ^ ------ 
-    
-    // if it is Vancouver the just put Vancouver in state 
-    
-
-    // const filteredData = this.state.art_works.filter(area => 
-    //   area.neighbourhood === location.target.value);
-    
-    // this.setState(newStateObject, () => {  
-    // });
-    // this.setState((prevState, props) => {
-    //   return { art_works: filteredData };
-    // }
-    // );
 
     // console.log('Search --> filteredData --> ', filteredData)
       
@@ -405,14 +393,31 @@ class MapArt4_skateVideo_classComp extends Component {
 
     return (
       <section>
-        <Search
+        {/* <Search
           selectNeighbourhood={this.selectNeighbourhood}
           selectFavourties={this.selectFavourties}
           faves={this.state.userFavourites}
-        />        
-        <MapContainer center={[49.2780, -123.1153]} zoom={12}>
-          {/* <LayersControl position="topright"> */}
+        /> */}
+        
 
+        {/* //--------- FLOATING EXPERIMENT ----------// */}
+      {/* <section className="floating-search">
+        <section className="floating-search__container"> */}
+          {/* https://www.w3schools.com/howto/howto_custom_select.asp */}
+          {/* <div> */}
+            {/* <select name="neighbourhood" id="neighbourhood-select">
+            <option value="">Neighbourhood</option>
+                <option value="Vancouver">All of Vancouver</option>
+            </select>
+          </div>
+          <div> */}
+            {/* <img className="floating__icon" src={redHeart}/>
+          </div>
+      </section>
+      </section> */}
+        
+
+        <MapContainer center={[49.2780, -123.1153]} zoom={12}>
             {/* <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
@@ -420,39 +425,39 @@ class MapArt4_skateVideo_classComp extends Component {
             <TileLayer
               // url={`${URL_CUSTOM_OUTDOORS}`}
               url={`${URL_CUSTOM_OUTDOORS_DARKER}`}
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
+              attribution="© <a href='http://osm.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/about/maps/'>Mapbox</a>"
             />
 
+          
           {/* //------------- Task Bar ----------//  */}
-          {/* <div className="floating-menue__container">
-              <img className="floating__icon" src={redHeart} />
-              <img className="floating__icon" src={Fountain} />
-              <img className="floating__icon" src={Gateway} />
-              <img className="floating__icon" src={Memorial} />
-              <img className="floating__icon" src={Mosaic} />
-              <img className="floating__icon" src={Mural2} />
-              <img className="floating__icon" src={SiteIntergrated} />
-              <img className="floating__icon" src={Statue} />
-              <img className="floating__icon" src={Totem } />
-              <img onClick={(e) => { this.print() }} className="floating__icon" src={SiteIntergrated} />
-          </div> */}
-
-          {/* <LayersControl position="topright"> */}
+          <section className="floating__container" >
+            {/* <select onChange={this.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
+              <option value="">Neighbourhood</option>
+                <option value="Vancouver">All of Vancouver</option>
+                <option value="Vancouver">All of Vancouver</option>
+            </select> */}
+            <div className="floating__heart-btn">
+              <img onClick={ e => console.log('Hello')} className="floating__icon" src={redHeart} />
+            </div>
+          </section>
+          {/* <HUD></HUD> */}
+{/* 
+          <LayersControl position="topright">
             
-            {/* {RESTAURANT_TYPES.map((type, index) => (
+            {RESTAURANT_TYPES.map((type, index) => (
               <LayersControl.Overlay key={index} checked name={type}>
                 <LayerGroup>
                   {groupedByType[type]?.map((restaurant) => (
                     <Marker key={restaurant.id} position={restaurant.coordinates}> */}
-                      {/* <Popup>{restaurant.name}</Popup> */}
-                    {/* </Marker>
-                  ))}
-                </LayerGroup>
+                      {/* <Popup>{restaurant.name}</Popup>
+                    </Marker>
+                  ))} */}
+                {/* </LayerGroup>
               </LayersControl.Overlay>
             ))} */}
 
-          {/* </LayersControl>
-           */}
+          {/* </LayersControl> */} */}
+          
           
           {/* //  -------- GitHub test Markers --------  // */}
           <Marker position={[49.2780, -123.1153]} icon={blackGithub}></Marker>
@@ -471,7 +476,7 @@ class MapArt4_skateVideo_classComp extends Component {
           {/* //  -------- GitHub test Markers --------  // */}
           
 
-{/* userCurrentLocation: [parseFloat(localStorage.getItem('userLat')), parseFloat(localStorage.getItem('userLon'))], */}
+          {/* userCurrentLocation: [parseFloat(localStorage.getItem('userLat')), parseFloat(localStorage.getItem('userLon'))], */}
           
             {/* // ------ Display Markers by Neighbourhood ------ //  */}
               {this.state.art_works.map(artWork => (
@@ -576,7 +581,6 @@ class MapArt4_skateVideo_classComp extends Component {
               </LayersControl.Overlay> */}
 
               {/* // ------ Neighbourhoods ------ //  */}
-
               {/* <LayersControl.Overlay checked name="Neighbourhoods">
                 <LayerGroup> */}
                   {/* <Polygon pathOptions={{ color: 'green' }} positions={neighbourhood_boundaries[0].fields.geom.coordinates} /> */}
@@ -586,9 +590,6 @@ class MapArt4_skateVideo_classComp extends Component {
                 {/* </LayerGroup>
               </LayersControl.Overlay> */}
           {/* </LayersControl>   */}
-
-          
-          
           </MapContainer>
         <BottomNav />
       </section>
