@@ -35,4 +35,5 @@ MapArt4_skateVideo.jsx
 MapArt4_skateVideo.scss
 
 src/components/Utils/MapboxToken.js
+src/components/Utils/various-icons.js
 
