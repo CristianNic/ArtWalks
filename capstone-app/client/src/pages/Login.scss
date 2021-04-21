@@ -132,6 +132,12 @@ input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+button:active {
+-webkit-tap-highlight-color: transparent;
+color: #8140a6;
+box-shadow: 0.1rem 0.1rem 0.1rem 0 rgba(0,0,0,0.2) ;
+}
+
 // Change Autocomplete Styles in WebKit Browsers (Autofill)
 // https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
 
