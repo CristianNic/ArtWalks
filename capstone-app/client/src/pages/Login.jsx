@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { API_URL } from '../components/utils';
+import { API_URL } from '../components/Utils/Utils';
 // import BottomNav from '../components/BottomNav/BottomNav';
 
 class Login extends Component {

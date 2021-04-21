@@ -18,7 +18,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 // import LayeredMapChloro from './pages/LayeredMapChloro/LayeredMapChloro';
 
 // import { withRouter } from "react-router";
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/Utils/ScrollToTop';
 
 class App extends Component {
 

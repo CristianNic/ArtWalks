@@ -1,187 +1,129 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import { neighbourhoods } from '../utils';
+import { neighbourhoods, API_URL } from '../Utils/Utils';
+import redHeart from '../../assets/icons/heart_red.svg';
 
-// import data from '../../data_temp/art_work_final_geom.json';
+// ---------- Icons ----------- // 
+import icon1 from '../../assets/icons/heart_red.svg';
+import icon2 from '../../assets/icons/heart-black-2px.svg';
+import icon3 from '../../assets/icons/heart-light-gray-1-2px.svg';
+import icon4 from '../../assets/icons/heart-light-gray-1-2px-filled.svg';
+import icon5 from '../../assets/icons/maximize-2-1.5px.svg';
+import icon6 from '../../assets/icons/github-red-2px.svg';
+import icon7  from '../../assets/icons/github-black-2px.svg';
+// ----------- Icons -----------  // 
 
-const apiUrl = 'http://localhost:8090/art_works'
-      
+
 export default class Search extends Component {
 
   state = {
     art_works: [],
-    // art_works: this.props,
     value: '',
     mixed_search: '',
     TitleArtistMedium: '',
+    userFavourites: [],
+    userFavouritesByRegistryId:[],
   }
 
   componentDidMount() {
-    this.getArtWorks();
-    // this.uniqNeighourhoods();
-    // this.New();
-    //this.searchTitleArtistMedium()
-    console.log('Search Component', this.state.art_works)
+    this.getArtWorks()
+    // this.setState({ userFavourites: this.props.userFavourites })
+    this.getUserFavourites() 
   }
 
-  uniqNeighourhoods() {
-    // const test = this.state.art_works
-    // console.log('Search State: ', this.state.art_works)
-    // const uniqueNeighbourhoods = [...new Set(test.map(item => item.art_works.neighbourhood))]
-    // console.log('uniqueNeighbourhoods', uniqueNeighbourhoods)
-
-    // const New = this.state.art_works
-    //  New
-    // yourArrayName.filter((item, index) => yourArrayName.indexOf(item) === index)
-
-  }
-  // New() {
-  //   const stateArray = this.state.art_works
-  //   const Hello = stateArray.filter((item, index) => stateArray.indexOf(stateArray) === index)
-  //   console.log('stateArray: ', stateArray)
-  //   console.log('stateArray: ', Hello)
-  // }
-
-  New() {
-    // let filteredArray = this.state.art_works.filter((item, index) => this.state.art_works.indexOf(item) === index)
-    // console.log('filteredArray: ', filteredArray)
-    // console.log('this.props: ', this.props)
-
-    // console.log('this.props: ', this.state.art_works)
-    // let filteredArray = this.props.art_works2.filter((item, index) => this.props.art_works2.indexOf(item) === index)
-
-    // let filteredArray = this.props.art_works.filter((item, index) => this.props.art_works.indexOf(item) === index)
-    // console.log('filteredArray: ', filteredArray)
+  getUserFavourites() {
+    // art_work_id is set by the MySQL database, while registry_id is from the City of Vancouver dataset (req. for matching artist info)
+    // userFavourites sets all details on favourite art_works and userFavouritesByRegistryId extracts the matching registry_id's
+    axios
+      .get(`${API_URL}/favourites/${this.state.user_id}`)
+      .then((response) => {
+        this.setState({
+          userFavourites: response.data,
+          userFavouritesByRegistryId: response.data.map((fave) => fave.art_works.registry_id)
+        })
+      })
+      .catch((error) => {
+      console.log('error:', error.response.data);
+    })
   }
 
   getArtWorks() {
     axios
-      .get(apiUrl)
-      // .get(`${url}`)
+      .get(`${API_URL}/art_works`)
       .then((response) => {
-        // console.log('response.data:', response.data)
-        //console.log('response.data.art_works:', response.data.art_works)
         this.setState({
           art_works: response.data.art_works,
         })
       })
       .catch(function (error) {
-        // console.log('error:', error.response.data);
+        console.log('error:', error.response.data);
       })
   }
 
-  //searchTitleArtistMedium = (event) => {
-    //console.log(event.target.value)
-
-    //const temp = 'sculpture'
-    // const filteredData = this.state.art_works.filter(() => {
-    //   this.setState({ TitleArtistMedium: filteredData });
-    //   if (
-    //     this.state.artWorks.title === event.target.value ||
-    //     this.state.artWorks.artists_names === event.target.value ||
-    //     this.state.artWorks.type === event.target.value || 
-    //    ) {
-    //     this.setState({ TitleArtistMedium: filteredData });
-    //    }
-
-    //   } else {
-    //     this.setState({ TitleArtistMedium: 'No Sculpture' })
-    //   }
-    // }
-      
-    // const filteredData2 = this.state.art_works.filter((item) => {
-    //   return item.title === event.target.value ||
-    //     item.artists === event.target.value ||
-    //     item.type === event.target.value;
-    // }
-
-
-
-  //   const filteredData = this.state.filtered_art_works.filter( (area) => {
-  //     return area.neighbourhood === event.target.value
-  //   })
-  //   if (filteredData.length > 0) {
-  //     this.setState({filtered_art_works: filteredData})
-  //   }
-  //   else {
-  //     this.setState({filtered_art_works: publicArtData})
-  //   }
-  // }
-  // }
-  // searchTitleArtistMedium = (event) => {
-  // //console.log(event.target.value)      
-  //   const test = this.state.art_works.filter(function (item) {
-  //     return  item.title === event.target.value ||
-  //             item.artists === event.target.value ||
-  //             item.type === event.target.value;
-  //     }));
-  // }
-      // if it's there then set it in state ... if it's not then ... print no match found 
-
-    
-    
-    
-
   render() {
-    // const handleSearchSubmit = (event) => {
-    // 	event.preventDefault();
-    // 	event.target.reset();
-    // };
-  //  { console.log('Search Component', this.state.art_works) }
+    
+    // console.log('this.state.userFavouritesByRegistryId -->', this.userFavourites)
+    // console.log('this.state.userFavouritesByRegistryId -->', this.userFavouritesByRegistryId)
+
     return (
       <section className="search">
-        {/* <div> */}
+
+        {/* https://www.w3schools.com/howto/howto_custom_select.asp */}
+
           <div>
-            <select onChange={this.props.handleSelectLocation} name="neighbourhood" id="neighbourhood-select">
-              <option value="">Neighbourhood</option>
-              {/* {this.state.art_works.map(titles =>
-                <option value={this.props.neighbourhood}>{titles.neighbourhood}</option>)}
-                <option value={filteredArray.neighbourhood}>{filteredArray.neighbourhood}</option>)} */}
+            <select onChange={this.props.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
+            <option value="">Select a neighbourhood</option>
+                <option value="Vancouver">All of Vancouver</option>
               {neighbourhoods.map((area, i) =>
                 <option value={area} key={i}>{area}</option>
               )}
-              
-            </select>
-          </div>
-          {/* <div>
-            <select name="search__form-neighbourhood" id="pet-select">
-              <option value="">Artist</option>
-              <option value="dog">Dog</option>
             </select>
           </div>
           <div>
-            <select name="search__form-neighbourhood" id="pet-select">
-              <option value="">Medium</option>
-              <option value="dog">Dog</option>
-              <option value="cat">Cat</option>
-            </select>
-          </div> */}
-          {/* <div>
-            <button>visited</button>
-          </div>
-          <div>
-            <button>Liked</button>
-          </div> */}
-        {/* </div>
-        <div> */}
-          <div>
-            <input type="text"
+            <input className="search-input" type="text"
               //onChange={(e) => this.setState({ searchTitleArtistMedium: e.target.value })}
               onChange={this.state.searchTitleArtistMedium}
-              placeholder="Title, Artist or Medium"></input>
+              placeholder="Search: Title, Artist or Medium"></input>
             <p>{this.state.searchTitleArtistMedium}</p>
           </div>
           {/* <div>
             <input type="text" onChange={(e) => this.setState({ value: e.target.value })} placeholder="Test =)"></input>
             <p>{this.state.value}</p>
           </div> */}
-          <Link className="art-work__link" to={`/map`}>
-          {/* <Link className="art-work__link" to={`/art_works/${this.props.id}`}> */}
-            <button> Layers </button>
-          </Link>
+        
 
-        {/* </div>  */}
+        {/* <select className="medium" name="medium" id="neighbourhood-select">
+            <option value="">Medium</option>
+              <option value="Vancouver">
+                <svg className="search-icon" src={icon1}/>
+              </option>
+              <option value="Vancouver">
+                <img className="search-icon" src={icon2}></img>
+              </option>
+              <option value="Vancouver">
+                <img className="search-icon" src={icon3}></img>
+              </option>
+        </select>
+         */}
+        {/* <div class="dropdown">  
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">  
+                Dropdown button  
+            </button>  
+            <div class="dropdown-menu">  
+                <a class="dropdown-item" href="#"> <i class="fa fa-home"></i> Home </a>  
+                <a class="dropdown-item" href="#"> <i class="fa fa-address-book"></i> Contact </a>  
+                <a class="dropdown-item" href="#"> <i class="fa fa-bell"></i> Notifications </a>  
+                <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting </a>  
+            </div>  
+        </div>   */}
+
+
+        {/* // ----  Favourites Icon ---- //          */}
+
+        {/* <img onClick={this.props.selectFavourties} className="search-icon" src={redHeart}/> */}
+        <img onClick={() => this.props.selectFavourties()} className="search-icon" src={redHeart}/>
+
       </section>
     )
   }

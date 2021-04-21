@@ -8,7 +8,7 @@ import BottomNav from '../components/BottomNav/BottomNav';
 import Search from '../components/Search/Search';
 // import ArtWorks from '../components/ArtWorks/ArtWorks'; 
 // import SavedItems from '../components/SavedItems/SavedItems';
-import { API_URL } from '../components/utils'; 
+import { API_URL } from '../components/Utils/Utils'; 
 
 import heartRed from '../assets/icons/heart_red.svg';
 import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';

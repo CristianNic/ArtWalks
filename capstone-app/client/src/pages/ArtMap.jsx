@@ -12,9 +12,20 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import groupBy from "lodash"
 
-//---------------- Pages ------------------// 
+//------------------ Pages -------------------------// 
 import BottomNav from '../components/BottomNav/BottomNav';
 import Search from '../components/Search/Search';
+
+//------------------ Map Tiles -----------------------//
+import { URL_CUSTOM_OUTDOORS_DARKER } from '../components/Utils/MapboxToken';
+
+
+//-------------- Ioncs converted for Leaflet ----------// 
+import {
+  fountain, gateway, memorial, mosaic, mural, siteIntergrated, statue,
+  totem, defaultIconSkater, blackGithub, redGithub
+} from '../components/Utils/MapIcons';
+
 
 //---------------- Icons ------------------// 
 import redHeart from '../assets/icons/heart_red.svg';
@@ -29,27 +40,27 @@ import { FiHome, FiChevronRight, FiSearch, FiSettings } from "react-icons/fi";
 import skateboarding from '../assets/icons/skateboarding.svg';
 // import redGithubicon from '../assets/icons/skateboarding.svg';
 
-//------------- Art Work Icons --------------//
-import Fountain from '../assets/art-works/fountain.svg';
-import Gateway from '../assets/art-works/gateway.svg';
-import Memorial from '../assets/art-works/memorial.svg';
-import Mosaic from '../assets/art-works/mosaic.svg';
-import Mural1 from '../assets/art-works/mural-1.svg';
-import Mural2 from '../assets/art-works/mural-2.svg';
-import Mural3 from '../assets/art-works/mural-3.svg';
-import SiteIntergrated from '../assets/art-works/site-intergrated.svg';
-import Statue from '../assets/art-works/statue.svg';
-import Totem from '../assets/art-works/totem.svg';
-import TotemSolid from '../assets/art-works/totem-solid.svg';
+//------------- Art Work Icons - Nav Bar--------------//
+// import Fountain from '../assets/art-works/fountain.svg';
+// import Gateway from '../assets/art-works/gateway.svg';
+// import Memorial from '../assets/art-works/memorial.svg';
+// import Mosaic from '../assets/art-works/mosaic.svg';
+// import Mural1 from '../assets/art-works/mural-1.svg';
+// import Mural2 from '../assets/art-works/mural-2.svg';
+// import Mural3 from '../assets/art-works/mural-3.svg';
+// import SiteIntergrated from '../assets/art-works/site-intergrated.svg';
+// import Statue from '../assets/art-works/statue.svg';
+// import Totem from '../assets/art-works/totem.svg';
+// import TotemSolid from '../assets/art-works/totem-solid.svg';
 
 // import icon from 'leaflet/dist/images/marker-icon.png';
-import max from '../assets/icons/maximize-2-1.5px.svg';
+import maximize from '../assets/icons/maximize-2-1.5px.svg';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 //----------------- Data -------------------//
 import * as parkData from "../data/skateboard-parks.json";
-import { API_URL } from '../components/utils';
+import { API_URL } from '../components/Utils/Utils';
 import data from '../data_temp/art_work_final_geom.json';
 //import publicArtData from '../data_temp/public-art-smaller.json';
 import { restaurants } from "../data_temp/data";
@@ -58,86 +69,21 @@ const Dunbar = neighbourhood_boundaries[0].fields.geom.coordinates
 // var poly = L.polygon(Dunbar).addTo(L.map);
  
 
+
+
 //-------------- Marker Icons --------------// 
-const DefaultIcon = L.icon({
-  iconUrl: skateboarding,
-  // shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-});
-const SpecialIcon = L.icon({
-  iconUrl: max,
-  shadowUrl: iconShadow,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-});
-const blackGithub = L.icon({
-  iconUrl: blackGithubicon,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const redGithub = L.icon({
-  iconUrl: redGithubicon,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
 
-const fountain = L.icon({
-  iconUrl: Fountain,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const gateway = L.icon({
-  iconUrl: Gateway,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const memorial = L.icon({
-  iconUrl: Memorial,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const mosaic = L.icon({
-  iconUrl: Mosaic,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const mural1 = L.icon({
-  iconUrl: Mural1,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const mural2 = L.icon({
-  iconUrl: Mural2,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const mural3 = L.icon({
-  iconUrl: Mural3,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
+// const mural2 = L.icon({
+//   iconUrl: Mural2,
+//   iconSize: [25, 41],
+//   iconAnchor: [12, 41]
+// })
+// const mural3 = L.icon({
+//   iconUrl: Mural3,
+//   iconSize: [25, 41],
+//   iconAnchor: [12, 41]
+// })
 
-const siteIntergrated = L.icon({
-  iconUrl: SiteIntergrated,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const statue = L.icon({
-  iconUrl: Statue,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const totem = L.icon({
-  iconUrl: Totem,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
-const totemSolid = L.icon({
-  iconUrl: TotemSolid,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41]
-})
 //----------- Marker Icons -----------// 
 
 
@@ -454,7 +400,6 @@ class MapArt4_skateVideo_classComp extends Component {
     // console.log('neighbourhood Boundaries: geom -->', Dunbar)
     // console.log('neighbourhood Boundaries: inState -->', this.state.neighbourhood_boundaries)
 
-    
     // const groupedByType = groupBy(restaurants, (restaurant) => restaurant.type);
     // const userFavouritesObj = this.state.userFavourites
 
@@ -467,15 +412,19 @@ class MapArt4_skateVideo_classComp extends Component {
         />        
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
           {/* <LayersControl position="topright"> */}
+
             {/* <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
           /> */}
             <TileLayer
-              url="https://api.mapbox.com/styles/v1/cristiannic/cknptyf770u1d17pjlw19290t/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY3Jpc3RpYW5uaWMiLCJhIjoiY2tucHZmaXlsMDQzaTJ2bzA0MzRpeXFsaSJ9.zacBznM18ebDtNy1MNaGsw"
+              // url={`${URL_CUSTOM_OUTDOORS}`}
+              url={`${URL_CUSTOM_OUTDOORS_DARKER}`}
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-          />
-          <div className="floating-menue__container">
+            />
+
+          {/* //------------- Task Bar ----------//  */}
+          {/* <div className="floating-menue__container">
               <img className="floating__icon" src={redHeart} />
               <img className="floating__icon" src={Fountain} />
               <img className="floating__icon" src={Gateway} />
@@ -486,7 +435,7 @@ class MapArt4_skateVideo_classComp extends Component {
               <img className="floating__icon" src={Statue} />
               <img className="floating__icon" src={Totem } />
               <img onClick={(e) => { this.print() }} className="floating__icon" src={SiteIntergrated} />
-          </div>
+          </div> */}
 
           {/* <LayersControl position="topright"> */}
             
@@ -541,14 +490,14 @@ class MapArt4_skateVideo_classComp extends Component {
                        : artWork.type === 'Memorial_or_monument' ? memorial     
                        : artWork.type === 'Totem_pole'           ? totem      
                        : artWork.type === 'Site_integrated_work' ? siteIntergrated
-                       : artWork.type === 'Mural'                ? mural2
-                       : artWork.type === '2D'                   ? mural2        
+                       : artWork.type === 'Mural'                ? mural
+                       : artWork.type === '2D'                   ? mural        
                        : artWork.type === 'Mosaic'               ? mosaic
                        : artWork.type === 'Relief'               ? mosaic
                        : artWork.type === 'Media_work'           ? mosaic
                        : artWork.type === 'Sculpture'            ? statue
                        : artWork.type === 'Figurative'           ? statue
-                                                                 : DefaultIcon}
+                                                                 : defaultIconSkater}
                 
 
                   // icon={cool = () => { if (artWork.type !== 'Memorial_or_monument') { DefaultIcon } else { fountain } }}

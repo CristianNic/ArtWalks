@@ -19,6 +19,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+example.env
 
 npm-debug.log*
 yarn-debug.log*
@@ -33,8 +34,5 @@ MapArt3codepens.scss
 MapArt4_skateVideo.jsx
 MapArt4_skateVideo.scss
 
-Login_modal.jsx
-
-
-
+src/components/Utils/MapboxToken.js
 

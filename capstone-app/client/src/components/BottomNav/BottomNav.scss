@@ -22,8 +22,9 @@
     padding-right: 2rem;
     padding-left: 2rem;
     // padding-top: 0.5rem;
-    border-radius: 20px;
+    // border-radius: 20px;
     z-index: 9999;
+    border-top: 2px solid lightgray;
   }
   &__btn {
     display: flex;

@@ -37,20 +37,20 @@ export default function BottomNav() {
           </Link>
         </div>
         <div className="bottom-nav__btn">
-          <Link to="/favourites">
+          <Link to="/saved">
             <img className="bottom-nav__icon" src={iconSaved} alt="favourites icon" />
             {/* <h4>Favourites</h4> */}
             <h4>Saved</h4>
           </Link>
         </div>
         <div className="bottom-nav__btn">
-          <Link to="/art_works/:id">
+          <Link to="/details/316">
             <img className="bottom-nav__icon" src={iconDetails} alt="details icon" />
             <h4>Details</h4>
           </Link>
         </div>
         <div className="bottom-nav__btn">
-          <Link to="/profile/:id">
+          <Link to="/profile">
             <img className="bottom-nav__icon" src={iconProfile} alt="profile icon" />
             <h4>Profile</h4>
           </Link>

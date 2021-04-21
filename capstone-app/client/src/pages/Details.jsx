@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import BottomNav from '../components/BottomNav/BottomNav';
-import { API_URL } from '../components/utils';
+import { API_URL } from '../components/Utils/Utils';
 
 // import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 // import iconBackArrow from '../assets/icons/maximize-2-1.5px.svg'
