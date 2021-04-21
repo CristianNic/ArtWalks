@@ -18,7 +18,7 @@ import iconMap from '../assets/icons-feather-1.5px/map.svg';
 import { API_URL } from '../components/Utils/Utils';
 import axios from "axios";
 
-
+import data from '../data_temp/art_work_final_geom.json';
 import artWorksData from '../data_temp/art_work'
 // const apiUrl = 'http://localhost:8090/art_works'
 
@@ -48,6 +48,7 @@ class Gallery extends Component {
   state = {
     user_id: 2,
     art_works: [],
+    artWorksData: artWorksData,
     userFavourites: [],
     userFavouritesByRegistryId: [],
     display: false,
@@ -71,11 +72,11 @@ class Gallery extends Component {
   // this.setState({
   //   [event.target.name]: event.target.value,
   // });
-      
-      
+  
   componentDidMount() {
     this.getUserId();
     this.getArtWorks();
+    // this.getArtWorksData();
     this.getUserFavourites();
     this.reduceArrayIntoPairs(this.state.art_works);
   }
@@ -93,6 +94,10 @@ class Gallery extends Component {
       })
       .catch((error) => {console.log('error:', error.response.data)})
   }
+
+  // getArtWorksData() {
+  //   this.setState({ArtWorksData: data.ArtWorksData })
+  // }
 
   getUserFavourites() {
     axios
@@ -491,12 +496,6 @@ class Gallery extends Component {
 
 
 
-
-
-
-
-
-
   placeArtWorkOnMap = (e, data) => {
     console.log('Clicked placeArtWorkOnMap -->', data) // artWork registry_id
     this.setState(state => {
@@ -507,6 +506,31 @@ class Gallery extends Component {
     localStorage.setItem('currently viewing', data)
   }
 
+  selectNeighbourhood = (location) => {
+    // passed on Search bar as a prop
+    console.log('Search --> location.target.value --> ', location.target.value) // name of neighbourhood
+    // console.log('Search --> this.state.art_works --> ', this.state.art_works) // name of neighbourhood
+    console.log('Select Neighbourhood - data --> ', data) // name of neighbourhood
+      
+    // if it's not Vancouver then do this: 
+
+    if ('Vancouver' === location.target.value) {
+      // this.setState({ art_works: this.state.artWorks }) // do nothing 
+      this.setState({ artWorksData: data })
+      // do nothing
+    } else {
+      // if it's anything else, then filter for that 
+      // const data = this.state.art_works  
+      const filteredData = data.filter(area =>
+        area.neighbourhood === location.target.value);
+    
+      this.setState({ artWorksData: filteredData })
+
+      console.log('Select Neighbourhood - filteredData --> ', filteredData)
+    }
+    this.forceUpdate()
+  }
+  
 
   render() {
 
@@ -543,10 +567,12 @@ class Gallery extends Component {
       <div>
         {/* { favourites.inculudes(i) ? (<div>True</div>) : (<div>False</div>) } */}
         
-        <Search />
+        <Search
+          selectNeighbourhood={this.selectNeighbourhood}
+        />
         <div className="gallery">
           {/* ------------ Map ------------*/}
-          {this.reduceArrayIntoPairs(artWorksData).map(art =>
+          {this.reduceArrayIntoPairs(this.state.artWorksData).map(art =>
             <div className="gallery__pairs-wrapper" key={art[0].registry_id}>
               {/* {console.log('rows ---> ', rows)}
               {console.log('ART ---> ', art)} */}
