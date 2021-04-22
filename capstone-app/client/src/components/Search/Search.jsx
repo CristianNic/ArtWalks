@@ -1,18 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { neighbourhoods, API_URL } from '../Utils/Utils';
 import redHeart from '../../assets/icons/heart_red.svg';
-
-// ---------- Icons ----------- // 
-import icon1 from '../../assets/icons/heart_red.svg';
-import icon2 from '../../assets/icons/heart-black-2px.svg';
-import icon3 from '../../assets/icons/heart-light-gray-1-2px.svg';
-import icon4 from '../../assets/icons/heart-light-gray-1-2px-filled.svg';
-import icon5 from '../../assets/icons/maximize-2-1.5px.svg';
-import icon6 from '../../assets/icons/github-red-2px.svg';
-import icon7  from '../../assets/icons/github-black-2px.svg';
-// ----------- Icons -----------  // 
 
 
 export default class Search extends Component {
@@ -68,61 +57,21 @@ export default class Search extends Component {
 
     return (
       <section className="search">
-
         {/* https://www.w3schools.com/howto/howto_custom_select.asp */}
-
-          <div>
-            <select onChange={this.props.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
-            <option value="">Select a neighbourhood</option>
-                <option value="Vancouver">All of Vancouver</option>
-              {neighbourhoods.map((area, i) =>
-                <option value={area} key={i}>{area}</option>
-              )}
-            </select>
-          </div>
-          <div>
-            <input className="search-input" type="text"
-              //onChange={(e) => this.setState({ searchTitleArtistMedium: e.target.value })}
-              onChange={this.state.searchTitleArtistMedium}
-              placeholder="Search: Title, Artist or Medium"></input>
-            <p>{this.state.searchTitleArtistMedium}</p>
-          </div>
-          {/* <div>
-            <input type="text" onChange={(e) => this.setState({ value: e.target.value })} placeholder="Test =)"></input>
-            <p>{this.state.value}</p>
-          </div> */}
-        
-
-        {/* <select className="medium" name="medium" id="neighbourhood-select">
-            <option value="">Medium</option>
-              <option value="Vancouver">
-                <svg className="search-icon" src={icon1}/>
-              </option>
-              <option value="Vancouver">
-                <img className="search-icon" src={icon2}></img>
-              </option>
-              <option value="Vancouver">
-                <img className="search-icon" src={icon3}></img>
-              </option>
-        </select>
-         */}
-        {/* <div class="dropdown">  
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">  
-                Dropdown button  
-            </button>  
-            <div class="dropdown-menu">  
-                <a class="dropdown-item" href="#"> <i class="fa fa-home"></i> Home </a>  
-                <a class="dropdown-item" href="#"> <i class="fa fa-address-book"></i> Contact </a>  
-                <a class="dropdown-item" href="#"> <i class="fa fa-bell"></i> Notifications </a>  
-                <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Setting </a>  
-            </div>  
-        </div>   */}
-
-
-        {/* // ----  Favourites Icon ---- //          */}
-
-        {/* <img onClick={this.props.selectFavourties} className="search-icon" src={redHeart}/> */}
-        <img onClick={() => this.props.selectFavourties()} className="search-icon" src={redHeart}/>
+        <div className="search__divider"></div>
+        <div className="search__select-div">
+          <select className="search__select" onChange={this.props.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
+          <option className="search__select-items" value="">Neighbourhood</option>
+              <option className="search__select-items" value="Vancouver">All of Vancouver</option>
+                {neighbourhoods.map((area, i) =>
+                <option className="search__select-items" value={area} key={i}>{area}</option>
+                )}
+          </select>
+        </div>
+        <div className="search__divider"></div>
+        <div className="search__btn-container">
+          <img onClick={() => this.props.selectFavourties()} className="search__icon" src={redHeart}/>
+        </div>
 
       </section>
     )

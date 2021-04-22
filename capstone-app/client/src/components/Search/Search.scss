@@ -1,5 +1,5 @@
 .search {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   // https://developer.mozilla.org/en-US/docs/Web/CSS/position
   // position: fixed;
   // position: -webkit-sticky;
@@ -8,50 +8,76 @@
   top: 0;
   width: 100vw;
   // height: inherit;
-  height: 40px;
+  height: 45px;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
+  //border-color: 1px gray;
+  border-bottom: 2px solid darkgray;
+  z-index: 9999;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: row;
   align-items: center;
-  //border-color: 1px gray;
-  border-bottom: 2px solid lightgrey;
-  // border-top: 2px solid lightgrey;
-  // border: 2px solid lightgrey;
-  // border-radius: 7px;   // only if it can be a map overlay
-  z-index: 9999;
-  
-  &__form {
-    padding-right: .1rem;
-   // padding-top: 0.4rem;   // height 30px 
-  //padding: 0.4rem;
-    // &-neighbourhood {
-    //   padding: ;
-    // }
+  // width: 256px;
+  padding-left: 60px;  // <------ GOOD 
+  padding-left: 60px;
+
+  &__divider {
+    height: 32px;
+    border: 1px solid darkgray;
+    margin-left: 10px;
+    margin-right: 10px;
   }
-  &__input {
-    width: 11rem;
-    padding-right: 1rem;
+  &__select-div {
   }
-  &__btn {
-    padding-right: 1rem;
+  &__select {
+    border: 1px solid white;
+    border: 2px solid darkgrey;
+    // border-left: 2px solid red;
+    //display: none;
+    font-family: 'Rock Salt', cursive;
+
+    border: 1px solid white;
+    font-family: 'Rock Salt', cursive;
+    font-size: 13px;
+    font-weight: 800;
+    width: 168px;  // <------ GOOD   
+    width: 198px;
+    // background-color:lightgrey;
+    // color: darkgray;
+  }
+  &__btn-container {
+    // border-left: 2px solid darkgray;
+    margin-left: 30px;
+    margin-left: 20px;
+  }
+  &__icon {
+    height: 28px;
+    width: 28px;
+    //margin-left: 8px;
+    margin-top: 2px;
   }
 }
 
-.hide {
-  display: none;
-}
+// font-family: 'Indie Flower', cursive;
+// font-family: 'Rock Salt', cursive;
+// font-family: 'Permanent Marker', cursive;
+//font-family: 'Gamja Flower', cursive;
 
-.search-icon {
-  height: 24px;
-  width: 24px;
-}
 
-.search-input {
-  width: 180px;
-}
+// &__select-items {
+//   font-family: 'Rock Salt', cursive;
+// }
 
-.medium {
-  width: 44px;
-}
+// .hide {
+//   display: none;
+// }
+// .search-input {
+//   width: 180px;
+// }
+// .medium {
+//   width: 44px;
+// }
+
+
+
