@@ -1,6 +1,3 @@
-// .map {
-
-// }
 .leaflet-container {
   width: 100%;
   // height: 85.3vh; // with TopNav
@@ -9,24 +6,20 @@
   height: 90vh; // <--------------------- correct for </Search>
   //height: 500px; // can set height 
  // height: 630px;
+  height: 666px;
 }
 // try bottom bar as an overlay, 
 // map is 100% of window
 // make a sandwitch where each layer is defined
-
 .btn {
   z-index: 1001;
 }
-
 // .bottom-nav__container {
 // z-index: 2000;
 // }
-
 .map__container {
   height: 200px;
 }
-
-
 .img {
   object-fit: cover;
   object-position: center;
@@ -34,14 +27,12 @@
   height: 150px;
   width: 250px;
 }
-
 .popup {
   display: flex;
   flex-direction: column;
   // height: 291px;
   // width: 254px;
 }
-
 .popup-inside {
   // title/artist + icon 
   margin-top: 10px;
@@ -52,14 +43,12 @@
   justify-content: space-between;
   align-items: baseline;
 }
-
 // .popup-inside-headings {
 //   width: 200px;
 // }
 // .popup-inside-icons {
 //   width: 50px;
 // }
-
 .icon {
   // height: 24px;
   // width: 24px;
@@ -68,51 +57,78 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-
 .sidebar {
   height: 168px; // 24px * 7 icons
   width: 24px; 
 }
 
-.floating__container {
-  background-color: lightgray;
-  margin-left: 100px;
+//------- Floating Task Bar ------//
+.floating {
+  background-color:white;
+  border-radius: 9px;
+  border: 2px solid lightgray;
+  border: 2px solid darkgray;
   position: absolute; 
   z-index: 1000;
+  height: 45px;
+  width: 250px;
+  margin-top: 10px;
+  margin-left: 84px;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+   // background-color: lightgray;
+    // position: absolute; 
+    // z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    
+    // width: 50px;
+    // height: 35px;
+    // margin-left: 100px;
+    // margin-top: 10px;
+  }
+  &__select {
+    border: 1px solid white;
+  }
+  &__btn {
+    height: 28px;
+    width: 28px;
+    background-color: white;
+    margin-left: 10px;
+    border-left: 2px solid darkgray;
+
+  }
+  &__icon {
+    height: 28px;
+    width: 28px;
+    margin-left: 8px;
+
+  }
+}
+
+
+//------- Floating Task Bar ------//
+
+
+.floating-search {
+  margin-left: 100px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid gray;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 35px;
-  margin-left: 210px;
-  margin-top: 10px;
-}
-.floating__icon {
-  // margin-left: 100px;
-  height: 24px;
-  width: 24px;
-  // position: absolute; 
-  // z-index: 1000;
-  border: black 1px;
-}
-
-.floating__button {
-
-}
-
-.floating-search {
-    width: 50px;
-    height: 50px;
-    border: 1px solid gray;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    z-index: 988888889;
-     position: absolute;
+  margin: 0 auto;
+  z-index: 988888889;
+  position: absolute;
   &__container {
+    margin-left: 300px;
+    background-color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -122,24 +138,15 @@
   }
 }
 
-.floating__heart-btn {
-  height: 30px;
-  width: 30px;
-  background-color: white;
-}
-
 
 
 // ------ attribution ----- // 
-
 // .leaflet-control-attribution {
 //   width: 180px;
 // }
-
 // .leaflet-control {
 //   width: 300px;
 // }
-
 // #text {
 //   visibility: hidden;
 // }

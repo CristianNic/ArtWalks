@@ -58,7 +58,6 @@ import maximize from '../assets/icons/maximize-2-1.5px.svg';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-import HUD from '../components/HUD/HUD';
 
 //----------------- Data -------------------//
 import * as parkData from "../data/skateboard-parks.json";
@@ -398,23 +397,42 @@ class MapArt4_skateVideo_classComp extends Component {
           selectFavourties={this.selectFavourties}
           faves={this.state.userFavourites}
         /> */}
+        {/* https://www.w3schools.com/howto/howto_custom_select.asp */}
+        
+        {/* //------------------ Floating Task Bar -----------------//  */}
+
         
 
-        {/* //--------- FLOATING EXPERIMENT ----------// */}
-      {/* <section className="floating-search">
-        <section className="floating-search__container"> */}
-          {/* https://www.w3schools.com/howto/howto_custom_select.asp */}
-          {/* <div> */}
-            {/* <select name="neighbourhood" id="neighbourhood-select">
+        {/* <section className="floating-search">
+          <section className="floating-search__container">
+            <div>
+              <select name="neighbourhood" id="neighbourhood-select">
+              <option value="">Neighbourhood</option>
+                  <option value="Vancouver">All of Vancouver</option>
+              </select>
+            </div>
+            <div>
+              <img className="floating__icon" src={redHeart}/>
+            </div>
+          </section>
+        </section> */}
+
+      <section className="floating">
+        <section className="floating__container" >
+          <select className="floating__select" onChange={this.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
             <option value="">Neighbourhood</option>
-                <option value="Vancouver">All of Vancouver</option>
+              <option value="Vancouver">All of Vancouver</option>
+              {neighbourhoods.map((area, i) =>
+              <option value={area} key={i}>{area}</option>
+              )}
             </select>
+          <div className="floating__btn">
+            <img onClick={ e => console.log('Hello')} className="floating__icon" src={redHeart} />
           </div>
-          <div> */}
-            {/* <img className="floating__icon" src={redHeart}/>
-          </div>
+        </section>
       </section>
-      </section> */}
+      
+
         
 
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
@@ -427,36 +445,6 @@ class MapArt4_skateVideo_classComp extends Component {
               url={`${URL_CUSTOM_OUTDOORS_DARKER}`}
               attribution="© <a href='http://osm.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/about/maps/'>Mapbox</a>"
             />
-
-          
-          {/* //------------- Task Bar ----------//  */}
-          <section className="floating__container" >
-            {/* <select onChange={this.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
-              <option value="">Neighbourhood</option>
-                <option value="Vancouver">All of Vancouver</option>
-                <option value="Vancouver">All of Vancouver</option>
-            </select> */}
-            <div className="floating__heart-btn">
-              <img onClick={ e => console.log('Hello')} className="floating__icon" src={redHeart} />
-            </div>
-          </section>
-          {/* <HUD></HUD> */}
-{/* 
-          <LayersControl position="topright">
-            
-            {RESTAURANT_TYPES.map((type, index) => (
-              <LayersControl.Overlay key={index} checked name={type}>
-                <LayerGroup>
-                  {groupedByType[type]?.map((restaurant) => (
-                    <Marker key={restaurant.id} position={restaurant.coordinates}> */}
-                      {/* <Popup>{restaurant.name}</Popup>
-                    </Marker>
-                  ))} */}
-                {/* </LayerGroup>
-              </LayersControl.Overlay>
-            ))} */}
-
-          {/* </LayersControl> */} */}
           
           
           {/* //  -------- GitHub test Markers --------  // */}
