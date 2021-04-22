@@ -22,10 +22,18 @@ margin-bottom: 80px;
   padding-right: 15px;
 }
 
-&__title{}
-&__artists-names{}
+&__title{
+  font-weight: 500;
+  margin: 0;
+}
+&__artists-names{
+  font-style: italic;
+}
+
 &__photo-credits{}
-&__type{}
+&__type{
+  font-weight: 600;
+}
 &__primary-material{}
 &__artist-statement{}
 &__work-description{}

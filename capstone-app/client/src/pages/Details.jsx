@@ -90,20 +90,25 @@ class Details extends Component {
           <img className="details__img" src={photo_url} alt={title} />
 
           <div className="details__container">
-            <h1 className="details__title">{title}</h1>
-            <h2 className="details__artists-names">by {artists_names}</h2>
+            <div>
+              <div className="details__title-artist-container">
+                <h1 className="details__title">{title}</h1>
+                <h2 className="details__artists-names">by {artists_names}</h2>
 
-            {photo_credits === "" ? (<div></div>) :
-              (<h2 className="details__photo-credits">Photo Credits: {photo_credits}</h2>)}
-            
-            {/* <h2 className="details__photo-credits">Photo Credits: {photo_credits}</h2> */}
-              <Link to={`/map/${registry_id}`}>
+                {photo_credits === "" ? (<div></div>) :
+                  (<h2 className="details__photo-credits">Photo Credits: {photo_credits}</h2>)}
+                {/* <h2 className="details__photo-credits">Photo Credits: {photo_credits}</h2> */}
+              </div>
+              <div className="details__link-container">
+                <Link to={`/map/${registry_id}`}>
                 {/* <button className="favourites__links-button" */}
-                  {/* onClick={(e) => { this.placeArtWorkOnMap(e, registry_id) }} > */}
-                    <img className="favourites__links-map-icon" src={iconMap} alt="map icon"></img>
+                {/* onClick={(e) => { this.placeArtWorkOnMap(e, registry_id) }} > */}
+                <img className="favourites__links-map-icon" src={iconMap} alt="map icon"></img>
                 {/* </button> */}
-            </Link>
-            
+                </Link>
+              </div>
+            </div>
+
             <h2 className="details__type">Type: {type}</h2>
             <h2 className="details__primary-material">Primary Material: {primary_material}</h2>
             <h2 className="details__artist-statement">Artist Statement: {artist_statement}</h2>
@@ -118,8 +123,6 @@ class Details extends Component {
             <h2 className="details__disclaimer">Disclaimer: where data is available</h2>
           </div>
         </div>
-        
-        
         
         <BottomNav />
       </section>
