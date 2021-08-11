@@ -1,9 +1,16 @@
-# Capstone
+# Art Walks
 
-## Database Visualization
+## A mobile friendly React app that encourages user to walk around the city, find, explore, and save all Vancouver Public Art Works using an interactive map. Photo gallery and art work descriptions are provided.
 
-### Demo
+---
 
-### Use
+Built with React, Express, MySQL, Leaflet, and Mapbox.
 
-### How to Install
+Data provided by the City of Vancouver Open Data Portal.
+
+
+## Demo
+
+## Use
+
+## How to Install
