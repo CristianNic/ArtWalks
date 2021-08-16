@@ -6,6 +6,6 @@
 
 <img src="../assets/login.png" height="532">
 
-Built with React, Express, MySQL, Leaflet, and Mapbox.
+Data from the City of Vancouver Open Data Portal.
 
-Data provided by the City of Vancouver Open Data Portal.
+Built with React, Express, MySQL, Leaflet, and Mapbox.
