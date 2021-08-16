@@ -1,0 +1,27 @@
+/* Partials */
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/fonts";
+@import "./partials/global";
+
+/* Pages */
+@import "./pages/Login";
+// @import './pages/SignUp';
+@import "./pages/Details";
+//@import './pages/Explore';
+@import "./pages/Gallery";
+@import "./pages/Saved";
+@import "./pages/ArtMap";
+@import "./pages/Profile";
+
+/* Components */
+@import "./components/TopNav/TopNav";
+@import "./components/BottomNav/BottomNav";
+@import "./components/ArtWorks/ArtWorks";
+@import "./components/Search/Search";
+@import "./components/PageNotFound/PageNotFound";
+//@import './components/SearchBar/SearchBar';
+//@import './components/SearchBar2x/SearchBar2x';
+
+/* Leaflet */
+@import "leaflet/dist/leaflet.css";

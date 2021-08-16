@@ -1,0 +1,66 @@
+.bottom-nav {
+  background-color: rgb(255, 255, 255);
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/position
+  position: fixed;
+  // position: -webkit-sticky;
+  // position: sticky;
+  // position: sticky; // occupies the space 
+  bottom: 0;
+  z-index: 9999;
+  // display: flex;
+  // width: 100vw;
+  // height: 7rem;
+  // border-top-left-radius: 3rem;  // only if it can hover of the map
+  // border-top-right-radius: 3rem;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 7rem; // 49px for iPhones + add border top gray
+    padding-right: 2rem;
+    padding-left: 2rem;
+    // padding-top: 0.5rem;
+    // border-radius: 20px;
+    z-index: 9999;
+    border-top: 2px solid lightgray;
+  }
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__icon {
+    width: 2.4rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+// .l-footer {
+// 	display: flex;
+// 	justify-content: center;
+// 	background-color: $light-grey;
+
+// 	&__text {
+// 		color: $slate;
+// 		font-size: 1.1rem;
+// 		line-height: 1.6rem;
+// 		padding: 4rem 0;
+// 		margin: 0 auto;
+// 		background-color: $light-grey;
+
+// 		@include tablet {
+// 			font-size: 1.2rem;
+// 			line-height: 1.8;
+// 			padding: 4.8rem 0;
+// 			margin: 0 auto;
+// 		}
+// 	}
+// }

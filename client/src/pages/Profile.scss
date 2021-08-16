@@ -1,0 +1,57 @@
+.about-me {
+	height: 80vh;
+	// background-image: url(../assets/images/profile-back.jpg);
+	background-image: url("../assets/background/pink-sky.jpg");
+	height: 700px;
+	// margin-top: -80px;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	// justify-content: center;
+	align-items: center;
+	&__logo {
+		margin: 0;
+		height: 20rem;
+	}
+	& h1,
+	h2 {
+		margin-top: 0;
+		margin-bottom: 4rem;
+	}
+	& h2 {
+		margin: 0;
+		font-weight: 500;
+		font-size: 2rem;
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	& h4 {
+		font-weight: 500;
+		font-size: 1.5rem;
+	}
+	&__name {
+		font-weight: 600;
+		font-size: 2.8rem;
+	}
+}
+.about-me {
+	margin-bottom: 20rem;
+}
+.about-me__name {
+	font-size: 4rem;
+	padding-top: 13rem;
+}
+.links {
+	margin-bottom: 7rem;
+}
+.link {
+	text-decoration: underline;
+	display: flex;
+	margin-bottom: 1rem;
+}
+.farewell {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-family: "Rock Salt", cursive;
+	color: #8140a6;
+}
