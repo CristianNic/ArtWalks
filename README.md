@@ -8,9 +8,9 @@
 
 <!-- ![Login page](../../blob/master/images/login.jpg) -->
 
-![Login page](../../blob/master/images/login.png)
+<!-- ![Login page](../../blob/master/images/login.png) -->
 
-<img scr="../assets/login.png" height="532">
+<img src="../assets/login.png" height="532">
 
 Built with React, Express, MySQL, Leaflet, and Mapbox.
 
