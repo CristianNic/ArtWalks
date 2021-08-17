@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Component } from 'react';
 import axios from 'axios';
-import {
-  MapContainer, Marker, Popup, TileLayer,
-  LayersControl, LayerGroup, Polyline, Polygon, GeoJSON
-} from "react-leaflet";
-import { useLeaflet } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+// import { useLeaflet } from "react-leaflet";
 // import Control from 'react-leaflet-control';
-import { Icon } from "leaflet";
-import L from 'leaflet';
+// import { Icon } from "leaflet";
+// import L from 'leaflet';
 // import L, { map, Popup } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import groupBy from "lodash"
+// import groupBy from "lodash"
 
 //------------------ Pages -------------------------// 
 import BottomNav from '../components/BottomNav/BottomNav';
-import Search from '../components/Search/Search';
+// import Search from '../components/Search/Search';
 
 //------------------ Map Tiles -----------------------//
 import { URL_CUSTOM_OUTDOORS_DARKER } from '../components/Utils/MapboxToken';
@@ -24,20 +21,20 @@ import { URL_CUSTOM_OUTDOORS_DARKER } from '../components/Utils/MapboxToken';
 //-------------- Ioncs converted for Leaflet ----------// 
 import {
   fountain, gateway, memorial, mosaic, mural, siteIntergrated, statue,
-  totem, defaultIconSkater, blackGithub, redGithub
+  totem, defaultIconSkater, walkingAvatar, manHearing, manWalkingRight
 } from '../components/Utils/MapIcons';
 
 //---------------- Icons --------------------------// 
 import redHeart from '../assets/icons/heart_red.svg';
 import blackHeart from '../assets/icons/heart-black-2px.svg';
-import lightGray1Heart2 from '../assets/icons/heart-light-gray-1-2px.svg';
-import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
+// import lightGray1Heart2 from '../assets/icons/heart-light-gray-1-2px.svg';
+// import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg';
 
-import redGithubicon from '../assets/icons/github-red-2px.svg';
-import blackGithubicon from '../assets/icons/github-black-2px.svg';
-import { FiHome, FiChevronRight, FiSearch, FiSettings } from "react-icons/fi";
-import skateboarding from '../assets/icons/skateboarding.svg';
+// import redGithubicon from '../assets/icons/github-red-2px.svg';
+// import blackGithubicon from '../assets/icons/github-black-2px.svg';
+// import { FiHome, FiChevronRight, FiSearch, FiSettings } from "react-icons/fi";
+// import skateboarding from '../assets/icons/skateboarding.svg';
 // import redGithubicon from '../assets/icons/skateboarding.svg';
 
 //------------- Art Work Icons - Nav Bar--------------//
@@ -54,9 +51,10 @@ import skateboarding from '../assets/icons/skateboarding.svg';
 // import TotemSolid from '../assets/art-works/totem-solid.svg';
 
 // import icon from 'leaflet/dist/images/marker-icon.png';
-import maximize from '../assets/icons/maximize-2-1.5px.svg';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+// import maximize from '../assets/icons/maximize-2-1.5px.svg';
+// import icon from 'leaflet/dist/images/marker-icon.png';
+// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 
 //----------------- Data -------------------//
@@ -65,12 +63,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { neighbourhoods, API_URL } from '../components/Utils/Utils';
 import data from '../data_temp/art_work_final_geom.json';
 //import publicArtData from '../data_temp/public-art-smaller.json';
-import { restaurants } from "../data_temp/data";
 import neighbourhood_boundaries from '../data_temp/local-area-boundary.json';
-const Dunbar = neighbourhood_boundaries[0].fields.geom.coordinates
-// var poly = L.polygon(Dunbar).addTo(L.map);
- 
-
 
 //-------------- Marker Icons --------------// 
 
@@ -103,9 +96,6 @@ const Dunbar = neighbourhood_boundaries[0].fields.geom.coordinates
 // };
 // legend.addTo(cool);
 
-
-const RESTAURANT_TYPES = ["Family Style", "Buffet", "Fast Food", "Cafe"];
-
 // const eventFire = (el, etype) => {
 //   if (el.fireEvent) {
 //     el.fireEvent('on' + etype);
@@ -117,7 +107,7 @@ const RESTAURANT_TYPES = ["Family Style", "Buffet", "Fast Food", "Cafe"];
 // }
 
 
-class MapArt4_skateVideo_classComp extends Component {
+class ArtMap extends Component {
 
   state = {
     art_works: [],
@@ -149,7 +139,7 @@ class MapArt4_skateVideo_classComp extends Component {
 
   clearOpenPopUp() {
     // if the user returns from a page without having selected an artwork,
-    // the map will now load without a selected artwork
+    // map will now load without a selected artwork
     localStorage.removeItem('currently viewing');
   }
   
@@ -375,8 +365,10 @@ class MapArt4_skateVideo_classComp extends Component {
   render() {
 
     console.log('Render -> Art_works --> ', this.state.art_works);
+    console.log('User Location --> ', this.state.userCurrentLocation); // [49.2098046, -123.139496]
+
+    // 49.25820741340161, -123.14630499651606
     // console.log('Render -> User Favourties --> ', this.state.userFavourites);
-    { console.log('Hello')}
     // console.log(`Hi, I'm the map for user --> `, this.state.user_id)
     // console.log(`User's current location --> `, this.state.userCurrentLocation);
     // console.log('userFavourites --> ', this.state.userFavourites);
@@ -427,13 +419,10 @@ class MapArt4_skateVideo_classComp extends Component {
               )}
             </select>
           <div className="floating__btn">
-            <img onClick={ e => console.log('Hello')} className="floating__icon" src={redHeart} />
+            <img onClick={ e => console.log('Hello')} className="floating__icon" src={redHeart} alt="favourites"/>
           </div>
         </section>
       </section>
-      
-
-        
 
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
             {/* <TileLayer
@@ -445,25 +434,18 @@ class MapArt4_skateVideo_classComp extends Component {
               url={`${URL_CUSTOM_OUTDOORS_DARKER}`}
               attribution="© <a href='http://osm.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/about/maps/'>Mapbox</a>"
             />
-          
-          
-          {/* //  -------- GitHub test Markers --------  // */}
-          <Marker position={[49.2780, -123.1153]} icon={blackGithub}></Marker>
-
-          <Marker className="current-user-location AVATAR"
+          <Marker
             position={[
               this.state.userCurrentLocation[0],
               this.state.userCurrentLocation[1]
             ]}
-            icon={redGithub}>
+            icon={manWalkingRight}>
             <Popup>
               <h2>Current User Location</h2>
               <h2>{this.state.userCurrentLocation}</h2>
-              </Popup>
+            </Popup>
           </Marker>
           {/* //  -------- GitHub test Markers --------  // */}
-          
-
           {/* userCurrentLocation: [parseFloat(localStorage.getItem('userLat')), parseFloat(localStorage.getItem('userLon'))], */}
           
             {/* // ------ Display Markers by Neighbourhood ------ //  */}
@@ -491,8 +473,7 @@ class MapArt4_skateVideo_classComp extends Component {
                        : artWork.type === 'Sculpture'            ? statue
                        : artWork.type === 'Figurative'           ? statue
                                                                  : defaultIconSkater}
-                
-
+                                                                 
                   // icon={cool = () => { if (artWork.type !== 'Memorial_or_monument') { DefaultIcon } else { fountain } }}
                   // icon={fountain} // Memorial_or_monument
                   // icon={if artWork is fountatin then place fountain if artWork.type === Sculpture then display sculpture.svg}
@@ -504,7 +485,7 @@ class MapArt4_skateVideo_classComp extends Component {
                       <img className="img" src={artWork.photo_url_jpg} alt={artWork.title} />
                       <div className="popup-inside">
                         <div>
-                          <h1 onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}>{artWork.title}</h1>
+                          <h1 className="popup-title" onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}>{artWork.title}</h1>
                           <h2>by {artWork.artists_names}</h2>
                           <h2>{artWork.type}</h2>
                         </div>
@@ -532,8 +513,8 @@ class MapArt4_skateVideo_classComp extends Component {
 
             {/* // ------ Display userFavourites ------ //  */}
 
-            <Polygon color="blue" positions={this.state.neighbourhood_boundaries[0].fields.geom.coordinates} />
-            <GeoJSON key="my-geojson" data={this.state.neighbourhood_boundaries[0].fields.geom.coordinates} />
+            {/* <Polygon color="blue" positions={this.state.neighbourhood_boundaries[0].fields.geom.coordinates} /> */}
+            {/* <GeoJSON key="my-geojson" data={this.state.neighbourhood_boundaries[0].fields.geom.coordinates} /> */}
               {/* <LayersControl.Overlay name="User Favourites">
                 <LayerGroup>
                 {this.state.userFavourites.map(artWork => (
@@ -585,12 +566,4 @@ class MapArt4_skateVideo_classComp extends Component {
   }
 }
 
-export default MapArt4_skateVideo_classComp;
-
-
-//---------------- PolyLine Experiment -------------//
-// <Polyline pathOptions={limeOptions} positions={multiPolyline} />  // Polyline inside is not colored
-// <Polygon pathOptions={purpleOptions} positions={multiPolygon} />
-
-
-
+export default ArtMap;

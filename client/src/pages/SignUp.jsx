@@ -6,7 +6,7 @@ import BottomNav from '../components/BottomNav/BottomNav';
 class Login extends Component {
 
   state = {
-    // email: 'Cristian.Niculescu@gmail.com',
+    // email: 'new.user@gmail.com',
     // password: '123456789',
     email: '', // email: localStorage.getItem('email') || '',
     password: '' // password: localStorage.getItem('password') || '',

@@ -11,7 +11,7 @@ import Search from '../components/Search/Search';
 import { API_URL } from '../components/Utils/Utils'; 
 
 import heartRed from '../assets/icons/heart_red.svg';
-import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
+// import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 // import heartWhite from '../assets/icons/heart_white.svg';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 // import redHeart from '../assets/icons/heart_red.svg';

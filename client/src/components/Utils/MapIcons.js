@@ -26,7 +26,11 @@ import DefaultIconSkater from "../../assets/icons/skateboarding.svg";
 
 //------------- for Experimenting -----------------//
 import redGithubicon from "../../assets/icons/github-red-2px.svg";
-import blackGithubicon from "../../assets/icons/github-black-2px.svg";
+// import blackGithubicon from "../../assets/icons/github-black-2px.svg";
+import WalkingAvatar from "../../assets/icons/walk-walking.svg";
+import ManWalkingRight from "../../assets/icons/man-walking-right.svg";
+
+import ManHearing from "../../assets/icons/man-hearing.svg";
 
 // --------- Leaflet - Marker Icons --------------//
 export const fountain = L.icon({
@@ -76,15 +80,28 @@ export const defaultIconSkater = L.icon({
 });
 
 //--------- Leaflet - Marker Icons - for Experimenting ------------//
-export const blackGithub = L.icon({
-	iconUrl: blackGithubicon,
-	iconSize: [25, 41],
-	iconAnchor: [12, 41],
-});
+// export const blackGithub = L.icon({
+// 	iconUrl: blackGithubicon,
+// 	iconSize: [25, 41],
+// 	iconAnchor: [12, 41],
+// });
 export const redGithub = L.icon({
 	iconUrl: redGithubicon,
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 });
-
-
+export const walkingAvatar = L.icon({
+	iconUrl: WalkingAvatar,
+	iconSize: [25, 41],
+	iconAnchor: [12, 41],
+});
+export const manWalkingRight = L.icon({
+	iconUrl: ManWalkingRight,
+	iconSize: [25, 41],
+	iconAnchor: [12, 41],
+});
+export const manHearing = L.icon({
+	iconUrl: ManHearing,
+	iconSize: [25, 41],
+	iconAnchor: [12, 41],
+});

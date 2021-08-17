@@ -68,7 +68,7 @@ export default class Search extends Component {
         </div>
         <div className="search__divider"></div>
         <div className="search__btn-container">
-          <img onClick={() => this.props.selectFavourties()} className="search__icon" src={redHeart}/>
+          <img onClick={() => this.props.selectFavourties()} className="search__icon" src={redHeart} alt="favourites"/>
         </div>
       </section>
     )

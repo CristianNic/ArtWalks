@@ -617,8 +617,13 @@ class Gallery extends Component {
                     </LazyLoad>    
                     {/* {this.state.liked === true ? ( */}
                     {this.state.userFavouritesByRegistryId.includes(art[1].registry_id) === true ? (
-                      <img className="gallery__like-icon" onClick={(e) => { this.expandArtWorkDetails(e, art[1].registry_id) }} src={redHeart} alt="red heart icon"
-                        onClick={(e) => { this.removeFromFavourites(e, art[1].registry_id) }}></img>
+                      // <img className="gallery__like-icon" onClick={(e) => { this.expandArtWorkDetails(e, art[1].registry_id) }} src={redHeart} alt="red heart icon"
+                      //   onClick={(e) => { this.removeFromFavourites(e, art[1].registry_id) }}></img>
+                      <img src={redHeart} alt="red heart icon" className="gallery__like-icon"
+                        onClick={(e) => {
+                          this.expandArtWorkDetails(e, art[1].registry_id);
+                          this.removeFromFavourites(e, art[1].registry_id);
+                        }}></img>
                       ) : (
                       <img className="gallery__like-icon white-filter" src={lightGray1Heart2Filled} alt="white heart icon, clicking adds to favourites"
                         onClick={(e) => { this.addToFavourites(e, art[1].registry_id)} }></img>
