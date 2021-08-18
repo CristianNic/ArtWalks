@@ -21,7 +21,7 @@ import { URL_CUSTOM_OUTDOORS_DARKER } from '../components/Utils/MapboxToken';
 //-------------- Ioncs converted for Leaflet ----------// 
 import {
   fountain, gateway, memorial, mosaic, mural, siteIntergrated, statue,
-  totem, defaultIconSkater, walkingAvatar, manHearing, manWalkingRight
+  totem, defaultIconSkater, manWalkingRight
 } from '../components/Utils/MapIcons';
 
 //---------------- Icons --------------------------// 

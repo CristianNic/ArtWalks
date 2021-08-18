@@ -1,23 +1,17 @@
 import { Component } from "react";
 import { Link } from 'react-router-dom'
 import LazyLoad from 'react-lazy-load';
-//import './Gallery.scss'
+import axios from "axios";
+
 import BottomNav from '../components/BottomNav/BottomNav';
 import Search from '../components/Search/Search';
 
-//import heartWhite from '../assets/icons/heart_white.svg';
-//import whiteHeart3 from '../assets/icons/heart-white-3px.svg';
-//import whiteHeart25 from '../assets/icons/heart-white-2.5px.svg';
-//import whiteHeart15 from '../assets/icons/heart-white-1.5px.svg';
 import redHeart from '../assets/icons/heart_red.svg';
-// import whiteHeart2 from '../assets/icons/heart-white-2px.svg';
 import lightGray1Heart2 from '../assets/icons/heart-light-gray-1-2px.svg';
 import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 
 import { API_URL } from '../components/Utils/Utils';
-import axios from "axios";
-
 import data from '../data_temp/art_work_final_geom.json';
 import artWorksData from '../data_temp/art_work'
 // const apiUrl = 'http://localhost:8090/art_works'
@@ -123,7 +117,6 @@ class Gallery extends Component {
       console.log('error:', error.response.data);
     })
   }
-
 
   reduceArrayIntoPairs = (artWorksData) => {
     const rows = artWorksData.reduce(function (rows, key, index) {
@@ -566,16 +559,12 @@ class Gallery extends Component {
     return (
       <div>
         {/* { favourites.inculudes(i) ? (<div>True</div>) : (<div>False</div>) } */}
-        
-        <Search
-          selectNeighbourhood={this.selectNeighbourhood}
-        />
+        <Search selectNeighbourhood={this.selectNeighbourhood} />
         <div className="gallery">
           {/* ------------ Map ------------*/}
           {this.reduceArrayIntoPairs(this.state.artWorksData).map(art =>
             <div className="gallery__pairs-wrapper" key={art[0].registry_id}>
-              {/* {console.log('rows ---> ', rows)}
-              {console.log('ART ---> ', art)} */}
+
               <div className="gallery__imgs-buttons-container">
                 {/* <button className="gallery__img-button" onClick={(e) => { this.expandArtWorkDetails(e, art[0].registry_id) }} > */}
                 {/* // Moved onClick from button to img */}
@@ -633,8 +622,8 @@ class Gallery extends Component {
               </div>
               {this.state.display && this.state.expand === art[0].registry_id && (
                 <div className="expander">
-                  <div className="arrow-down">
-                    <ul className="ul">
+                  <div className="expander__arrow-down-left"></div>
+                    <ul className="expander__ul-left">
                       <h1>{art[0].title}</h1>
                       <h2>{art[0].artists_names}</h2>
                       <Link to={`/map/${art[0].registry_id}`}>
@@ -645,15 +634,15 @@ class Gallery extends Component {
                       <h3>{art[0].neighbourhood}</h3>
                       <h3>{art[0].type}</h3>
                       <h4>{art[0].artist_statement}</h4>
-                      <p>Statement Statement Statement Statement Statement Statement</p>
                     </ul>
-                  </div>
                 </div>
               )}
               {this.state.display && this.state.expand === art[1].registry_id && (
+
+
                 <div className="expander">
-                  <div className="arrow-down">
-                    <ul>
+                  <div className="expander__arrow-down-right"></div>
+                    <ul className="expander__ul-right">
                       <h1>{art[1].title}</h1>
                       <h2>{art[1].artists_names}</h2>
                       <Link to={`/map/${art[0].registry_id}`}>
@@ -664,10 +653,11 @@ class Gallery extends Component {
                       <h3>{art[1].neighbourhood}</h3>
                       <h3>{art[1].type}</h3>
                       <h4>{art[1].artist_statement}</h4>
-                      <p>Statement Statement Statement Statement Statement Statement</p>
                     </ul>
-                  </div>
                 </div>)}
+              
+
+
             </div>
           )} 
           <BottomNav />

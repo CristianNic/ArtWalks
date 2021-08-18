@@ -10,121 +10,121 @@
 // }
 
 .gallery {
-  display: flex;
-  flex-direction: column;
-  width: 414px;
+	display: flex;
+	flex-direction: column;
+	width: 414px;
 
-  &__pairs-wrapper {
-    margin-bottom: 10px;
-  }
-  &__imgs-buttons-container {   // original 404 x 200.5
-    height: 186.5px;          // width: 192px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly; // NEW `
-  }
-  &__img-button {
-    display: flex;  // NEW 
-    justify-content: flex-end; // NEW 
+	&__pairs-wrapper {
+		margin-bottom: 10px;
+	}
+	&__imgs-buttons-container {
+		// original 404 x 200.5
+		height: 186.5px; // width: 192px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly; // NEW `
+	}
+	&__img-button {
+		display: flex; // NEW
+		justify-content: flex-end; // NEW
 
-    background: none;
-    color: inherit;
-    border: none;
-    outline: none;
-    // user-select: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-    width: inherit;
-    // height: 232.75px;  // is there css cmd to shrink img by 25% ? 
-    width: 192px;  // <--- img overlap for margins/clicks
-    height: 186.5px;
-    // margin-right: 10px; // NEW 
-    // margin-bottom: 10px; // __pairs-wrapper has it 
-    -webkit-tap-highlight-color: transparent; /* transparent with keyword */
-  }
+		background: none;
+		color: inherit;
+		border: none;
+		outline: none;
+		// user-select: none;
+		padding: 0;
+		margin: 0;
+		font: inherit;
+		cursor: pointer;
+		outline: inherit;
+		width: inherit;
+		// height: 232.75px;  // is there css cmd to shrink img by 25% ?
+		width: 192px; // <--- img overlap for margins/clicks
+		height: 186.5px;
+		// margin-right: 10px; // NEW
+		// margin-bottom: 10px; // __pairs-wrapper has it
+		-webkit-tap-highlight-color: transparent; /* transparent with keyword */
+	}
 
-  &__img-container {
-        // float: left;
-    height: 196.5px; // does nothing
-    width: 202px; // does nothing 
-    margin-bottom: 10px;
-    // margin-left: 10px;
-    // margin-right: 1rem;
-    // display: flex;
-    // flex-direction: column;
-  }
-  &__img-lazyload {
-    width: 192px;
-    height: 186.5px;
-    margin-bottom: 10px;
-  }
-  &__img-img {
-    object-fit: cover;
-    object-position: center;
-    //object-fit: fill; // <--- squishes img distorting it
-    //overflow: hidden;
-    //object-fit: contain;
-    float: left;
-    // height: 250px;
-    // width: 150px;
-    // aspect radio 16:9
-    height: 320px;
-    width: 180px;
-    // fit screen // 414 / 736 = 0.5625 // 4:3 w/ margins ? 
-    height: 232.75px;
-    width: 175px;
-    // 16:9 w/ margins // height: 369.25px; // width: 175px;
-    // Adjusted - eyeballed 
-    height: 232.75px;  // is there css cmd to shrink img by 25% ? 
-    width: 192px; // <--- BEST ONE
+	&__img-container {
+		// float: left;
+		height: 196.5px; // does nothing
+		width: 202px; // does nothing
+		margin-bottom: 10px;
+		// margin-left: 10px;
+		// margin-right: 1rem;
+		// display: flex;
+		// flex-direction: column;
+	}
+	&__img-lazyload {
+		width: 192px;
+		height: 186.5px;
+		margin-bottom: 10px;
+	}
+	&__img-img {
+		object-fit: cover;
+		object-position: center;
+		//object-fit: fill; // <--- squishes img distorting it
+		//overflow: hidden;
+		//object-fit: contain;
+		float: left;
+		// height: 250px;
+		// width: 150px;
+		// aspect radio 16:9
+		height: 320px;
+		width: 180px;
+		// fit screen // 414 / 736 = 0.5625 // 4:3 w/ margins ?
+		height: 232.75px;
+		width: 175px;
+		// 16:9 w/ margins // height: 369.25px; // width: 175px;
+		// Adjusted - eyeballed
+		height: 232.75px; // is there css cmd to shrink img by 25% ?
+		width: 192px; // <--- BEST ONE
 
-    height: 232.75px; // <---- make them one row
-    height: 186.5px; // <---- BEST ONE
-    // height: 160px; // <---- make them one row <---
-    // width: 394px;    // <---- make them one row <--- YES YES =) 
-    border-radius: 7px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
+		height: 232.75px; // <---- make them one row
+		height: 186.5px; // <---- BEST ONE
+		// height: 160px; // <---- make them one row <---
+		// width: 394px;    // <---- make them one row <--- YES YES =)
+		border-radius: 7px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+	}
+	&__like-icon {
+		// positioned relative to the nearest
+		// positioned ancestor or gallery__img-container
+		// position: absolute;
+		// top: 1px;
+		// left: 160px;
+		// left: 1px;
+		// transform: translate(75px, -188px);
 
-  }
-  &__like-icon {
-
-    // positioned relative to the nearest 
-    // positioned ancestor or gallery__img-container
-    // position: absolute;
-    // top: 1px;
-    // left: 160px;
-    // left: 1px;
-    // transform: translate(75px, -188px);
-    
-    // decreasing x moves it left, increasing y moves it down
-    // centered top right corners img and icon
-    transform: translate(84px, -199px);  // decreasing x moves it left, increasing y moves it down
-    transform: translate(74px, -189px);
-    width: 24px;
-    // height: 24px;
-    z-index: 500;
-
-  }
+		// decreasing x moves it left, increasing y moves it down
+		// centered top right corners img and icon
+		transform: translate(
+			84px,
+			-199px
+		); // decreasing x moves it left, increasing y moves it down
+		transform: translate(74px, -189px);
+		width: 24px;
+		// height: 24px;
+		z-index: 500;
+	}
 }
 
-// ------ Keep to tranform svg icon colors eg. white hearts ----- // 
+// ------ Keep to tranform svg icon colors eg. white hearts ----- //
 // .white-filter {
 //   // Pick output colour --> https://codepen.io/sosuke/pen/Pjoqqp
 //   // https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element
 //   filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(183deg) brightness(102%) contrast(101%);
 // }
-// -------------------------------------------------------------- // 
-
+// -------------------------------------------------------------- //
 
 // ------  Expander BEM Refactor  ------ //
-// .expander { 
-//   // if artist statement = null, then change height style to smaller value  
+// .expander {
+//   // if artist statement = null, then change height style to smaller value
 //   border-color: 2px darkgray;
 //   height: 200px;
-//   height: 300px; 
+//   height: 300px;
 //   width: 300; // 180px;
 //   background-color: lightgray;
 //   margin: 0;
@@ -136,9 +136,9 @@
 
 //   }
 //   &__down-arrow {
-//     // https://css-tricks.com/snippets/css/css-triangle/ 
-//     width: 0; 
-//     height: 0; 
+//     // https://css-tricks.com/snippets/css/css-triangle/
+//     width: 0;
+//     height: 0;
 //     border-left: 13px solid transparent;
 //     border-right: 13px solid transparent;
 //     border-top: 13px solid lightpink;
@@ -146,41 +146,61 @@
 // }
 // ------  Expander BEM Refactor  ------ //
 
-
-
 .dropdown {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .above-expander {
-  background-color: lightpink;
+	background-color: lightpink;
 }
 .expander {
-  // if artist statement = null, then change height style to smaller value  
-  border-color: 2px darkgray;
-  height: 200px;
-  height: 300px; 
-  width: 300; // 180px;
-  background-color: lightgray;
-  margin: 0;
+	// if artist statement = null, then change height style to smaller value
+	border-color: 2px darkgray;
+	height: 200px;
+	height: 250px;
+	width: 300; // 180px;
+	// background-color: rgb(206, 236, 194);
+	margin: 0;
 }
 
-.arrow-down {
-  width: 0; 
-  height: 0; 
-  border-left: 13px solid transparent;
-  border-right: 13px solid transparent;
-  border-top: 13px solid lightpink;
-  // https://css-tricks.com/snippets/css/css-triangle/ 
+.expander__arrow-down-left {
+	width: 0;
+	height: 0;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-top: 13px solid rgb(195, 194, 194);
+	// https://css-tricks.com/snippets/css/css-triangle/
+	margin-left: 1.6rem;
+	margin-top: 0.3rem;
 }
-
-.ul {
-  height: 190px;
-  width: 394px;
-  background-color: lightpink;
+.expander__ul-left {
+	height: 190px;
+	// width: 394px;
+	width: 388px;
+	// background-color: lightpink;
+  background-color: rgb(239, 239, 239);
+	margin-left: 13px;
+	margin-right: 13px;
+}
+.expander__arrow-down-right {
+	width: 0;
+	height: 0;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-top: 13px solid rgb(195, 194, 194);
+	// margin-left: 371px;
+	margin-left: 37.1rem;
+	margin-top: 0.3rem;
+}
+.expander__ul-right {
+	height: 190px;
+	// width: 394px;
+	width: 388px;
+	background-color: lightpink;
+	margin-left: 13px;
 }
 // .like {
-//   // position: absolute; 
+//   // position: absolute;
 //   top: 6px;
 //   left: 160px;
 //   width: 24px;
@@ -188,9 +208,9 @@
 //   z-index: 10;
 // }
 
-// ---- hide img to click on ---- // 
+// ---- hide img to click on ---- //
 // .invisible {
-//   position: absolute; 
+//   position: absolute;
 //   top: 0px;
 //   left: 150px;
 //   width: 42px;
@@ -227,17 +247,16 @@
 //   cursor: pointer;
 // }
 
-
 :focus {
-  outline: none !important;
+	outline: none !important;
 }
 
 // ------  Expander BEM Refactor  ------ //
-// .expander { 
-//   // if artist statement = null, then change height style to smaller value  
+// .expander {
+//   // if artist statement = null, then change height style to smaller value
 //   border-color: 2px darkgray;
 //   height: 200px;
-//   height: 300px; 
+//   height: 300px;
 //   width: 300; // 180px;
 //   background-color: lightgray;
 //   margin: 0;
@@ -249,9 +268,9 @@
 
 //   }
 //   &__down-arrow {
-//     // https://css-tricks.com/snippets/css/css-triangle/ 
-//     width: 0; 
-//     height: 0; 
+//     // https://css-tricks.com/snippets/css/css-triangle/
+//     width: 0;
+//     height: 0;
 //     border-left: 13px solid transparent;
 //     border-right: 13px solid transparent;
 //     border-top: 13px solid lightpink;
@@ -259,14 +278,8 @@
 // }
 // ------  Expander BEM Refactor  ------ //
 
-
-
 // .lazyload {
 //   width: 192px;
 //   height: 186.5px;
 //   margin-bottom: 10px;
 // }
-
-
-
-
