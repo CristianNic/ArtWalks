@@ -476,7 +476,7 @@ class ArtMap extends Component {
                               onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}></img>
                           )}
 
-                            <img src={iconMaximize} alt="maximize icon, click to visit details page"
+                            <img className="popup__icon" src={iconMaximize} alt="maximize icon, click to visit details page"
                               onClick={(e) => { this.visitDetailsPage(e, artWork.registry_id) }}></img>
                         </div>
                       </div>
