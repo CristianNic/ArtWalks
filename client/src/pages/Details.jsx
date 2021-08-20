@@ -113,7 +113,7 @@ class Details extends Component {
               (<h2><span className="bold">Site Name:</span> {site_name}</h2>)}
             {status === "" ? (<div></div>) :
               (<h2><span className="bold">Status:</span> {status}</h2>)}
-            <a className="details__link" href={url}><h2><span className="bold">Link:</span> City of Vancouver</h2></a>
+            <a href={url}><h2><span className="bold">Link:</span> <span className="underline"> City of Vancouver</span></h2></a>
           </div>
         </div>
         <BottomNav />
