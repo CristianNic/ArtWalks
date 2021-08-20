@@ -88,7 +88,7 @@ class Details extends Component {
         <div className="details__card">
           <img className="details__img" src={photo_url} alt={title} />
           <div className="details__container">
-            <div className="details__left">
+            <div className="details__test">
               <div className="details__title-artist-container">
                 <h1 className="details__title">{title}</h1>
                 <h2 className="details__artists-names">by {artists_names}</h2>
@@ -99,7 +99,10 @@ class Details extends Component {
                 </Link>
               </div>
             </div>
-           
+
+
+            <div className="line"></div>
+            <div className="details__bottom">
             {photo_credits === "" ? (<div></div>) :
               (<h2 className="details__photo-credits"><span className="bold">Photo Credits:</span> {photo_credits}</h2>)}
             
@@ -145,7 +148,9 @@ class Details extends Component {
 
             <a className="details__link" href={url}><h2><span className="bold">Link:</span> City of Vancouver</h2></a>
             {/* <h2 className="details__disclaimer">Where data is available</h2> */}
-          </div>
+          
+              </div>
+            </div>
         </div>
         <BottomNav />
       </section>
