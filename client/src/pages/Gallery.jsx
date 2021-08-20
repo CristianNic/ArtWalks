@@ -580,7 +580,7 @@ class Gallery extends Component {
                       <img className="gallery__like-icon" src={redHeart} alt="red heart icon, clicking removes from favourites"
                         onClick={(e) => { this.removeFromFavourites(e, art[0].registry_id) }}></img>
                       ) : (
-                      <img className="gallery__like-icon white-filter" src={lightGray1Heart2Filled} alt="white heart icon, clicking adds to favourites"
+                      <img className="gallery__like-icon" src={lightGray1Heart2Filled} alt="white heart icon, clicking adds to favourites"
                         onClick={(e) => { this.addToFavourites(e, art[0].registry_id)} }></img>
                     )}
                   </div>
@@ -596,41 +596,21 @@ class Gallery extends Component {
                     {this.state.userFavouritesByRegistryId.includes(art[1].registry_id) === true ? (
                       // <img className="gallery__like-icon" onClick={(e) => { this.expandArtWorkDetails(e, art[1].registry_id) }} src={redHeart} alt="red heart icon"
                       //   onClick={(e) => { this.removeFromFavourites(e, art[1].registry_id) }}></img>
-                      <img src={redHeart} alt="red heart icon" className="gallery__like-icon"
+                      <img className="gallery__like-icon" src={redHeart} alt="red heart icon, clicking removes from favourites"
                         onClick={(e) => {
                           this.expandArtWorkDetails(e, art[1].registry_id);
                           this.removeFromFavourites(e, art[1].registry_id);
                         }}></img>
                       ) : (
-                      <img className="gallery__like-icon white-filter" src={lightGray1Heart2Filled} alt="white heart icon, clicking adds to favourites"
+                      <img className="gallery__like-icon" src={lightGray1Heart2Filled} alt="white heart icon, clicking adds to favourites"
                         onClick={(e) => { this.addToFavourites(e, art[1].registry_id)} }></img>
                     )}
                   </div>
                 </button>
               </div>
               {this.state.display && this.state.expand === art[0].registry_id && (
-
-
-                // <div className="expander">
-                //   <div className="expander__arrow-down-left"></div>
-                //     <ul className="expander__ul-left">
-                //       <h1>{art[0].title}</h1>
-                //       <h2>{art[0].artists_names}</h2>
-                //       <Link to={`/map/${art[0].registry_id}`}>
-                //         <button onClick={(e) => {this.placeArtWorkOnMap(e, art[0].registry_id)}}>
-                //           <img className="white-filter" src={iconMap} alt="map icon"></img>
-                //         </button>
-                //       </Link>
-                //       <h3>{art[0].neighbourhood}</h3>
-                //       <h3>{art[0].type}</h3>
-                //       <h4>{art[0].artist_statement}</h4>
-                //     </ul>
-                // </div>
-
-
-
                 <div className="expander">
-                  <div className="expander__left-arrow-down"></div>
+                  <div className="expander__arrow-down left-arrow"></div>
                   <div className="expander__right">
                     <div className="expander__right-top">
                       <div className="expander__right-info">
@@ -655,12 +635,10 @@ class Gallery extends Component {
                       <h4 className="expander__right-artist-statement">{art[1].artist_statement}</h4>}
                   </div>
                 </div>
-
-
               )}
               {this.state.display && this.state.expand === art[1].registry_id && (              
                 <div className="expander">
-                  <div className="expander__right-arrow-down"></div>
+                  <div className="expander__arrow-down right-arrow"></div>
                   <div className="expander__right">
                     <div className="expander__right-top">
                       <div className="expander__right-info">
