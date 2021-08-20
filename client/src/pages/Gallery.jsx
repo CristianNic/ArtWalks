@@ -7,7 +7,6 @@ import BottomNav from '../components/BottomNav/BottomNav';
 import Search from '../components/Search/Search';
 
 import redHeart from '../assets/icons/heart_red.svg';
-import lightGray1Heart2 from '../assets/icons/heart-light-gray-1-2px.svg';
 import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg'
@@ -554,7 +553,7 @@ class Gallery extends Component {
           {this.reduceArrayIntoPairs(this.state.artWorksData).map(art =>
             <div className="gallery__pairs-wrapper" key={art[0].registry_id}>
 
-              <div className="gallery__imgs-buttons-container">
+              <div className="gallery__img-buttons-container">
                 {/* <button className="gallery__img-button" onClick={(e) => { this.expandArtWorkDetails(e, art[0].registry_id) }} > */}
                 {/* // Moved onClick from button to img */}
                 <button className="gallery__img-button" >

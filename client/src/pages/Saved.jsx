@@ -159,22 +159,22 @@ class Saved extends Component {
                   </div>
 
                   {/* <div> */}
-                    <div className="favourites__links">
-                      <Link to={`/map/${faves.art_works.registry_id}`}>
-                        <button className="favourites__links-button"
-                          onClick={(e) => { this.placeArtWorkOnMap(e, faves.art_works.registry_id) }} >
-                            <img className="favourites__links-map-icon" src={iconMap} alt="map icon"></img>
-                        </button>
-                      </Link>
-                      {/* <Link to={`/details/${faves.art_works.registry_id}`}> */}
-                      <Link to={`/details/${faves.art_works.registry_id}`}>
-                        <button className="favourites__links-button">
-                            {/* onClick={(e) => { this.placeArtWorkOnMap(e, faves.art_works.registry_id) }} > */}
-                              {/* <img className="favourites__links-details-icon" src={iconDetails} alt="map icon"></img> */}
-                              <img className="favourites__links-details-icon" src={iconMaximize} alt="map icon"></img>
-                        </button>
-                      </Link>
-                    </div>
+                  <div className="favourites__links">
+                    <Link to={`/map/${faves.art_works.registry_id}`}>
+                      <button className="favourites__links-button"
+                        onClick={(e) => { this.placeArtWorkOnMap(e, faves.art_works.registry_id) }} >
+                          <img className="favourites__links-map-icon" src={iconMap} alt="map icon"></img>
+                      </button>
+                    </Link>
+                    {/* <Link to={`/details/${faves.art_works.registry_id}`}> */}
+                    <Link to={`/details/${faves.art_works.registry_id}`}>
+                      <button className="favourites__links-button">
+                          {/* onClick={(e) => { this.placeArtWorkOnMap(e, faves.art_works.registry_id) }} > */}
+                            {/* <img className="favourites__links-details-icon" src={iconDetails} alt="map icon"></img> */}
+                            <img className="favourites__links-details-icon" src={iconMaximize} alt="map icon"></img>
+                      </button>
+                    </Link>
+                  </div>
                   {/* </div> */}
             
                 </div>
@@ -189,3 +189,10 @@ class Saved extends Component {
 }
 
 export default Saved;
+
+
+
+
+
+
+

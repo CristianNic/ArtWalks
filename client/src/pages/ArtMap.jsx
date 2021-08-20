@@ -486,7 +486,7 @@ class ArtMap extends Component {
                       <div className="popup-inside">
                         <div>
                           <h1 className="popup-title" onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}>{artWork.title}</h1>
-                          <h2>by {artWork.artists_names}</h2>
+                          <h2 className="popup-artist">by {artWork.artists_names}</h2>
                           <h2>{artWork.type}</h2>
                         </div>
                         <div className="popup-icons">
