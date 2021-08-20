@@ -50,6 +50,7 @@ class Gallery extends Component {
     expand: 0,
     liked: false,
     mapLink: 0, // art[0].registry_id
+    id: 1,
     // current_art_work: this.state.registry_id,
   }
 
@@ -609,42 +610,56 @@ class Gallery extends Component {
                 </button>
               </div>
               {this.state.display && this.state.expand === art[0].registry_id && (
-                <div className="expander">
-                  <div className="expander__arrow-down-left"></div>
-                    <ul className="expander__ul-left">
-                      <h1>{art[0].title}</h1>
-                      <h2>{art[0].artists_names}</h2>
-                      <Link to={`/map/${art[0].registry_id}`}>
-                        <button onClick={(e) => {this.placeArtWorkOnMap(e, art[0].registry_id)}}>
-                          <img className="white-filter" src={iconMap} alt="map icon"></img>
-                        </button>
-                      </Link>
-                      <h3>{art[0].neighbourhood}</h3>
-                      <h3>{art[0].type}</h3>
-                      <h4>{art[0].artist_statement}</h4>
-                    </ul>
-                </div>
-              )}
-              {this.state.display && this.state.expand === art[1].registry_id && (
 
 
                 // <div className="expander">
-                //   <div className="expander__arrow-down-right">
-                //   </div>
-                //   <ul className="expander__ul-right">
-                //     <h1>{art[1].title}</h1>
-                //     <h2>{art[1].artists_names}</h2>
-                //     <Link to={`/map/${art[0].registry_id}`}>
-                //       <button onClick={(e) => {this.placeArtWorkOnMap(e, art[1].registry_id)}}>
-                //         <img className="white-filter" src={iconMap} alt="map icon"></img>
-                //       </button>
-                //     </Link>
-                //     <h3>{art[1].neighbourhood}</h3>
-                //     <h3>{art[1].type}</h3>
-                //     <h4>{art[1].artist_statement}</h4>
-                //   </ul>
-                // </div>)}
-              
+                //   <div className="expander__arrow-down-left"></div>
+                //     <ul className="expander__ul-left">
+                //       <h1>{art[0].title}</h1>
+                //       <h2>{art[0].artists_names}</h2>
+                //       <Link to={`/map/${art[0].registry_id}`}>
+                //         <button onClick={(e) => {this.placeArtWorkOnMap(e, art[0].registry_id)}}>
+                //           <img className="white-filter" src={iconMap} alt="map icon"></img>
+                //         </button>
+                //       </Link>
+                //       <h3>{art[0].neighbourhood}</h3>
+                //       <h3>{art[0].type}</h3>
+                //       <h4>{art[0].artist_statement}</h4>
+                //     </ul>
+                // </div>
+
+
+
+                <div className="expander">
+                  <div className="expander__left-arrow-down"></div>
+                  <div className="expander__right">
+                    <div className="expander__right-top">
+                      <div className="expander__right-info">
+                        <h1 className="expander__right-title">{art[0].title}</h1>
+                        <h2 className="expander__right-text italic">by {art[0].artists_names}</h2>
+                        <h3 className="expander__right-text">{art[0].type}, {art[0].neighbourhood}</h3>
+                      </div>
+                      <div className="expander__right-links">
+                        <Link to={`/map/${art[0].registry_id}`}>
+                          <button className="button" onClick={(e) => {this.placeArtWorkOnMap(e, art[0].registry_id)}}>
+                            <img className="white-filter" src={iconMap} alt="map icon"></img>
+                          </button>
+                        </Link>
+                        <Link to={`/details/${art[0].registry_id}`}>
+                          <button className="button">
+                            <img className="white-filter" src={iconMaximize} alt="map icon"></img>
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                    {art[1].artist_statement === "" ? (<h4 className="expander__right-artist-statement">Artist statement for this artwork is not present in the the City of Vancouver database. </h4>) :
+                      <h4 className="expander__right-artist-statement">{art[1].artist_statement}</h4>}
+                  </div>
+                </div>
+
+
+              )}
+              {this.state.display && this.state.expand === art[1].registry_id && (              
                 <div className="expander">
                   <div className="expander__right-arrow-down"></div>
                   <div className="expander__right">
@@ -655,12 +670,12 @@ class Gallery extends Component {
                         <h3 className="expander__right-text">{art[1].type}, {art[1].neighbourhood}</h3>
                       </div>
                       <div className="expander__right-links">
-                        <Link to={`/map/${art[0].registry_id}`}>
+                        <Link to={`/map/${art[1].registry_id}`}>
                           <button className="button" onClick={(e) => {this.placeArtWorkOnMap(e, art[1].registry_id)}}>
                             <img className="white-filter" src={iconMap} alt="map icon"></img>
                           </button>
                         </Link>
-                        <Link to={`/details/${art[0].registry_id}`}>
+                        <Link to={`/details/${art[1].registry_id}`}>
                           <button className="button">
                             <img className="white-filter" src={iconMaximize} alt="map icon"></img>
                           </button>
