@@ -384,53 +384,29 @@ class ArtMap extends Component {
 
     return (
       <section>
-        {/* <Search
-          selectNeighbourhood={this.selectNeighbourhood}
-          selectFavourties={this.selectFavourties}
-          faves={this.state.userFavourites}
-        /> */}
-        {/* https://www.w3schools.com/howto/howto_custom_select.asp */}
-        
-        {/* //------------------ Floating Task Bar -----------------//  */}
 
-        
-
-        {/* <section className="floating-search">
-          <section className="floating-search__container">
-            <div>
-              <select name="neighbourhood" id="neighbourhood-select">
+        <section className="navbar">
+          <section className="navbar__container" >
+            <select className="navbar__select" onChange={this.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
               <option value="">Neighbourhood</option>
-                  <option value="Vancouver">All of Vancouver</option>
+                <option value="Vancouver">All of Vancouver</option>
+                {neighbourhoods.map((area, i) =>
+                <option value={area} key={i}>{area}</option>
+                )}
               </select>
-            </div>
-            <div>
-              <img className="floating__icon" src={redHeart}/>
+            <div className="navbar__btn">
+              <img className="navbar__icon" onClick={ e => console.log('Hello')} src={redHeart} alt="favourites"/>
             </div>
           </section>
-        </section> */}
-
-      <section className="floating">
-        <section className="floating__container" >
-          <select className="floating__select" onChange={this.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
-            <option value="">Neighbourhood</option>
-              <option value="Vancouver">All of Vancouver</option>
-              {neighbourhoods.map((area, i) =>
-              <option value={area} key={i}>{area}</option>
-              )}
-            </select>
-          <div className="floating__btn">
-            <img onClick={ e => console.log('Hello')} className="floating__icon" src={redHeart} alt="favourites"/>
-          </div>
         </section>
-      </section>
 
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
-            {/* <TileLayer
+            {/* <TileLayer    
+              // Use OpenStreetMap tiles if Mapbox account was not created. See utils/MapboxToken-Sample.js
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
-          /> */}
+            /> */}
             <TileLayer
-              // url={`${URL_CUSTOM_OUTDOORS}`}
               url={`${URL_CUSTOM_OUTDOORS_DARKER}`}
               attribution="© <a href='http://osm.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/about/maps/'>Mapbox</a>"
             />
@@ -445,9 +421,6 @@ class ArtMap extends Component {
               <h2>{this.state.userCurrentLocation}</h2>
             </Popup>
           </Marker>
-          {/* //  -------- GitHub test Markers --------  // */}
-          {/* userCurrentLocation: [parseFloat(localStorage.getItem('userLat')), parseFloat(localStorage.getItem('userLon'))], */}
-          
             {/* // ------ Display Markers by Neighbourhood ------ //  */}
               {this.state.art_works.map(artWork => (
                 <Marker
@@ -482,83 +455,35 @@ class ArtMap extends Component {
                   
                   <Popup id={`popup-${artWork.registry_id}`}>
                     <div className="popup">
-                      <img className="img" src={artWork.photo_url_jpg} alt={artWork.title} />
-                      <div className="popup-inside">
+                      <img className="popup__img" src={artWork.photo_url_jpg} alt={artWork.title} />
+                      <div className="popup__inside">
                         <div>
-                          <h1 className="popup-title" onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}>{artWork.title}</h1>
-                          <h2 className="popup-artist">by {artWork.artists_names}</h2>
+                          <h1 className="popup__title" onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}>{artWork.title}</h1>
+                          <h2 className="popup__artist">by {artWork.artists_names}</h2>
                           <h2>{artWork.type}</h2>
                         </div>
-                        <div className="popup-icons">
-                          <img className="icon-maximize" src={iconMaximize} alt="maximize icon, click to visit details page"
-                            onClick={(e) => { this.visitDetailsPage(e, artWork.registry_id) }}></img>
-                          
+                        <div className="popup__icon-container">
+                        
                           {/* {console.log('FROM THE TURNARY ---> ', this.state.userFavouritesByRegistryId.includes(artWork.registry_id))} */}
                           
                           {this.state.userFavouritesByRegistryId.includes(artWork.registry_id) === true ? (
                             
-                            <img className="icon" src={redHeart} alt="red heart icon, click to remove from favourites"
+                            <img className="popup__icon" src={redHeart} alt="red heart icon, click to remove from favourites"
                               onClick={(e) => {this.removeFromFavourites(e, artWork.registry_id)}}></img>
                           ) : (
                             // <img className="icon" src={lightGray1Heart2} alt="white heart icon, click to add to favourites"
-                            <img className="icon" src={blackHeart} alt="white heart icon, click to add to favourites"
+                            <img className="popup__icon" src={blackHeart} alt="white heart icon, click to add to favourites"
                               onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}></img>
                           )}
+
+                            <img src={iconMaximize} alt="maximize icon, click to visit details page"
+                              onClick={(e) => { this.visitDetailsPage(e, artWork.registry_id) }}></img>
                         </div>
                       </div>
                     </div>
                   </Popup>
                 </Marker>
               ))}
-
-            {/* // ------ Display userFavourites ------ //  */}
-
-            {/* <Polygon color="blue" positions={this.state.neighbourhood_boundaries[0].fields.geom.coordinates} /> */}
-            {/* <GeoJSON key="my-geojson" data={this.state.neighbourhood_boundaries[0].fields.geom.coordinates} /> */}
-              {/* <LayersControl.Overlay name="User Favourites">
-                <LayerGroup>
-                {this.state.userFavourites.map(artWork => (
-                  <Marker
-                    position={[
-                      artWork.art_works.lat,
-                      artWork.art_works.lon
-                    ]}
-                    eventHandlers={{ click: () => { console.log('marker clicked') },}}>
-                    <Popup>
-                      <div className="popup">
-                        <img className="img" src={artWork.art_works.photo_url_jpg} alt={artWork.art_works.title} />
-                        <div className="popup-inside">
-                          <div>
-                            <h1>{artWork.art_works.title}</h1>
-                            <h2>by {artWork.art_works.artists_names}</h2>
-                          </div>
-                          <div>
-                            {this.state.userFavouritesByRegistryId.includes(artWork.registry_id) === true ? (
-                              <img className="icon" src={redHeart} alt="red heart icon, click to remove from favourites"></img>
-                            ) : (
-                              // <img src={lightGray1Heart2Filled} alt="white heart icon, click to add to favourites"></img>
-                                <img className="icon" id="grayHeart" src={lightGray1Heart2} alt="white heart icon, click to add to favourites"
-                                    onClick={(e) => { this.addToFavourites(e, artWork.registry_id)} }></img>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </Popup>
-                  </Marker>
-                ))}
-                </LayerGroup>
-              </LayersControl.Overlay> */}
-
-              {/* // ------ Neighbourhoods ------ //  */}
-              {/* <LayersControl.Overlay checked name="Neighbourhoods">
-                <LayerGroup> */}
-                  {/* <Polygon pathOptions={{ color: 'green' }} positions={neighbourhood_boundaries[0].fields.geom.coordinates} /> */}
-                  
-                {/* <Polygon color="blue" positions={this.state.neighbourhood_boundaries[0].fields.geom.coordinates[0]} /> */}
-                {/* <GeoJSON key={keyFunction(this.props.map.data.json)} data={this.props.map.data.json} /> */}
-                {/* </LayerGroup>
-              </LayersControl.Overlay> */}
-          {/* </LayersControl>   */}
           </MapContainer>
         <BottomNav />
       </section>
