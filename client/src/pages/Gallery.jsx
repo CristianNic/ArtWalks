@@ -10,6 +10,7 @@ import redHeart from '../assets/icons/heart_red.svg';
 import lightGray1Heart2 from '../assets/icons/heart-light-gray-1-2px.svg';
 import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
+import iconMaximize from '../assets/icons/maximize-2-1.5px.svg'
 
 import { API_URL } from '../components/Utils/Utils';
 import data from '../data_temp/art_work_final_geom.json';
@@ -398,14 +399,12 @@ class Gallery extends Component {
     
   // }
 
-
   removeFromFavourites = (e, data) => {
     this.state.userFavourites.forEach(function (item, index) {
       if (item.art_works.registry_id === data) {
         localStorage.setItem('art_work_id', item.art_work_id)
       }
     })
-
     const artWorkId = parseInt(localStorage.getItem('art_work_id'))
     
     axios
@@ -418,21 +417,16 @@ class Gallery extends Component {
       .catch((error) => {
       console.log('error:', error.response.data);
       })
-
+    
     this.forceUpdate()
-  
     this.setState(state => {
       return {display: !state.display}
     })
-
-     window.location.reload() 
+    window.location.reload() 
     this.forceUpdate()
-
     localStorage.removeItem('art_work_id');
     this.forceUpdate()
   }
-
-
 
   addToFavourites = (e, data) => {
     // console.log('Liked state -->', this.state.liked)
@@ -535,12 +529,6 @@ class Gallery extends Component {
     // console.log('Access Rows -->', rows[0][0])
     // console.log('Rows ==> ', rows)
     // console.log(`Hi, I'm the gallery for user --> `, this.state.user_id)
-    
-
-    // { favourites.inculudes(i) ? ( <div>True</div>) : ( <div>False</div> ) }
-
-    // const array1 = [1, 2, 3];
-
     // console.log('Array 1 Test --> ', array1.includes(2));
 
     // const faves = this.state.userFavourites;
@@ -592,7 +580,7 @@ class Gallery extends Component {
                       <img className="gallery__like-icon" src={redHeart} alt="red heart icon, clicking removes from favourites"
                         onClick={(e) => { this.removeFromFavourites(e, art[0].registry_id) }}></img>
                       ) : (
-                      <img className="gallery__like-icon white-filter" src={lightGray1Heart2} alt="white heart icon, clicking adds to favourites"
+                      <img className="gallery__like-icon white-filter" src={lightGray1Heart2Filled} alt="white heart icon, clicking adds to favourites"
                         onClick={(e) => { this.addToFavourites(e, art[0].registry_id)} }></img>
                     )}
                   </div>
@@ -640,24 +628,50 @@ class Gallery extends Component {
               {this.state.display && this.state.expand === art[1].registry_id && (
 
 
-                <div className="expander">
-                  <div className="expander__arrow-down-right"></div>
-                    <ul className="expander__ul-right">
-                      <h1>{art[1].title}</h1>
-                      <h2>{art[1].artists_names}</h2>
-                      <Link to={`/map/${art[0].registry_id}`}>
-                        <button onClick={(e) => {this.placeArtWorkOnMap(e, art[1].registry_id)}}>
-                          <img className="white-filter" src={iconMap} alt="map icon"></img>
-                        </button>
-                      </Link>
-                      <h3>{art[1].neighbourhood}</h3>
-                      <h3>{art[1].type}</h3>
-                      <h4>{art[1].artist_statement}</h4>
-                    </ul>
-                </div>)}
+                // <div className="expander">
+                //   <div className="expander__arrow-down-right">
+                //   </div>
+                //   <ul className="expander__ul-right">
+                //     <h1>{art[1].title}</h1>
+                //     <h2>{art[1].artists_names}</h2>
+                //     <Link to={`/map/${art[0].registry_id}`}>
+                //       <button onClick={(e) => {this.placeArtWorkOnMap(e, art[1].registry_id)}}>
+                //         <img className="white-filter" src={iconMap} alt="map icon"></img>
+                //       </button>
+                //     </Link>
+                //     <h3>{art[1].neighbourhood}</h3>
+                //     <h3>{art[1].type}</h3>
+                //     <h4>{art[1].artist_statement}</h4>
+                //   </ul>
+                // </div>)}
               
-
-
+                <div className="expander">
+                  <div className="expander__right-arrow-down"></div>
+                  <div className="expander__right">
+                    <div className="expander__right-top">
+                      <div className="expander__right-info">
+                        <h1 className="expander__right-title">{art[1].title}</h1>
+                        <h2 className="expander__right-text italic">by {art[1].artists_names}</h2>
+                        <h3 className="expander__right-text">{art[1].type}, {art[1].neighbourhood}</h3>
+                      </div>
+                      <div className="expander__right-links">
+                        <Link to={`/map/${art[0].registry_id}`}>
+                          <button className="button" onClick={(e) => {this.placeArtWorkOnMap(e, art[1].registry_id)}}>
+                            <img className="white-filter" src={iconMap} alt="map icon"></img>
+                          </button>
+                        </Link>
+                        <Link to={`/details/${art[0].registry_id}`}>
+                          <button className="button">
+                            <img className="white-filter" src={iconMaximize} alt="map icon"></img>
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                    {art[1].artist_statement === "" ? (<h4 className="expander__right-artist-statement">Artist statement for this artwork is not present in the the City of Vancouver database. </h4>) :
+                      <h4 className="expander__right-artist-statement">{art[1].artist_statement}</h4>}
+                  </div>
+                </div>
+              )}
             </div>
           )} 
           <BottomNav />
@@ -668,3 +682,10 @@ class Gallery extends Component {
 }
 
 export default Gallery;
+
+
+
+
+
+
+
