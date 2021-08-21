@@ -5,7 +5,6 @@ import BottomNav from '../components/BottomNav/BottomNav';
 import { API_URL } from '../components/Utils/Utils';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 
-
 class Details extends Component {
 
   // state = {
@@ -21,8 +20,7 @@ class Details extends Component {
   componentDidMount() {
 
     this.getArtWorkDetails()
-   
-
+  
     // axios
     // //.get(`http://localhost:8090/art_works/9`)
     // .get(`http://localhost:8090/art_works/${this.props.match.params.id}`)

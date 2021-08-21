@@ -62,7 +62,9 @@ class Login extends Component {
               </form>
               <div className="new-user">
                 <h2 className="new-user__title">I'm a new user.</h2>
-                <Link className="link" to="/signup"><h2 className="new-user__sign-up">Sign Up</h2></Link>
+                <Link to="/signup">
+                  <h2 className="new-user__sign-up">Sign Up</h2>
+                </Link>
               </div>
             </div>
           </div>

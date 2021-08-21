@@ -27,15 +27,8 @@ import {
 //---------------- Icons --------------------------// 
 import redHeart from '../assets/icons/heart_red.svg';
 import blackHeart from '../assets/icons/heart-black-2px.svg';
-// import lightGray1Heart2 from '../assets/icons/heart-light-gray-1-2px.svg';
-// import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg';
-
-// import redGithubicon from '../assets/icons/github-red-2px.svg';
-// import blackGithubicon from '../assets/icons/github-black-2px.svg';
-// import { FiHome, FiChevronRight, FiSearch, FiSettings } from "react-icons/fi";
-// import skateboarding from '../assets/icons/skateboarding.svg';
-// import redGithubicon from '../assets/icons/skateboarding.svg';
+// remove -->  import { FiHome, FiChevronRight, FiSearch, FiSettings } from "react-icons/fi";
 
 //------------- Art Work Icons - Nav Bar--------------//
 // import Fountain from '../assets/art-works/fountain.svg';
@@ -148,27 +141,29 @@ class ArtMap extends Component {
     document.querySelector(`img[alt = "marker-${id}"]`)?.click()
   }
 
+  getUserLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function (position) {
+        // console.log("User Lat:", position.coords.latitude, "Lon:", position.coords.longitude );
+        // console.log("Current user Longitude is:", position.coords.longitude);
+        localStorage.setItem('userLat', position.coords.latitude)
+        localStorage.setItem('userLon', position.coords.longitude)
+      })
+    }
+  }
+
   // -------- componentDidMount functions ------ //
   getAllArtWorks() {
     // axios
     //   .get(`http://localhost:8090/art_works`)
     //   .then((response) => {
     //     this.setState({ art_works: response.data.art_works })
+    //     console.log("AXIOS response.data.art_works", response.data.art_works )
     //   })
     //   .catch(function (error) { })
     
-    this.setState({ art_works: data })
-  }
-
-  getUserLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(function (position) {
-        // console.log("Current user Latitude is:", position.coords.latitude);
-        // console.log("Current user Longitude is:", position.coords.longitude);
-        localStorage.setItem('userLat', position.coords.latitude)
-        localStorage.setItem('userLon', position.coords.longitude)
-      })
-    }
+      this.setState({ art_works: data });
+      console.log("JSON data", data)
   }
 
   getUserFavourites() {
