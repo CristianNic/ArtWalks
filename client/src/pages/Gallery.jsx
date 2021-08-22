@@ -12,7 +12,7 @@ import iconMap from '../assets/icons-feather-1.5px/map.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg'
 
 import { API_URL } from '../components/Utils/Utils';
-import data from '../data_temp/art_work_final_geom.json';
+import data from '../data_temp/art_work_final_geom.json';  
 import artWorksData from '../data_temp/art_work'
 // const apiUrl = 'http://localhost:8090/art_works'
 
@@ -41,8 +41,9 @@ class Gallery extends Component {
 
   state = {
     user_id: 2,
-    art_works: [],
-    artWorksData: artWorksData,
+    art_works: [],                // API
+    art_works_to_filter: [],
+    artWorksData: artWorksData,   // JS 
     userFavourites: [],
     userFavouritesByRegistryId: [],
     display: false,
@@ -85,7 +86,10 @@ class Gallery extends Component {
     axios
       .get(`${API_URL}/art_works`)
       .then((response) => {
-        this.setState({art_works: response.data.art_works })
+        this.setState({
+          art_works: response.data.art_works,
+          art_works_to_filter: response.data.art_works,
+        })
       })
       .catch((error) => {console.log('error:', error.response.data)})
   }
@@ -119,6 +123,7 @@ class Gallery extends Component {
     })
   }
 
+  // artWorksData is from the JS file 
   reduceArrayIntoPairs = (artWorksData) => {
     const rows = artWorksData.reduce(function (rows, key, index) {
       return (
@@ -481,8 +486,6 @@ class Gallery extends Component {
 
   }
 
-
-
   placeArtWorkOnMap = (e, data) => {
     console.log('Clicked placeArtWorkOnMap -->', data) // artWork registry_id
     this.setState(state => {
@@ -494,63 +497,84 @@ class Gallery extends Component {
   }
 
   selectNeighbourhood = (location) => {
-    // passed on Search bar as a prop
-    console.log('Search --> location.target.value --> ', location.target.value) // name of neighbourhood
-    // console.log('Search --> this.state.art_works --> ', this.state.art_works) // name of neighbourhood
-    console.log('Select Neighbourhood - data --> ', data) // name of neighbourhood
-      
-    // if it's not Vancouver then do this: 
+    console.log('Search Term (location.target.value) --> ', location.target.value) 
+    console.log('data from JSON (for neighbourhood) --> ', data)                      // 366 entries <-- likely so each area has even numbered art works
+    console.log('data from JS (for neighbourhood) --> ', artWorksData)                // 376 entries 
+    console.log('data from API --> this.state.art_works --> ', this.state.art_works)  // 376 entries 
 
-    if ('Vancouver' === location.target.value) {
+    if ('Vancouver' === location.target.value || '' === location.target.value ) {
       // this.setState({ art_works: this.state.artWorks }) // do nothing 
-      this.setState({ artWorksData: data })
-      // do nothing
+      // this.setState({ artWorksData: data })  // artWorksData: artWorksData works too 
+      // this.setState({ art_works: this.state.art_works })  // artWorksData: artWorksData works too 
+      this.setState({ art_works: this.state.art_works_to_filter })  // artWorksData: artWorksData works too 
+      // do nothing // remove statement
     } else {
       // if it's anything else, then filter for that 
       // const data = this.state.art_works  
-      const filteredData = data.filter(area =>
-        area.neighbourhood === location.target.value);
-    
-      this.setState({ artWorksData: filteredData })
 
+      // filter data from JSON - JSON has even numbered entries 
+      // const filteredData = data.filter(area =>
+      //   area.neighbourhood === location.target.value);
+      // this.setState({ artWorksData: filteredData })
+
+      // filter data from API
+      const filteredData = this.state.art_works_to_filter.filter(area =>
+        area.neighbourhood === location.target.value);
+      
+        if (filteredData.length % 2 === 0) {
+          console.log("It's even")
+        } else {
+          console.log("It was odd")
+          filteredData.pop(); // remove the last element
+        };
+      
+      this.setState({ art_works: filteredData })
+
+      console.log('filteredData.length', filteredData.length)
       console.log('Select Neighbourhood - filteredData --> ', filteredData)
+      // console.log('filteredData Length --> ', filteredDataEven)
     }
     this.forceUpdate()
   }
   
+  // I want selectNeighbourhood to filter out by neighbourhood FROM the API data
+  
+  // Previous Logs 
+  // console.log('from API -- this.state.artworks -->', this.state.art_works)
+  // console.log('ArtWorks Temp Data -->', artWorksData);
+  // console.log('ArtWorks Imported Obj -- grouped -->', this.reduceArrayIntoPairs(artWorksData));
+  // const rows = this.reduceArrayIntoPairs(artWorksData)
+  // console.log('Access Rows -->', rows[0][0])
+  // console.log('Rows ==> ', rows)
+  // console.log(`Hi, I'm the gallery for user --> `, this.state.user_id)
+  // console.log('Array 1 Test --> ', array1.includes(2));
+  // const faves = this.state.userFavourites;
+  // console.log('USER Favourites -- in RENDER ---> ', faves)
+  // const userArtWorkIdMaped = faves.map((fave => fave.art_work_id)) // User's Favourites have this ID
+  // console.log('userArtWorkIdMaped ---> ', userArtWorkIdMaped)
+
+  // console.log('Does this include 158?-->', userArtWorkIdMaped.includes(158))
+
+  // const userRegistryId = faves.map((fave) => fave.art_works.registry_id);
+  // console.log("userRegistryId ---> ", userRegistryId);
+  // console.log(" ****** this.state.userFavouritesByRegistryId ---> ", this.state.userFavouritesByRegistryId);
 
   render() {
 
-    // Previous Logs 
-    // console.log('from API -- this.state.artworks -->', this.state.art_works)
-    // console.log('ArtWorks Temp Data -->', artWorksData);
-    // console.log('ArtWorks Imported Obj -- grouped -->', this.reduceArrayIntoPairs(artWorksData));
-    // const rows = this.reduceArrayIntoPairs(artWorksData)
-    // console.log('Access Rows -->', rows[0][0])
-    // console.log('Rows ==> ', rows)
-    // console.log(`Hi, I'm the gallery for user --> `, this.state.user_id)
-    // console.log('Array 1 Test --> ', array1.includes(2));
+    // console.log("art_works: [] API ---> ", this.state.art_works);   // HAS .ID - Look the same, 376 entires 0: {}, 1:{}
+    // console.log("artWorksData: [] JS ---> ", this.state.artWorksData); // NO ID 
 
-    // const faves = this.state.userFavourites;
-    // console.log('USER Favourites -- in RENDER ---> ', faves)
-
-    // const userArtWorkIdMaped = faves.map((fave => fave.art_work_id)) // User's Favourites have this ID
-    // console.log('userArtWorkIdMaped ---> ', userArtWorkIdMaped)
-
-    // console.log('Does this include 158?-->', userArtWorkIdMaped.includes(158))
-
-    // const userRegistryId = faves.map((fave) => fave.art_works.registry_id);
-    // console.log("userRegistryId ---> ", userRegistryId);
-
-    console.log(" ****** this.state.userFavouritesByRegistryId ---> ", this.state.userFavouritesByRegistryId);
-    
     return (
       <div>
         {/* { favourites.inculudes(i) ? (<div>True</div>) : (<div>False</div>) } */}
         <Search selectNeighbourhood={this.selectNeighbourhood} />
         <div className="gallery">
           {/* ------------ Map ------------*/}
-          {this.reduceArrayIntoPairs(this.state.artWorksData).map(art =>
+          {/* atWorksData comes from JS */}
+          {/* {this.reduceArrayIntoPairs(this.state.artWorksData).map(art => */}
+          
+          {/* art_works from API */}
+          {this.reduceArrayIntoPairs(this.state.art_works).map(art =>
             <div className="gallery__pairs-wrapper" key={art[0].registry_id}>
 
               <div className="gallery__img-buttons-container">
