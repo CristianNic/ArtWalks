@@ -27,10 +27,16 @@
 	}
 	&__title {
 		font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.5rem;
 		width: 33rem;
+    // margin-bottom: 0.2rem;
 	}
 	&__artists-names {
 		font-style: italic;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding-left: 2rem;
 	}
 	&__line {
 		border-top: 0.1rem solid darkgray;
@@ -43,6 +49,9 @@
 }
 .bold {
 	font-weight: 600;
+}
+.bolder {
+	font-weight: 900;
 }
 .underline {
 	text-decoration: underline;
