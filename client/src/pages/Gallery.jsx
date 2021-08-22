@@ -12,8 +12,8 @@ import iconMap from '../assets/icons-feather-1.5px/map.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg'
 
 import { API_URL } from '../components/Utils/Utils';
-import data from '../data_temp/art_work_final_geom.json';  
-import artWorksData from '../data_temp/art_work'
+// import data from '../data_temp/art_work_final_geom.json';  
+// import artWorksData from '../data_temp/art_work'
 // const apiUrl = 'http://localhost:8090/art_works'
 
 class Gallery extends Component {
@@ -42,8 +42,8 @@ class Gallery extends Component {
   state = {
     user_id: parseInt(localStorage.getItem('user_id')),
     art_works: [],                // API
-    art_works_to_filter: [],
-    artWorksData: artWorksData,   // JS 
+    art_works_to_filter: [],      // API
+    // artWorksData: artWorksData,   // JS 
     userFavourites: [],
     userFavouritesByRegistryId: [],
     display: false,
@@ -75,7 +75,19 @@ class Gallery extends Component {
     // this.getArtWorksData();
     this.getUserFavourites();
     this.reduceArrayIntoPairs(this.state.art_works);
-    console.log("Gallery: user_id ---> ", this.state.user_id);
+
+    // console.log("Gallery: user_id ---> ", this.state.user_id);
+    // console.log("User", this.state.user_id, "Faves --> ", this.state.userFavourites);
+    // console.log("User", this.state.user_id, "Faves by Reg.ID --> ", this.state.userFavouritesByRegistryId);
+   }
+
+  componentDidUpdate() {
+    // console.log("Gallery: user_id ---> ", this.state.user_id);
+    // console.log("User", this.state.user_id, "Faves --> ", this.state.userFavourites);
+    // console.log("User", this.state.user_id, "Faves by Reg.ID --> ", this.state.userFavouritesByRegistryId);
+
+    console.log("API --> ", this.state.art_works_to_filter);
+    console.log("JS --> ", this.state.artWorksData);        
   }
 
   getUserId = () => {
@@ -95,34 +107,61 @@ class Gallery extends Component {
       .catch((error) => {console.log('error:', error.response.data)})
   }
 
-  // getArtWorksData() {
-  //   this.setState({ArtWorksData: data.ArtWorksData })
+  // getUserFavourites() {   // Gallery.jsx
+  //   axios
+  //     .get(`${API_URL}/favourites/${this.state.user_id}`)
+  //     .then((response) => {
+  //       this.setState({
+  //         userFavourites: response.data,
+  //         userFavouritesByRegistryId: response.data.map((fave) => fave.art_works.registry_id)
+  //       })
+  //       // console.log('USER FAVOURITES -->', this.state.userFavourites)
+  //       // const faves = this.state.userFavourites;
+  //       // console.log('USER Favourites -- in RENDER ---> ', faves)
+
+  //       // const userArtWorkIdMaped = faves.map((fave => fave.art_work_id)) // User's Favourites have this ID
+  //       // console.log('userArtWorkIdMaped ---> ', userArtWorkIdMaped)
+
+  //       // console.log('Does this include 158?-->', userArtWorkIdMaped.includes(158))
+
+  //       // const userRegistryId = faves.map((fave) => fave.art_works.registry_id);
+  //       // console.log("userRegistryId ---> ", userRegistryId);
+  //     })
+  //     .catch((error) => {
+  //     console.log('error:', error.response.data);
+  //   })
   // }
 
-  getUserFavourites() {
+  getUserFavourites() {   // Saved.jsx
     axios
       .get(`${API_URL}/favourites/${this.state.user_id}`)
       .then((response) => {
+
+        // remove duplicates
+        const arr = response.data 
+        const SymbolArray = [];
+        arr.forEach((item, index) => {
+          const { art_work_id, art_works } = item;
+          let keyStr = `${art_work_id}_${art_works}`;
+          SymbolArray.push(Symbol.for(keyStr));
+        });
+
+        const result = [];
+          SymbolArray.forEach((item, index) => {
+            if (SymbolArray.indexOf(item) === index) {
+              result.push(arr[index]);
+            }
+          });
+        // console.log('filtered array w/o duplicates', result)
         this.setState({
-          userFavourites: response.data,
-          userFavouritesByRegistryId: response.data.map((fave) => fave.art_works.registry_id)
+          userFavourites: result,
         })
-        console.log('USER FAVOURITES -->', this.state.userFavourites)
-        // const faves = this.state.userFavourites;
-        // console.log('USER Favourites -- in RENDER ---> ', faves)
-
-        // const userArtWorkIdMaped = faves.map((fave => fave.art_work_id)) // User's Favourites have this ID
-        // console.log('userArtWorkIdMaped ---> ', userArtWorkIdMaped)
-
-        // console.log('Does this include 158?-->', userArtWorkIdMaped.includes(158))
-
-        // const userRegistryId = faves.map((fave) => fave.art_works.registry_id);
-        // console.log("userRegistryId ---> ", userRegistryId);
       })
       .catch((error) => {
       console.log('error:', error.response.data);
     })
   }
+
 
   addToFavourites = (e, data) => {
     // console.log('Liked state -->', this.state.liked)
@@ -207,9 +246,20 @@ class Gallery extends Component {
   }
   
   
-  // artWorksData is from the JS file 
-  reduceArrayIntoPairs = (artWorksData) => {
-    const rows = artWorksData.reduce(function (rows, key, index) {
+  // // artWorksData is from the JS file 
+  // reduceArrayIntoPairs = (artWorksData) => {
+  //   const rows = artWorksData.reduce(function (rows, key, index) {
+  //     return (
+  //       (index % 2 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
+  //       rows
+  //     );
+  //   }, []);
+  //   //console.log(rows);
+  //   return rows; // <--- map rows
+  // }
+
+  reduceArrayIntoPairs = () => {
+    const rows = this.state.art_works_to_filter.reduce(function (rows, key, index) {
       return (
         (index % 2 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
         rows
@@ -498,6 +548,7 @@ class Gallery extends Component {
     localStorage.setItem('currently viewing', data)
   }
 
+  //---- Search Bar ----//
   selectNeighbourhood = (location) => {
     // console.log('Search Term (location.target.value) --> ', location.target.value) 
     // console.log('data from JSON (for neighbourhood) --> ', data)                      // 366 entries <-- likely so each area has even numbered art works
@@ -535,7 +586,28 @@ class Gallery extends Component {
     }
     this.forceUpdate()
   }
-  
+
+  sortBySaved = () => {
+    console.log("Clicked Sort by Saved - Now sort by saved")
+    // -- User Favourites - Reg # - pick those out from all art_works -- // 
+
+    console.log("Faves to look at -->", this.state.userFavourites)
+    console.log("How does this compare-->", this.state.art_works_to_filter)
+    
+    const userFavouritesByRegistryId = this.state.userFavourites.map((fave) => fave.art_works.registry_id)
+    
+    console.log("by Reg.ID?", userFavouritesByRegistryId)
+
+    // const filteredData = this.state.art_works_to_filter.filter(saved =>
+    //  saved.registry_id === .... the registry_id's from the the faves 
+    //
+    // )
+
+    // filteredData 
+    // this.setState({ art_works: filteredData })
+    // this.forceUpdate()
+  }
+
   // Previous Logs 
   // console.log('from API -- this.state.artworks -->', this.state.art_works)
   // console.log('ArtWorks Temp Data -->', artWorksData);
@@ -565,7 +637,10 @@ class Gallery extends Component {
     return (
       <div>
         {/* { favourites.inculudes(i) ? (<div>True</div>) : (<div>False</div>) } */}
-        <Search selectNeighbourhood={this.selectNeighbourhood} />
+        <Search
+          selectNeighbourhood={this.selectNeighbourhood}
+          sortBySaved={this.sortBySaved}
+        />
         <div className="gallery">
           {/* ------------ Map ------------*/}
           {/* atWorksData comes from JS */}
