@@ -40,7 +40,7 @@ class Gallery extends Component {
   // const onClick = () => setShowResults(true)
 
   state = {
-    user_id: 2,
+    user_id: parseInt(localStorage.getItem('user_id')),
     art_works: [],                // API
     art_works_to_filter: [],
     artWorksData: artWorksData,   // JS 
@@ -75,6 +75,7 @@ class Gallery extends Component {
     // this.getArtWorksData();
     this.getUserFavourites();
     this.reduceArrayIntoPairs(this.state.art_works);
+    console.log("Gallery: user_id ---> ", this.state.user_id);
   }
 
   getUserId = () => {
@@ -123,6 +124,89 @@ class Gallery extends Component {
     })
   }
 
+  addToFavourites = (e, data) => {
+    // console.log('Liked state -->', this.state.liked)
+    // console.log('Add to Favourites --> ', data)
+    // console.log(e)
+
+    this.setState(state => {
+        return {display: !state.display}
+    })
+
+    this.state.art_works.forEach(function (item, index) {
+      if (item.registry_id === data) {
+        const position = index + 1 
+        localStorage.setItem('art_work_id_for_user_post', position)
+      }
+    })
+
+    const art_work_id_for_user_post = parseInt(localStorage.getItem('art_work_id_for_user_post'))
+
+
+    // this.setState(state => {
+    //     return {display: !state.display}
+    // })
+    
+    console.log(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
+
+    axios
+      .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
+      .then((response) => {
+        // this.forceUpdate()
+        // this.setState(state => {
+        //   return {display: !state.display}
+        // })
+      })
+      .catch((error) => {
+      console.log('error:', error.response.data);
+      })
+    
+    window.location.reload() 
+    // this.forceUpdate()
+  
+    this.setState(state => {
+      return {display: !state.display}
+    })
+
+    //  window.location.reload() 
+    // this.forceUpdate()
+
+    // localStorage.removeItem('art_work_id_for_user_post');
+    // this.forceUpdate()
+    localStorage.removeItem('art_work_id_for_user_post');
+
+  }
+
+  removeFromFavourites = (e, data) => {
+    this.state.userFavourites.forEach(function (item, index) {
+      if (item.art_works.registry_id === data) {
+        localStorage.setItem('art_work_id', item.art_work_id)
+      }
+    })
+    const artWorkId = parseInt(localStorage.getItem('art_work_id'))
+    
+    axios
+      .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${artWorkId}`)
+      .then((response) => {
+        this.setState(state => {
+          return {display: !state.display}
+        })
+      })
+      .catch((error) => {
+      console.log('error:', error.response.data);
+      })
+    
+    this.forceUpdate()
+    this.setState(state => {
+      return {display: !state.display}
+    })
+    window.location.reload() 
+    this.forceUpdate()
+    localStorage.removeItem('art_work_id');
+    this.forceUpdate()
+  }
+  
+  
   // artWorksData is from the JS file 
   reduceArrayIntoPairs = (artWorksData) => {
     const rows = artWorksData.reduce(function (rows, key, index) {
@@ -133,8 +217,8 @@ class Gallery extends Component {
     }, []);
     //console.log(rows);
     return rows; // <--- map rows
-  } 
-
+  }
+  
   expandArtWorkDetails = (e, data) => {
     e.currentTarget.style.boxshadow = "none";
     this.setState(state => {
@@ -404,88 +488,6 @@ class Gallery extends Component {
     
   // }
 
-  removeFromFavourites = (e, data) => {
-    this.state.userFavourites.forEach(function (item, index) {
-      if (item.art_works.registry_id === data) {
-        localStorage.setItem('art_work_id', item.art_work_id)
-      }
-    })
-    const artWorkId = parseInt(localStorage.getItem('art_work_id'))
-    
-    axios
-      .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${artWorkId}`)
-      .then((response) => {
-        this.setState(state => {
-          return {display: !state.display}
-        })
-      })
-      .catch((error) => {
-      console.log('error:', error.response.data);
-      })
-    
-    this.forceUpdate()
-    this.setState(state => {
-      return {display: !state.display}
-    })
-    window.location.reload() 
-    this.forceUpdate()
-    localStorage.removeItem('art_work_id');
-    this.forceUpdate()
-  }
-
-  addToFavourites = (e, data) => {
-    // console.log('Liked state -->', this.state.liked)
-    // console.log('Add to Favourites --> ', data)
-    // console.log(e)
-
-    this.setState(state => {
-        return {display: !state.display}
-    })
-
-    this.state.art_works.forEach(function (item, index) {
-      if (item.registry_id === data) {
-        const position = index + 1 
-        localStorage.setItem('art_work_id_for_user_post', position)
-      }
-    })
-
-    const art_work_id_for_user_post = parseInt(localStorage.getItem('art_work_id_for_user_post'))
-
-
-    // this.setState(state => {
-    //     return {display: !state.display}
-    // })
-    
-    console.log(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
-
-    axios
-      .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
-      .then((response) => {
-        // this.forceUpdate()
-        // this.setState(state => {
-        //   return {display: !state.display}
-        // })
-      })
-      .catch((error) => {
-      console.log('error:', error.response.data);
-      })
-    
-    window.location.reload() 
-    // this.forceUpdate()
-  
-    this.setState(state => {
-      return {display: !state.display}
-    })
-
-    //  window.location.reload() 
-    // this.forceUpdate()
-
-    // localStorage.removeItem('art_work_id_for_user_post');
-    // this.forceUpdate()
-    localStorage.removeItem('art_work_id_for_user_post');
-
-  }
-
   placeArtWorkOnMap = (e, data) => {
     console.log('Clicked placeArtWorkOnMap -->', data) // artWork registry_id
     this.setState(state => {
@@ -497,10 +499,10 @@ class Gallery extends Component {
   }
 
   selectNeighbourhood = (location) => {
-    console.log('Search Term (location.target.value) --> ', location.target.value) 
-    console.log('data from JSON (for neighbourhood) --> ', data)                      // 366 entries <-- likely so each area has even numbered art works
-    console.log('data from JS (for neighbourhood) --> ', artWorksData)                // 376 entries 
-    console.log('data from API --> this.state.art_works --> ', this.state.art_works)  // 376 entries 
+    // console.log('Search Term (location.target.value) --> ', location.target.value) 
+    // console.log('data from JSON (for neighbourhood) --> ', data)                      // 366 entries <-- likely so each area has even numbered art works
+    // console.log('data from JS (for neighbourhood) --> ', artWorksData)                // 376 entries 
+    // console.log('data from API --> this.state.art_works --> ', this.state.art_works)  // 376 entries 
 
     if ('Vancouver' === location.target.value || '' === location.target.value ) {
       // this.setState({ art_works: this.state.artWorks }) // do nothing 
@@ -520,24 +522,19 @@ class Gallery extends Component {
       // filter data from API
       const filteredData = this.state.art_works_to_filter.filter(area =>
         area.neighbourhood === location.target.value);
-      
         if (filteredData.length % 2 === 0) {
-          console.log("It's even")
+          // console.log("It's even")
         } else {
-          console.log("It was odd")
+          // console.log("It was odd")
           filteredData.pop(); // remove the last element
         };
-      
       this.setState({ art_works: filteredData })
 
-      console.log('filteredData.length', filteredData.length)
-      console.log('Select Neighbourhood - filteredData --> ', filteredData)
-      // console.log('filteredData Length --> ', filteredDataEven)
+      // console.log('filteredData.length', filteredData.length)
+      // console.log('Select Neighbourhood - filteredData --> ', filteredData)
     }
     this.forceUpdate()
   }
-  
-  // I want selectNeighbourhood to filter out by neighbourhood FROM the API data
   
   // Previous Logs 
   // console.log('from API -- this.state.artworks -->', this.state.art_works)
@@ -563,6 +560,7 @@ class Gallery extends Component {
 
     // console.log("art_works: [] API ---> ", this.state.art_works);   // HAS .ID - Look the same, 376 entires 0: {}, 1:{}
     // console.log("artWorksData: [] JS ---> ", this.state.artWorksData); // NO ID 
+    // console.log("User ---> ", this.state.user_id);
 
     return (
       <div>
