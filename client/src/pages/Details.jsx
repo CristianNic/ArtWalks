@@ -78,7 +78,7 @@ class Details extends Component {
           <div className="details__top">
             <div className="details__top-info">
               <h1 className="details__title">{title}</h1>
-              <h2 className="details__artists-names">by {artists_names}</h2>
+              <h2 className="details__artists-names"><span className="bolder">-</span> {artists_names}</h2>
             </div>
             <div className="details__top-links">
               <Link to={`/map/${registry_id}`}>
@@ -90,18 +90,13 @@ class Details extends Component {
           <div className="details__bottom">
             {photo_credits === "" ? (<div></div>) :
               (<h2><span className="bold">Photo Credits:</span> {photo_credits}</h2>)}
-            {type === "" ? (<div></div>) :
-              type === "Memorial_or_Monument" ?
-                (<h2><span className="bold">Type:</span> Memorial or Monument</h2>) :
-              type === "Two_dimensional_artwork" ?
-                  (<h2><span className="bold">Type:</span> 2D Artwork</h2>) :
-              type === "Welcome_figure" ?
-                  (<h2><span className="bold">Type:</span> Welcome figure</h2>) :
-              type === "Totem_pole" ?
-                  (<h2><span className="bold">Type:</span> Totem Pole</h2>) :
-              type === "Site_integrated_work" ?
-                  (<h2><span className="bold">Type:</span> Site integrated work</h2>) :
-                  (<h2><span className="bold">Type:</span> {type}</h2>)}
+            { type === "" ? (<div></div>)
+            : type === "Memorial_or_Monument" ?     (<h2><span className="bold">Type:</span> Memorial or Monument</h2>)
+            : type === "Two_dimensional_artwork" ?  (<h2><span className="bold">Type:</span> 2D Artwork</h2>)
+            : type === "Welcome_figure" ?           (<h2><span className="bold">Type:</span> Welcome figure</h2>)
+            : type === "Totem_pole" ?               (<h2><span className="bold">Type:</span> Totem Pole</h2>)
+            : type === "Site_integrated_work" ?     (<h2><span className="bold">Type:</span> Site integrated work</h2>)
+            :                                       (<h2><span className="bold">Type:</span> {type}</h2>)}
             {primary_material === "" ? (<div></div>) :
               (<h2><span className="bold">Primary Material:</span> {primary_material}</h2>)}
             {artist_statement === "" ? (<div></div>) :
