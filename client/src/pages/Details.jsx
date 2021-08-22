@@ -45,7 +45,6 @@ class Details extends Component {
     this.setArtWorIdInLocalStorage()
   }
 
-  // http://localhost:8090/art_works/registry_id/316
   getArtWorkDetails() {
     axios
       .get(`${API_URL}/art_works/registry_id/${this.props.match.params.id}`)
@@ -60,13 +59,13 @@ class Details extends Component {
   }
 
   setArtWorIdInLocalStorage() {
-    console.log(this.state.art_work.registry_id)
+    // console.log(this.state.art_work.registry_id)
     localStorage.setItem('currently viewing', this.state.art_work.registry_id)
   }
 
   render() {
 
-    console.log('API RESPONSE --->', this.state.art_work)
+    // console.log('API RESPONSE --->', this.state.art_work)
 
     const { registry_id, title, artists_names, work_description, photo_url, photo_credits,
       type, primary_material, artist_statement, geo_local_area, installation_year,
@@ -92,7 +91,17 @@ class Details extends Component {
             {photo_credits === "" ? (<div></div>) :
               (<h2><span className="bold">Photo Credits:</span> {photo_credits}</h2>)}
             {type === "" ? (<div></div>) :
-              (<h2><span className="bold">Type:</span> {type}</h2>)}
+              type === "Memorial_or_Monument" ?
+                (<h2><span className="bold">Type:</span> Memorial or Monument</h2>) :
+              type === "Two_dimensional_artwork" ?
+                  (<h2><span className="bold">Type:</span> 2D Artwork</h2>) :
+              type === "Welcome_figure" ?
+                  (<h2><span className="bold">Type:</span> Welcome figure</h2>) :
+              type === "Totem_pole" ?
+                  (<h2><span className="bold">Type:</span> Totem Pole</h2>) :
+              type === "Site_integrated_work" ?
+                  (<h2><span className="bold">Type:</span> Site integrated work</h2>) :
+                  (<h2><span className="bold">Type:</span> {type}</h2>)}
             {primary_material === "" ? (<div></div>) :
               (<h2><span className="bold">Primary Material:</span> {primary_material}</h2>)}
             {artist_statement === "" ? (<div></div>) :
