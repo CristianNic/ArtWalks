@@ -1,5 +1,4 @@
 .about {
-	height: 80vh;
 	background-image: url("../assets/background/pink-sky.jpg");
 	height: 70rem;
 	background-size: cover;
@@ -14,13 +13,13 @@
 		margin-top: 0;
 		margin-bottom: 4rem;
 	}
-	&__link-container {
-		margin-bottom: 7rem;
-	}
 	&__link {
-		text-decoration: underline;
+    text-decoration: underline;
 		display: flex;
 		margin-bottom: 1rem;
+    &-container {
+      margin-bottom: 7rem;
+    }
 	}
 	&__icon {
 		text-decoration: underline;
