@@ -15,7 +15,6 @@ class Login extends Component {
     event.preventDefault();
     axios.post(`${API_URL}/login`, this.state)
       .then(response => {
-        console.log('user_id', response.data);
         this.setState({
           user_id: response.data.user_id,
         })
@@ -24,11 +23,6 @@ class Login extends Component {
       }).catch(err => {
           console.log(err);
       })
-  }
-
-  handleLoginGmail = (e) => {
-  }
-  handleLoginGitHub = (e) => {
   }
 
   handleInputChange = (event) => {
