@@ -11,46 +11,47 @@
 		align-items: center;
 		border-radius: 0.7rem;
 	}
-	&__title-welcome {
-		font-size: 2.8rem;
-		font-family: "Rock Salt", cursive;
-		font-weight: bolder;
-		color: #8140a6;
-		margin-bottom: 3.5rem;
-	}
-	&__title-logo {
-		font-weight: 400;
-		font-size: 5.2rem;
-		font-family: "Rock Salt", cursive;
-		font-weight: bold;
-		color: #8140a6;
-		margin-bottom: 3rem;
-		padding-top: 1rem;
-	}
-	&__form-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		background-color: rgb(255, 255, 255);
-		margin-bottom: 3rem;
-		margin-top: 6rem;
-		width: 30rem;
-		height: 34rem;
-		border-radius: 0.9rem;
-	}
-	&__sign-in {
-		display: flex;
-		align-items: center;
-		margin: 0 auto;
-		color: #8c55aa;
-		font-family: "Titillium Web", sans-serif;
-		font-weight: bold;
-		font-size: 1.8rem;
-		margin-bottom: 2rem;
+	&__title {
+		&-welcome {
+			font-size: 2.8rem;
+			font-family: "Rock Salt", cursive;
+			font-weight: bolder;
+			color: #8140a6;
+			margin-bottom: 3.5rem;
+		}
+		&-logo {
+			font-size: 5.2rem;
+			font-family: "Rock Salt", cursive;
+			font-weight: bold;
+			color: #8140a6;
+			margin-bottom: 3rem;
+			padding-top: 1rem;
+		}
 	}
 	&__form {
 		display: flex;
 		flex-direction: column;
+		&-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-color: rgb(255, 255, 255);
+			margin-bottom: 3rem;
+			margin-top: 6rem;
+			width: 30rem;
+			height: 34rem;
+			border-radius: 0.9rem;
+		}
+	}
+	&__sign-in {
+		display: flex;
+		align-items: center;
+		color: #8c55aa;
+		font-family: "Titillium Web", sans-serif;
+		font-weight: bold;
+		font-size: 1.8rem;
+		margin: 0 auto;
+		margin-bottom: 2rem;
 	}
 	&__input {
 		width: 85%;
@@ -66,10 +67,9 @@
 		outline: none;
 		box-sizing: border-box;
 		border: 0.2rem solid rgba(0, 0, 0, 0.02);
-		margin-bottom: 5rem;
 		margin: 0 auto;
-		padding: 0.8rem 1.5rem;
 		margin-bottom: 2.7rem;
+		padding: 0.8rem 1.5rem;
 	}
 	&__btn {
 		cursor: pointer;
@@ -77,13 +77,13 @@
 		color: #fff;
 		background: linear-gradient(to right, #d264e5, #dc53f5);
 		border: 0;
-		padding: 1rem 4rem 1rem 4rem;
 		font-family: "Titillium Web", sans-serif;
 		font-weight: 600;
 		width: 15rem;
-		margin: 0 auto;
 		font-size: 1.3rem;
 		box-shadow: 0 0 2rem 0.1rem rgba(0, 0, 0, 0.04);
+		padding: 1rem 4rem 1rem 4rem;
+		margin: 0 auto;
 		margin-top: 2rem;
 	}
 }
@@ -102,9 +102,9 @@
 		font-weight: 500;
 	}
 	&__sign-up {
+		font-weight: 600;
 		font-family: "Titillium Web", sans-serif;
 		color: #8c55aa;
-		font-weight: 600;
 	}
 }
 input:focus,
