@@ -17,7 +17,6 @@ import BottomNav from '../components/BottomNav/BottomNav';
 //------------------ Map Tiles -----------------------//
 import { URL_CUSTOM_OUTDOORS_DARKER } from '../components/Utils/MapboxToken';
 
-
 //-------------- Ioncs converted for Leaflet ----------// 
 import {
   fountain, gateway, memorial, mosaic, mural, siteIntergrated, statue,
@@ -28,94 +27,34 @@ import {
 import redHeart from '../assets/icons/heart_red.svg';
 import blackHeart from '../assets/icons/heart-black-2px.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg';
-// remove -->  import { FiHome, FiChevronRight, FiSearch, FiSettings } from "react-icons/fi";
-
-//------------- Art Work Icons - Nav Bar--------------//
-// import Fountain from '../assets/art-works/fountain.svg';
-// import Gateway from '../assets/art-works/gateway.svg';
-// import Memorial from '../assets/art-works/memorial.svg';
-// import Mosaic from '../assets/art-works/mosaic.svg';
-// import Mural1 from '../assets/art-works/mural-1.svg';
-// import Mural2 from '../assets/art-works/mural-2.svg';
-// import Mural3 from '../assets/art-works/mural-3.svg';
-// import SiteIntergrated from '../assets/art-works/site-intergrated.svg';
-// import Statue from '../assets/art-works/statue.svg';
-// import Totem from '../assets/art-works/totem.svg';
-// import TotemSolid from '../assets/art-works/totem-solid.svg';
-
-// import icon from 'leaflet/dist/images/marker-icon.png';
-
-// import maximize from '../assets/icons/maximize-2-1.5px.svg';
-// import icon from 'leaflet/dist/images/marker-icon.png';
-// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
-
 //----------------- Data -------------------//
 // // import * as parkData from "../data/skateboard-parks.json";
 // import { API_URL } from '../components/Utils/Utils';
 import { neighbourhoods, API_URL } from '../components/Utils/Utils';
-import data from '../data_temp/art_work_final_geom.json';
 //import publicArtData from '../data_temp/public-art-smaller.json';
-import neighbourhood_boundaries from '../data_temp/local-area-boundary.json';
-
-//-------------- Marker Icons --------------// 
-
-// const mural2 = L.icon({
-//   iconUrl: Mural2,
-//   iconSize: [25, 41],
-//   iconAnchor: [12, 41]
-// })
-// const mural3 = L.icon({
-//   iconUrl: Mural3,
-//   iconSize: [25, 41],
-//   iconAnchor: [12, 41]
-// })
-
-//----------- Marker Icons -----------// 
-
-// L.Marker.prototype.options.icon = DefaultIcon;  //  <------ Default Icon 
-// L.Marker.prototype.options.icon = SpecialIcon;
-
-//------------- Experiment -----------// 
-
-// const cool = new L.Map('map');
-
-// var legend = L.control({position: 'topright'});
-// legend.onAdd = function (map) {
-//     var div = L.DomUtil.create('div', 'info legend');
-//     div.innerHTML = '<select><option>1</option><option>2</option><option>3</option></select>';
-//     div.firstChild.onmousedown = div.firstChild.ondblclick = L.DomEvent.stopPropagation;
-//     return div;
-// };
-// legend.addTo(cool);
-
-// const eventFire = (el, etype) => {
-//   if (el.fireEvent) {
-//     el.fireEvent('on' + etype);
-//   } else {
-//     var evObj = document.createEvent('Events');
-//     evObj.initEvent(etype, true, false);
-//     el.dispatchEvent(evObj);
-//   }
-// }
-
+import neighbourhood_boundaries from '../data_temp/local-area-boundary.json'; // <--- used where? 
 
 class ArtMap extends Component {
 
   state = {
     art_works: [],
+    art_works_to_filter: [],
     user_id: parseInt(localStorage.getItem('user_id')),
     userCurrentLocation: [parseFloat(localStorage.getItem('userLat')), parseFloat(localStorage.getItem('userLon'))],
     userFavourites: [],
     userFavouritesByRegistryId: [],
     neighbourhood_boundaries: neighbourhood_boundaries,
+    openPopUp: parseInt(localStorage.getItem("openPopUp")),
+    // openPopUp: []
   }
 
   componentDidMount() {
-    this.getAllArtWorks()
+    this.getArtWorks()
     this.getUserLocation()
     this.getUserFavourites()
     // this.getUrlId()
+    // this.getOpenPopUp()
+    // this.openPopUp()
   }
 
   componentDidUpdate(prevProps) {
@@ -124,21 +63,45 @@ class ArtMap extends Component {
     //   this.fetchData(this.props.userFavourites);
     // }
     this.openPopUp()
+    // this.setOpenPopUp()
   }
 
   componentWillUnmount() {
-    this.clearOpenPopUp()
+    // this.clearOpenPopUp()  // I removed this ?? 
   }
 
+  // getOpenPopUp() {
+  //   const openPopUp = parseInt(localStorage.getItem("openPopUp"))
+  //   this.setState({
+  //     art_work: openPopUp
+  //   })
+  //   document.querySelector(`img[alt = "marker-${openPopUp}"]`)?.click()
+  // }
+
+  openPopUp() {
+    // const id = parseInt(localStorage.getItem('currently viewing'))  // Coming from Details Page 
+    
+    // Removed???
+    // const id = this.state.openPopUp
+    const id = parseInt(localStorage.getItem("openPopUp"))                                   // On Same page ...
+    console.log("componentDidMount() --- Open Pop Up", id)
+    document.querySelector(`img[alt = "marker-${id}"]`)?.click()
+  }
+  
+  setOpenPopUp(data) {
+    // Clicking on Marker makes the page remember which one it is so that when favourites is clicked, 
+    // it refreshes shwoing the read heart and witch this one popup open. 
+    console.log("Clicked PopUp - artWork.registry_id", data)
+    localStorage.setItem("openPopUp", data);  // ?? 
+    // localStorage.setItem("openPopUp", this.state.art_work.registry_id)
+    // console.log("openPopUp - registry_id", this.state.art_work.registry_id)
+  }
+  
   clearOpenPopUp() {
     // if the user returns from a page without having selected an artwork,
     // map will now load without a selected artwork
-    localStorage.removeItem('currently viewing');
-  }
-  
-  openPopUp() {
-    const id = parseInt(localStorage.getItem('currently viewing'))
-    document.querySelector(`img[alt = "marker-${id}"]`)?.click()
+    // localStorage.removeItem('currently viewing');
+    localStorage.removeItem('openPopUp');
   }
 
   getUserLocation() {
@@ -153,7 +116,7 @@ class ArtMap extends Component {
   }
 
   // -------- componentDidMount functions ------ //
-  getAllArtWorks() {
+  getArtWorks() {  // <--- rename to getArtWorks()
     // axios
     //   .get(`http://localhost:8090/art_works`)
     //   .then((response) => {
@@ -162,8 +125,19 @@ class ArtMap extends Component {
     //   })
     //   .catch(function (error) { })
     
-      this.setState({ art_works: data });
-      console.log("JSON data", data)
+    // this.setState({ art_works: data });  // <<< Currently from JSON File 
+    // console.log("JSON data", data)          // has only RegID# (no ID#)
+    
+    axios
+      .get(`${API_URL}/art_works`)
+      .then((response) => {
+       // console.log("API Response", response.data.art_works)   // WHY THESE TWO DIFF DATA >>>??
+        this.setState({
+          art_works: response.data.art_works, // had id# & RegID#
+          art_works_to_filter: response.data.art_works,
+        })
+      })
+    //   .catch((error) => {console.log('error:', error.response.data)})
   }
 
   getUserFavourites() {
@@ -172,44 +146,52 @@ class ArtMap extends Component {
     axios
       .get(`${API_URL}/favourites/${this.state.user_id}`)
       .then((response) => {
+        // remove duplicates
+        const arr = response.data 
+        const SymbolArray = [];
+        arr.forEach((item, index) => {
+          const { art_work_id, art_works } = item;
+          let keyStr = `${art_work_id}_${art_works}`;
+          SymbolArray.push(Symbol.for(keyStr));
+        });
+        const result = [];
+          SymbolArray.forEach((item, index) => {
+            if (SymbolArray.indexOf(item) === index) {
+              result.push(arr[index]);
+            }
+          });
         this.setState({
-          userFavourites: response.data,
-          userFavouritesByRegistryId: response.data.map((fave) => fave.art_works.registry_id)
+          userFavourites: result, // response.data
+          userFavouritesByRegistryId: result.map((fave) => fave.art_works.registry_id) // response.data
         })
-        // const faves = this.state.userFavourites;
-        // console.log('USER Favourites -- in RENDER ---> ', faves)
-
-        // const userArtWorkIdMaped = faves.map((fave => fave.art_work_id)) // User's Favourites have this ID
-        // console.log('userArtWorkIdMaped ---> ', userArtWorkIdMaped)
-
-        // console.log('Does this include 158?-->', userArtWorkIdMaped.includes(158))
-
-        // const userRegistryId = faves.map((fave) => fave.art_works.registry_id);
-        // console.log("userRegistryId ---> ", userRegistryId);
+        console.log("API Response - Faves", result)
+        // console.log("API Response - Faves - Render", this.userFavourites)
+        console.log("API Response - Faves by Reg Id", result.map((fave) => fave.art_works.registry_id))
       })
       .catch((error) => {
       console.log('error:', error.response.data);
-    })
+      })
   }
   
 //------------ onClick functions ------------------// 
-  
   selectNeighbourhood = (location) => {
     // passed on Search bar as a prop
     // console.log('Search --> location.target.value --> ', location.target.value) // name of neighbourhood
-    // console.log('Search --> this.state.art_works --> ', this.state.art_works) // name of neighbourhood
-    console.log('Select Neighbourhood - data --> ', data) // name of neighbourhood
+    console.log('Search --> this.state.art_works --> ', this.state.art_works) // name of neighbourhood
+    
+    // console.log('Select Neighbourhood - art_works --> ', this.state.art_works) // name of neighbourhood
+    console.log('location.target.value --> ', location.target.value) // name of neighbourhood
       
     // if it's not Vancouver then do this: 
 
-    if ('Vancouver' === location.target.value) {
-      // this.setState({ art_works: this.state.artWorks }) // do nothing 
-      this.setState({ art_works: data })
-      // do nothing
+    if ('Vancouver' === location.target.value || '' === location.target.value) {
+      this.setState({ art_works: this.state.art_works_to_filter })
+      this.clearOpenPopUp()
+      // or do nothing
     } else {
     // if it's anything else, then filter for that 
     // const data = this.state.art_works  
-    const filteredData = data.filter(area => 
+    const filteredData = this.state.art_works_to_filter.filter(area => 
       area.neighbourhood === location.target.value);
     
       this.setState({ art_works: filteredData })
@@ -231,38 +213,77 @@ class ArtMap extends Component {
 
   }
   
-  selectFavourties = (e, faves) => {
-    console.log('Select Favourites - data --> ', data)   // data being filtered 
-    console.log('Select Favourites - userFavouritesByRegistryId --> ', this.state.userFavouritesByRegistryId) // by registry_id
+  selectFavourties = () => {
+    console.log('Hello, Nav-Bar Show Faves only')
+    const userFavourites = this.state.userFavourites.map((faves) => faves.art_works   )
+     console.log('this.state.userFavourites -->', userFavourites )
+     console.log('this.state.art_works -->', this.state.art_works)
+    // console.log('Select Favourites - data --> ', data)   // data being filtered 
+    // console.log('Select Favourites - userFavouritesByRegistryId --> ', this.state.userFavouritesByRegistryId) // by registry_id
 
-    // return from all art_works (data) only those included in the userFavouritesByRegistryId array 
-    const selectFavourties = data.filter( i => this.state.userFavouritesByRegistryId.includes( i.registry_id ) );
+    // // return from all art_works (data) only those included in the userFavouritesByRegistryId array 
+    // const selectFavourties = data.filter( i => this.state.userFavouritesByRegistryId.includes( i.registry_id ) );
 
-    console.log('Select Favourites - selectFavourties --> ', selectFavourties)
+    // console.log('Select Favourites - selectFavourties --> ', selectFavourties)
 
-    this.setState({ art_works: selectFavourties })
-  }
-
-  print = () => {
-    console.log('Hello')
-    console.log('Print', this.state.userFavourites)    
+    this.setState({ art_works: userFavourites })
   }
   
   removeFromFavourites = (e, registry_id) => {
+    // console.log('REMOVE from Favourites - registry_id  --> ', registry_id)
+    // console.log("User Favourites API --> ", this.state.userFavourites)
 
-    console.log('REMOVE to Favourites --> ', registry_id)
-    console.log('this.state.art_works --> ', this.state.art_works) // displays all, 
-    // console.log('this.state.userFavouritesByRegistryId -->', this.state.userFavouritesByRegistryId) // lots of duplicates 
+    const filteredData = this.state.userFavourites.filter(item =>
+      item.art_works.registry_id === registry_id);
+    
+    // console.log("Filtered Data -->", filteredData)
 
-    // take all art_works currently in state and remove the registry_id selected, then set the new array in state
+    const art_work_id = filteredData[0].art_work_id
+    
+    // console.log("Art_work_ID -->", art_work_id)
+    console.log("Registry_ID -->", registry_id)
 
-    // filter out the selected registry_id from all art_works being displayed 
-    const result = this.state.art_works.filter(work => work.registry_id !== registry_id)
+    // Get Variable from local storage
+    // const openPopUp =
+    // localStorage.setItem("openPopUp", art_work_id);
+    /////////  localStorage.setItem("openPopUp", registry_id);  // not needed // setOpenPopUp() does it 
+      
+    //  penPopUp = parseInt(localStorage.getItem("currently viewing"));
 
-    console.log('Filtered --> ', result)
+    // if ('Vancouver' === location.target.value || '' === location.target.value) {
+    //   this.setState({ userFavourites: this.state.userFavouritesToFilter })
+    // } else {
+    //   this.setState({ userFavourites: filteredData })
+    // };
 
+    axios
+      // .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${registry_id}`)
+      .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${art_work_id}`)
+      .then((response) => {
+        this.getUserFavourites()
+        document.querySelector(`img[alt = "marker-${registry_id}"]`)?.click()
+      })
+      .catch((error) => {
+      console.log('error:', error.response.data);
+      })
+    // console.log("Faves after removal --> ", this.state.userFavourites)
+    
+    // remove art-work from the state obj - by filtering it out and removing it or by recalling 
+    // window.location.reload()
 
-    // const afterRemovingArtWork = this.state.art_works.filter( i => this.state.userFavouritesByRegistryId.includes( !i.registry_id ))
+    // this.getUserFavourites()
+  
+    // console.log("Faves after removal afger getUserFaves --> ", this.state.userFavourites)
+    // console.log('removeFaves - left over by Rq ID -->', this.state.userFavouritesByRegistryId)
+
+    // localStorage.removeItem('art_work_id');
+    // this.forceUpdate()
+
+    // this.getUserFavourites()  // update userFavourites in state 
+
+  }
+  
+  // const afterRemovingArtWork = this.state.art_works.filter( i => this.state.userFavouritesByRegistryId.includes( !i.registry_id ))
     // this.setState(state => {
     //   return {display: !state.display}
     // })
@@ -299,44 +320,86 @@ class ArtMap extends Component {
     //  window.location.reload() 
     // this.forceUpdate()
 
-    localStorage.removeItem('art_work_id');
-    // this.forceUpdate()
-  }
+  //   localStorage.removeItem('art_work_id');
+  //   // this.forceUpdate()
+  // }
 
+  // addToFavourites 
+  // if (reg id already in user favourites ) {  // no need? b/c site already only displays faves, red hearts
+  //   then do noting 
+  // } else {
+  //   send axios call and add
+  // }
+  
   addToFavourites = (e, registry_id) => {
-    // console.log('Liked state -->', this.state.liked)
-    console.log('ADD to Favourites -- registry.id --> ', registry_id)
-    //console.log(e)
-    console.log('this.state.art_works --> ', this.state.art_works)
-    console.log('this.state.userFavouritesByRegistryId -->', this.state.userFavouritesByRegistryId)
-    // get art_work_id used in MySQL given given registry_id
-    this.state.art_works.forEach(function (item, index) {
-      if (item.registry_id === registry_id) {
-        const position = index + 1 
-        localStorage.setItem('art_work_id_for_user_post', position)
-      }
-    })
-    const art_work_id_for_user_post = parseInt(localStorage.getItem('art_work_id_for_user_post'))
-    
-    console.log(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
 
+    // console.log('ADD to Favourites -- registry.id --> ', registry_id)
+    // console.log('Pre-Add - User Favourites --> ', this.state.userFavourites)
+    console.log('Art Works this.state.art_works --> ', this.state.art_works)
+    // console.log("EVENT e ", e)
+    // console.log('this.state.userFavouritesByRegistryId -->', this.state.userFavouritesByRegistryId)
+    // this.state.art_works.forEach(function (item, index) {               // get art_work_id (used in MySQL) given registry_id
+    //   if (item.registry_id === registry_id) {
+    //     const position = index + 1 
+    //     localStorage.setItem('art_work_id_for_user_post', position)
+    //     console.log("What is this position? - i.e. art_work_id_for_user_post", position)
+    //   }
+    // })
+    // const art_work_id_for_user_post = parseInt(localStorage.getItem('art_work_id_for_user_post'))
+
+    const filteredData = this.state.art_works.filter(item =>
+      item.registry_id === registry_id);
+    const art_work_id = filteredData[0].id
+    // console.log("art_work_id ", art_work_id)
+
+    console.log("Registry ID set in storage -->", registry_id)
+    // localStorage.setItem("openPopUp", registry_id) // no needed setOpenPopUP() does it 
+
+    // console.log(`Send to API -->${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
     axios
-      .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
+      // .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
+      .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id}`)
       .then((response) => {
-        // window.location.reload()
-        // console.log('this.state.userFavouritesByRegistryId - After Axios-->', this.state.userFavouritesByRegistryId)
+        // localStorage.setItem("openPopUp", registry_id)
+        this.getUserFavourites()
+        document.querySelector(`img[alt = "marker-${registry_id}"]`)?.click()
       })
       .catch((error) => {
       console.log('error:', error.response.data);
       })
     
+    console.log("Clicked Save - OpenPopUp in SetStorage --> ", parseInt(localStorage.getItem("openPopUp")))
+    
+    // this.getUserFavourites()   // only shows up next round!  // update userFavourites in state
+    // instead/or also - add this item reg id to userFaveState used to render - it'll over written with API call after 
+
+
+    // this.openPopUp()
+    // document.querySelector(`img[alt = "marker-${registry_id}"]`)?.click()
+
+    console.log('Post-Add - User Favourites --> ', this.state.userFavourites)
+
+
+    ////// 
+    
+    // localStorage.setItem("flip", 0)
+
+
+
+
     // localStorage.removeItem('art_work_id_for_user_post') // neede? 
-    this.getUserFavourites()  // update userFavourites in state 
+    // this.setState({
+    //     openPopUp: localStorage.setItem("openPopUp", registry_id) // force refresh 
+    //   })
+    
+    // localStorage.setItem("openPopUp", registry_id)  // set to local storage before or after page is reloaed? i.e. after getUserFaves
+    // this.openPopUp()
+    //window.location.reload();
 
     // localStorage.removeItem('art_work_id_for_user_post');
 
     // console.log('this.state.userFavouritesByRegistryId -->', this.state.userFavouritesByRegistryId)
-   //  window.location.reload() 
+   
     // Get Gray heart Click ... 
     // const grayHeart = document.getElementById('grayHeart');
     //   grayHeart.addEventListener('click', () => { 
@@ -346,40 +409,27 @@ class ArtMap extends Component {
 
   visitDetailsPage = (e, registry_id) => {
     this.props.history.push(`/details/${registry_id}`)
+    // localStorage.setItem("openPopUp", this.state.art_work.id)
+    localStorage.setItem("openPopUp", this.state.openPopUp)
   }
 
-  // L.CustomHandler = L.Handler.extend({
-  //   addHooks: function() {
-  //       L.DomEvent.on(document, 'eventname', this._doSomething, this);
-  // },
-
-  // <a href="https://www.vecteezy.com/free-vector/human">Human Vectors by Vecteezy</a>
-  // Choose your Avatar Character --> https://www.vecteezy.com/free-vector/8-bit-character?license-free=true
-
+  moveLonUp = (artWorkLon) => {
+    const upLon = artWorkLon + 0.000432
+    console.log(upLon)
+    return upLon
+  }
 
   render() {
 
-    console.log('Render -> Art_works --> ', this.state.art_works);
-    console.log('User Location --> ', this.state.userCurrentLocation); // [49.2098046, -123.139496]
-
-    // 49.25820741340161, -123.14630499651606
-    // console.log('Render -> User Favourties --> ', this.state.userFavourites);
-    // console.log(`Hi, I'm the map for user --> `, this.state.user_id)
-    // console.log(`User's current location --> `, this.state.userCurrentLocation);
-    // console.log('userFavourites --> ', this.state.userFavourites);
-    // console.log('userFavouritesByRegistryId --> ', this.state.userFavouritesByRegistryId);
-
-    // console.log('neighbourhood Boundaries: fields.name -->', neighbourhood_boundaries[0].fields.name)
-    // console.log('neighbourhood Boundaries: fields.name.coordinates -->', neighbourhood_boundaries[0].fields.geom.coordinates)
-    // console.log('neighbourhood Boundaries: geom -->', Dunbar)
-    // console.log('neighbourhood Boundaries: inState -->', this.state.neighbourhood_boundaries)
-
-    // const groupedByType = groupBy(restaurants, (restaurant) => restaurant.type);
-    // const userFavouritesObj = this.state.userFavourites
-
+    // console.log("OpenPopUp in SetStorage - Coming back from Details --> ", parseInt(localStorage.getItem("openPopUp")))
+    // console.log("... --> ", this.state.openPopUp)
+    // console.log("art --> ", this.state.art_works)
+    // console.log('RENDER() - User Favourites --> ', this.state.userFavourites)
+    
     return (
       <section>
 
+        {/* <Search></Search> */}
         <section className="navbar">
           <section className="navbar__container" >
             <select className="navbar__select" onChange={this.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
@@ -390,7 +440,7 @@ class ArtMap extends Component {
                 )}
               </select>
             <div className="navbar__btn">
-              <img className="navbar__icon" onClick={ e => console.log('Hello')} src={redHeart} alt="favourites"/>
+              <img className="navbar__icon" onClick={this.selectFavourties} src={redHeart} alt="favourites"/>
             </div>
           </section>
         </section>
@@ -420,59 +470,85 @@ class ArtMap extends Component {
               {this.state.art_works.map(artWork => (
                 <Marker
                   position={[
-                    artWork.lat,
-                    artWork.lon
+                    artWork.lon,
+                    artWork.lat
                   ]}
                   id={`marker-${artWork.registry_id}`}
                   className={`marker-${artWork.registry_id}`}
-                  // icon={`${artWork.type}`}
-                  // icon={artWork.type !== 'Memorial_or_monument' ? DefaultIcon : fountain} // works =) 
+                  // onClick={(e) => { console.log('marker clicked') } }
+                  // onClick={this.test()}
+                  // onClick={ e => console.log('Hello')}
 
-                  icon={ artWork.type === 'Fountain'             ? fountain    
-                       : artWork.type === 'Gateway'              ? gateway     
-                       : artWork.type === 'Memorial_or_monument' ? memorial     
-                       : artWork.type === 'Totem_pole'           ? totem      
-                       : artWork.type === 'Site_integrated_work' ? siteIntergrated
-                       : artWork.type === 'Mural'                ? mural
-                       : artWork.type === '2D'                   ? mural        
-                       : artWork.type === 'Mosaic'               ? mosaic
-                       : artWork.type === 'Relief'               ? mosaic
-                       : artWork.type === 'Media_work'           ? mosaic
-                       : artWork.type === 'Sculpture'            ? statue
-                       : artWork.type === 'Figurative'           ? statue
-                                                                 : defaultIconSkater}
-                                                                 
-                  // icon={cool = () => { if (artWork.type !== 'Memorial_or_monument') { DefaultIcon } else { fountain } }}
-                  // icon={fountain} // Memorial_or_monument
-                  // icon={if artWork is fountatin then place fountain if artWork.type === Sculpture then display sculpture.svg}
+                  icon={ artWork.type === 'Fountain'                ? fountain    
+                       : artWork.type === 'Gateway'                 ? gateway     
+                       : artWork.type === 'Memorial_or_monument'    ? memorial     
+                       : artWork.type === 'Memorial_or_Monument'    ? memorial     
+                       : artWork.type === 'Totem_pole'              ? totem      
+                       : artWork.type === 'Site_integrated_work'    ? siteIntergrated
+                       : artWork.type === 'Mural'                   ? mural
+                       : artWork.type === '2D'                      ? mural        
+                       : artWork.type === 'Two_dimensional_artwork' ? mural        
+                       : artWork.type === 'Mosaic'                  ? mosaic
+                       : artWork.type === 'Relief'                  ? mosaic
+                       : artWork.type === 'Media_work'              ? mosaic
+                       : artWork.type === 'Sculpture'               ? statue
+                       : artWork.type === 'Figurative'              ? statue
+                                                                    : defaultIconSkater}
+
                   alt={`marker-${artWork.registry_id}`}
+                  eventHandlers={{
+                    click: () => {
+                      // console.log('Marker clicked', `${artWork.registry_id}`);
+                      // localStorage.setItem("openPopUp", artWork.registry_id)
+                      this.setOpenPopUp(artWork.registry_id);
+                      
+                    }
+                  }}
                 >
-                  
                   <Popup id={`popup-${artWork.registry_id}`}>
+                  {/* <Popup id={`popup-${artWork.registry_id}`} onClick={ e => console.log('Hello')} onClick={(e) => { console.log('marker clicked') } }> */}
                     <div className="popup">
+                    <h2>lon {artWork.lon}</h2>
+                    <h2>lon {this.moveLonUp(artWork.lon)}</h2>
+                    <h2>lat {artWork.lat}</h2>
                       <img className="popup__img" src={artWork.photo_url_jpg} alt={artWork.title} />
                       <div className="popup__inside">
                         <div>
-                          <h1 className="popup__title" onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}>{artWork.title}</h1>
-                          <h2 className="popup__artist">by {artWork.artists_names}</h2>
-                          <h2>{artWork.type}</h2>
+                          <h1 className="popup__title"
+                            onClick={(e) => {this.addToFavourites(e, artWork.registry_id)}}>{artWork.title}</h1>
+                          
+                          {artWork.artists_names === "" ?
+                            (<h2 className="popup__artist">artist(s) currently unavailable</h2>)
+                          // : artWork.artists_names !== "" ? 
+                          : (<h2 className="popup__artist">by {artWork.artists_names}</h2>)}
+
+                          {/* <h2 className="popup__artist">
+                            <span className="bolder">-</span> {artWork.artists_names}
+                          </h2> */}
+
+                          <h2>Registry-ID {artWork.registry_id}</h2>
+                          <h2>ID {artWork.id}</h2>
+                          {/* { artWork.artists_names === "" ? (<h2 className="popup__artist">Not available</h2>)
+                          : artWork.artists_names === "" ?? (<h2 className="popup__artist">{artWork.artists_names}</h2>)} */}
+                          {artWork.type === "" ? (<div></div>)
+                          : artWork.type === "Memorial_or_Monument" ?     (<h2>Memorial or Monument</h2>)
+                          : artWork.type === "Two_dimensional_artwork" ?  (<h2>2D Artwork</h2>)
+                          : artWork.type === "Welcome_figure" ?           (<h2>Welcome figure</h2>)
+                          : artWork.type === "Totem_pole" ?               (<h2>Totem Pole</h2>)
+                          : artWork.type === "Site_integrated_work" ?     (<h2>Site integrated work</h2>)
+                          :                                               (<h2>{artWork.type}</h2>)}
                         </div>
                         <div className="popup__icon-container">
-                        
-                          {/* {console.log('FROM THE TURNARY ---> ', this.state.userFavouritesByRegistryId.includes(artWork.registry_id))} */}
-                          
                           {this.state.userFavouritesByRegistryId.includes(artWork.registry_id) === true ? (
-                            
-                            <img className="popup__icon" src={redHeart} alt="red heart icon, click to remove from favourites"
+                            // || this.state.flip === 1 ? (
+                            <img className="popup__icon" src={redHeart} alt="red heart, remove saved"
                               onClick={(e) => {this.removeFromFavourites(e, artWork.registry_id)}}></img>
                           ) : (
-                            // <img className="icon" src={lightGray1Heart2} alt="white heart icon, click to add to favourites"
-                            <img className="popup__icon" src={blackHeart} alt="white heart icon, click to add to favourites"
-                              onClick={(e) => { this.addToFavourites(e, artWork.registry_id) }}></img>
+                            <img className="popup__icon" src={blackHeart} alt="white heart, add to saved"
+                              onClick={(e) => {this.addToFavourites(e, artWork.registry_id)}}></img>
                           )}
-
-                            <img className="popup__icon" src={iconMaximize} alt="maximize icon, click to visit details page"
-                              onClick={(e) => { this.visitDetailsPage(e, artWork.registry_id) }}></img>
+                            <img className="popup__icon" src={iconMaximize} alt="maximize icon, visit details page"
+                              onClick={(e) => {this.visitDetailsPage(e, artWork.registry_id)}}></img>
                         </div>
                       </div>
                     </div>
