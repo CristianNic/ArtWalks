@@ -1,18 +1,5 @@
 import L from "leaflet";
 
-// -------- Art Works Icons without borders ------- //
-// import Fountain from "../../assets/art-works/fountain.svg";
-// import Gateway from "../../assets/art-works/gateway.svg";
-// import Memorial from "../../assets/art-works/memorial.svg";
-// import Mosaic from "../../assets/art-works/mosaic.svg";
-// import Mural1 from "../../assets/art-works/mural-1.svg";
-// import Mural2 from "../../assets/art-works/mural-2.svg";
-// import Mural3 from "../../assets/art-works/mural-3.svg";
-// import SiteIntergrated from "../../assets/art-works/site-intergrated.svg";
-// import Statue from "../../assets/art-works/statue.svg";
-// import Totem from "../../assets/art-works/totem.svg";
-// import TotemSolid from "../../assets/art-works/totem-solid.svg";
-
 //----------- Art Works Icons with borders ---------//
 import Fountain from "../../assets/art-works-rounded-corners/fountain.svg";
 import Gateway from "../../assets/art-works-rounded-corners/gateway.svg";
@@ -26,10 +13,8 @@ import DefaultIconSkater from "../../assets/icons/skateboarding.svg";
 
 //------------- for Experimenting -----------------//
 import redGithubicon from "../../assets/icons/github-red-2px.svg";
-// import blackGithubicon from "../../assets/icons/github-black-2px.svg";
 import WalkingAvatar from "../../assets/icons/walk-walking.svg";
 import ManWalkingRight from "../../assets/icons/man-walking-right.svg";
-
 import ManHearing from "../../assets/icons/man-hearing.svg";
 
 // --------- Leaflet - Marker Icons --------------//
@@ -37,6 +22,9 @@ export const fountain = L.icon({
 	iconUrl: Fountain,
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
+	// move up popup - unlike leaflet, react leaflet does not like a negative number here
+  // it takes several clicks to make it work
+	// popupAnchor: [0, -20],
 });
 export const gateway = L.icon({
 	iconUrl: Gateway,
@@ -80,11 +68,6 @@ export const defaultIconSkater = L.icon({
 });
 
 //--------- Leaflet - Marker Icons - for Experimenting ------------//
-// export const blackGithub = L.icon({
-// 	iconUrl: blackGithubicon,
-// 	iconSize: [25, 41],
-// 	iconAnchor: [12, 41],
-// });
 export const redGithub = L.icon({
 	iconUrl: redGithubicon,
 	iconSize: [25, 41],
