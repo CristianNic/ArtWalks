@@ -8,17 +8,13 @@ class Login extends Component {
   state = {
     email: 'john.piry@gmail.com',
     password: 'johnpiry',
-    user_id: '', 
   }
 
   handleLogin = (event) => {
     event.preventDefault();
     axios.post(`${API_URL}/login`, this.state)
       .then(response => {
-        this.setState({
-          user_id: response.data.user_id,
-        })
-        localStorage.setItem('user_id', this.state.user_id);
+        localStorage.setItem('userID', response.data.user_id);
         this.props.history.push('/gallery');        
       }).catch(err => {
           console.log(err);
