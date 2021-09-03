@@ -1,14 +1,14 @@
 import { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './pages/Login';
-import SignUp from './pages/SignUp';
+// import SignUp from './pages/SignUp';
 import Gallery from './pages/Gallery'
 import ArtMap from './pages/ArtMap';
 import Saved from './pages/Saved';
 import Details from './pages/Details';
 import Profile from './pages/Profile';
 import PageNotFound from './components/PageNotFound/PageNotFound';
-import ScrollToTop from './components/Utils/ScrollToTop';
+import ScrollToTop from './utils/ScrollToTop';
 
 class App extends Component {
 
@@ -20,7 +20,7 @@ class App extends Component {
           <Switch>
             <Redirect exact from='/' to='/login' />
             <Route exact path='/login' component={Login}/>
-            <Route exact path='/signup' component={SignUp} />  
+            {/* <Route exact path='/signup' component={SignUp} />   */}
             <Route exact path='/gallery' component={Gallery} />
             <Route path='/map' component={ArtMap} />       
             <Route exact path='/saved' component={Saved} />

@@ -5,9 +5,6 @@ require('./user');
 
 const Favourite = bookshelf.model('Favourite', {
   tableName: "favourites",
-  // users() {
-  //   return this.belongsTo('Users')
-  // },
   art_works() {
     return this.belongsTo('Art_Work')
   },

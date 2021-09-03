@@ -34,6 +34,8 @@ MapArt3codepens.scss
 MapArt4_skateVideo.jsx
 MapArt4_skateVideo.scss
 
-src/components/Utils/MapboxToken.js
-src/components/Utils/various-icons.js
+src/utils/MapboxToken.js
+src/utils/various-icons.js
+src/pages/SignUp.jsx
+src/pages/SignUp.scss
 

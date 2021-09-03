@@ -22,14 +22,31 @@
 		padding-left: 1rem;
 		padding-right: 1.5rem;
 		&-links {
-			padding-top: 0.5rem;
+			display: flex;
+			flex-direction: row;
+			align-items: baseline;
+			justify-content: space-between;
+			padding-top: 1rem;
+      padding-left: 0.7rem;
+			&_icon {
+				height: 2.4rem;
+				width: 2.4rem;
+				margin-left: 1rem;
+				margin-right: 1rem;
+			}
 		}
 	}
 	&__title {
 		font-weight: 600;
+		font-size: 2rem;
+		line-height: 2.5rem;
+		width: 29.1rem;
+		margin-top: 0.5rem;
 	}
 	&__artists-names {
 		font-style: italic;
+		margin-top: 0.2rem;
+		margin-bottom: 0.2rem;
 	}
 	&__line {
 		border-top: 0.1rem solid darkgray;
@@ -42,6 +59,9 @@
 }
 .bold {
 	font-weight: 600;
+}
+.bolder {
+	font-weight: 900;
 }
 .underline {
 	text-decoration: underline;

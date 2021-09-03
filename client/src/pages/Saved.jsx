@@ -1,41 +1,36 @@
-// import React from 'react';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 import axios from 'axios';
-import './Saved.scss'
+import { API_URL } from '../utils/Utils'; 
 import BottomNav from '../components/BottomNav/BottomNav';
 import Search from '../components/Search/Search';
-// import ArtWorks from '../components/ArtWorks/ArtWorks'; 
-// import SavedItems from '../components/SavedItems/SavedItems';
-import { API_URL } from '../components/Utils/Utils'; 
-
 import heartRed from '../assets/icons/heart_red.svg';
+import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg'
 
 class Saved extends Component {
 
   state = {
-    user_id: parseInt(localStorage.getItem('user_id')),
+    userID: parseInt(localStorage.getItem('userID')),
+    userFavouritesToFilter: [],
     userFavourites: [],
-    mapLink: 0,
+    userNeighbourhoods: [],
+    userFavouritesByArtWorkID: []
   }
 
   componentDidMount() {
     this.getUserFavourites()
-    // this.removeDuplicatsOK()
   }
-
+  
   componentDidUpdate() {
-    // this.removeDuplicatsOK()
   }
 
   getUserFavourites() {
     axios
-      .get(`${API_URL}/favourites/${this.state.user_id}`)
+      .get(`${API_URL}/favourites/${this.state.userID}`)
       .then((response) => {
-
         // remove duplicates
         const arr = response.data 
         const SymbolArray = [];
@@ -44,123 +39,125 @@ class Saved extends Component {
           let keyStr = `${art_work_id}_${art_works}`;
           SymbolArray.push(Symbol.for(keyStr));
         });
-
         const result = [];
           SymbolArray.forEach((item, index) => {
             if (SymbolArray.indexOf(item) === index) {
               result.push(arr[index]);
             }
           });
-        // console.log('filtered array w/o duplicates', result)
+        // list unique neighbourhoods within users favourites
+        const userNeighbourhoods = result.map((faves) => faves.art_works.neighbourhood)
+        const uniqueUserNeighbourhoods = [...new Set(userNeighbourhoods)]
+        const filtered = uniqueUserNeighbourhoods.filter(function (value, index, arr) {
+          return value !== "";
+        })
         this.setState({
           userFavourites: result,
+          userFavouritesToFilter: result,
+          userFavouritesByArtWorkID: result.map(art_work_id => art_work_id.art_work_id),
+          userNeighbourhoods: filtered
+        })
+        
+      })
+      .catch((error) => {
+      console.log('error:', error.response.data);
+    })
+  }
+
+  addToFavourites = (e, art_work_id) => {
+    axios
+      .post(`${API_URL}/favourites/${this.state.userID}/${art_work_id}`)
+      .then((response) => {
+        this.setState({
+          userFavouritesByArtWorkID: this.state.userFavouritesByArtWorkID.concat(art_work_id)
+        })
+      })
+      .catch((error) => {
+      console.log('error:', error.response.data);
+      })
+  }
+  
+  removeFromFavourites = (e, art_work_id) => {
+    console.log("Remove from Favourites ID -->", art_work_id)
+    axios
+      .delete(`${API_URL}/favourites/${this.state.userID}/remove/${art_work_id}`)
+      .then((response) => {
+        this.setState({
+          userFavouritesByArtWorkID: this.state.userFavouritesByArtWorkID.filter(item => item !== art_work_id),
         })
       })
       .catch((error) => {
       console.log('error:', error.response.data);
     })
+    // reload window removes saved item immediately from view w/o a chance to re-add to faves
+    // window.location.reload()
   }
-  
-  
-  removeFromFavourites = (e, data) => {
-    axios
-      .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${data}`)
-      .then((response) => {
-      })
-      .catch((error) => {
-      console.log('error:', error.response.data);
-    })
+
+  placeArtWorkOnMap = (registry_id) => {
+    localStorage.setItem('openPopUp', registry_id)
+  }
+
+  selectNeighbourhood = (location) => {  
+    const filteredData = this.state.userFavouritesToFilter.filter(area =>
+      area.art_works.neighbourhood === location.target.value);
+    if ('Vancouver' === location.target.value || '' === location.target.value) {
+      this.setState({ userFavourites: this.state.userFavouritesToFilter })
+    } else {
+      this.setState({ userFavourites: filteredData })
+    };
+  }
+
+  sortBySaved = () => {
+    this.setState({ userFavourites: this.state.userFavouritesToFilter })
     window.location.reload()
-  }
-
-  addToFavourites = (e, data) => {
-
-    this.state.userFavourites.forEach(function (item, index) {
-      if (item.registry_id === data) {
-        const position = index + 1 
-        localStorage.setItem('art_work_id_for_user_post', position)
-      }
-    })
-
-    const art_work_id_for_user_post = parseInt(localStorage.getItem('art_work_id_for_user_post'))
-
-    axios
-      .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
-      //.delete(`${API_URL}/favourites/${this.state.user_id}/remove/${data}`)
-      .then((response) => {
-      })
-      .catch((error) => {
-      console.log('error:', error.response.data);
-    })
-    window.location.reload()
-  }
-
-
-  placeArtWorkOnMap = (e, data) => {
-    console.log('Clicked placeArtWorkOnMap -->', data) // artWork registry_id
-    this.setState(state => {
-      return {
-        mapLink: state.data,
-      }
-    });
-    // console.log(this.state.art_work.registry_id)
-    localStorage.setItem('currently viewing', data)
   }
 
   render() {
 
-    console.log(`Hi, I'm the favourites for user --> `, this.state.user_id)
-    console.log(`User's favourties --> `, this.state.userFavourites)
- 
     return (
-      <div>
-        <Search />
+      <section>
+        <Search
+          neighbourhoods={this.state.userNeighbourhoods}
+          selectNeighbourhood={this.selectNeighbourhood}
+          sortBySaved={this.sortBySaved} />
         <section className="faves">
-
-          {this.state.userFavourites.map((faves, i) => (
-            <div className="faves__card" key={i}>
+          {/* {this.state.userFavourites.map((faves, i) => (
+            <div className="faves__card" key={i}> */}
+          {this.state.userFavourites.map(faves => (
+            <div className="faves__card" key={faves.art_work_id}>
               <div className="faves__card-container">
-
                 <div className="faves__card-top">
                   <LazyLoad className="faves__media-lazyload" offsetVertical={700} overflow={true} >
                     <img className="faves__media-img" src={faves.art_works.photo_url_jpg} alt={faves.art_works.title}></img>
                   </LazyLoad>
-
-                  {/* // ----------- Working - once read heart removed page refreshes --------- //  */}
-                  <img className="faves__media-icon" src={heartRed} alt="red heart icon"
-                    // onClick={(e) => {this.removeFromFavourites(e, faves.art_works.registry_id)}}></img>  
-                    onClick={(e) => {this.removeFromFavourites(e, faves.art_work_id)}}></img>  
-                    {/* onClick={(e) => {this.removeFromFavourites(e, i)}}></img>   */}
-                  
-                  {/* // ----------- Display gray heart to add back --------- //  */}
-                  {/* {this.state.userFavourites.map((fave) => fave.art_works).includes(faves.registry_id) === true ? (
-                    
-                    <img className="favourites__media-icon" src={heartRed} alt="red heart icon, click to remove from favourites"
-                      onClick={(e) => {this.removeFromFavourites(e, faves.registry_id)}}></img>
+                  {/* {this.state.artWorkInFavourites === true ? ( */}
+                  {this.state.userFavouritesByArtWorkID.includes(faves.art_work_id) === true ? (
+                    <img className="faves__media-icon" src={heartRed} alt="red heart icon"
+                      onClick={(e) => {this.removeFromFavourites(e, faves.art_work_id)}}>
+                    </img>
                   ) : (
-                    // <img className="icon" src={lightGray1Heart2} alt="white heart icon, click to add to favourites"
-                    <img className="favourites__media-icon" src={lightGray1Heart2Filled} alt="white heart icon, click to add to favourites"
-                      onClick={(e) => { this.addToFavourites(e, faves.registry_id) }}></img>
-                  )} */}
+                    <img className="faves__media-icon" src={lightGray1Heart2Filled} alt="red heart icon"
+                      onClick={(e) => {this.addToFavourites(e, faves.art_work_id)}}>
+                    </img>
+                  )}
                 </div>
-
                 <div className="faves__card-bottom">
                   <div className="faves__info">
                     <h1 className="faves__title">{faves.art_works.title}</h1>
-                    <h2 className="faves__artist">by {faves.art_works.artists_names}</h2>
+                    {faves.art_works.artists_names === "" ?
+                      (<h2 className="faves__artist">Artist(s) currently unavailable</h2>)
+                      : (<h2 className="faves__artist">by {faves.art_works.artists_names}</h2>)}
                   </div>
                   <div className="faves__links">
                     <Link to={`/map/${faves.art_works.registry_id}`}>
                       <button className="faves__links-button"
-                        onClick={(e) => { this.placeArtWorkOnMap(e, faves.art_works.registry_id) }} >
-                          <img className="faves__links-map-icon" src={iconMap} alt="map icon"></img>
+                        onClick={(e) => { this.placeArtWorkOnMap(faves.art_works.registry_id) }}>
+                        <img className="faves__links" src={iconMap} alt="map icon"></img>
                       </button>
                     </Link>
                     <Link to={`/details/${faves.art_works.registry_id}`}>
                       <button className="faves__links-button">
-                          {/* onClick={(e) => { this.placeArtWorkOnMap(e, faves.art_works.registry_id) }} > */}
-                            {/* <img className="favourites__links-details-icon" src={iconDetails} alt="map icon"></img> */}
-                            <img className="faves__links-details-icon" src={iconMaximize} alt="map icon"></img>
+                        <img className="faves__links-details-icon" src={iconMaximize} alt="map icon"></img>
                       </button>
                     </Link>
                   </div>
@@ -170,7 +167,7 @@ class Saved extends Component {
           ))}
         </section>
         <BottomNav />
-      </div>
+      </section>
     );
   }
 }

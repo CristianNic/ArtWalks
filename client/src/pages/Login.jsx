@@ -1,34 +1,24 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { API_URL } from '../components/Utils/Utils';
+import { API_URL } from '../utils/Utils';
 
 class Login extends Component {
   
   state = {
     email: 'john.piry@gmail.com',
     password: 'johnpiry',
-    user_id: '', 
   }
 
   handleLogin = (event) => {
     event.preventDefault();
     axios.post(`${API_URL}/login`, this.state)
       .then(response => {
-        console.log('user_id', response.data);
-        this.setState({
-          user_id: response.data.user_id,
-        })
-        localStorage.setItem('user_id', this.state.user_id);
+        localStorage.setItem('userID', response.data.user_id);
         this.props.history.push('/gallery');        
       }).catch(err => {
           console.log(err);
       })
-  }
-
-  handleLoginGmail = (e) => {
-  }
-  handleLoginGitHub = (e) => {
   }
 
   handleInputChange = (event) => {
@@ -62,7 +52,7 @@ class Login extends Component {
               </form>
               <div className="new-user">
                 <h2 className="new-user__title">I'm a new user.</h2>
-                <Link to="/signup">
+                <Link to="/login">
                   <h2 className="new-user__sign-up">Sign Up</h2>
                 </Link>
               </div>
