@@ -1,33 +1,27 @@
 .nf {
-  background-color: lightpink;
-  background-image: url("../../assets/background/pink-sky.jpg");
-  background-size: cover;
-  height: 100vh;
-  &__container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  &__404 {
-    color: #8140a6;
-    font-family: 'Rock Salt', cursive;
-    font-size: 3rem;
-    margin-bottom: 2.2rem;
-  }
-  &__text {
-    color: #8140a6;
-    font-family: 'Rock Salt', cursive; 
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-  &__link {
-    font-family: 'Rock Salt', cursive;
-    font-size: 2rem;
-    cursor: pointer;
-    color: rgb(67, 67, 175);
-    text-decoration: underline;
-    margin-bottom: 3rem;
-  }
+	background-color: lightpink;
+	background-image: url("../../assets/background/pink-sky.jpg");
+	background-size: cover;
+	height: 100vh;
+	&__container {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	&__text {
+		color: #8140a6;
+		font-family: "Rock Salt", cursive;
+		font-size: 2rem;
+		margin-bottom: 3rem;
+	}
+	&__link {
+		font-family: "Rock Salt", cursive;
+		font-size: 2rem;
+		cursor: pointer;
+		color: rgb(67, 67, 175);
+		text-decoration: underline;
+		margin-bottom: 3rem;
+	}
 }
