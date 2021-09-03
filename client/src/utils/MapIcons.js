@@ -1,21 +1,21 @@
 import L from "leaflet";
 
 //----------- Art Works Icons with borders ---------//
-import Fountain from "../../assets/art-works-rounded-corners/fountain.svg";
-import Gateway from "../../assets/art-works-rounded-corners/gateway.svg";
-import Memorial from "../../assets/art-works-rounded-corners/memorial.svg";
-import Mosaic from "../../assets/art-works-rounded-corners/mosaic.svg";
-import Mural from "../../assets/art-works-rounded-corners/mural.svg";
-import SiteIntergrated from "../../assets/art-works-rounded-corners/site-intergrated.svg";
-import Statue from "../../assets/art-works-rounded-corners/statue.svg";
-import Totem from "../../assets/art-works-rounded-corners/totem.svg";
-import DefaultIconSkater from "../../assets/icons/skateboarding.svg";
+import Fountain from "../assets/art-works-rounded-corners/fountain.svg";
+import Gateway from "../assets/art-works-rounded-corners/gateway.svg";
+import Memorial from "../assets/art-works-rounded-corners/memorial.svg";
+import Mosaic from "../assets/art-works-rounded-corners/mosaic.svg";
+import Mural from "../assets/art-works-rounded-corners/mural.svg";
+import SiteIntergrated from "../assets/art-works-rounded-corners/site-intergrated.svg";
+import Statue from "../assets/art-works-rounded-corners/statue.svg";
+import Totem from "../assets/art-works-rounded-corners/totem.svg";
+import DefaultIconSkater from "../assets/icons/skateboarding.svg";
 
 //------------- for Experimenting -----------------//
-import redGithubicon from "../../assets/icons/github-red-2px.svg";
-import WalkingAvatar from "../../assets/icons/walk-walking.svg";
-import ManWalkingRight from "../../assets/icons/man-walking-right.svg";
-import ManHearing from "../../assets/icons/man-hearing.svg";
+import redGithubicon from "../assets/icons/github-red-2px.svg";
+import WalkingAvatar from "../assets/icons/walk-walking.svg";
+import ManWalkingRight from "../assets/icons/man-walking-right.svg";
+import ManHearing from "../assets/icons/man-hearing.svg";
 
 // --------- Leaflet - Marker Icons --------------//
 export const fountain = L.icon({

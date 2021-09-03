@@ -4,14 +4,13 @@ export const login = `${API_URL}/login`;
 
 export const loginUser = (username) => {
 	return `${API_URL}/login${username}`;
-};
+}
 export const getTitle = (title) => {
 	return `${API_URL}/map${title}`;
-};
+}
 export const getNeighbourhood = (neighbourhood) => {
 	return `${API_URL}/map${neighbourhood}`;
-};
-
+}
 export const neighbourhoods = [
 	"Downtown",
 	"Mount Pleasant",
@@ -32,4 +31,4 @@ export const neighbourhoods = [
 	"South Cambie",
 	"Arbutus Ridge",
 	"West Point Grey",
-];
+]
