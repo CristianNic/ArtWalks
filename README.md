@@ -5,7 +5,12 @@
 **_Login page_**
 
 <img src="../assets/login.png" height="532">
+<img src="../assets/map.png" height="532">
+<img src="../assets/map-popup.png" height="532">
+<img src="../assets/gallery.png" height="532">
+<img src="../assets/gallery-expander.png" height="532">
+<img src="../assets/saved.png" height="532">
+<img src="../assets/details.png" height="532">
 
 Data from the City of Vancouver Open Data Portal.
-
 Built with React, Express, MySQL, Leaflet, and Mapbox.
