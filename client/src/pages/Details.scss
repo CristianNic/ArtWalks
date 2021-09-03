@@ -27,7 +27,7 @@
 			align-items: baseline;
 			justify-content: space-between;
 			padding-top: 1rem;
-      padding-left: 0.7rem;
+			padding-left: 0.7rem;
 			&_icon {
 				height: 2.4rem;
 				width: 2.4rem;
@@ -62,6 +62,9 @@
 }
 .bolder {
 	font-weight: 900;
+}
+.black {
+	color: black;
 }
 .underline {
 	text-decoration: underline;
