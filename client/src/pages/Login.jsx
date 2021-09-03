@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { API_URL } from '../components/Utils/Utils';
+import { API_URL } from '../utils/Utils';
 
 class Login extends Component {
   
@@ -52,7 +52,7 @@ class Login extends Component {
               </form>
               <div className="new-user">
                 <h2 className="new-user__title">I'm a new user.</h2>
-                <Link to="/signup">
+                <Link to="/login">
                   <h2 className="new-user__sign-up">Sign Up</h2>
                 </Link>
               </div>
