@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import BottomNav from '../components/BottomNav/BottomNav';
-import { API_URL } from '../components/Utils/Utils';
+import { API_URL } from '../utils/Utils';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 import heartRed from '../assets/icons/heart_red.svg';
 import heartBlack from '../assets/icons/heart-black-2px.svg';
@@ -11,7 +11,7 @@ class Details extends Component {
 
   state = {
     artWork: [],
-    artWorkInFavourites: true,
+    artWorkInFavourites: [],
     userID: parseInt(localStorage.getItem('userID')),
     userFavourites: [],
     artistStatement: [],
@@ -21,12 +21,7 @@ class Details extends Component {
   
   componentDidMount() {
     this.getArtWorkDetails()
-    this.setArtWorIdInLocalStorage()
     this.getUserFavourites()
-    // this.setOpenPopUp()
-  }
-      
-  componentDidUpdate(prevProps) {
     this.setOpenPopUp()
   }
       
@@ -46,22 +41,18 @@ class Details extends Component {
     })
   }
 
-  setArtWorIdInLocalStorage() {
-    // console.log(this.state.artWork.registry_id)
-    localStorage.setItem('currently viewing', this.state.artWork.registry_id)
-    // localStorage.setItem("openPopUp", art_work_id);
-  }
-  
   setOpenPopUp() {
     // for going back to the map - Details sends back Art_work_registry ID ... while PopUp Wants art_work_Id
     // localStorage.setItem("openPopUp", this.state.artWork.id)
     // console.log("openPopUp - registry_id", this.state.artWork.registry_id)
-    console.log("openPopUp - registry_id --> ", this.state.artWork.registry_id)
-    localStorage.setItem("openPopUp", this.state.artWork.registry_id)
+    console.log("openPopUp - registry_id --> ", parseInt(localStorage.getItem("openPopUp")))
+    // localStorage.setItem("openPopUp", this.state.artWork.registry_id)
+
+    // get here what to send back to the map - MAP LINK 
   }
 
   getUserFavourites() {
-    // art_work_id is set by the MySQL database, while registry_id is from the City of Vancouver dataset (req. for matching artist info)
+    // art_work_id is set by the MySQL database, while registry_id is from the City of Vancouver dataset (required for matching artist info)
     // userFavourites sets all details on favourite art_works and userFavouritesByRegistryId extracts the matching registry_id's
     axios
       .get(`${API_URL}/favourites/${this.state.userID}`)
@@ -81,8 +72,6 @@ class Details extends Component {
             result.push(arr[index]);
           }
         });
-        // console.log("ARRRR", result) // <------ Do I need the above? 
-
         // if the current details page art work in the user's favourites, 
         // then set a red heart on load  // could use registry_id or ${this.props.match.params.id}
         const currentArtWork = this.state.artWork.registry_id
@@ -92,7 +81,6 @@ class Details extends Component {
           userFavourites: result, // response.data
           artWorkInFavourites: isInFaves
         })
-        console.log("API Response - Faves", result)
       })
       .catch((error) => {
       console.log('error:', error.response.data);
@@ -114,10 +102,6 @@ class Details extends Component {
 
   addToFavourites = () => {
     console.log("Add to Favourites ID -->", this.state.artWork)
-    // const filteredData = this.state.art_works.filter(item =>
-    //   item.registry_id === registry_id);
-    // const art_work_id = filteredData[0].id
-    // console.log("art_work_id ", art_work_id)
     axios
       .post(`${API_URL}/favourites/${this.state.userID}/${this.state.artWork.id}`)
       .then((response) => {
@@ -135,10 +119,6 @@ class Details extends Component {
   }
     
   render() {
-
-    console.log("Add to Favourites ID ART WORDKM  -->", this.state.artWork)
-    console.log("Add to Favourites ID BFJDABFHWFHDW-->", this.state.artWork.id)
-    console.log("User ID-->", this.state.userID)
 
     const { registry_id, title, artists_names, work_description, photo_url, photo_credits,
       type, primary_material, artist_statement, neighbourhood, installation_year,
