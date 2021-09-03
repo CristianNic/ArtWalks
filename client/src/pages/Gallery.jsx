@@ -2,7 +2,7 @@ import { Component } from "react";
 import { Link } from 'react-router-dom'
 import LazyLoad from 'react-lazy-load';
 import axios from 'axios';
-import { neighbourhoods, API_URL } from '../components/Utils/Utils';
+import { neighbourhoods, API_URL } from '../utils/Utils';
 import BottomNav from '../components/BottomNav/BottomNav';
 import Search from '../components/Search/Search';
 import redHeart from '../assets/icons/heart_red.svg';
@@ -20,40 +20,22 @@ class Gallery extends Component {
     userFavouritesByRegistryID: [],
     display: false,
     expand: 0,
-    liked: false,
-    mapLink: 0, // art[0].registry_id
-    id: 1,
+    // liked: false,
+    // mapLink: 0, // art[0].registry_id
+    // id: 1,
     neighbourhoods: [],
     artistStatement: [],
-    sortBySavedClicked: true
+    // sortBySavedClicked: true
   }
-
-  // handleButtonClick = () => {
-  //   this.setState(state => {
-  //     return {
-  //       display: !state.display,
-  //       expand: 7, // this.props.id,
-  //     };
-  //   });
-  //   console.log('can I add more features?', this.state.display)
-  // };
-
-  // handleChange = (event) => {
-  // this.setState({
-  //   [event.target.name]: event.target.value,
-  // });
   
   componentDidMount() {
     this.getUserId();
     this.getArtWorks();
-    // this.getArtWorksData();
     this.getUserFavourites();
     this.reduceArrayIntoPairs(this.state.artWorks);
    }
 
   componentDidUpdate() {
-    // console.log("User", this.state.userID, "Faves by Reg.ID --> ", this.state.userFavouritesByRegistryID);
-    // console.log("UserFavourites --> ", this.state.userFavourites);
   }
 
   getUserId = () => {
@@ -65,10 +47,7 @@ class Gallery extends Component {
     axios
       .get(`${API_URL}/art_works`)
       .then((response) => {
-
-        // const artistStatement = this.replaceUnknownChar(response.data.art_works.map(item => item.artist_statement))
         const artistStatement = response.data.art_works.map(item => item.artist_statement)
-
         this.setState({
           artWorks: response.data.art_works,
           artWorksToFilter: response.data.art_works,
@@ -79,32 +58,7 @@ class Gallery extends Component {
       .catch((error) => {console.log('error:', error.response.data)})
   }
 
-  // getUserFavourites() {   // Gallery.jsx
-  //   axios
-  //     .get(`${API_URL}/favourites/${this.state.userID}`)
-  //     .then((response) => {
-  //       this.setState({
-  //         userFavourites: response.data,
-  //         userFavouritesByRegistryID: response.data.map((fave) => fave.artWorks.registry_id)
-  //       })
-  //       // console.log('USER FAVOURITES -->', this.state.userFavourites)
-  //       // const faves = this.state.userFavourites;
-  //       // console.log('USER Favourites -- in RENDER ---> ', faves)
-
-  //       // const userArtWorkIdMaped = faves.map((fave => fave.art_work_id)) // User's Favourites have this ID
-  //       // console.log('userArtWorkIdMaped ---> ', userArtWorkIdMaped)
-
-  //       // console.log('Does this include 158?-->', userArtWorkIdMaped.includes(158))
-
-  //       // const userRegistryId = faves.map((fave) => fave.artWorks.registry_id);
-  //       // console.log("userRegistryId ---> ", userRegistryId);
-  //     })
-  //     .catch((error) => {
-  //     console.log('error:', error.response.data);
-  //   })
-  // }
-
-  getUserFavourites() {   // Saved.jsx
+  getUserFavourites() {  
     axios
       .get(`${API_URL}/favourites/${this.state.userID}`)
       .then((response) => {
@@ -122,25 +76,11 @@ class Gallery extends Component {
               result.push(arr[index]);
             }
           });
-        // list unique neighbourhoods within user's favourites
-        // const userNeighbourhoods = result.map((faves) => faves.artWorks.neighbourhood)
-        // const uniqueUserNeighbourhoods = [...new Set(userNeighbourhoods)]
-        // const filtered = uniqueUserNeighbourhoods.filter(function (value, index, arr) {
-        //   return value != "";
-        // })
-        console.log("Result", result)
 
         const userFavouritesByRegistryID = result.map(item => item.art_works.registry_id)
 
-        console.log("INSIDE GET --> userFavouritesByRegistryID --> ", userFavouritesByRegistryID)
-
-        const userFavouritesByArtWorkID = result.map(item => item.art_work_id)
-
-        console.log("INSIDE GET --> userFavouritesByArtWorkID --> ", userFavouritesByArtWorkID)
-
         this.setState({
           userFavourites: result,
-          // userNeighbourhoods: filtered
           userFavouritesByRegistryID: userFavouritesByRegistryID,
           userFavouritesByArtWorkID: userFavouritesByRegistryID
         })
@@ -151,7 +91,6 @@ class Gallery extends Component {
   }
 
   addToFavourites = (e, data) => {
-    console.log("Clicked addToFavourites")
     this.setState(state => {
         return {display: !state.display}
     })
@@ -162,41 +101,26 @@ class Gallery extends Component {
       }
     })
     const art_work_id_for_user_post = parseInt(localStorage.getItem('art_work_id_for_user_post'))
-    //console.log(`${API_URL}/favourites/${this.state.userID}/${art_work_id_for_user_post}`)
 
     axios
       .post(`${API_URL}/favourites/${this.state.userID}/${art_work_id_for_user_post}`)
       .then((response) => {
-        // this.forceUpdate()
-        // this.setState(state => {
-        //   return {display: !state.display}
-        // })
       })
       .catch((error) => {
-      console.log('error:', error.response.data);
+        console.log('error:', error.response.data);
       })
     window.location.reload() 
-    // this.forceUpdate()
   
     this.setState(state => {
       return {display: !state.display}
     })
-    //  window.location.reload() 
-    // this.forceUpdate()
-    // localStorage.removeItem('art_work_id_for_user_post');
-    // this.forceUpdate()
     localStorage.removeItem('art_work_id_for_user_post');
   }
 
   removeFromFavourites = (e, registry_id) => {
-    console.log("removeFromFaves Clicked --> ", registry_id)
-    console.log("removeFromFaves Clicked --> this.state.userFavourites", this.state.userFavourites)
-
     const userFavourites = this.state.userFavourites.map(item => item.art_works)
     const ArtWorkID = userFavourites.find(item => item.registry_id === registry_id).id
 
-    console.log("artWorkID", ArtWorkID)
-    
     axios
       .delete(`${API_URL}/favourites/${this.state.userID}/remove/${ArtWorkID}`)
       .then((response) => {
@@ -214,14 +138,15 @@ class Gallery extends Component {
   }
 
   reduceArrayIntoPairs = () => {
+    // art works are paired so that the drop down/expander details can open and close 
+    // right below two art works like a tray
     const rows = this.state.artWorks.reduce(function (rows, key, index) {
       return (
         (index % 2 === 0 ? rows.push([key]) : rows[rows.length - 1].push(key)) &&
         rows
       );
     }, []);
-    //console.log(rows);
-    return rows; // <--- map rows
+    return rows;
   }
   
   expandArtWorkDetails = (e, data) => {
@@ -229,29 +154,13 @@ class Gallery extends Component {
     this.setState(state => {
       return {
         display: !state.display,
-        //expand: 7, // this.props.id,
         expand: data,
       };
     });
-    // console.log('Display --> ', this.state.display)
-    // console.log('Expand --> ', this.state.expand)
-    // console.log('Expand --> ', data)
   }
   
   placeArtWorkOnMap = (registry_id) => {
-
     localStorage.setItem("openPopUp", registry_id)
-    // localStorage.setItem("openPopUp", data); 
-    
-    console.log("registry_ID", registry_id)
-    // this.context.router.push(`/map/${registry_id}`)
-    // console.log('Clicked placeArtWorkOnMap -->', data) // artWork registry_id
-    // this.setState(state => {
-    //   return {
-    //     mapLink: state.data,
-    //   }
-    // });
-    // localStorage.setItem('currently viewing', data)
   }
 
   // setOpenPopUp() {
@@ -259,6 +168,7 @@ class Gallery extends Component {
   // }
 
   //---- Search Bar ----//
+  
   selectNeighbourhood = (location) => {
     if ('Vancouver' === location.target.value || '' === location.target.value ) {
       this.setState({ artWorks: this.state.artWorksToFilter })  
@@ -285,11 +195,8 @@ class Gallery extends Component {
   replaceUnknownChar = (text) => {
     return text.replace(/\uFFFD/g, '')
   }
-  render() {
 
-    // console.log("this.state.userFavourites ---> ", this.state.userFavourites); // must include art[1].registry_id
-    // console.log("art works--> ", this.state.artWorks)
-    // console.log("artistStatement--> ", this.state.artistStatement)
+  render() {
 
     return (
       <div>
