@@ -1,3 +1,5 @@
+// https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -13,8 +15,3 @@ export const API_URL = `http://localhost:${PORT}`
 
 
 
-
-
-
-
-// https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786
