@@ -2,11 +2,10 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 import axios from 'axios';
-import { API_URL } from '../components/Utils/Utils'; 
+import { API_URL } from '../utils/Utils'; 
 import BottomNav from '../components/BottomNav/BottomNav';
 import Search from '../components/Search/Search';
 import heartRed from '../assets/icons/heart_red.svg';
-// import heartBlack from '../assets/icons/heart-black-2px.svg';
 import lightGray1Heart2Filled from '../assets/icons/heart-light-gray-1-2px-filled.svg';
 import iconMap from '../assets/icons-feather-1.5px/map.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg'
@@ -18,7 +17,6 @@ class Saved extends Component {
     userFavouritesToFilter: [],
     userFavourites: [],
     userNeighbourhoods: [],
-    // artWorkInFavourites: true,
     userFavouritesByArtWorkID: []
   }
 
@@ -86,7 +84,6 @@ class Saved extends Component {
       .then((response) => {
         this.setState({
           userFavouritesByArtWorkID: this.state.userFavouritesByArtWorkID.filter(item => item !== art_work_id),
-          // artWorkInFavourites: true
         })
       })
       .catch((error) => {
@@ -116,12 +113,6 @@ class Saved extends Component {
   }
 
   render() {
- 
-    console.log("userFaveoutires", this.state.userFavourites)
-
-    console.log("userFaveoutiresToFilter", this.state.userFavouritesToFilter)
-
-    console.log("userFavouritesByArtWorkID", this.state.userFavouritesByArtWorkID)
 
     return (
       <section>
