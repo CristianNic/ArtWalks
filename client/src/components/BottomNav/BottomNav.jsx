@@ -31,31 +31,31 @@ class BottomNav extends Component {
           <div className="bottom-nav__btn">
             <Link to="/gallery">
               <img className="bottom-nav__icon" src={iconSearch} alt="search icon" />
-              <h4>Explore</h4>
+              <h4 className="bottom-nav__option">Explore</h4>
             </Link>
           </div>
           <div className="bottom-nav__btn">
             <Link to="/map">
               <img className="bottom-nav__icon" src={iconMap} alt="map icon" />
-              <h4>Map</h4>
+              <h4 className="bottom-nav__option">Map</h4>
             </Link>
           </div>
           <div className="bottom-nav__btn">
             <Link to="/saved">
               <img className="bottom-nav__icon" src={iconSaved} alt="favourites icon" />
-              <h4>Saved</h4>
+              <h4 className="bottom-nav__option">Saved</h4>
             </Link>
           </div>
           <div className="bottom-nav__btn">
             <Link to={`/details/${this.state.openPopUp}`}>
               <img className="bottom-nav__icon" src={iconDetails} alt="details icon" />
-              <h4>Details</h4>
+              <h4 className="bottom-nav__option">Details</h4>
             </Link>
           </div>
           <div className="bottom-nav__btn">
             <Link to="/profile">
               <img className="bottom-nav__icon" src={iconProfile} alt="profile icon" />
-              <h4>Profile</h4>
+              <h4 className="bottom-nav__option">Profile</h4>
             </Link>
           </div>
         </div>
