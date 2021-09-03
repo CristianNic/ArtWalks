@@ -374,13 +374,6 @@ class ArtMap extends Component {
     console.log('Post-Add - User Favourites --> ', this.state.userFavourites)
 
 
-    ////// 
-    
-    // localStorage.setItem("flip", 0)
-
-
-
-
     // localStorage.removeItem('art_work_id_for_user_post') // neede? 
     // this.setState({
     //     openPopUp: localStorage.setItem("openPopUp", registry_id) // force refresh 
@@ -408,17 +401,9 @@ class ArtMap extends Component {
   }
 
   render() {
-
-    // console.log("OpenPopUp in SetStorage - Coming back from Details --> ", parseInt(localStorage.getItem("openPopUp")))
-    // console.log("... --> ", this.state.openPopUp)
-    // console.log("art --> ", this.state.art_works)
-    // console.log('RENDER() - User Favourites --> ', this.state.userFavourites)
-    // console.log(this.state.art_works)
     
     return (
       <section>
-
-        {/* <Search></Search> */}
         <section className="navbar">
           <section className="navbar__container" >
             <select className="navbar__select" onChange={this.selectNeighbourhood} name="neighbourhood" id="neighbourhood-select">
@@ -433,7 +418,6 @@ class ArtMap extends Component {
             </div>
           </section>
         </section>
-
         <MapContainer center={[49.2780, -123.1153]} zoom={12}>
             {/* <TileLayer    
               // Use OpenStreetMap tiles if Mapbox account was not created. See utils/MapboxToken-Sample.js
@@ -455,7 +439,6 @@ class ArtMap extends Component {
               <h2>{this.state.userCurrentLocation}</h2>
             </Popup>
           </Marker>
-            {/* // ------ Display Markers by Neighbourhood ------ //  */}
               {this.state.art_works.map(artWork => (
                 <Marker
                   position={[
@@ -464,10 +447,6 @@ class ArtMap extends Component {
                   ]}
                   id={`marker-${artWork.registry_id}`}
                   className={`marker-${artWork.registry_id}`}
-                  // onClick={(e) => { console.log('marker clicked') } }
-                  // onClick={this.test()}
-                  // onClick={ e => console.log('Hello')}
-
                   icon={ artWork.type === 'Fountain'                ? fountain    
                        : artWork.type === 'Gateway'                 ? gateway     
                        : artWork.type === 'Memorial_or_monument'    ? memorial     
@@ -483,18 +462,10 @@ class ArtMap extends Component {
                        : artWork.type === 'Sculpture'               ? statue
                        : artWork.type === 'Figurative'              ? statue
                                                                     : defaultIconSkater}
-
                   alt={`marker-${artWork.registry_id}`}
-                  eventHandlers={{
-                    click: () => {
-                      // console.log('Marker clicked', `${artWork.registry_id}`);
-                      // localStorage.setItem("openPopUp", artWork.registry_id)
-                      this.setOpenPopUp(artWork.registry_id);
-                    }
-                  }}
+                  eventHandlers={{click: () => {this.setOpenPopUp(artWork.registry_id)}}}
                 >
                   <Popup id={`popup-${artWork.registry_id}`}>
-                  {/* <Popup id={`popup-${artWork.registry_id}`} onClick={ e => console.log('Hello')} onClick={(e) => { console.log('marker clicked') } }> */}
                     <div className="popup">
                       <img className="popup__img" src={artWork.photo_url_jpg} alt={artWork.title} />
                       <div className="popup__inside">
@@ -504,12 +475,6 @@ class ArtMap extends Component {
                           {artWork.artists_names === "" ?
                             (<h2 className="popup__artist">artist(s) currently unavailable</h2>)
                           : (<h2 className="popup__artist">by {artWork.artists_names}</h2>)}
-
-
-                          <h2>Registry-ID {artWork.registry_id}</h2>
-                          <h2>ID {artWork.id}</h2>
-                          {/* { artWork.artists_names === "" ? (<h2 className="popup__artist">Not available</h2>)
-                          : artWork.artists_names === "" ?? (<h2 className="popup__artist">{artWork.artists_names}</h2>)} */}
                           {artWork.type === "" ? (<div></div>)
                           : artWork.type === "Memorial_or_Monument" ?     (<h2>Memorial or Monument</h2>)
                           : artWork.type === "Two_dimensional_artwork" ?  (<h2>2D Artwork</h2>)
@@ -520,7 +485,6 @@ class ArtMap extends Component {
                         </div>
                         <div className="popup__icon-container">
                           {this.state.userFavouritesByRegistryId.includes(artWork.registry_id) === true ? (
-                            // || this.state.flip === 1 ? (
                             <img className="popup__icon" src={redHeart} alt="red heart, remove saved"
                               onClick={(e) => {this.removeFromFavourites(e, artWork.registry_id)}}></img>
                           ) : (

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Component } from 'react';
 
 // import iconSearch from '../../assets/icons-feather/search.svg'
 // import iconMap from '../../assets/icons-feather/map.svg'
@@ -19,8 +20,22 @@ import iconProfile from '../../assets/icons-feather-1.5px/align-justify.svg'
 // import iconDetails from '../../assets/icons-feather-1px/archive.svg'
 // import iconProfile from '../../assets/icons-feather-1px/align-justify.svg'
 
-export default function BottomNav() {
-  return (
+class BottomNav extends Component {
+
+  state = {
+    // user_id: parseInt(localStorage.getItem('user_id')),
+    // ok: parseInt(localStorage.getItem('currently viewing'))
+  }
+
+// export default function BottomNav() {
+  // return (
+
+  render() {
+    
+    // console.log(this.state.user_id)
+    // console.log(this.state.currently_viewing)
+
+    return (
     <nav className="bottom-nav">
       <div className="bottom-nav__container">
         <div className="bottom-nav__btn">
@@ -45,6 +60,7 @@ export default function BottomNav() {
         </div>
         <div className="bottom-nav__btn">
           <Link to="/details/316">
+          {/* <Link to={`/details/${this.state.ok}`}> */}
             <img className="bottom-nav__icon" src={iconDetails} alt="details icon" />
             <h4>Details</h4>
           </Link>
@@ -59,7 +75,9 @@ export default function BottomNav() {
     </nav>
   )
 }
-
+}
+ 
+export default BottomNav;
 // <nav className="l-footer">
 // 	{/* <h3 className="l-footer__text">© Vancouver Art Walk. All Rights Reserved.</h3> */}
 // 	<h3 className="l-footer__text">Happy Walking</h3>
