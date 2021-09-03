@@ -28,22 +28,18 @@ import redHeart from '../assets/icons/heart_red.svg';
 import blackHeart from '../assets/icons/heart-black-2px.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg';
 //----------------- Data -------------------//
-// // import * as parkData from "../data/skateboard-parks.json";
-// import { API_URL } from '../components/Utils/Utils';
 import { neighbourhoods, API_URL } from '../components/Utils/Utils';
-//import publicArtData from '../data_temp/public-art-smaller.json';
-import neighbourhood_boundaries from '../data_temp/local-area-boundary.json'; // <--- used where? 
+
 
 class ArtMap extends Component {
 
   state = {
     art_works: [],
     art_works_to_filter: [],
-    user_id: parseInt(localStorage.getItem('user_id')),
+    userID: parseInt(localStorage.getItem('userID')),
     userCurrentLocation: [parseFloat(localStorage.getItem('userLat')), parseFloat(localStorage.getItem('userLon'))],
     userFavourites: [],
     userFavouritesByRegistryId: [],
-    neighbourhood_boundaries: neighbourhood_boundaries,
     openPopUp: parseInt(localStorage.getItem("openPopUp")),
     // openPopUp: []
   }
@@ -63,7 +59,6 @@ class ArtMap extends Component {
     //   this.fetchData(this.props.userFavourites);
     // }
     this.openPopUp()
-    // this.setOpenPopUp()
   }
 
   componentWillUnmount() {
@@ -80,7 +75,6 @@ class ArtMap extends Component {
 
   openPopUp() {
     // const id = parseInt(localStorage.getItem('currently viewing'))  // Coming from Details Page 
-    
     // Removed???
     // const id = this.state.openPopUp
     const id = parseInt(localStorage.getItem("openPopUp"))                                   // On Same page ...
@@ -92,7 +86,7 @@ class ArtMap extends Component {
     // Clicking on Marker makes the page remember which one it is so that when favourites is clicked, 
     // it refreshes shwoing the read heart and witch this one popup open. 
     console.log("Clicked PopUp - artWork.registry_id", data)
-    localStorage.setItem("openPopUp", data);  // ?? 
+    localStorage.setItem("openPopUp", data);  // ??
     // localStorage.setItem("openPopUp", this.state.art_work.registry_id)
     // console.log("openPopUp - registry_id", this.state.art_work.registry_id)
   }
@@ -144,7 +138,7 @@ class ArtMap extends Component {
     // art_work_id is set by the MySQL database, while registry_id is from the City of Vancouver dataset (req. for matching artist info)
     // userFavourites sets all details on favourite art_works and userFavouritesByRegistryId extracts the matching registry_id's
     axios
-      .get(`${API_URL}/favourites/${this.state.user_id}`)
+      .get(`${API_URL}/favourites/${this.state.userID}`)
       .then((response) => {
         // remove duplicates
         const arr = response.data 
@@ -257,8 +251,8 @@ class ArtMap extends Component {
     // };
 
     axios
-      // .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${registry_id}`)
-      .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${art_work_id}`)
+      // .delete(`${API_URL}/favourites/${this.state.userID}/remove/${registry_id}`)
+      .delete(`${API_URL}/favourites/${this.state.userID}/remove/${art_work_id}`)
       .then((response) => {
         this.getUserFavourites()
         document.querySelector(`img[alt = "marker-${registry_id}"]`)?.click()
@@ -299,7 +293,7 @@ class ArtMap extends Component {
   
     // // Send remove 
     // axios
-    //   .delete(`${API_URL}/favourites/${this.state.user_id}/remove/${artWorkId}`)
+    //   .delete(`${API_URL}/favourites/${this.state.userID}/remove/${artWorkId}`)
     //   .then((response) => {
     //     this.setState(state => {
     //       return {display: !state.display}
@@ -355,10 +349,10 @@ class ArtMap extends Component {
     console.log("Registry ID set in storage -->", registry_id)
     // localStorage.setItem("openPopUp", registry_id) // no needed setOpenPopUP() does it 
 
-    // console.log(`Send to API -->${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
+    // console.log(`Send to API -->${API_URL}/favourites/${this.state.userID}/${art_work_id_for_user_post}`)
     axios
-      // .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id_for_user_post}`)
-      .post(`${API_URL}/favourites/${this.state.user_id}/${art_work_id}`)
+      // .post(`${API_URL}/favourites/${this.state.userID}/${art_work_id_for_user_post}`)
+      .post(`${API_URL}/favourites/${this.state.userID}/${art_work_id}`)
       .then((response) => {
         // localStorage.setItem("openPopUp", registry_id)
         this.getUserFavourites()
@@ -413,18 +407,13 @@ class ArtMap extends Component {
     localStorage.setItem("openPopUp", this.state.openPopUp)
   }
 
-  moveLonUp = (artWorkLon) => {
-    const upLon = artWorkLon + 0.000432
-    console.log(upLon)
-    return upLon
-  }
-
   render() {
 
     // console.log("OpenPopUp in SetStorage - Coming back from Details --> ", parseInt(localStorage.getItem("openPopUp")))
     // console.log("... --> ", this.state.openPopUp)
     // console.log("art --> ", this.state.art_works)
     // console.log('RENDER() - User Favourites --> ', this.state.userFavourites)
+    // console.log(this.state.art_works)
     
     return (
       <section>
@@ -501,30 +490,21 @@ class ArtMap extends Component {
                       // console.log('Marker clicked', `${artWork.registry_id}`);
                       // localStorage.setItem("openPopUp", artWork.registry_id)
                       this.setOpenPopUp(artWork.registry_id);
-                      
                     }
                   }}
                 >
                   <Popup id={`popup-${artWork.registry_id}`}>
                   {/* <Popup id={`popup-${artWork.registry_id}`} onClick={ e => console.log('Hello')} onClick={(e) => { console.log('marker clicked') } }> */}
                     <div className="popup">
-                    <h2>lon {artWork.lon}</h2>
-                    <h2>lon {this.moveLonUp(artWork.lon)}</h2>
-                    <h2>lat {artWork.lat}</h2>
                       <img className="popup__img" src={artWork.photo_url_jpg} alt={artWork.title} />
                       <div className="popup__inside">
                         <div>
                           <h1 className="popup__title"
                             onClick={(e) => {this.addToFavourites(e, artWork.registry_id)}}>{artWork.title}</h1>
-                          
                           {artWork.artists_names === "" ?
                             (<h2 className="popup__artist">artist(s) currently unavailable</h2>)
-                          // : artWork.artists_names !== "" ? 
                           : (<h2 className="popup__artist">by {artWork.artists_names}</h2>)}
 
-                          {/* <h2 className="popup__artist">
-                            <span className="bolder">-</span> {artWork.artists_names}
-                          </h2> */}
 
                           <h2>Registry-ID {artWork.registry_id}</h2>
                           <h2>ID {artWork.id}</h2>
@@ -544,7 +524,7 @@ class ArtMap extends Component {
                             <img className="popup__icon" src={redHeart} alt="red heart, remove saved"
                               onClick={(e) => {this.removeFromFavourites(e, artWork.registry_id)}}></img>
                           ) : (
-                            <img className="popup__icon" src={blackHeart} alt="white heart, add to saved"
+                            <img className="popup__icon" src={blackHeart} alt="black heart, add to saved"
                               onClick={(e) => {this.addToFavourites(e, artWork.registry_id)}}></img>
                           )}
                             <img className="popup__icon" src={iconMaximize} alt="maximize icon, visit details page"
