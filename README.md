@@ -1,8 +1,10 @@
 # Art Walks
 
-#### A mobile friendly React app that encourages user to walk around the city, find, explore, and save all Vancouver Public Art Works using an interactive map. Photo gallery and art work descriptions are provided.
+####$ A mobile friendly React app that encourages user to walk around the city, find, explore, and save all Vancouver Public Art Works using an interactive map. Photo gallery and art work descriptions are provided.
 
-**_Login page_**
+Data from the City of Vancouver Open Data Portal.
+
+Built with React, Express, MySQL, Leaflet, and Mapbox.
 
 <p float="left">
 <img src="../assets/login.png" height="532">
@@ -23,4 +25,5 @@
 </p>
 
 Data from the City of Vancouver Open Data Portal.
+
 Built with React, Express, MySQL, Leaflet, and Mapbox.
