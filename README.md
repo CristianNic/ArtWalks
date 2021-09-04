@@ -23,7 +23,3 @@ Built with React, Express, MySQL, Leaflet, and Mapbox.
 <p float="left">
 <img src="../assets/details.png" height="532">
 </p>
-
-Data from the City of Vancouver Open Data Portal.
-
-Built with React, Express, MySQL, Leaflet, and Mapbox.
