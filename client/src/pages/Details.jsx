@@ -22,6 +22,9 @@ class Details extends Component {
   componentDidMount() {
     this.getArtWorkDetails()
     this.getUserFavourites()
+  }
+  
+  componentDidUpdate() {
     this.setOpenPopUp()
   }
       
@@ -42,13 +45,7 @@ class Details extends Component {
   }
 
   setOpenPopUp() {
-    // for going back to the map - Details sends back Art_work_registry ID ... while PopUp Wants art_work_Id
-    // localStorage.setItem("openPopUp", this.state.artWork.id)
-    // console.log("openPopUp - registry_id", this.state.artWork.registry_id)
-    console.log("openPopUp - registry_id --> ", parseInt(localStorage.getItem("openPopUp")))
-    // localStorage.setItem("openPopUp", this.state.artWork.registry_id)
-
-    // get here what to send back to the map - MAP LINK 
+    localStorage.setItem("openPopUp", this.state.artWork.registry_id)
   }
 
   getUserFavourites() {
@@ -57,7 +54,6 @@ class Details extends Component {
     axios
       .get(`${API_URL}/favourites/${this.state.userID}`)
       .then((response) => {
-        console.log("Response Favourites", response.data)
         // remove duplicates
         const arr = response.data
         const SymbolArray = [];
