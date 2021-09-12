@@ -7,9 +7,9 @@ Server built using Node, Express, MySQL. Client developed with React, Express, L
 Data provided from the City of Vancouver Open Data Portal.
 
 <p align="center" style="{display: block;}">
-<img src="login.png" width="260"/><img src="map.png" width="260"/><img src="map-popup.png" width="260"/>
-<img src="gallery.png" width="260"/><img src="gallery-expander.png" width="260"/><img src="saved.png" width="260"/>
-<img src="details.png" width="260"><img src="profile.png" width="260"><img src="blank.png" width="260">
+<img src="../assets/login.png" width="260"/><img src="../assets/map.png" width="260"/><img src="../assets/map-popup.png" width="260"/>
+<img src="../assets/gallery.png" width="260"/><img src="../assets/gallery-expander.png" width="260"/><img src="../assets/saved.png" width="260"/>
+<img src="../assets/details.png" width="260"><img src="../assets/profile.png" width="260"><img src="../assets/blank.png" width="260">
 </p>
 
 ## Usage
