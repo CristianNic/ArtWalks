@@ -1,3 +1,9 @@
+// Marker SVG icons created thanks to Chad Harms, UX Design Grad 2020 with Creative Commons 0 license (public domain).
+// Lego Man Vector Graphic - https://freesvg.org/lego-man-vector-graphics
+// FreeSVG.org offers free vector images in SVG format with Creative Commons 0 license (public domain).
+// You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+// It is absolutely not required, but if you like this website, any mention of or link back is highly appreciated.
+
 import L from "leaflet";
 
 //----------- Art Works Icons with borders ---------//
@@ -10,20 +16,14 @@ import SiteIntergrated from "../assets/art-works-rounded-corners/site-intergrate
 import Statue from "../assets/art-works-rounded-corners/statue.svg";
 import Totem from "../assets/art-works-rounded-corners/totem.svg";
 import DefaultIconSkater from "../assets/icons/skateboarding.svg";
-
-//------------- for Experimenting -----------------//
-import redGithubicon from "../assets/icons/github-red-2px.svg";
-import WalkingAvatar from "../assets/icons/walk-walking.svg";
-import ManWalkingRight from "../assets/icons/man-walking-right.svg";
-import ManHearing from "../assets/icons/man-hearing.svg";
+import LegoMan from "../assets/icons/lego-man.svg";
 
 // --------- Leaflet - Marker Icons --------------//
 export const fountain = L.icon({
 	iconUrl: Fountain,
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
-	// move up popup - unlike leaflet, react leaflet does not like a negative number here
-  // it takes several clicks to make it work
+	// ToDO: find a better way of moving up popup - unlike leaflet, react leaflet does not like a negative number here
 	// popupAnchor: [0, -20],
 });
 export const gateway = L.icon({
@@ -66,25 +66,8 @@ export const defaultIconSkater = L.icon({
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 });
-
-//--------- Leaflet - Marker Icons - for Experimenting ------------//
-export const redGithub = L.icon({
-	iconUrl: redGithubicon,
-	iconSize: [25, 41],
-	iconAnchor: [12, 41],
-});
-export const walkingAvatar = L.icon({
-	iconUrl: WalkingAvatar,
-	iconSize: [25, 41],
-	iconAnchor: [12, 41],
-});
-export const manWalkingRight = L.icon({
-	iconUrl: ManWalkingRight,
-	iconSize: [25, 41],
-	iconAnchor: [12, 41],
-});
-export const manHearing = L.icon({
-	iconUrl: ManHearing,
+export const legoMan = L.icon({
+	iconUrl: LegoMan,
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 });

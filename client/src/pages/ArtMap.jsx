@@ -9,7 +9,7 @@ import blackHeart from '../assets/icons/heart-black-2px.svg';
 import iconMaximize from '../assets/icons/maximize-2-1.5px.svg';
 import {
   fountain, gateway, memorial, mosaic, mural, siteIntergrated, statue,
-  totem, defaultIconSkater, manWalkingRight
+  totem, defaultIconSkater, legoMan
 } from '../utils/MapIcons';
 import { neighbourhoods, API_URL } from '../utils/Utils';
 import { URL_CUSTOM_OUTDOORS_DARKER } from '../utils/MapboxToken';
@@ -188,7 +188,8 @@ class ArtMap extends Component {
               this.state.userCurrentLocation[0],
               this.state.userCurrentLocation[1]
             ]}
-            icon={manWalkingRight}>
+            // icon={manWalkingRight}>
+            icon={legoMan}>
             <Popup>
               <h2>Current User Location</h2>
               <h2>{this.state.userCurrentLocation}</h2>
