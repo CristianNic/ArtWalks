@@ -1,6 +1,6 @@
 # Art Walks
 
-A mobile friendly React app that encourages user to walk around the city, find, explore, and save all Vancouver Public Art Works using an interactive map. Photo gallery and art work descriptions are provided.
+A mobile friendly React app that encourages user to walk around the city, find, save, and explore all Vancouver Public Art Works using an interactive map. Photo gallery and art work descriptions are provided.
 
 Server built using Node, Express, MySQL. Client developed with React, Express, Leaflet, and Mapbox.
 
@@ -26,7 +26,7 @@ Data provided from the City of Vancouver Open Data Portal.
 
   After having decided on a tile layer rename `MapboxToken-Sample.js` to `MapboxToken.js` and it will be kept local by `.gitignore`
 
-- City of Vancouver Public Art Work data is included under `server/data/public-art.csv` It was downloaded from the City of Vancouver Open Data Portal [Public Art](https://opendata.vancouver.ca/explore/dataset/public-art/export/)
+- City of Vancouver Public Art Work data is included under `server/data/public-art.csv` It was downloaded from the City of Vancouver Open Data Portal [Public Art](https://opendata.vancouver.ca/explore/dataset/public-art/export/).
 
 - The resulting seed file has already been included. This is how it was generated:
 
